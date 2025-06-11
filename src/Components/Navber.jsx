@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Banner = () => {
+const Navber = () => {
     return (
         <div>
-            Banner section
+            Navber
         </div>
     );
 };
 
-export default Banner;
+export default Navber;
