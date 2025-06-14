@@ -5,9 +5,9 @@ import { NavLink } from "react-router-dom";
 const Navber = () => {
 
     const navLinks = <>
-    <li><NavLink to="/" className={({ isActive }) => isActive ? 'border-b-2 font-bold rounded-lg p-2' : 'font-bold p-2'}>Home</NavLink></li>
-    <li><NavLink to="/" className={({ isActive }) => isActive ? 'border-b-2 font-bold rounded-lg p-2' : 'font-bold p-2'}>Shop</NavLink></li>
-    
+        <li><NavLink to="/" className={({ isActive }) => isActive ? 'border-b-2 font-bold rounded-lg p-2' : 'font-bold p-2'}>Home</NavLink></li>
+        <li><NavLink to="/" className={({ isActive }) => isActive ? 'border-b-2 font-bold rounded-lg p-2' : 'font-bold p-2'}>Shop</NavLink></li>
+
     </>
 
     return (
@@ -21,7 +21,7 @@ const Navber = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         <li>{navLinks}</li>
-                        
+
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-3xl"> <img className='w-[200px]' src="/NatureGlowLogo.png" alt="" /> </a>
@@ -34,8 +34,8 @@ const Navber = () => {
             <div className="navbar-end flex gap-4 relative">
                 <button className="bg-auto text-2xl"><VscAccount /></button>
                 <button className="bg-auto w-[50px] h-[50px] text-2xl"><FaCartPlus />
-                <div className="absolute  right-0 top-0">12</div>
-                </button> 
+                    <div className="absolute  right-0 top-0">12</div>
+                </button>
             </div>
         </div>
     );
