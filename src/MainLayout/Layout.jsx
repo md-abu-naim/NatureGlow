@@ -8,7 +8,7 @@ const Layout = () => {
         <div className='bg-white text-black font-serif'>
             <Navber />
 
-            <div className='min-h-[calc(100vh-250px)]'>
+            <div className='min-h-[calc(100vh-335px)]'>
                 <Outlet />
             </div>
 
