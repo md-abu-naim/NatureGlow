@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Face Care",
+    "slug": "face-care",
+    "image": "https://i.postimg.cc/65X8XRRf/Face-Care.png",
+    "description": "Cleansers, moisturizers, and serums for a natural glow."
+  },
+  {
+    "id": 2,
+    "name": "Body Care",
+    "slug": "body-care",
+    "image": "https://i.postimg.cc/QMyBGykF/Body-Care.png",
+    "description": "Organic body lotions, scrubs, and nourishing essentials."
+  },
+  {
+    "id": 3,
+    "name": "Hair Care",
+    "slug": "hair-care",
+    "image": "https://i.postimg.cc/zDdQmw49/Hair-Care.png",
+    "description": "Natural hair oils, masks, and chemical-free shampoos."
+  },
+  {
+    "id": 4,
+    "name": "Lip Care",
+    "slug": "lip-care",
+    "image": "https://i.postimg.cc/B6PjqBMM/Lip-Care.png",
+    "description": "Hydrating balms and gentle scrubs for soft lips."
+  }
+]
