@@ -81,7 +81,7 @@ const Footer = () => {
                     <div className="divider h-px my-6 bg-white border-none dark:bg-gray-700"></div>
 
                     <div>
-                        <p className="text-center">© 2025 NatureGlow. Designed & Developed by <a href="https://abu-naim.netlify.app" target="_blank" class="text-green-600 underline">Mohammad Abu Naim</a></p>
+                        <p className="text-center">© 2025 NatureGlow. Designed & Developed by <a href="https://abu-naim.netlify.app" target="_blank" className="text-green-600 underline">Mohammad Abu Naim</a></p>
                     </div>
                 </div>
             </footer>

@@ -1,5 +1,14 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const FeaturedCategories = () => {
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        axios.get('/Categories.json')
+        .then(res => setCategories(res.data))
+    },[setCategories])
+
     return (
         <div className="text-center my-16">
             <div className="w-[450px] mx-auto border-b-4 p-2">
@@ -7,26 +16,13 @@ const FeaturedCategories = () => {
                 <h3 className="font-medium">Pick what your skin needs.</h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pt-10">
-                <div className="">
-                    <img className="border-2 rounded-full" src="/Hair Care.png" alt="" />
-                    <h2 className="text-2xl pt-2 font-semibold">Hair Care</h2>
-                    <p className="font-medium">💡 Full body nourishing products</p>
-                </div>
-                <div className="">
-                    <img className="border border-red-400 rounded-full" src="/Hair Care.png" alt="" />
-                    <h2 className="text-2xl pt-1.5 font-semibold">Hair Care</h2>
-                    <p className="font-medium">💡 Full body nourishing products</p>
-                </div>
-                <div className="">
-                    <img className="border rounded-full" src="/Hair Care.png" alt="" />
-                    <h2 className="text-2xl pt-1.5 font-semibold">Hair Care</h2>
-                    <p className="font-medium">💡 Full body nourishing products</p>
-                </div>
-                <div className="">
-                    <img className="border rounded-full" src="/Hair Care.png" alt="" />
-                    <h2 className="text-2xl pt-1.5 font-semibold">Hair Care</h2>
-                    <p className="font-medium">💡 Full body nourishing products</p>
-                </div>
+                {
+                    categories?.map(category => <div key={category.id} className="">
+                    <img className="border-2 rounded-full" src={category.image} alt="" />
+                    <h2 className="text-2xl pt-2 font-semibold">{category.name}</h2>
+                    <p className="font-medium">{category.description}</p>
+                </div>)
+                }
             </div>
         </div>
     );
