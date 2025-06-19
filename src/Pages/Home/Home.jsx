@@ -3,7 +3,7 @@ import FeaturedCategories from "./FeaturedCategories";
 
 const Home = () => {
     return (
-        <div>
+        <div className="md:mx-10">
             <Banner />
             <FeaturedCategories />
         </div>
