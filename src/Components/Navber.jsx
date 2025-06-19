@@ -5,10 +5,10 @@ import { NavLink } from "react-router-dom";
 const Navber = () => {
 
     const navLinks = <>
-        <NavLink to="/" className={({ isActive }) => isActive ? 'border-b-2 font-bold p-2' : 'font-bold p-2'}>HOME</NavLink>
-        <NavLink to="/shop" className={({ isActive }) => isActive ? 'border-b-2 font-bold p-2' : 'font-bold p-2'}>SHOP</NavLink>
-        <NavLink to="/about" className={({ isActive }) => isActive ? 'border-b-2 font-bold p-2' : 'font-bold p-2'}>ABOUT US</NavLink>
-        <NavLink to="/contact" className={({ isActive }) => isActive ? 'border-b-2 font-bold p-2' : 'font-bold p-2'}>CONTACT US</NavLink>
+        <NavLink to="/" className={({ isActive }) => isActive ? 'border-b-3 border-green-500 font-bold p-2' : 'font-bold p-2'}>HOME</NavLink>
+        <NavLink to="/shop" className={({ isActive }) => isActive ? 'border-b-3 border-green-500 font-bold p-2' : 'font-bold p-2'}>SHOP</NavLink>
+        <NavLink to="/about" className={({ isActive }) => isActive ? 'border-b-3 border-green-500 font-bold p-2' : 'font-bold p-2'}>ABOUT US</NavLink>
+        <NavLink to="/contact" className={({ isActive }) => isActive ? 'border-b-3 border-green-500 font-bold p-2' : 'font-bold p-2'}>CONTACT US</NavLink>
 
     </>
 

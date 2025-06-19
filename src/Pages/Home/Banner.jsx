@@ -7,7 +7,7 @@ const Banner = () => {
                 <h6 className='font-medium md:font-semibold'>Hey, Welcome to</h6>
                 <h1 className='font-black text-4xl lg:text-6xl md:py-2 lg:py-3'>NatureGlow</h1>
                 <p className='pb-5'>Discover our handcrafted organic skincare products made with botanical ingredients. Free from toxins, full of love — because your skin deserves the best nature has to offer.</p>
-                <Link to={'/shop'} className='border-b-2 hover:bg-yellow-50 p-2' >SHOP NOW</Link>
+                <Link to={'/shop'} className='border-b-2 border-green-500 hover:text-green-500 p-2' >SHOP NOW</Link>
             </div>
             <div className='md:w-1/2 flex items-center justify-center'>
                 <img className='lg:h-[500px]' src="/banner.png" alt="" />

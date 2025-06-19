@@ -11,15 +11,15 @@ const FeaturedCategories = () => {
 
     return (
         <div className="text-center my-16">
-            <div className="w-[450px] mx-auto border-b-4 p-2">
+            <div className="w-[450px] mx-auto border-b-4 border-green-500 p-2">
                 <h1 className="text-3xl font-semibold pb-1.5">Featured Categories</h1>
-                <h3 className="font-medium">Pick what your skin needs.</h3>
+                <h3 className="font-medium text-green-500">Pick what your skin needs.</h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pt-10">
                 {
-                    categories?.map(category => <div key={category.id} className="">
-                    <img className="border-2 rounded-full" src={category.image} alt="" />
-                    <h2 className="text-2xl pt-2 font-semibold">{category.name}</h2>
+                    categories?.map(category => <div key={category.id} className="group p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 ease-in-out">
+                    <img className="w-40 h-40 mx-auto border-2 border-green-200 rounded-full object-cover group-hover:border-green-500 transition-all duration-300" src={category.image} alt="" />
+                    <h2 className="text-xl font-semibold mt-4 group-hover:text-green-600 transition-colors duration-300">{category.name}</h2>
                     <p className="font-medium">{category.description}</p>
                 </div>)
                 }
@@ -29,3 +29,21 @@ const FeaturedCategories = () => {
 };
 
 export default FeaturedCategories;
+
+
+{/* <div
+  key={category.id}
+  className="group p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-lg hover:h-[300px] transition-all duration-300 ease-in-out text-center"
+>
+  <img
+    className="w-24 h-24 mx-auto border-2 border-green-200 rounded-full object-cover group-hover:border-green-500 transition-all duration-300"
+    src={category.image}
+    alt={category.name}
+  />
+  <h2 className="text-xl font-semibold text-gray-800 mt-4 group-hover:text-green-600 transition-colors duration-300">
+    {category.name}
+  </h2>
+  <p className="text-sm text-gray-500 mt-1 group-hover:text-gray-700 transition-colors duration-300">
+    {category.subHeading}
+  </p>
+</div> */}
