@@ -10,13 +10,13 @@ const [testimonials, setTestimonials] = useState([])
         .then(res => setTestimonials(res.data))
     },[])
     return (
-        <div className=" px-5">
-            <div className="text-center mb-14">
+        <div className="px-5">
+            <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold text-green-800">What Customers Are Saying</h2>
                 <p className="text-green-600 text-sm mt-2">Real stories from happy skin</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {
                     testimonials?.map(t => <div key={t.id} className="flex flex-col justify-between bg-green-50 border border-green-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition duration-300">
                         <p className="text-gray-700 italic mb-4"> “{t.message}”</p>
