@@ -17,7 +17,7 @@ const Shop = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-4 gap-6 mt-5'>
                 {/* Filters Sidebar */}
-                <aside className={`md:col-span-1 bg-green-50 p-4 rounded-xl shadow ${showFilters ? 'block' : 'hidden'} md:block`}>
+                <aside className={`md:col-span-1 bg-green-50 p-4 rounded-lg shadow ${showFilters ? 'block' : 'hidden'} md:block`}>
                     {/* Category Filters */}
                     <div className='mb-6'>
                         <h3 className='font-semibold text-green-800 mb-2'>Category</h3>
@@ -57,7 +57,7 @@ const Shop = () => {
                 </aside>
 
                 <div className='md:col-span-3'>
-                    <div className='flex flex-col md:flex-row justify-between items-center gap-4 mb-6'>
+                    <div className='flex flex-col md:flex-row justify-between items-center bg-green-50 p-5 gap-4 rounded-lg mb-6'>
                         {/* Search Bar */}
                         <form className='w-full  '>
                             <div className='relative'>
