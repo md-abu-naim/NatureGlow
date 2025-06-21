@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaFilter, FaSearch, FaTimes } from 'react-icons/fa';
+import AllProducts from './AllProducts';
 
 const Shop = () => {
     const [showFilters, setShowFilters] = useState(false);
@@ -81,6 +82,9 @@ const Shop = () => {
                                 <button onClick={() => setShowFilters(!showFilters)} className='flex items-center gap-4 px-4 py-2 bg-green-500 text-white rounded-full shadow-md'><FaFilter /> {showFilters ? 'Hide Filters' : 'Show Filters'}</button>
                             </div>
                         </div>
+
+                        {/* Products Displaying */}
+                        <AllProducts />
                     </div>
                 </div>
             </div>
