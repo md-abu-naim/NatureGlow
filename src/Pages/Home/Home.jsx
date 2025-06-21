@@ -1,5 +1,6 @@
 import Banner from "./Banner";
 import BestSelling from "./BestSelling";
+import FAQ from "./FAQ";
 import FeaturedCategories from "./FeaturedCategories";
 import NewArrivals from "./NewArrivals";
 import PromoSection from "./PromoSection";
@@ -14,6 +15,7 @@ const Home = () => {
             <NewArrivals />
             <PromoSection />
             <Testimonials />
+            <FAQ />
         </div>
     );
 };
