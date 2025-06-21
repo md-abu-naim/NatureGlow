@@ -59,6 +59,7 @@ const Shop = () => {
 
                     <div className='md:col-span-3'>
                         <div className='flex flex-col md:flex-row justify-between items-center gap-4 mb-6'>
+                            {/* Search Bar */}
                             <form className='w-full  '>
                                 <div className='relative'>
                                     <input placeholder="Search products..." className="w-full px-4 pr-16 py-2 border border-green-300 rounded-full shadow-sm focus:outline-none" type="text" name="search" />
