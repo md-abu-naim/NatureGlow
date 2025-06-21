@@ -13,8 +13,6 @@ const Shop = () => {
                 <p className='text-green-600 text-sm mt-2'>Find the perfect organic essentials for your everyday self-care</p>
             </div>
 
-
-
             <div className='grid grid-cols-1 md:grid-cols-4 gap-6 mt-5'>
                 {/* Filters Sidebar */}
                 <aside className={`md:col-span-1 bg-green-50 p-4 rounded-lg shadow ${showFilters ? 'block' : 'hidden'} md:block`}>
