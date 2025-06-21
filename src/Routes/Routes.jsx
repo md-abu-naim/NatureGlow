@@ -9,7 +9,7 @@ import About from "../Pages/About/About";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout /> ,
+    element: <Layout />,
     children: [
       {
         path: '/',
