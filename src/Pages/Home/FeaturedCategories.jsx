@@ -11,10 +11,11 @@ const FeaturedCategories = () => {
 
     return (
         <div className="text-center my-16">
-            <div className="w-[450px] mx-auto border-b-4 border-green-500 p-2">
-                <h1 className="text-3xl font-semibold pb-1.5">Featured Categories</h1>
-                <h3 className="font-medium text-green-500">Pick what your skin needs.</h3>
+            <div className="w-fit mx-auto border-x-4 border-green-500 px-6 py-2 rounded-md">
+                <h1 className="text-3xl font-bold leading-tight">Featured Categories</h1>
+                <h3 className="font-medium text-green-500 text-sm mt-1">Pick what your skin needs.</h3>
             </div>
+            
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pt-10">
                 {
                     categories?.map(category => <div key={category.id} className="group p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 ease-in-out">
