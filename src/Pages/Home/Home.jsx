@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import BestSelling from "./BestSelling";
 import FeaturedCategories from "./FeaturedCategories";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
         <div className="md:mx-10">
             <Banner />
             <FeaturedCategories />
+            <BestSelling />
         </div>
     );
 };
