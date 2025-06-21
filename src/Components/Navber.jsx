@@ -13,7 +13,7 @@ const Navber = () => {
     </>
 
     return (
-        <div className="navbar px-10 bg-yellow-50 text-black shadow-sm">
+        <div className="navbar px-10 bg-green-50 text-black shadow-sm">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
