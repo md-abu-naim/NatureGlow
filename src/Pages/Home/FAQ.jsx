@@ -1,32 +1,37 @@
 import { FaChevronDown } from "react-icons/fa";
 
 const faqs = [
-    {
-        question: "Are your products safe for sensitive skin?",
-        answer:
-            "Absolutely! All our products are formulated with gentle, natural ingredients, making them suitable for all skin types, including sensitive skin.",
-    },
-    {
-        question: "Do you test on animals?",
-        answer:
-            "Never. NatureGlow is 100% cruelty-free. We never test on animals and ensure ethical sourcing for all our ingredients.",
-    },
-    {
-        question: "How long does shipping take?",
-        answer:
-            "Standard shipping takes 3-5 business days within Bangladesh. International orders may take 7-12 business days depending on location.",
-    },
-    {
-        question: "Can I return a product if it doesn't suit me?",
-        answer:
-            "Yes. We offer a 7-day return policy for unused products in original packaging. Please contact our support team for assistance.",
-    },
+  {
+    question: "Are your skincare products suitable for all skin types?",
+    answer:
+      "Yes! Our products are formulated with natural and non-irritating ingredients like green tea, aloe vera, and rose water, making them safe for dry, oily, and sensitive skin.",
+  },
+  {
+    question: "Do your hair care products help with dandruff and hair fall?",
+    answer:
+      "Absolutely. Our Herbal Strengthening Hair Oil and Aloe Neem Shampoo are made with ayurvedic herbs like amla, neem, and bhringraj which target scalp health and reduce hair fall & dandruff.",
+  },
+  {
+    question: "Are your lip care products safe for daily use?",
+    answer:
+      "Yes. Our lip balms and butters are made with shea butter, mint, and rose oil. They're petroleum-free and gentle enough for everyday use, even on chapped lips.",
+  },
+  {
+    question: "How do I know which product is right for me?",
+    answer:
+      "We recommend starting with our Face Care or Body Care categories. Each product includes a short bio and detailed features to help you choose based on your skin concern.",
+  },
+  {
+    question: "Do your body care products contain synthetic exfoliants?",
+    answer:
+      "No. Our body scrubs, like the Exfoliating Coffee Scrub, are made with natural ingredients and contain no microplastics or harsh chemicals.",
+  },
 ];
 
 const FAQ = () => {
     return (
         <div>
-            <div className="bg-green-50 py-16 px-4 md:px-10 rounded-3xl shadow-inner my-20">
+            <div className="bg-green-50 py-16 px-4 md:px-10 rounded-3xl shadow-inner my-16">
                 <div className="text-center mb-10">
                     <h2 className="text-3xl font-bold text-green-800">Frequently Asked Questions</h2>
                     <p className="text-green-600 text-sm mt-2">Your skincare queries—answered naturally.</p>
