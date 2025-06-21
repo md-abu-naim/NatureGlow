@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 const NewArrivals = () => {
     const [products, setProducts] = useState([])
@@ -10,7 +9,6 @@ const NewArrivals = () => {
             .then(res => setProducts(res.data))
     }, [setProducts])
     return (
-        <>
         <div className="text-center my-16 px-2">
             <div className="w-fit mx-auto border-x-4 border-green-500 px-6 py-2 rounded-md">
                 <h1 className="text-xl md:text-3xl font-bold leading-tight">New Arrivals</h1>
@@ -41,35 +39,6 @@ const NewArrivals = () => {
                 }
             </div>
         </div>
-
-<section className="flex flex-col md:flex-row items-center bg-green-50 rounded-3xl p-8 md:p-16 my-16 shadow-lg">
-        {/* Left Content */}
-        <div className="md:w-1/2 mb-8 md:mb-0 md:pr-12">
-          <h2 className="text-4xl font-extrabold text-green-800 mb-4">
-            Discover the Secret to Radiant Skin
-          </h2>
-          <p className="text-green-700 mb-6 leading-relaxed">
-            Pamper yourself with our exclusive spa collection made from
-            natural ingredients, designed to rejuvenate your skin and soul.
-          </p>
-          <Link
-            to="/shop"
-            className="inline-block bg-green-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition"
-          >
-            Shop Now
-          </Link>
-        </div>
-
-        {/* Right Image */}
-        <div className="md:w-1/2 flex justify-center">
-          <img
-            src="https://i.postimg.cc/x1B4Ztw5/Exfoliating-Coffee-Body-Scrub.webp"
-            alt="Spa Collection"
-            className="rounded-3xl max-w-full h-auto shadow-lg"
-          />
-        </div>
-      </section>
-        </>
     );
 };
 

@@ -2,6 +2,7 @@ import Banner from "./Banner";
 import BestSelling from "./BestSelling";
 import FeaturedCategories from "./FeaturedCategories";
 import NewArrivals from "./NewArrivals";
+import PromoSection from "./PromoSection";
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
             <FeaturedCategories />
             <BestSelling />
             <NewArrivals />
+            <PromoSection />
         </div>
     );
 };
