@@ -3,6 +3,7 @@ import BestSelling from "./BestSelling";
 import FeaturedCategories from "./FeaturedCategories";
 import NewArrivals from "./NewArrivals";
 import PromoSection from "./PromoSection";
+import Testimonials from "./Testimonials";
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <BestSelling />
             <NewArrivals />
             <PromoSection />
+            <Testimonials />
         </div>
     );
 };
