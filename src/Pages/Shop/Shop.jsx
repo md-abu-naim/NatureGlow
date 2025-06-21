@@ -34,6 +34,12 @@ const Shop = () => {
                                 <li><input type="radio" name="category" className="mr-2" />Lip Care</li>
                             </ul>
                         </div>
+
+                        {/* Pricr Range */}
+                        <div>
+                            <h3 className="font-semibold text-green-800 mb-2">Price Range</h3>
+                            <input type="range" min='0' max='5000' className="w-full text-green-500" />
+                        </div>
                     </aside>
                 </div>
             </div>
@@ -50,7 +56,6 @@ const Shop = () => {
                         {showFilters ? 'Hide Filters' : 'Show Filters'}
                     </button>
                 </div>
-
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                     {/* Filters Sidebar */}
                     <aside className={`md:col-span-1 bg-green-50 p-4 rounded-xl shadow ${showFilters ? 'block' : 'hidden'} md:block`}>
