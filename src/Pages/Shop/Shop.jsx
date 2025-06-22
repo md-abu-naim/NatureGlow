@@ -15,42 +15,44 @@ const Shop = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-4 gap-6 mt-5'>
                 {/* Filters Sidebar */}
-                <aside className={`md:col-span-1 bg-green-50 p-4 rounded-lg shadow ${showFilters ? 'block' : 'hidden'} md:block`}>
-                    {/* Category Filters */}
-                    <div className='mb-6'>
-                        <h3 className='font-semibold text-green-800 mb-2'>Category</h3>
-                        <ul className="space-y-2 text-sm">
-                            <li><input type="radio" name="category" className="mr-2" />All</li>
-                            <li><input type="radio" name="category" className="mr-2" />Face Care</li>
-                            <li><input type="radio" name="category" className="mr-2" />Body Care</li>
-                            <li><input type="radio" name="category" className="mr-2" />Hair Care</li>
-                            <li><input type="radio" name="category" className="mr-2" />Lip Care</li>
-                        </ul>
-                    </div>
+                <aside className={`md:col-span-1  ${showFilters ? 'block' : 'hidden'} md:block`}>
+                    <div className='bg-green-50 p-4 rounded-lg shadow py-4'>
+                        {/* Category Filters */}
+                        <div className='mb-6'>
+                            <h3 className='font-semibold text-green-800 mb-2'>Category</h3>
+                            <ul className="space-y-2 text-sm">
+                                <li><input type="radio" name="category" className="mr-2" />All</li>
+                                <li><input type="radio" name="category" className="mr-2" />Face Care</li>
+                                <li><input type="radio" name="category" className="mr-2" />Body Care</li>
+                                <li><input type="radio" name="category" className="mr-2" />Hair Care</li>
+                                <li><input type="radio" name="category" className="mr-2" />Lip Care</li>
+                            </ul>
+                        </div>
 
-                    {/* Pricr Range */}
-                    <div>
-                        <h3 className="font-semibold text-green-800 mb-2">Price Range</h3>
-                        <input type="range" min='0' max='5000' className="w-full text-green-500" />
-                    </div>
+                        {/* Pricr Range */}
+                        <div>
+                            <h3 className="font-semibold text-green-800 mb-2">Price Range</h3>
+                            <input type="range" min='0' max='5000' className="w-full text-green-500" />
+                        </div>
 
-                    {/* Status Filter */}
-                    <div>
-                        <h3 className="font-semibold text-green-800 mb-2">Availability</h3>
-                        <ul className="space-y-2 text-sm">
-                            <li>
-                                <input type="checkbox" id="status-instock" className='mr-2' />
-                                <label htmlFor="status-instock" className="cursor-pointer select-none">In Stock</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" id="status-soldout" className='mr-2' />
-                                <label htmlFor="status-soldout" className="cursor-pointer select-none">Sold Out</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" id="status-lowstock" className='mr-2' />
-                                <label htmlFor="status-lowstock" className="cursor-pointer select-none">Low Stock</label>
-                            </li>
-                        </ul>
+                        {/* Status Filter */}
+                        <div>
+                            <h3 className="font-semibold text-green-800 mb-2">Availability</h3>
+                            <ul className="space-y-2 text-sm">
+                                <li>
+                                    <input type="checkbox" id="status-instock" className='mr-2' />
+                                    <label htmlFor="status-instock" className="cursor-pointer select-none">In Stock</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="status-soldout" className='mr-2' />
+                                    <label htmlFor="status-soldout" className="cursor-pointer select-none">Sold Out</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="status-lowstock" className='mr-2' />
+                                    <label htmlFor="status-lowstock" className="cursor-pointer select-none">Low Stock</label>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </aside>
 
