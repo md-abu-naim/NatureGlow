@@ -20,6 +20,25 @@ const About = () => {
                         <img className="rounded-3xl w-full max-h-96 shadow-lg border border-green-200" src="/Brand.png" alt="" />
                     </div>
                 </div>
+
+                {/* Mission & Values */}
+                <section className="bg-green-100 p-8 rounded-2xl shadow grid grid-cols-1 md:grid-cols-3 gap-14">
+                    <div>
+                        <FaLeaf className="text-green-600 text-3xl mb-2" />
+                        <h3 className="font-semibold text-xl text-green-800 mb-1">Natural Ingredients</h3>
+                        <p className="text-sm text-gray-600">We use only ethically sourced, toxin-free ingredients inspired by nature.</p>
+                    </div>
+                    <div>
+                        <FaRegHeart className="text-green-600 text-3xl mb-2" />
+                        <h3 className="font-semibold text-xl text-green-800 mb-1">Kind to All</h3>
+                        <p className="text-sm text-gray-600">Our products are 100% cruelty-free and safe for all skin types — even the most sensitive.</p>
+                    </div>
+                    <div>
+                        <FaCheckCircle className="text-green-600 text-3xl mb-2" />
+                        <h3 className="font-semibold text-xl text-green-800 mb-1">Transparency</h3>
+                        <p className="text-sm text-gray-600">We proudly share our ingredients and sourcing practices to empower your choices.</p>
+                    </div>
+                </section>
             </div>
 
 
