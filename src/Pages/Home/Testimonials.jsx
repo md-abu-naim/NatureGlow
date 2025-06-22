@@ -10,7 +10,7 @@ const [testimonials, setTestimonials] = useState([])
         .then(res => setTestimonials(res.data))
     },[])
     return (
-        <div className="px-5">
+        <section className="px-5">
             <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold text-green-800">What Customers Are Saying</h2>
                 <p className="text-green-600 text-sm mt-2">Real stories from happy skin</p>
@@ -37,7 +37,7 @@ const [testimonials, setTestimonials] = useState([])
                     </div>)
                 }
             </div>
-        </div>
+        </section>
     );
 };
 
