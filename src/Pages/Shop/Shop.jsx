@@ -8,7 +8,7 @@ const Shop = () => {
     return (
         <div className='px-4 md:px-10 py-10'>
             {/* Page Title */}
-            <div className='bg-green-50 py-5 text-center rounded-lg'>
+            <div className='bg-green-100 py-5 text-center rounded-lg'>
                 <h1 className='text-4xl font-extrabold text-green-800'>Explore Natural Beauty</h1>
                 <p className='text-green-600 text-sm mt-2'>Find the perfect organic essentials for your everyday self-care</p>
             </div>

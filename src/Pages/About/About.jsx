@@ -6,7 +6,7 @@ const About = () => {
     return (
         <div className="px-4 md:px-10 py-10">
             {/* Page Title */}
-            <section className='bg-green-50 py-10 text-center rounded-lg'>
+            <section className='bg-green-100 py-10 text-center rounded-lg'>
                 <h1 className='text-4xl font-extrabold text-green-800'>Naturally You, Naturally Us</h1>
                 <p className='text-green-600 text-sm mt-2'> At NatureGlow, we blend the wisdom of nature with the science of skincare to bring you gentle, effective, and eco-conscious beauty.</p>
             </section>
