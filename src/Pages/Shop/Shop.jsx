@@ -85,7 +85,7 @@ const Shop = () => {
                     <AllProducts />
 
                     {/* Pagination */}
-                    <div className='mt-10 flex justify-center items-center gap-3'>
+                    <section className='mt-10 flex justify-center items-center gap-3'>
                         {/* Previous Button */}
                         <button className='flex items-center gap-1 px-4 py-2 text-sm border border-green-300 rounded-full hover:bg-green-500 hover:text-white transition'> <FaArrowLeft /> Prev</button>
 
@@ -96,7 +96,7 @@ const Shop = () => {
 
                         {/* Next Button */}
                         <button className='flex items-center gap-1 px-4 py-2 text-sm border border-green-300 rounded-full hover:bg-green-500 hover:text-white transition'>Next <FaArrowRight /></button>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>
