@@ -6,13 +6,13 @@ const About = () => {
     return (
         <div className="px-4 md:px-10 py-10">
             {/* Page Title */}
-            <div className='bg-green-50 py-10 text-center rounded-lg'>
+            <section className='bg-green-50 py-10 text-center rounded-lg'>
                 <h1 className='text-4xl font-extrabold text-green-800'>Naturally You, Naturally Us</h1>
                 <p className='text-green-600 text-sm mt-2'> At NatureGlow, we blend the wisdom of nature with the science of skincare to bring you gentle, effective, and eco-conscious beauty.</p>
-            </div>
+            </section>
 
             {/* Our Jurney */}
-            <div className="flex flex-col md:flex-row-reverse items-center bg-green-50 rounded-md p-5 md:p-16 my-16 shadow-lg">
+            <section className="flex flex-col md:flex-row-reverse items-center bg-green-50 rounded-md p-5 md:p-16 my-16 shadow-lg">
                 <div className="md:w-1/2 mb-8 md:mb-0 md:pl-12">
                     <h2 className="text-4xl font-extrabold text-green-800 mb-4">Our Journey Toward Pure & Honest Skincare</h2>
                     <p className="text-green-700 mb-6 leading-relaxed">Born out of a passion for purity and nature, NatureGlow started with a simple goal — to provide skincare solutions that are clean, cruelty-free, and deeply nourishing. What began in a small home kitchen is now trusted by thousands across the country.</p>
@@ -20,7 +20,7 @@ const About = () => {
                 <div className="md:w-1/2 flex justify-center">
                     <img className="rounded-3xl w-full max-h-96 shadow-lg border border-green-200" src="/Brand.png" alt="" />
                 </div>
-            </div>
+            </section>
 
             {/* Mission & Values */}
             <section className="bg-green-100 p-8 rounded-2xl shadow grid grid-cols-1 md:grid-cols-3 gap-14">
