@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Abu Naim",
+    "role": "Founder & Lead Formulator",
+    "image": "https://granny-resturant.web.app/assets/2-Di1ZmUVi.png"
+  },
+  {
+    "id": 2,
+    "name": "Salma Sweety",
+    "role": "Co-founder & Marketing Head",
+    "image": "https://i.postimg.cc/B6PjqBMM/Lip-Care.png"
+  },
+  {
+    "id": 3,
+    "name": "Sakhawat Miyazi",
+    "role": "Customer Experience Manager",
+    "image": "https://granny-resturant.web.app/assets/3%20(1)-DvVAf-rs.png"
+  },
+  {
+    "id": 4,
+    "name": "Izhar Islam",
+    "role": "Product Development Specialist",
+    "image": "https://granny-resturant.web.app/assets/1-DscLmla9.png"
+  }
+]

@@ -45,16 +45,28 @@ const About = () => {
                     <h2 className="text-2xl font-black text-green-800">Why Choose NatureGlow?</h2>
                     <p className="text-gray-600 max-w-2xl mx-auto">Because your skin deserves more than chemicals. We offer handcrafted, eco-friendly skincare powered by nature and perfected by science — with love in every jar.</p>
                 </section>
+
+                {/* Meet the Team */}
+                <section className="bg-green-100 py-12 px-6 rounded-2xl">
+                    <h2 className="text-3xl font-bold text-green-800 text-center mb-8">Meet the Team</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+                        <div className="bg-green-50 rounded-xl p-6 shadow">
+                            <img className="w-24 h-24 mx-auto rounded-full mb-4 object-cover border border-green-200" src="https://i.postimg.cc/B6PjqBMM/Lip-Care.png" alt="" />
+                            <h4 className="font-semibold text-green-700">Name</h4>
+                            <p className="text-sm text-gray-500">Founder & Formulator</p>
+                        </div>
+                    </div>
+                </section>
             </div>
 
 
 
             <div className="max-w-7xl mx-auto px-4 py-10 space-y-20">
                 {/* Meet the Team */}
-                <section className="bg-green-50 py-12 px-6 rounded-2xl">
+                <section className="bg-green-100 py-12 px-6 rounded-2xl">
                     <h2 className="text-2xl font-bold text-green-800 text-center mb-8">Meet the Team</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
-                        <div className="bg-white p-6 rounded-xl shadow">
+                        <div className="bg-green-50 p-6 rounded-xl shadow">
                             <img src="https://i.postimg.cc/WbPnHts8/team1.jpg" alt="Founder" className="w-24 h-24 mx-auto rounded-full mb-4 object-cover" />
                             <h4 className="font-semibold text-green-700">Ayesha Rahman</h4>
                             <p className="text-sm text-gray-500">Founder & Formulator</p>
