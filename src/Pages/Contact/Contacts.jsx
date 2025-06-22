@@ -10,6 +10,29 @@ const Contacts = () => {
           <h1 className='text-4xl font-extrabold text-green-800'>Let’s Connect with NatureGlow</h1>
           <p className='text-green-600 text-sm mt-2'>Have questions, suggestions, or just want to say hi? We'd love to hear from you!</p>
         </section>
+
+        {/* Main Section */}
+        <section className='grid grid-cols-1 md:grid-cols-2 gap-10 my-14 items-start'>
+          <form className='bg-white p-8 rounded-3xl shadow space-y-5 border border-green-100'>
+            <div>
+              <label className='block text-sm font-semibold text-green-800 mb-1'>Name</label>
+              <input className='w-full px-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" placeholder='Your Name' />
+            </div>
+            <div>
+              <label className='block text-sm font-semibold text-green-800 mb-1'>Email</label>
+              <input className='w-full px-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="email" placeholder='you@example.com' />
+            </div>
+            <div>
+              <label className='block text-sm font-semibold text-green-800 mb-1'>Subject</label>
+              <input className='w-full px-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" placeholder='Subject' />
+            </div>
+            <div>
+              <label className='block text-sm font-semibold text-green-800 mb-1'>Message</label>
+              <textarea rows="5" placeholder="Your Message" className="w-full px-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+            </div>
+            <button type="submit" className="w-full  bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full transition duration-300 font-semibold">Send Message</button>
+          </form>
+        </section>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-14 space-y-20">
@@ -18,18 +41,7 @@ const Contacts = () => {
 
           {/* Contact Form */}
           <form className="bg-white p-8 rounded-3xl shadow space-y-5 border border-green-100">
-            <div>
-              <label className="block text-sm font-medium text-green-800 mb-1">Name</label>
-              <input type="text" placeholder="Your Name" className="w-full px-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-green-800 mb-1">Email</label>
-              <input type="email" placeholder="you@example.com" className="w-full px-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-green-800 mb-1">Subject</label>
-              <input type="text" placeholder="Subject" className="w-full px-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" />
-            </div>
+
             <div>
               <label className="block text-sm font-medium text-green-800 mb-1">Message</label>
               <textarea rows="5" placeholder="Your Message" className="w-full px-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
