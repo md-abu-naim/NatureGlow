@@ -12,7 +12,7 @@ const PromoSection = () => {
                     <Link to={'/shop'} className='bg-green-600 text-white px-8 py-3 rounded-full font-semibold shadow hover:bg-green-700 transition duration-300' >SHOP NOW</Link>
                 </div>
                 <div className="md:w-1/2 flex justify-center">
-                    <img className="rounded-3xl max-w-full shadow-lg border border-green-200" src="https://i.postimg.cc/x1B4Ztw5/Exfoliating-Coffee-Body-Scrub.webp" alt="" />
+                    <img className="rounded-3xl w-full max-h-96 shadow-lg border border-green-200" src="/Promo.png" alt="" />
                 </div>
             </div>
 
