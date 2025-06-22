@@ -39,17 +39,6 @@ const Contacts = () => {
         {/* Main Section */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
 
-          {/* Contact Form */}
-          <form className="bg-white p-8 rounded-3xl shadow space-y-5 border border-green-100">
-
-            <div>
-              <label className="block text-sm font-medium text-green-800 mb-1">Message</label>
-              <textarea rows="5" placeholder="Your Message" className="w-full px-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
-            </div>
-            <button type="submit" className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full transition duration-300 font-semibold">
-              Send Message
-            </button>
-          </form>
 
           {/* Contact Info & Social */}
           <div className="bg-green-50 p-8 rounded-3xl shadow border border-green-100 space-y-8">
