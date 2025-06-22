@@ -1,5 +1,6 @@
 import { FaCheckCircle, FaLeaf, FaRegHeart } from "react-icons/fa";
 import Team from "./Team";
+import Newsletter from "../Home/Newsletter";
 
 const About = () => {
     return (
@@ -50,6 +51,7 @@ const About = () => {
             <Team />
 
             {/* Newsletter Section */}
+            <Newsletter />
         </div>
 
     );
