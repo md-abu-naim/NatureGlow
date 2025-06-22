@@ -9,7 +9,7 @@ const AllProducts = () => {
             .then(res => setProducts(res.data))
     }, [setProducts])
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {
                 products?.map(product => <div key={product.id} className="group text-center shadow-xl rounded-3xl p-5 relative hover:shadow-2xl transition duration-300">
                     <div className="overflow-hidden rounded-xl">
@@ -30,7 +30,7 @@ const AllProducts = () => {
                     </div>
                 </div>)
             }
-        </div>
+        </section>
     );
 };
 
