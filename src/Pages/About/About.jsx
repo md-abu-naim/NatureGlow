@@ -14,7 +14,7 @@ const About = () => {
             {/* Our Jurney */}
             <section className="flex flex-col md:flex-row-reverse items-center bg-green-50 rounded-md p-5 md:p-16 my-16 shadow-lg">
                 <div className="md:w-1/2 mb-8 md:mb-0 md:pl-12">
-                    <h2 className="text-4xl font-extrabold text-green-800 mb-4">Our Journey Toward Pure & Honest Skincare</h2>
+                    <h2 className="text-4xl md:text-3xl lg:text-4xl font-extrabold text-green-800 mb-4">Our Journey Toward Pure & Honest Skincare</h2>
                     <p className="text-green-700 mb-6 leading-relaxed">Born out of a passion for purity and nature, NatureGlow started with a simple goal — to provide skincare solutions that are clean, cruelty-free, and deeply nourishing. What began in a small home kitchen is now trusted by thousands across the country.</p>
                 </div>
                 <div className="md:w-1/2 flex justify-center">
