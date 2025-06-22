@@ -10,7 +10,7 @@ const FeaturedCategories = () => {
     }, [setCategories])
 
     return (
-        <div className="text-center my-20 px-2">
+        <section className="text-center my-20 px-2">
             <div className="w-fit mx-auto  px-6 py-2 rounded-md">
                 <h1 className="text-xl md:text-3xl font-bold leading-tight">Featured Categories</h1>
             </div>
@@ -24,7 +24,7 @@ const FeaturedCategories = () => {
                     </div>)
                 }
             </div>
-        </div>
+        </section>
     );
 };
 
