@@ -57,7 +57,7 @@ const Shop = () => {
                 </aside>
 
                 <div className='md:col-span-3'>
-                    <div className='flex flex-col md:flex-row justify-between items-center bg-green-50 p-5 gap-4 rounded-lg mb-6'>
+                    <section className='flex flex-col md:flex-row justify-between items-center bg-green-50 p-5 gap-4 rounded-lg mb-6'>
                         {/* Search Bar */}
                         <form className='w-full  '>
                             <div className='relative'>
@@ -79,7 +79,7 @@ const Shop = () => {
                         <div className='md:hidden mb-4 text-center flex items-center justify-center'>
                             <button onClick={() => setShowFilters(!showFilters)} className='flex items-center gap-4 px-4 py-2 bg-green-500 text-white rounded-full shadow-md'><FaFilter /> {showFilters ? 'Hide Filters' : 'Show Filters'}</button>
                         </div>
-                    </div>
+                    </section>
 
                     {/* Products Displaying */}
                     <AllProducts />
