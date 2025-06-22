@@ -9,7 +9,7 @@ const NewArrivals = () => {
             .then(res => setProducts(res.data))
     }, [setProducts])
     return (
-        <div className="text-center my-16 px-2">
+        <section className="text-center my-16 px-2">
             <div className="w-fit mx-auto border-x-4 border-green-500 px-6 py-2 rounded-md">
                 <h1 className="text-xl md:text-3xl font-bold leading-tight">New Arrivals</h1>
                 <h3 className="font-medium text-green-500 text-sm mt-1">Nature’s newest touch.</h3>
@@ -38,7 +38,7 @@ const NewArrivals = () => {
                     </div>)
                 }
             </div>
-        </div>
+        </section>
     );
 };
 
