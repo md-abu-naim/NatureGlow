@@ -54,28 +54,6 @@ const About = () => {
 
 
             <div className="max-w-7xl mx-auto px-4 py-10 space-y-20">
-                {/* Meet the Team */}
-                <section className="bg-green-100 py-12 px-6 rounded-2xl">
-                    <h2 className="text-2xl font-bold text-green-800 text-center mb-8">Meet the Team</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
-                        <div className="bg-green-50 p-6 rounded-xl shadow">
-                            <img src="https://i.postimg.cc/WbPnHts8/team1.jpg" alt="Founder" className="w-24 h-24 mx-auto rounded-full mb-4 object-cover" />
-                            <h4 className="font-semibold text-green-700">Ayesha Rahman</h4>
-                            <p className="text-sm text-gray-500">Founder & Formulator</p>
-                        </div>
-                        <div className="bg-white p-6 rounded-xl shadow">
-                            <img src="https://i.postimg.cc/WzD7BtdM/team2.jpg" alt="Co-founder" className="w-24 h-24 mx-auto rounded-full mb-4 object-cover" />
-                            <h4 className="font-semibold text-green-700">Nabil Hasan</h4>
-                            <p className="text-sm text-gray-500">Co-founder & Marketing Lead</p>
-                        </div>
-                        <div className="bg-white p-6 rounded-xl shadow">
-                            <img src="https://i.postimg.cc/fbgPrRR7/team3.jpg" alt="Customer Support" className="w-24 h-24 mx-auto rounded-full mb-4 object-cover" />
-                            <h4 className="font-semibold text-green-700">Tania Alam</h4>
-                            <p className="text-sm text-gray-500">Customer Experience Manager</p>
-                        </div>
-                    </div>
-                </section>
-
                 {/* Call to Action */}
                 <section className="bg-green-100 py-10 px-6 rounded-2xl text-center">
                     <h2 className="text-2xl font-bold text-green-800 mb-2">Join Our Natural Beauty Movement</h2>
