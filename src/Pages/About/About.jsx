@@ -39,19 +39,17 @@ const About = () => {
                         <p className="text-sm text-gray-600">We proudly share our ingredients and sourcing practices to empower your choices.</p>
                     </div>
                 </section>
+
+                {/* Why Choose Us */}
+                <section className="text-center my-16 space-y-4">
+                    <h2 className="text-2xl font-black text-green-800">Why Choose NatureGlow?</h2>
+                    <p className="text-gray-600 max-w-2xl mx-auto">Because your skin deserves more than chemicals. We offer handcrafted, eco-friendly skincare powered by nature and perfected by science — with love in every jar.</p>
+                </section>
             </div>
 
 
 
             <div className="max-w-7xl mx-auto px-4 py-10 space-y-20">
-                {/* Why Choose Us */}
-                <section className="text-center space-y-4">
-                    <h2 className="text-2xl font-bold text-green-800">Why Choose NatureGlow?</h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto">
-                        Because your skin deserves more than chemicals. We offer handcrafted, eco-friendly skincare powered by nature and perfected by science — with love in every jar.
-                    </p>
-                </section>
-
                 {/* Meet the Team */}
                 <section className="bg-green-50 py-12 px-6 rounded-2xl">
                     <h2 className="text-2xl font-bold text-green-800 text-center mb-8">Meet the Team</h2>
