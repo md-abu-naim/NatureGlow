@@ -29,31 +29,29 @@ const faqs = [
 ];
 
 const FAQ = () => {
-    return (
-        <div>
-            <div className="bg-green-50 py-16 px-4 md:px-10 rounded-3xl shadow-inner my-16">
-                <div className="text-center mb-10">
-                    <h2 className="text-3xl font-bold text-green-800">Frequently Asked Questions</h2>
-                    <p className="text-green-600 text-sm mt-2">Your skincare queries—answered naturally.</p>
-                </div>
+  return (
+    <section className="bg-green-50 py-16 px-4 md:px-10 rounded-3xl shadow-inner my-16">
+      <div className="text-center mb-10">
+        <h2 className="text-3xl font-bold text-green-800">Frequently Asked Questions</h2>
+        <p className="text-green-600 text-sm mt-2">Your skincare queries—answered naturally.</p>
+      </div>
 
-                {/* Accordion */}
-                <div className="space-y-4">
-                    {
-                        faqs?.map(faq => <div key={faq.question} className="collapse collapse-arrow bg-white border border-green-200 shadow-sm rounded-xl">
-                        <input type="radio" name="faq-accordion" />
-                        <div className="collapse-title font-semibold text-green-800">
-                            {faq.question}
-                        </div>
-                        <div className="collapse-content text-gray-600 text-sm leading-relaxed">
-                            {faq.answer}
-                        </div>
-                    </div>)
-                    }
-                </div>
+      {/* Accordion */}
+      <div className="space-y-4">
+        {
+          faqs?.map(faq => <div key={faq.question} className="collapse collapse-arrow bg-white border border-green-200 shadow-sm rounded-xl">
+            <input type="radio" name="faq-accordion" />
+            <div className="collapse-title font-semibold text-green-800">
+              {faq.question}
             </div>
-        </div>
-    );
+            <div className="collapse-content text-gray-600 text-sm leading-relaxed">
+              {faq.answer}
+            </div>
+          </div>)
+        }
+      </div>
+    </section>
+  );
 };
 
 export default FAQ;
