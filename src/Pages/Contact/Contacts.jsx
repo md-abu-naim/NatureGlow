@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaPhoneAlt, FaEnvelope, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 import FAQ from '../Home/FAQ';
 import Newsletter from '../Home/Newsletter';
 
@@ -19,6 +19,8 @@ const Contacts = () => {
 
         {/* Newsletter section */}
         <Newsletter />
+
+        {/* Contact section */}
         <section className='grid grid-cols-1 md:grid-cols-2 gap-10 my-14 items-start'>
           <form className='bg-white p-8 rounded-3xl shadow space-y-5 border border-green-100'>
             <div>
@@ -39,6 +41,8 @@ const Contacts = () => {
             </div>
             <button type="submit" className="w-full  bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full transition duration-300 font-semibold">Send Message</button>
           </form>
+
+          {/* Social Icon */}
         </section>
       </div>
 
@@ -64,6 +68,29 @@ const Contacts = () => {
               </div>
             </div>
           </div>
+
+
+          <div className="bg-green-50 p-8 rounded-3xl shadow-md border border-green-100 space-y-8">
+            {/* Social Media */}
+            <div>
+              <h3 className="text-lg font-bold text-green-800 mb-2">Follow Us</h3>
+              <div className="flex flex-wrap gap-3">
+                <a href="#" className="w-10 h-10 flex items-center justify-center bg-green-600 text-white rounded-full hover:bg-green-700 transition">
+                  <FaFacebookF />
+                </a>
+                <a href="#" className="w-10 h-10 flex items-center justify-center bg-green-600 text-white rounded-full hover:bg-green-700 transition">
+                  <FaInstagram />
+                </a>
+                <a href="#" className="w-10 h-10 flex items-center justify-center bg-green-600 text-white rounded-full hover:bg-green-700 transition">
+                  <FaLinkedinIn />
+                </a>
+                <a href="#" className="w-10 h-10 flex items-center justify-center bg-green-600 text-white rounded-full hover:bg-green-700 transition">
+                  <FaTwitter />
+                </a>
+              </div>
+            </div>
+          </div>
+
 
         </section>
       </div>
