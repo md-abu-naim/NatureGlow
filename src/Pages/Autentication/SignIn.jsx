@@ -37,31 +37,6 @@ const SignIn = () => {
                     </form>
                 </div>
             </div>
-
-            <div className="min-h-screen grid grid-cols-1 md:grid-cols-2">
-                {/* Left Section */}
-                <div className="bg-green-100 flex items-center justify-center pt-8">
-                    <div className="text-center space-y-6 max-w-md">
-                        <h2 className="text-3xl font-bold text-green-800">Welcome Back to NatureGlow</h2>
-                        <p className="text-green-700 text-sm">
-                            Discover the goodness of nature. Sign in to continue your journey towards natural beauty.
-                        </p>
-                        <img src="/banner.png" alt="NatureGlow" className="mx-auto h-96" />
-                    </div>
-                </div>
-
-                {/* Right Section */}
-                <div className="flex items-center justify-center p-10 bg-white">
-
-
-                    <p className="text-sm text-center text-gray-600">
-                        Don't have an account?{' '}
-                        <Link href="/signup" className="text-green-700 font-medium hover:underline">
-                            Sign Up here
-                        </Link>
-                    </p>
-                </div>
-            </div>
         </div>
     );
 };
