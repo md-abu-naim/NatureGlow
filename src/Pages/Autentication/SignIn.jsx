@@ -1,3 +1,4 @@
+import { FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const SignIn = () => {
@@ -13,6 +14,24 @@ const SignIn = () => {
                         <img src="/banner.png" alt="NatureGlow" className="mx-auto h-96" />
                     </div>
                 </div>
+
+                {/* Right Side */}
+                <div className="flex items-center justify-center pt-8">
+                    <form className="w-full max-w-md space-y-6 bg-white p-8 rounded-2xl shadow border border-green-100">
+                        <h3 className="text-2xl font-bold text-green-800 text-center">Sign In</h3>
+                        <div>
+                            <label className="text-sm font-medium text-green-700 mb-1">Email</label>
+                            <div className="relative">
+                                <input className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="text" placeholder="you@example.com" />
+                                <FaEnvelope className="absolute right-4 top-3.5 text-green-400" />
+                            </div>
+                        </div>
+                        <div>
+                            <label className="text-sm font-medium text-green-700 mb-1">Password</label>
+                            <input className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="password" placeholder="••••••••" />
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <div className="min-h-screen grid grid-cols-1 md:grid-cols-2">
@@ -24,14 +43,13 @@ const SignIn = () => {
                             Discover the goodness of nature. Sign in to continue your journey towards natural beauty.
                         </p>
                         <img src="/banner.png" alt="NatureGlow" className="mx-auto h-96" />
-                    </div> 
+                    </div>
                 </div>
 
                 {/* Right Section */}
                 <div className="flex items-center justify-center p-10 bg-white">
                     <form className="w-full max-w-md space-y-6 bg-white p-8 rounded-2xl shadow border border-green-100">
                         <h3 className="text-2xl font-bold text-green-800 text-center">Sign In</h3>
-
                         <div>
                             <label className="block text-sm font-medium text-green-700 mb-1">Email</label>
                             <input type="email" placeholder="you@example.com" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" />
@@ -54,8 +72,6 @@ const SignIn = () => {
                     </form>
                 </div>
             </div>
-
-
         </div>
     );
 };
