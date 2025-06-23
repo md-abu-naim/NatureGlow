@@ -1,5 +1,6 @@
 import { FaFacebookF, FaInstagram, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import FAQ from '../Home/FAQ';
+import Newsletter from '../Home/Newsletter';
 
 const Contacts = () => {
   return (
@@ -17,7 +18,7 @@ const Contacts = () => {
         <FAQ />
 
         {/* Newsletter section */}
-
+        <Newsletter />
         <section className='grid grid-cols-1 md:grid-cols-2 gap-10 my-14 items-start'>
           <form className='bg-white p-8 rounded-3xl shadow space-y-5 border border-green-100'>
             <div>
