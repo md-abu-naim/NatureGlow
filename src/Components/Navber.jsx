@@ -33,10 +33,7 @@ const Navber = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-2 relative">
-                <button className="text-2xl  hover:text-green-600 transition-colors"><VscAccount /></button>
-                {/* <button className="bg-auto w-[50px] h-[50px] text-2xl"><FaCartPlus />
-                    <div className="absolute  right-0 top-0">12</div>
-                </button> */}
+                <NavLink to="/signIn" className="text-2xl  hover:text-green-600 transition-colors"><VscAccount /></NavLink>
                 <div className="relative">
                     <button className="text-2xl hover:text-green-600 transition-colors">
                         <FaCartPlus />
