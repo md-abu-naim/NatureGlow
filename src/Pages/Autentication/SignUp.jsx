@@ -39,9 +39,6 @@ const SignUp = () => {
                             <input className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="password" placeholder="••••••••" />
                             <FaLock className="absolute right-4 top-3.5 text-green-400" />
                         </div>
-                        <div className="text-right">
-                            <Link to="" className="text-sm text-green-600 hover:underline">Forgot Password?</Link>
-                        </div>
                     </div>
                     <button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-full transition duration-300">Sign In</button>
                     <p className="text-sm text-center text-gray-600">Already have an account?{' '} <Link to="/signUp" className="text-green-700 font-medium hover:underline">Sign In here</Link></p>
