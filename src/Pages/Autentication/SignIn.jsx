@@ -20,7 +20,7 @@ const SignIn = () => {
                     <div>
                         <label className="text-sm font-medium text-green-700 mb-1">Email</label>
                         <div className="relative">
-                            <input className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="text" placeholder="you@example.com" />
+                            <input className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="email" placeholder="you@example.com" />
                             <FaEnvelope className="absolute right-4 top-3.5 text-green-400" />
                         </div>
                     </div>
