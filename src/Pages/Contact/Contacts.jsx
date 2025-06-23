@@ -23,7 +23,7 @@ const Contacts = () => {
         {/* Contact section */}
         <section className='grid grid-cols-1 md:grid-cols-2 gap-10 my-14 items-start'>
           {/* Social Icon */}
-          <div className='bg-green-50 p-10 rounded-3xl shadow border border-green-100 space-y-8'>
+          <div className='bg-green-50 p-5 md:p-10 rounded-3xl shadow border border-green-100 space-y-8'>
             <div className='space-y-4'>
               <h3 className='text-xl font-bold text-green-800 mb-2'>Contact Information</h3>
               <p className='flex items-center gap-2 text-green-700  font-sans'><FaPhoneAlt /> +8801882585833</p>
@@ -53,7 +53,7 @@ const Contacts = () => {
           </div>
 
           {/* Form */}
-          <form className='bg-white p-8 rounded-3xl shadow space-y-5 border border-green-100'>
+          <form className='bg-white p-5 md:p-8 rounded-3xl shadow space-y-5 border border-green-100'>
             <div>
               <label className='block text-sm font-semibold text-green-800 mb-1'>Name</label>
               <input className='w-full px-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" placeholder='Your Name' />
