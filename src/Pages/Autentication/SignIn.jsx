@@ -31,7 +31,7 @@ const SignIn = () => {
                             <FaLock className="absolute right-4 top-3.5 text-green-400" />
                         </div>
                         <div className="text-right">
-                            <Link to="/forgot-password" className="text-sm text-green-600 hover:underline">Forgot Password?</Link>
+                            <Link to="" className="text-sm text-green-600 hover:underline">Forgot Password?</Link>
                         </div>
                     </div>
                     <button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-full transition duration-300">Sign In</button>
