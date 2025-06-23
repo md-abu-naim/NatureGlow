@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const SignIn = () => {
     return (
-        <div>
 
             <div className="grid grid-cols-1 md:grid-cols-2">
                 {/* Left Side */}
@@ -37,7 +36,6 @@ const SignIn = () => {
                     </form>
                 </div>
             </div>
-        </div>
     );
 };
 
