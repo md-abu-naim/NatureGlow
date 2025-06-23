@@ -33,12 +33,7 @@ const Contacts = () => {
             <div className="bg-white p-4 rounded-xl border border-green-200 shadow-sm">
               <h4 className="text-green-800 font-semibold mb-2 text-sm">Visit Our Store</h4>
               <p className="text-sm text-gray-600 mb-2">123 NatureGlow Avenue, Dhaka, Bangladesh</p>
-              <iframe
-                className="w-full h-32 rounded-md"
-                src="https://maps.google.com/maps?q=Dhaka&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                allowFullScreen=""
-                loading="lazy"
-              ></iframe>
+              <iframe className="w-full h-32 rounded-md" src="https://maps.google.com/maps?q=Dhaka&t=&z=13&ie=UTF8&iwloc=&output=embed" allowFullScreen="" loading="lazy"></iframe>
             </div>
 
             <div>
