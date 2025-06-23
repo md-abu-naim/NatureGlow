@@ -4,12 +4,12 @@ const SignIn = () => {
     return (
         <div>
 
-            <div>
+            <div className="grid grid-cols-1 md:grid-cols-2">
                 {/* Left Side */}
-                <div>
-                    <div>
-                        <h2>Welcome Back to NatureGlow</h2>
-                        <p>Discover the goodness of nature. Sign in to continue your journey towards natural beauty.</p>
+                <div className="bg-green-100 flex items-center justify-center pt-8">
+                    <div className="text-center space-y-6 max-w-md">
+                        <h2 className="text-3xl font-bold text-green-800">Welcome Back to NatureGlow</h2>
+                        <p className="text-green-700 text-sm">Discover the goodness of nature. Sign in to continue your journey towards natural beauty.</p>
                         <img src="/banner.png" alt="NatureGlow" className="mx-auto h-96" />
                     </div>
                 </div>
