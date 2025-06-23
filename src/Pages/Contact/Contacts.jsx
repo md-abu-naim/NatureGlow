@@ -14,7 +14,9 @@ const Contacts = () => {
 
         {/* Main Section */}
         {/* FAQ section */}
-        
+        <FAQ />
+
+{/*  */}
         <section className='grid grid-cols-1 md:grid-cols-2 gap-10 my-14 items-start'>
           <form className='bg-white p-8 rounded-3xl shadow space-y-5 border border-green-100'>
             <div>
