@@ -9,7 +9,7 @@ const SignIn = () => {
                 <div className="text-center space-y-6 max-w-md">
                     <h2 className="text-3xl font-bold text-green-800">Welcome Back to NatureGlow</h2>
                     <p className="text-green-700 text-sm">Discover the goodness of nature. Sign in to continue your journey towards natural beauty.</p>
-                    <img src="/banner.png" alt="NatureGlow" className="mx-auto h-96" />
+                    <img src="/banner.png" alt="NatureGlow" className="mx-auto lg:h-96" />
                 </div>
             </div>
 
