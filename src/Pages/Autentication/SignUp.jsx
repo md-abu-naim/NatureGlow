@@ -16,7 +16,7 @@ const SignUp = () => {
             </div>
 
             {/* Right Side */}
-            {/* <div className="flex flex-col items-center justify-center pt-8">
+            <div className="flex flex-col items-center justify-center pt-8">
                 <form className="w-full max-w-md space-y-5 bg-white p-8 rounded-2xl shadow border border-green-100">
                     <h3 className="text-2xl font-bold text-green-800 text-center">Sign In</h3>
                     <div>
@@ -39,7 +39,7 @@ const SignUp = () => {
                     <button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-full transition duration-300">Sign In</button>
                     <p className="text-sm text-center text-gray-600">Already have an account?{' '} <Link to="/signUp" className="text-green-700 font-medium hover:underline">Sign In here</Link></p>
                 </form>
-            </div> */}
+            </div>
         </div>
 
 <div className="grid grid-cols-1 md:grid-cols-2">
