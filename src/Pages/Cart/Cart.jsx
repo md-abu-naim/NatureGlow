@@ -61,7 +61,28 @@ const Cart = () => {
                     </div>
 
                     {/* Order Summary */}
-                    
+                    <div>
+                        <div className='bg-green-100 p-4 rounded-xl'>
+                            <div className='p-6 shadow-md rounded-xl border border-green-600 space-y-4'>
+                                <h2 className="text-xl font-bold text-green-800">Order Summary</h2>
+                                <div className="flex justify-between text-sm">
+                                    <span>Subtotal</span>
+                                    <span>${total}.00</span>
+                                </div>
+                                <div className="flex justify-between text-sm">
+                                    <span>Shipping</span>
+                                    <span className='font-sans'> 1</span>
+                                </div>
+                                <hr />
+                                <div className="flex justify-between font-bold text-green-900">
+                                    <span>Total</span>
+                                    <span>$ {total}.00</span>
+                                </div>
+                                <button className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-2 rounded-xl"> Proceed to Checkout</button>
+                                <Link to="/shop" className="block text-center text-green-700 text-sm hover:underline">⬅ Continue Shopping</Link>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
