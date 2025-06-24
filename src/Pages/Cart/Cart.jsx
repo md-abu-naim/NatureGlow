@@ -61,7 +61,7 @@ const Cart = () => {
                     </div>
 
                     {/* Order Summary */}
-                    <div>
+                    <div className='col-span-3'>
                         <div className='bg-green-100 p-4 rounded-xl'>
                             <div className='p-6 shadow-md rounded-xl border border-green-600 space-y-4'>
                                 <h2 className="text-xl font-bold text-green-800">Order Summary</h2>
@@ -86,7 +86,7 @@ const Cart = () => {
                 </div>
             </div>
 
-            <div className="">
+            {/* <div className="">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gapd-6 mt-7 ">
                     <div>
                         <div className='bg-green-100 p-4 rounded-xl'>
@@ -115,7 +115,7 @@ const Cart = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };
