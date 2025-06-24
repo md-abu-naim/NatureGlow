@@ -6,28 +6,28 @@ const cartItems = [
         id: 1,
         name: 'Organic Aloe Vera Gel',
         price: 15,
-        category:'Face Care' ,
+        category: 'Face Care',
         image: '/images/aloe-vera.jpg',
     },
     {
         id: 2,
         name: 'Natural Rose Water Mist',
         price: 12,
-        category:'Body Care' ,
+        category: 'Body Care',
         image: '/images/rose-mist.jpg',
     },
     {
         id: 1,
         name: 'Organic Aloe Vera Gel',
         price: 15,
-        category:'Hair Care' ,
+        category: 'Hair Care',
         image: '/images/aloe-vera.jpg',
     },
     {
         id: 2,
         name: 'Natural Rose Water Mist',
         price: 12,
-        category:'Lip Care' ,
+        category: 'Lip Care',
         image: '/images/rose-mist.jpg',
     },
 ];
@@ -36,7 +36,7 @@ const Cart = () => {
     return (
         <div>
 
-            <div className='md:mx-20 px-4 py-10'>
+            <div className='lg:mx-20 px-4 py-10'>
                 {/* Page Title */}
                 <section className='bg-green-100 py-8 text-center rounded-lg'>
                     <h1 className='text-4xl font-extrabold text-green-800'>Your Cart — Naturally Curated for You</h1>
@@ -44,9 +44,9 @@ const Cart = () => {
                 </section>
 
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-7'>
-                    <div className='lg:col-span-2 space-y-4 p-5 rounded-xl bg-green-100'>
+                    <div className='col-span-3 lg:col-span-2 space-y-4 p-5 rounded-xl bg-green-100'>
                         {
-                            cartItems?.map(item => <div key={item.id} className='flex items-center p-4 gap-4 shadow-md rounded-xl border border-green-600'>
+                            cartItems?.map(item => <div key={item.id} className='flex flex-col md:flex-row text-center md:text-start items-center p-4 gap-4 shadow-md rounded-xl border border-green-600'>
                                 <img className='w-28 h-28 object-cover rounded-xl border border-green-500' src="https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp" alt="" />
                                 <div className='flex-1'>
                                     <h2 className='text-lg font-semibold text-green-700'>{item.name}</h2>
@@ -54,7 +54,7 @@ const Cart = () => {
                                     <p className='text-md font-semibold text-green-800'>$ {item.price}.00</p>
                                     <button className="inline-block mt-2 px-3 py-1 text-sm bg-green-700 text-white rounded hover:bg-green-800 transition">View Details</button>
                                 </div>
-                                <button><FaTrashAlt className="w-5 h-5" /></button>
+                                <button className='bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full transition-all'><FaTrashAlt className="w-5 h-5" /></button>
                             </div>
                             )
                         }
@@ -66,28 +66,37 @@ const Cart = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gapd-6 mt-7 ">
                     <div className="lg:col-span-2 space-y-4 p-8 rounded-xl bg-green-100">
                         {cartItems.map((item) => (
-                            <div key={item.id} className="flex items-center p-4 gap-4 shadow-md rounded-xl border">
-                                <img
-                                    src={item.image}
-                                    alt={item.name}
-                                    className="w-24 h-24 object-cover rounded-xl border"
-                                />
-                                <div className="flex-1">
-                                    <h2 className="text-lg font-semibold text-green-700">{item.name}</h2>
-                                    <p className="text-sm text-gray-500">Face Care</p>
-                                    <p className="text-md font-semibold text-green-800">${item.price}</p>
-                                    {/* View Details button */}
-                                    <Link
-                                        to={`/product/${item.id}`}
-                                        className="inline-block mt-2 px-3 py-1 text-sm bg-green-700 text-white rounded hover:bg-green-800 transition"
-                                    >
-                                        View Details
-                                    </Link>
-                                </div>
-                                <button className="bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full transition-all">
-                                    <FaTrashAlt className="w-5 h-5" />
-                                </button>
-                            </div>
+                            <div
+  key={item.id}
+  className="flex flex-col text-center sm:flex-row items-center sm:items-start p-4 gap-4 shadow-md rounded-xl border"
+>
+  <img
+    src={item.image}
+    alt={item.name}
+    className="w-28 h-28 object-cover rounded-xl border"
+  />
+
+  <div className="flex-1 w-full">
+    <h2 className="text-lg font-semibold text-green-700">{item.name}</h2>
+    <p className="text-sm text-gray-500">Face Care</p>
+    <p className="text-md font-semibold text-green-800">${item.price}</p>
+    <Link
+      to={`/product/${item.id}`}
+      className="inline-block mt-2 px-3 py-1 text-sm bg-green-700 text-white rounded hover:bg-green-800 transition"
+    >
+      View Details
+    </Link>
+  </div>
+
+  {/* Delete Button - now placed better on mobile */}
+  <div className="mt-4 sm:mt-0 sm:ml-2">
+    <button className="bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full transition-all">
+      <FaTrashAlt className="w-5 h-5" />
+    </button>
+  </div>
+</div>
+
+
                         ))}
                     </div>
 
