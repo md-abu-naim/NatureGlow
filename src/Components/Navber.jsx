@@ -34,14 +34,14 @@ const Navber = () => {
             </div>
             <div className="navbar-end gap-2 relative">
                 <NavLink to="/signIn" className="text-2xl  hover:text-green-600 transition-colors"><VscAccount /></NavLink>
-                <div className="relative">
+                <NavLink to='/cart' className="relative">
                     <button className="text-2xl hover:text-green-600 transition-colors">
                         <FaCartPlus />
                     </button>
                     <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
                         12
                     </span>
-                </div>
+                </NavLink>
             </div>
         </div>
     );
