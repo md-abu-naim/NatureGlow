@@ -32,18 +32,18 @@ const cartItems = [
     },
 ];
 const Cart = () => {
-    const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const total = cartItems.reduce((acc, item) => acc + item.price, 0);
     return (
         <div>
 
-            <div className='lg:mx-20 px-4 py-10'>
+            <div className='lg:mx-16 px-4 py-10'>
                 {/* Page Title */}
                 <section className='bg-green-100 py-8 text-center rounded-lg'>
                     <h1 className='text-4xl font-extrabold text-green-800'>Your Cart — Naturally Curated for You</h1>
                     <p className='text-green-600 text-sm mt-2'> Review the products you've chosen and take a step closer to radiant, healthy skin with our thoughtfully crafted organic skincare essentials.</p>
                 </section>
 
-                <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-7'>
+                <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-7'>
                     <div className='col-span-3 lg:col-span-2 space-y-4 p-5 rounded-xl bg-green-100'>
                         {
                             cartItems?.map(item => <div key={item.id} className='flex flex-col md:flex-row text-center md:text-start items-center p-4 gap-4 shadow-md rounded-xl border border-green-600'>
@@ -59,48 +59,14 @@ const Cart = () => {
                             )
                         }
                     </div>
+
+                    {/* Order Summary */}
+                    
                 </div>
             </div>
 
             <div className="">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gapd-6 mt-7 ">
-                    <div className="lg:col-span-2 space-y-4 p-8 rounded-xl bg-green-100">
-                        {cartItems.map((item) => (
-                            <div
-  key={item.id}
-  className="flex flex-col text-center sm:flex-row items-center sm:items-start p-4 gap-4 shadow-md rounded-xl border"
->
-  <img
-    src={item.image}
-    alt={item.name}
-    className="w-28 h-28 object-cover rounded-xl border"
-  />
-
-  <div className="flex-1 w-full">
-    <h2 className="text-lg font-semibold text-green-700">{item.name}</h2>
-    <p className="text-sm text-gray-500">Face Care</p>
-    <p className="text-md font-semibold text-green-800">${item.price}</p>
-    <Link
-      to={`/product/${item.id}`}
-      className="inline-block mt-2 px-3 py-1 text-sm bg-green-700 text-white rounded hover:bg-green-800 transition"
-    >
-      View Details
-    </Link>
-  </div>
-
-  {/* Delete Button - now placed better on mobile */}
-  <div className="mt-4 sm:mt-0 sm:ml-2">
-    <button className="bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full transition-all">
-      <FaTrashAlt className="w-5 h-5" />
-    </button>
-  </div>
-</div>
-
-
-                        ))}
-                    </div>
-
-
                     <div>
                         <div className='bg-green-100 p-4 rounded-xl'>
                             <div className="p-6 shadow-md rounded-xl border space-y-4">
