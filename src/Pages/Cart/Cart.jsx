@@ -17,14 +17,14 @@ const cartItems = [
         image: '/images/rose-mist.jpg',
     },
     {
-        id: 1,
+        id: 3,
         name: 'Organic Aloe Vera Gel',
         price: 15,
         category: 'Hair Care',
         image: '/images/aloe-vera.jpg',
     },
     {
-        id: 2,
+        id: 4,
         name: 'Natural Rose Water Mist',
         price: 12,
         category: 'Lip Care',
