@@ -50,37 +50,6 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div>
-
-            <div className="max-w-6xl mx-auto px-4 py-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-green-50 p-6 rounded-2xl border border-green-100">
-                    <div>
-                        <div className="mb-4">
-                            <span className="font-semibold text-gray-600">Ingredients:</span>
-                            <ul className="list-disc list-inside text-sm text-gray-700">
-                                {product.ingredients.map((item, i) => (
-                                    <li key={i}>{item}</li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        <p className={`text-sm font-medium mb-4 ${product.status === 'In Stock' ? 'text-green-600' : 'text-red-500'}`}>
-                            {product.status}
-                        </p>
-
-                        <div className="space-y-3">
-                            <button className="w-full px-6 py-3 bg-green-700 hover:bg-green-800 text-white font-semibold rounded-xl transition-all text-center">
-                                Add to Cart
-                            </button>
-                            <button className="w-full px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition-all text-center">
-                                Buy Now
-                            </button>
-                        </div>
-                        <div className="mt-4 text-center">
-                            <Link to="/shop" className="text-sm text-green-700 hover:underline">⬅ Back to Shop</Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     );
 };
