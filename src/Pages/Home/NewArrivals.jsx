@@ -28,7 +28,7 @@ const NewArrivals = () => {
                             <p className="text-gray-700 text-sm">{product.shortBio}</p>
                             <div className="flex items-center justify-between pt-2">
                                 <span className="text-green-500 font-bold text-md">${product.price}</span>
-                                <span className="text-sm bg-green-100 text-green-500">{product.status}</span>
+                                <span className="text-sm bg-green-100 text-green-500 p-1.5 rounded-lg">{product.status}</span>
                             </div>
                             <div className="flex gap-3 w-full pt-3">
                                 <button className="flex-1 px-4 py-2 rounded-full text-sm font-medium border border-green-500 text-green-600 hover:bg-green-100 transition">View Details</button>
