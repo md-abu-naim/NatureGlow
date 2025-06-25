@@ -9,6 +9,7 @@ import Contacts from "../Pages/Contact/Contacts";
 import SignUp from "../Pages/Autentication/SignUp";
 import SignIn from "../Pages/Autentication/SignIn";
 import Cart from "../Pages/Cart/Cart";
+import ProductDetails from "../Components/ProductDetails";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
       {
         path: '/shop',
         element: <Shop />
+      },
+      {
+        path: '/details',
+        element: <ProductDetails />
       },
       {
         path: '/about',
