@@ -22,16 +22,13 @@ const ProductDetails = () => {
                     <div className='bg-white p-4 rounded-2xl shadow border'>
                         <img className="w-full h-auto object-cover rounded-xl border border-green-300" src={product.image} alt={product.name} />
                     </div>
+
+                    {/* Product Info */}
                 </div>
             </div>
 
             <div className="max-w-6xl mx-auto px-4 py-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-green-50 p-6 rounded-2xl border border-green-100">
-                    {/* Product Image */}
-                    <div className="bg-white p-4 rounded-2xl shadow border">
-                        <img src={product.image} alt={product.name} className="w-full h-auto object-cover rounded-xl border border-green-300" />
-                    </div>
-
                     {/* Product Info */}
                     <div>
                         <h1 className="text-3xl font-bold text-green-800 mb-2">{product.name}</h1>
