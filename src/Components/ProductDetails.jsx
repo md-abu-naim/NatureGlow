@@ -1,19 +1,12 @@
-import { Link, useParams } from 'react-router-dom';
+
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 const ProductDetails = () => {
-    const { id } = useParams(); // Optional: for dynamic data
+    const { id } = useParams();
+    const products = useLoaderData()
 
-    // Example static product data
-    const product = {
-        id: 1,
-        name: 'Aloe Vera Hydrating Gel',
-        price: 18,
-        image: 'https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp',
-        category: 'Face Care',
-        description: 'Soothe, hydrate, and rejuvenate your skin with 100% organic aloe vera gel. Ideal for sensitive or irritated skin.',
-        status: 'In Stock',
-        ingredients: ['Organic Aloe Vera', 'Vitamin E', 'Rose Extract'],
-    };
+    const product = products?.find(p => p.id == id)
+   
     return (
         <div className='px-4 md:px-16 py-10'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-green-50 p-6 rounded-2xl border border-green-100'>
@@ -32,7 +25,7 @@ const ProductDetails = () => {
                         <span className="font-semibold text-gray-600">Features:</span>
                         <ul className='list-disc list-inside text-sm text-gray-700'>
                             {
-                                product.ingredients.map((item, i) => (
+                                product?.features?.map((item, i) => (
                                     <li key={i}>{item}</li>
                                 ))
                             }
