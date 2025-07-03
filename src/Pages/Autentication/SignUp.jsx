@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../Provider/useAuth";
 
 const SignUp = () => {
-    const {createUser} = useAuth()
+    const {createUser, updateUser, setUser, user} = useAuth()
 
     const handleSingUp = (e) => {
         e.preventDefault()
@@ -14,7 +14,14 @@ const SignUp = () => {
         console.log(name, email, password);
 
         createUser(email, password)
-        .then(result => console.log(result.user))
+        .then(result => {
+            updateUser(name, result.user.photoURL)
+            setUser({
+                    ...user,
+                    displayName: name,
+                    photoURL: result.user.photoURL
+                })
+        })
     }
 
     return (
