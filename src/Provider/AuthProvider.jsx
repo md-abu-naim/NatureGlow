@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { 
  createUserWithEmailAndPassword,onAuthStateChanged,
  signInWithEmailAndPassword,
+ signOut,
  updateProfile,
   } from "firebase/auth";
 export const AuthContext = createContext(null)
@@ -42,13 +43,11 @@ const AuthProvider = ({children}) => {
         })
     }
 
-    // const updateUser = (name, photoURL) => {
-    //     setLoading(true)
-    //     return updateProfile(auth.currentUser, {
-    //         displayName: name,
-    //         photoURL: photoURL
-    //     })
-    // }
+    const logOutUser = () => {
+        setLoading(true)
+        .then(data => console.log(data.data))
+        return signOut(auth)
+    }
 
     // const logOutUser = () => {
     //     setLoading(true)
@@ -64,7 +63,7 @@ const AuthProvider = ({children}) => {
     })
 
     const authInfo = {createUser, loginUser, updateUser,
-     loading, user, setUser, }
+     loading, user, setUser, logOutUser}
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

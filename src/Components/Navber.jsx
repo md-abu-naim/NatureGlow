@@ -1,8 +1,11 @@
 import { FaCartPlus } from "react-icons/fa";
 import { VscAccount } from "react-icons/vsc";
 import { NavLink } from "react-router-dom";
+import useAuth from "../Provider/useAuth";
 
 const Navber = () => {
+    const {user} = useAuth()
+    console.log(user);
     const navLinks = <>
         <NavLink to="/" className={({ isActive }) => isActive ? 'border-b-3 border-green-500 text-green-500 font-bold p-2' : 'font-bold p-2'}>HOME</NavLink>
         <NavLink to="/shop" className={({ isActive }) => isActive ? 'border-b-3 border-green-500 text-green-500 font-bold p-2' : 'font-bold p-2'}>SHOP</NavLink>
