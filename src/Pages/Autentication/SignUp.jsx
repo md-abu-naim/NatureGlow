@@ -1,7 +1,22 @@
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useAuth from "../../Provider/useAuth";
 
 const SignUp = () => {
+    const {createUser} = useAuth()
+
+    const handleSingUp = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        const email = form.email.value
+        const password = form.password.value
+        console.log(name, email, password);
+
+        createUser(email, password)
+        .then(result => console.log(result.user))
+    }
+
     return (
         <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Left Side */}
@@ -15,26 +30,26 @@ const SignUp = () => {
 
             {/* Right Side */}
             <div className="flex flex-col items-center justify-center py-8">
-                <form className="w-full max-w-md space-y-5 bg-white p-8 rounded-2xl shadow border border-green-100">
+                <form onSubmit={handleSingUp} className="w-full max-w-md space-y-5 bg-white p-8 rounded-2xl shadow border border-green-100">
                     <h3 className="text-2xl font-bold text-green-800 text-center">Create Account</h3>
                     <div>
                         <label className="text-sm font-medium text-green-700 mb-1">Full Name</label>
                         <div className="relative">
-                            <input className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="text" placeholder="Your Name" />
+                            <input name="name" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="text" placeholder="Your Name" />
                             <FaUser className="absolute right-4 top-3.5 text-green-400" />
                         </div>
                     </div>
                     <div>
                         <label className="text-sm font-medium text-green-700 mb-1">Email</label>
                         <div className="relative">
-                            <input className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="email" placeholder="you@example.com" />
+                            <input name="email" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="email" placeholder="you@example.com" />
                             <FaEnvelope className="absolute right-4 top-3.5 text-green-400" />
                         </div>
                     </div>
                     <div>
                         <label className="text-sm font-medium text-green-700 mb-1">Password</label>
                         <div className="relative">
-                            <input className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="password" placeholder="••••••••" />
+                            <input name="password" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="password" placeholder="••••••••" />
                             <FaLock className="absolute right-4 top-3.5 text-green-400" />
                         </div>
                     </div>
