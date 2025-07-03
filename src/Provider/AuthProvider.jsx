@@ -34,13 +34,13 @@ const AuthProvider = ({children}) => {
     //     return signInWithPopup(auth, githubProvider)
     // }
 
-    // const updateUser = (name, photoURL) => {
-    //     setLoading(true)
-    //     return updateProfile(auth.currentUser, {
-    //         displayName: name,
-    //         photoURL: photoURL
-    //     })
-    // }
+    const updateUser = (name, photoURL) => {
+        setLoading(true)
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photoURL
+        })
+    }
 
     // const updateUser = (name, photoURL) => {
     //     setLoading(true)
