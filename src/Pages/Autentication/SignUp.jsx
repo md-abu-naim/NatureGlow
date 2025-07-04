@@ -15,6 +15,9 @@ const SignUp = () => {
         const email = form.email.value
         const password = form.password.value
 
+        if( /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+            return toast.error('Please enter your valid email')
+        }
         if (password === '') {
             return toast.error('Please fulfill your form')
         }
@@ -67,14 +70,14 @@ const SignUp = () => {
                     <div>
                         <label className="text-sm font-medium text-green-700 mb-1">Email</label>
                         <div className="relative">
-                            <input name="email" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="email" placeholder="you@example.com" />
+                            <input name="email" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="email" required placeholder="you@example.com" />
                             <FaEnvelope className="absolute right-4 top-3.5 text-green-400" />
                         </div>
                     </div>
                     <div>
                         <label className="text-sm font-medium text-green-700 mb-1">Password</label>
                         <div className="relative">
-                            <input name="password" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="password" placeholder="••••••••" />
+                            <input name="password" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="password" required placeholder="••••••••" />
                             <FaLock className="absolute right-4 top-3.5 text-green-400" />
                         </div>
                     </div>
