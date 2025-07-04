@@ -4,11 +4,10 @@ import { NavLink, Link } from "react-router-dom";
 import useAuth from "../Provider/useAuth";
 
 const Navbar = () => {
-    const { user, logOutUser } = useAuth();
+    const { user, LogoutUser } = useAuth();
 
     const handleLogout = () => {
-        logOutUser()
-
+        LogoutUser()
     };
 
     const navLinks = (
