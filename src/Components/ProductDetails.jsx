@@ -35,7 +35,7 @@ const ProductDetails = () => {
                     <span className={`text-sm font-medium bg-green-200 p-1.5 rounded-lg ${product.status === 'In Stock' ? 'text-green-600' : 'text-red-500'}`}>{product.status}</span>
                     <div className="space-y-3 mt-4">
                         <button className="w-full px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-xl transition-all text-center">Add to Cart</button>
-                        <button className="w-full px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all text-center">Add to Cart</button>
+                        <button className="w-full px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all text-center">Quick Purchase</button>
                     </div>
                     <div className="mt-4 text-center">
                         <Link to="/shop" className="text-sm text-green-700 hover:underline">⬅ Back to Shop</Link>
