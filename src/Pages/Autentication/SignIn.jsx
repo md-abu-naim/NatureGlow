@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../Provider/useAuth";
 
 const SignIn = () => {
-    const { loginUser, signInWithGoogle, fbLogin } = useAuth();
+    const { loginUser, signInWithGoogle, fbLogin, resetPassword } = useAuth();
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -15,6 +15,19 @@ const SignIn = () => {
             .then((result) => console.log(result.user))
             .catch((err) => console.error(err.message));
     };
+
+    const handleResetPassword = () => {
+        const email = prompt("Please enter your email address:")
+        if (!email) return
+
+        resetPassword(email)
+            .then(() => {
+                alert("Password reset email sent! Check your inbox.");
+            })
+            .catch((error) => {
+                alert("Error: " + error.message);
+            });
+    }
 
     const handleGoogle = () => {
         signInWithGoogle()
@@ -61,7 +74,7 @@ const SignIn = () => {
                             <FaLock className="absolute right-4 top-3.5 text-green-400" />
                         </div>
                         <div className="text-right">
-                            <Link to="" className="text-sm text-green-600 hover:underline">Forgot Password?</Link>
+                            <Link to="" onClick={() => handleResetPassword()} className="text-sm text-green-600 hover:underline">Forgot Password?</Link>
                         </div>
                     </div>
 

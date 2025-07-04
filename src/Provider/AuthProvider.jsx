@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types'
 import {
     createUserWithEmailAndPassword, FacebookAuthProvider, GoogleAuthProvider, onAuthStateChanged,
+    sendPasswordResetEmail,
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
@@ -49,6 +50,11 @@ const AuthProvider = ({ children }) => {
         return signOut(auth)
     }
 
+    const resetPassword = (email) => {
+        setLoading(true)
+        return sendPasswordResetEmail(auth, email)
+    }
+
     useEffect(() => {
         const unSubsCribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
@@ -59,7 +65,7 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = {
         createUser, loginUser, updateUser,
-        loading, user, setUser, LogoutUser, signInWithGoogle, fbLogin
+        loading, user, setUser, LogoutUser, signInWithGoogle, fbLogin, resetPassword
     }
 
     return (
