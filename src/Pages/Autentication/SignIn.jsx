@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../Provider/useAuth";
 
 const SignIn = () => {
-    const { loginUser, signInWithGoogle } = useAuth();
+    const { loginUser, signInWithGoogle, fbLogin } = useAuth();
 
     const handleLogin = (e) => {
         e.preventDefault();

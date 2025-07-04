@@ -2,7 +2,7 @@ import { auth } from "../Firebase/Firebase.config";
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types'
 import {
-    createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged,
+    createUserWithEmailAndPassword, FacebookAuthProvider, GoogleAuthProvider, onAuthStateChanged,
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 export const AuthContext = createContext(null)
 const googleProvider = new GoogleAuthProvider()
+const fbProvider = new FacebookAuthProvider();
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
@@ -25,15 +26,10 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    // const signInwithGoogle = () => {
-    //     setLoading(true)
-    //     return signInWithPopup(auth, googleProvider)
-    // }
-
-    // const signInwithgithub = () => {
-    //     setLoading(true)
-    //     return signInWithPopup(auth, githubProvider)
-    // }
+    const fbLogin = () => {
+            setUser(true)
+            return signInWithPopup(auth, fbProvider)
+        }
 
     const signInWithGoogle = () => {
         setLoading(true)
@@ -63,7 +59,7 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = {
         createUser, loginUser, updateUser,
-        loading, user, setUser, LogoutUser, signInWithGoogle
+        loading, user, setUser, LogoutUser, signInWithGoogle, fbLogin
     }
 
     return (
