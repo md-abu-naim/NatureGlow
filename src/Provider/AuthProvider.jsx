@@ -49,11 +49,6 @@ const AuthProvider = ({children}) => {
         return signOut(auth)
     }
 
-    // const logOutUser = () => {
-    //     setLoading(true)
-    //     .then(data => console.log(data.data))
-    //     return signOut(auth)
-    // }
     useEffect(() => {
         const unSubsCribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
