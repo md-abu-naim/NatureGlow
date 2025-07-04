@@ -1,13 +1,17 @@
 import { FaCartPlus } from "react-icons/fa";
 import { VscAccount } from "react-icons/vsc";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import useAuth from "../Provider/useAuth";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
     const { user, LogoutUser } = useAuth();
+    const navigate = useNavigate()
 
     const handleLogout = () => {
         LogoutUser()
+        toast.success('Sign Out successfully')
+                navigate('/signIn')
     };
 
     const navLinks = (

@@ -15,8 +15,6 @@ const SignUp = () => {
         const email = form.email.value
         const password = form.password.value
 
-        e.target.reset()
-
         if (password === '') {
             return toast.error('Please fulfill your form')
         }
@@ -39,6 +37,7 @@ const SignUp = () => {
                     photoURL: result.user.photoURL
                 })
                 toast.success('Sign Up successfully')
+                e.target.reset()
                 navigate('/')
         })
     }

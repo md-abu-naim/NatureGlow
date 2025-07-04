@@ -1,9 +1,11 @@
 import { FaEnvelope, FaLock, FaFacebookF, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Provider/useAuth";
+import toast from "react-hot-toast";
 
 const SignIn = () => {
     const { loginUser, signInWithGoogle, fbLogin, resetPassword } = useAuth();
+    const navigate = useNavigate()
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -12,7 +14,12 @@ const SignIn = () => {
         const password = form.password.value;
 
         loginUser(email, password)
-            .then((result) => console.log(result.user))
+            .then((result) => {
+                console.log(result.user);
+                toast.success('Sign In successfully')
+                e.target.reset()
+                navigate('/')
+            })
             .catch((err) => console.error(err.message));
     };
 
@@ -31,13 +38,21 @@ const SignIn = () => {
 
     const handleGoogle = () => {
         signInWithGoogle()
-            .then((res) => console.log(res.user))
+            .then((res) => {
+                console.log(res.user);
+                toast.success('Sign Up successfully')
+                navigate('/')
+            })
             .catch((err) => console.error(err.message));
     };
 
     const handleFacebook = () => {
         fbLogin()
-            .then((res) => console.log(res.user))
+            .then((res) => {
+                console.log(res.user);
+                toast.success('Sign Up successfully')
+                navigate('/')
+            })
             .catch((err) => console.error(err.message));
     };
 
