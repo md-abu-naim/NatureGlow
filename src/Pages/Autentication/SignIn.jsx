@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../Provider/useAuth";
 
 const SignIn = () => {
-    const { loginUser, googleLogin, fbLogin } = useAuth();
+    const { loginUser, signInWithGoogle } = useAuth();
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -17,7 +17,7 @@ const SignIn = () => {
     };
 
     const handleGoogle = () => {
-        googleLogin()
+        signInWithGoogle()
             .then((res) => console.log(res.user))
             .catch((err) => console.error(err.message));
     };
