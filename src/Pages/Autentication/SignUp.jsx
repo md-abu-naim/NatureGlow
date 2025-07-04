@@ -1,9 +1,12 @@
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Provider/useAuth";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
     const {createUser, updateUser, setUser, user} = useAuth()
+    const navigate = useNavigate()
+    
 
     const handleSingUp = (e) => {
         e.preventDefault()
@@ -11,7 +14,21 @@ const SignUp = () => {
         const name = form.name.value
         const email = form.email.value
         const password = form.password.value
-        console.log(name, email, password);
+
+        e.target.reset()
+
+        if (password === '') {
+            return toast.error('Please fulfill your form')
+        }
+        else if (password.length < 6) {
+            return toast.error('Password should be at least 6 characters or longer')
+        }
+        if (!/[A-Z]/.test(password)) {
+            return toast.error('Your password should have at least one Uppercase characters')
+        }
+        else if (!/[a-z]/.test(password)) {
+            return toast.error('Your password should have at least one Lowercase characters')
+        }
 
         createUser(email, password)
         .then(result => {
@@ -21,6 +38,8 @@ const SignUp = () => {
                     displayName: name,
                     photoURL: result.user.photoURL
                 })
+                toast.success('Sign Up successfully')
+                navigate('/')
         })
     }
 
