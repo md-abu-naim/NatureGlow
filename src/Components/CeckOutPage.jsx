@@ -25,8 +25,8 @@ const CheckoutPage = () => {
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10 space-y-10">
-      <div>
+    <div>
+      <div className='max-w-6xl mx-auto px-4 py-10 space-y-10'>
         {/* Page Title */}
         <section className='bg-green-100 py-8 text-center rounded-2xl'>
           <h1 className='text-4xl font-extrabold text-green-800'>Checkout & Order Summary</h1>
@@ -34,24 +34,24 @@ const CheckoutPage = () => {
         </section>
 
         {/* Customer Information */}
-        <div className='bg-green-50 p-6 rounded-2xl border border-'>
-          <h1></h1>
-          <div>
+        <div className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
+          <h1 className="text-xl font-bold text-green-700 mb-4">Customer Information</h1>
+          <div className='space-y-4'>
             <div>
-              <label >Full Name</label>
-              <input type="text" name="" />
+              <label className='block text-sm font-medium text-green-700 mb-1'>Full Name</label>
+              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text"  name="" placeholder="Enter your full name" />
             </div>
             <div>
-              <label >Phone Number</label>
-              <input type="text" name="" />
+              <label className='block text-sm font-medium text-green-700 mb-1'>Phone Number</label>
+              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="" placeholder="Enter your phone number" />
             </div>
             <div>
-              <label >Adress</label>
-              <input type="text" name="" />
+              <label className='block text-sm font-medium text-green-700 mb-1'>Address</label>
+              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="" placeholder="Enter your address" />
             </div>
             <div>
-              <label >order note (optional)</label>
-              <textarea name="" ></textarea>
+              <label className='block text-sm font-medium text-green-700 mb-1'>Order note (optional)</label>
+              <textarea className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' name="" placeholder="Write your order note here" ></textarea>
             </div>
           </div>
         </div>
