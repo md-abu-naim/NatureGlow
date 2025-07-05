@@ -26,11 +26,37 @@ const CheckoutPage = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10 space-y-10">
-      {/* Page Title */}
-      <section className='bg-green-100 py-8 text-center rounded-2xl'>
-        <h1 className='text-4xl font-extrabold text-green-800'>Checkout & Order Summary</h1>
-        <p className='text-green-600 text-sm mt-2'>Fill in your details and confirm your order to receive your naturally crafted products.</p>
-      </section>
+      <div>
+        {/* Page Title */}
+        <section className='bg-green-100 py-8 text-center rounded-2xl'>
+          <h1 className='text-4xl font-extrabold text-green-800'>Checkout & Order Summary</h1>
+          <p className='text-green-600 text-sm mt-2'>Fill in your details and confirm your order to receive your naturally crafted products.</p>
+        </section>
+
+        {/* Customer Information */}
+        <div className='bg-green-50 p-6 rounded-2xl border border-'>
+          <h1></h1>
+          <div>
+            <div>
+              <label >Full Name</label>
+              <input type="text" name="" />
+            </div>
+            <div>
+              <label >Phone Number</label>
+              <input type="text" name="" />
+            </div>
+            <div>
+              <label >Adress</label>
+              <input type="text" name="" />
+            </div>
+            <div>
+              <label >order note (optional)</label>
+              <textarea name="" ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <div className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
         <h3 className="text-xl font-bold text-green-700 mb-4">Customer Information</h3>
