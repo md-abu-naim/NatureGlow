@@ -1,7 +1,3 @@
-
-
-
-
 import { useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 
@@ -31,7 +27,7 @@ const CheckoutPage = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-10 space-y-10">
       {/* Page Title */}
-      <section className='bg-green-100 py-8 text-center rounded-lg'>
+      <section className='bg-green-100 py-8 text-center rounded-2xl'>
         <h1 className='text-4xl font-extrabold text-green-800'>Checkout & Order Summary</h1>
         <p className='text-green-600 text-sm mt-2'>Fill in your details and confirm your order to receive your naturally crafted products.</p>
       </section>
