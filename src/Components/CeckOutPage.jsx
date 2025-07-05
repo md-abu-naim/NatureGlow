@@ -34,7 +34,7 @@ const CheckoutPage = () => {
         </section>
 
         {/* Customer Information */}
-        <div className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
+        <section className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
           <h1 className="text-xl font-bold text-green-700 mb-4">Customer Information</h1>
           <div className='space-y-4'>
             <div>
@@ -54,8 +54,27 @@ const CheckoutPage = () => {
               <textarea className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' name="" placeholder="Write your order note here" ></textarea>
             </div>
           </div>
-        </div>
+        </section>
       </div>
+
+      {/* Products List */}
+      <section className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
+        <h3>Your Products</h3>
+        <div>
+          <div>
+            <img src="" alt="" />
+            <div>
+              <h2></h2>
+              <p></p>
+              <div>
+                <label >Qty:</label>
+                <input type="number" name="" id="" />
+              </div>
+            </div>
+            <button></button>
+          </div>
+        </div>
+      </section>
 
 
       {/* Products List */}
