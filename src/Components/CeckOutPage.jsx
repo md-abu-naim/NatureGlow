@@ -58,29 +58,6 @@ const CheckoutPage = () => {
       </div>
 
 
-      <div className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
-        <h3 className="text-xl font-bold text-green-700 mb-4">Customer Information</h3>
-        <div className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-green-700 mb-1">Full Name</label>
-            <input type="text" placeholder="Enter your full name" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-green-700 mb-1">Phone Number</label>
-            <input type="text" placeholder="Enter your phone number" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-green-700 mb-1">Address</label>
-            <input type="text" placeholder="Enter your address" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-green-700 mb-1">Order Note (optional)</label>
-            <textarea placeholder="Write your order note here" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
-          </div>
-        </div>
-      </div>
-
-
       {/* Products List */}
       <div className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
         <h3 className="text-xl font-bold text-green-700 mb-4">Your Products</h3>
