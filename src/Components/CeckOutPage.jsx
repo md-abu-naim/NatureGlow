@@ -79,8 +79,6 @@ const CheckoutPage = () => {
             }
           </div>
         </section>
-
-
       </div>
 
       {/* Summary */}
