@@ -83,30 +83,6 @@ const CheckoutPage = () => {
 
       </div>
 
-
-      {/* Products List */}
-      <div className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
-        <h3 className="text-xl font-bold text-green-700 mb-4">Your Products</h3>
-        <div className="space-y-4 ">
-          {cartItems.map((item) => (
-            <div key={item.id} className="flex flex-col md:flex-row items-center p-4 gap-4 bg-white rounded-xl shadow border border-green-200">
-              <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-xl border" />
-              <div className="flex-1 text-center md:text-left">
-                <h2 className="text-lg font-semibold text-green-700">{item.name}</h2>
-                <p className="text-sm text-gray-600">Price: ${item.price}.00</p>
-                <div className="mt-2 flex items-center justify-center md:justify-start gap-2">
-                  <label className="text-sm">Qty:</label>
-                  <input type="number" min={1} defaultValue={item.quantity} className="w-16 border border-green-300 rounded px-2 py-1 text-center" />
-                </div>
-              </div>
-              <button className='bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full transition-all'>
-                <FaTrashAlt className="w-5 h-5" />
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Summary */}
       <div className="bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4">
         <h3 className="text-xl font-bold text-green-700 mb-4">Order Summary</h3>
