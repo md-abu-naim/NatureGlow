@@ -60,7 +60,7 @@ const CheckoutPage = () => {
         {/* Products List */}
         <section className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
           <h3 className="text-xl font-bold text-green-700 mb-4">Your Products</h3>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+          <div className={cartItems.length > 1 ? 'grid grid-cols-1 md:grid-cols-2 gap-4' : 'grid grid-cols-1 gap-4'}>
             {
               cartItems.map(item => (
                 <div key={item.id} className='grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4 bg-white rounded-xl shadow border border-green-200 h-full'>
@@ -78,6 +78,19 @@ const CheckoutPage = () => {
               ))
             }
           </div>
+        </section>
+
+        {/* Summary */}
+        <section className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
+          <h3 className='text-xl font-bold text-green-700 mb-4'>Order Summary</h3>
+          {
+            cartItems.map(item => (
+              <div key={item.id} className="flex justify-between text-sm">
+                <span>{item.name} × {item.quantity}</span>
+                <span>{item.price *  item.quantity}.00</span>
+              </div>
+            ))
+          }
         </section>
       </div>
 
