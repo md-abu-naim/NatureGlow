@@ -87,10 +87,24 @@ const CheckoutPage = () => {
             cartItems.map(item => (
               <div key={item.id} className="flex justify-between text-sm">
                 <span>{item.name} × {item.quantity}</span>
-                <span>{item.price *  item.quantity}.00</span>
+                <span>${item.price * item.quantity}.00</span>
               </div>
             ))
           }
+          <hr />
+          <div className="flex justify-between text-sm text-green-500">
+            <span>Shipping</span>
+            <span>${1}.00</span>
+          </div>
+          <div className="flex justify-between text-sm text-green-600">
+            <span>Sub Total</span>
+            <span>${total}.00</span>
+          </div>
+          <hr />
+          <div className="flex justify-between font-bold text-green-900">
+            <span>Total</span>
+            <span>{total + 1}.00</span>
+          </div>
         </section>
       </div>
 
@@ -104,9 +118,17 @@ const CheckoutPage = () => {
           </div>
         ))}
         <hr />
+        <div className="flex justify-between text-sm">
+          <span>Shipping</span>
+          <span>${1}.00</span>
+        </div>
+        <div className="flex justify-between text-sm">
+          <span>Sub Total</span>
+          <span>${total}.00</span>
+        </div>
         <div className="flex justify-between font-bold text-green-900">
           <span>Total</span>
-          <span>${total}.00</span>
+          <span>${total + 1}.00</span>
         </div>
       </div>
 
