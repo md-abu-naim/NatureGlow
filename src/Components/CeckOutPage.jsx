@@ -108,30 +108,6 @@ const CheckoutPage = () => {
         </section>
       </div>
 
-      {/* Summary */}
-      <div className="bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4">
-        <h3 className="text-xl font-bold text-green-700 mb-4">Order Summary</h3>
-        {cartItems.map(item => (
-          <div key={item.id} className="flex justify-between text-sm">
-            <span>{item.name} × {item.quantity}</span>
-            <span>${item.price * item.quantity}.00</span>
-          </div>
-        ))}
-        <hr />
-        <div className="flex justify-between text-sm">
-          <span>Shipping</span>
-          <span>${1}.00</span>
-        </div>
-        <div className="flex justify-between text-sm">
-          <span>Sub Total</span>
-          <span>${total}.00</span>
-        </div>
-        <div className="flex justify-between font-bold text-green-900">
-          <span>Total</span>
-          <span>${total + 1}.00</span>
-        </div>
-      </div>
-
       {/* Payment Method */}
       <div className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
         <h3 className="text-xl font-bold text-green-700 mb-4">Payment Method</h3>
