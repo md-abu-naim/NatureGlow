@@ -106,6 +106,22 @@ const CheckoutPage = () => {
             <span>{total + 1}.00</span>
           </div>
         </section>
+
+        {/* Payment Method */}
+        <section className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
+          <h3 className='text-xl font-bold text-green-700 mb-4'>Payment Method</h3>
+          <div className='flex flex-col md:flex-row gap-4'>
+            <button className={`flex-1 border rounded-xl px-4 py-3 flex items-center justify-center gap-3 transition-all ${paymentMethod === 'ssl' ? 'bg-green-200 border-green-600' : 'bg-white border-green-300'}`}>
+              <img src="https://i.ibb.co/4P8WbWF/cash-on-delivery-icon.png" alt="Cash on Delivery" className="w-6 h-6" /> Cash on Delivery
+            </button>
+            <button className={`flex-1 border rounded-xl px-4 py-3 flex items-center justify-center gap-3 transition-all ${paymentMethod === 'ssl' ? 'bg-green-200 border-green-600' : 'bg-white border-green-300'}`}>
+              <img src="https://i.ibb.co/4P8WbWF/cash-on-delivery-icon.png" alt="Cash on Delivery" className="w-6 h-6" /> Stripe
+            </button>
+            <button className={`flex-1 border rounded-xl px-4 py-3 flex items-center justify-center gap-3 transition-all ${paymentMethod === 'ssl' ? 'bg-green-200 border-green-600' : 'bg-white border-green-300'}`}>
+              <img src="https://i.ibb.co/4P8WbWF/cash-on-delivery-icon.png" alt="Cash on Delivery" className="w-6 h-6" /> SSLCommerz
+            </button>
+          </div>
+        </section>
       </div>
 
       {/* Payment Method */}
