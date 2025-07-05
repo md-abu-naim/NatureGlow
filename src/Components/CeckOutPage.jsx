@@ -39,7 +39,7 @@ const CheckoutPage = () => {
           <div className='space-y-4'>
             <div>
               <label className='block text-sm font-medium text-green-700 mb-1'>Full Name</label>
-              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text"  name="" placeholder="Enter your full name" />
+              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="" placeholder="Enter your full name" />
             </div>
             <div>
               <label className='block text-sm font-medium text-green-700 mb-1'>Phone Number</label>
@@ -55,32 +55,80 @@ const CheckoutPage = () => {
             </div>
           </div>
         </section>
-      </div>
 
-      {/* Products List */}
-      <section className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
-        <h3>Your Products</h3>
-        <div>
-          <div>
-            <img src="" alt="" />
-            <div>
-              <h2></h2>
-              <p></p>
-              <div>
-                <label >Qty:</label>
-                <input type="number" name="" id="" />
-              </div>
-            </div>
-            <button></button>
+
+        {/* Products List */}
+        <section className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
+          <h3 className="text-xl font-bold text-green-700 mb-4">Your Products</h3>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+            {
+              cartItems.map(item => (
+                <div key={item.id} className='grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4 bg-white rounded-xl shadow border border-green-200 h-full'>
+                  <img className='w-20 h-20 object-cover rounded-xl border shrink-0' src={item.image} alt="" />
+                  <div className='flex-1'>
+                    <h2 className='font-semibold text-green-700'>{item.name}</h2>
+                    <p className='text-sm text-gray-600'>Price:{item.price}</p>
+                    <div className='mt-2 flex items-center justify-center md:justify-start gap-2'>
+                      <label className='text-sm'>Qty:</label>
+                      <input type="number" min={1} defaultValue={item.quantity} name="" className='w-16 border border-green-300 rounded px-2 py-1 text-center' />
+                    </div>
+                  </div>
+                  <button className='bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full transition-all '><FaTrashAlt className="w-5 h-5" /></button>
+                </div>
+              ))
+            }
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
+          <h3 className="text-xl font-bold text-green-700 mb-4">Your Products</h3>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+            {
+              cartItems.map(item => (
+                <div
+                  key={item.id}
+                  className='grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4 bg-white rounded-xl shadow border border-green-200 h-full'
+                >
+                  {/* Image */}
+                  <img
+                    className='w-24 h-24 object-cover rounded-xl border'
+                    src={item.image}
+                    alt={item.name}
+                  />
+
+                  {/* Product Info */}
+                  <div className='space-y-1'>
+                    <h2 className=' font-semibold text-green-700'>{item.name}</h2>
+                    <p className='text-sm text-gray-600'>Price: ${item.price}</p>
+                    <div className='flex items-center gap-2'>
+                      <label className='text-sm'>Qty:</label>
+                      <input
+                        type="number"
+                        min={1}
+                        defaultValue={item.quantity}
+                        className='w-16 border border-green-300 rounded px-2 py-1 text-center'
+                      />
+                    </div>
+                  </div>
+
+                  {/* Delete Button */}
+                  <button className='bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full transition-all'>
+                    <FaTrashAlt className="w-5 h-5" />
+                  </button>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
+
+      </div>
 
 
       {/* Products List */}
       <div className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
         <h3 className="text-xl font-bold text-green-700 mb-4">Your Products</h3>
-        <div className="space-y-4">
+        <div className="space-y-4 ">
           {cartItems.map((item) => (
             <div key={item.id} className="flex flex-col md:flex-row items-center p-4 gap-4 bg-white rounded-xl shadow border border-green-200">
               <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-xl border" />
