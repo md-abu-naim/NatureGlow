@@ -10,6 +10,7 @@ import SignUp from "../Pages/Autentication/SignUp";
 import SignIn from "../Pages/Autentication/SignIn";
 import Cart from "../Pages/Cart/Cart";
 import ProductDetails from "../Components/ProductDetails";
+import CheckoutPage from "../Components/CeckOutPage";
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
       {
         path: '/cart',
         element: <Cart />
+      },
+      {
+        path: '/cehckout',
+        element: <CheckoutPage />
       }
     ]
   },
