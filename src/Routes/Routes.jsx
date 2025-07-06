@@ -8,7 +8,7 @@ import About from "../Pages/About/About";
 import Contacts from "../Pages/Contact/Contacts";
 import SignUp from "../Pages/Autentication/SignUp";
 import SignIn from "../Pages/Autentication/SignIn";
-import Cart from "../Pages/Cart/Cart";
+import Cart from "../Pages/Carts/Carts";
 import ProductDetails from "../Components/ProductDetails";
 import CheckoutPage from "../Components/CeckOutPage";
 
