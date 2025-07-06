@@ -5,7 +5,22 @@ import { FaTrashAlt } from 'react-icons/fa';
 const CheckoutPage = () => {
   const [paymentMethod, setPaymentMethod] = useState('cod');
 
-  
+  const cartItems = [
+    {
+      id: 1,
+      name: 'Neem Face Wash',
+      price: 15,
+      image: 'https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp',
+      quantity: 1,
+    },
+    {
+      id: 2,
+      name: 'Aloe Vera Gel',
+      price: 12,
+      image: 'https://i.postimg.cc/mZtY07qh/aloe-vera-gel.jpg',
+      quantity: 2,
+    },
+  ];
 
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
