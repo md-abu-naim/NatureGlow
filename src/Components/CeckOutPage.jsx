@@ -127,13 +127,13 @@ const CheckoutPage = () => {
             }
             {
               paymentMethod === 'ssl' && <div className="p-4 bg-white border border-green-300 rounded-xl">
-              <p className="text-sm text-green-700">You have selected <strong>SSLCommerz</strong>. Payment gateway integration goes here.</p>
-            </div>
+                <p className="text-sm text-green-700">You have selected <strong>SSLCommerz</strong>. Payment gateway integration goes here.</p>
+              </div>
             }
             {
               paymentMethod === 'stripe' && <div className="p-4 bg-white border border-green-300 rounded-xl">
-              <p className="text-sm text-green-700">You have selected <strong>SSLCommerz</strong>. Payment gateway integration goes here.</p>
-            </div>
+                <p className="text-sm text-green-700">You have selected <strong>SSLCommerz</strong>. Payment gateway integration goes here.</p>
+              </div>
             }
           </div>
         </section>
