@@ -5,22 +5,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 const CheckoutPage = () => {
   const [paymentMethod, setPaymentMethod] = useState('cod');
 
-  const cartItems = [
-    {
-      id: 1,
-      name: 'Neem Face Wash',
-      price: 15,
-      image: 'https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp',
-      quantity: 1,
-    },
-    {
-      id: 2,
-      name: 'Aloe Vera Gel',
-      price: 12,
-      image: 'https://i.postimg.cc/mZtY07qh/aloe-vera-gel.jpg',
-      quantity: 2,
-    },
-  ];
+  
 
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -111,60 +96,32 @@ const CheckoutPage = () => {
         <section className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
           <h3 className='text-xl font-bold text-green-700 mb-4'>Payment Method</h3>
           <div className='flex flex-col md:flex-row gap-4'>
-            <button className={`flex-1 border rounded-xl px-4 py-3 flex items-center justify-center gap-3 transition-all ${paymentMethod === 'ssl' ? 'bg-green-200 border-green-600' : 'bg-white border-green-300'}`}>
+            <button onClick={() => setPaymentMethod('cod')} className={`flex-1 border rounded-xl px-4 py-3 flex items-center justify-center gap-3 transition-all ${paymentMethod === 'cod' ? 'bg-green-200 border-green-600' : 'bg-white border-green-300'}`}>
               <img src="https://i.ibb.co/4P8WbWF/cash-on-delivery-icon.png" alt="Cash on Delivery" className="w-6 h-6" /> Cash on Delivery
             </button>
-            <button className={`flex-1 border rounded-xl px-4 py-3 flex items-center justify-center gap-3 transition-all ${paymentMethod === 'ssl' ? 'bg-green-200 border-green-600' : 'bg-white border-green-300'}`}>
+            <button onClick={() => setPaymentMethod('stripe')} className={`flex-1 border rounded-xl px-4 py-3 flex items-center justify-center gap-3 transition-all ${paymentMethod === 'stripe' ? 'bg-green-200 border-green-600' : 'bg-white border-green-300'}`}>
               <img src="https://i.ibb.co/4P8WbWF/cash-on-delivery-icon.png" alt="Cash on Delivery" className="w-6 h-6" /> Stripe
             </button>
-            <button className={`flex-1 border rounded-xl px-4 py-3 flex items-center justify-center gap-3 transition-all ${paymentMethod === 'ssl' ? 'bg-green-200 border-green-600' : 'bg-white border-green-300'}`}>
+            <button onClick={() => setPaymentMethod('ssl')} className={`flex-1 border rounded-xl px-4 py-3 flex items-center justify-center gap-3 transition-all ${paymentMethod === 'ssl' ? 'bg-green-200 border-green-600' : 'bg-white border-green-300'}`}>
               <img src="https://i.ibb.co/4P8WbWF/cash-on-delivery-icon.png" alt="Cash on Delivery" className="w-6 h-6" /> SSLCommerz
             </button>
           </div>
-        </section>
-      </div>
-
-      {/* Payment Method */}
-      <div className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
-        <h3 className="text-xl font-bold text-green-700 mb-4">Payment Method</h3>
-        <div className="flex flex-col md:flex-row gap-4">
-          <button
-            type="button"
-            onClick={() => setPaymentMethod('ssl')}
-            className={`flex-1 border rounded-xl px-4 py-3 flex items-center justify-center gap-3 transition-all ${paymentMethod === 'ssl' ? 'bg-green-200 border-green-600' : 'bg-white border-green-300'}`}
-          >
-            <img src="https://i.ibb.co/7KgYL9K/sslcommerz-logo.png" alt="SSLCommerz" className="w-6 h-6" /> SSLCommerz
-          </button>
-          <button
-            type="button"
-            onClick={() => setPaymentMethod('stripe')}
-            className={`flex-1 border rounded-xl px-4 py-3 flex items-center justify-center gap-3 transition-all ${paymentMethod === 'stripe' ? 'bg-green-200 border-green-600' : 'bg-white border-green-300'}`}
-          >
-            <img src="https://i.ibb.co/ZcncKzG/stripe-logo.png" alt="Stripe" className="w-6 h-6" /> Stripe
-          </button>
-          <button
-            type="button"
-            onClick={() => setPaymentMethod('cod')}
-            className={`flex-1 border rounded-xl px-4 py-3 flex items-center justify-center gap-3 transition-all ${paymentMethod === 'cod' ? 'bg-green-200 border-green-600' : 'bg-white border-green-300'}`}
-          >
-            <img src="https://i.ibb.co/4P8WbWF/cash-on-delivery-icon.png" alt="Cash on Delivery" className="w-6 h-6" /> Cash on Delivery
-          </button>
-        </div>
-        <div className="mt-4">
-          {paymentMethod === 'cod' && (
-            <button className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-3 rounded-xl transition-all">Place Order</button>
-          )}
-          {paymentMethod === 'ssl' && (
-            <div className="p-4 bg-white border border-green-300 rounded-xl">
+          <div className='mt-4'>
+            {
+              paymentMethod === 'cod' && <button className='w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-3 rounded-xl transition-all'>Place Order</button>
+            }
+            {
+              paymentMethod === 'ssl' && <div className="p-4 bg-white border border-green-300 rounded-xl">
               <p className="text-sm text-green-700">You have selected <strong>SSLCommerz</strong>. Payment gateway integration goes here.</p>
             </div>
-          )}
-          {paymentMethod === 'stripe' && (
-            <div className="p-4 bg-white border border-green-300 rounded-xl">
-              <p className="text-sm text-green-700">You have selected <strong>Stripe</strong>. Stripe checkout integration goes here.</p>
+            }
+            {
+              paymentMethod === 'stripe' && <div className="p-4 bg-white border border-green-300 rounded-xl">
+              <p className="text-sm text-green-700">You have selected <strong>SSLCommerz</strong>. Payment gateway integration goes here.</p>
             </div>
-          )}
-        </div>
+            }
+          </div>
+        </section>
       </div>
     </div>
   );
