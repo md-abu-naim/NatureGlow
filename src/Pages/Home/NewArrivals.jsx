@@ -19,7 +19,7 @@ const NewArrivals = () => {
             {/* Grid Layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-10">
                 {
-                    products?.map(product => <div key={product.id} className="group shadow-xl rounded-3xl p-5 relative hover:shadow-2xl transition duration-300">
+                    products?.map(product => <div to={`/details/${product.id}`} key={product.id} className="group shadow-xl rounded-3xl p-5 relative hover:shadow-2xl transition duration-300">
                         <div className="overflow-hidden rounded-xl">
                             <img className="w-full h-52 object-contain rounded-xl group-hover:scale-105 transition-transform duration-300" src={product.image} alt={product.name} />
                         </div>
@@ -33,7 +33,7 @@ const NewArrivals = () => {
                             </div>
                             <div className="flex gap-3 w-full pt-3">
                                 <Link to={`/details/${product.id}`} className="flex-1 px-4 py-2 rounded-full text-sm font-medium border border-green-500 text-green-600 hover:bg-green-100 transition">View Details</Link>
-                                <button className="flex-1 px-4 py-2 rounded-full text-xm font-medium bg-green-500 text-white hover:bg-green-600 transition">Quick Buy</button>
+                                <Link to={`/checkout/${product.id}`} className="flex-1 px-4 py-2 rounded-full text-xm font-medium bg-green-500 text-white hover:bg-green-600 transition">Quick Buy</Link>
                             </div>
                         </div>
                     </div>)
