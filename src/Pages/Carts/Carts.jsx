@@ -1,42 +1,16 @@
 import { Link } from 'react-router-dom';
 import Card from './Card';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-const cartItems = [
-    {
-        id: 1,
-        name: 'Organic Aloe Vera Gel',
-        price: 15,
-        category: 'Face Care',
-        image: '/images/aloe-vera.jpg',
-    },
-    {
-        id: 2,
-        name: 'Natural Rose Water Mist',
-        price: 12,
-        category: 'Body Care',
-        image: '/images/rose-mist.jpg',
-    },
-    {
-        id: 3,
-        name: 'Organic Aloe Vera Gel',
-        price: 15,
-        category: 'Hair Care',
-        image: '/images/aloe-vera.jpg',
-    },
-    {
-        id: 4,
-        name: 'Natural Rose Water Mist',
-        price: 12,
-        category: 'Lip Care',
-        image: '/images/rose-mist.jpg',
-    },
-];
 
 const Carts = () => {
+    // const [cartItems, setCartItems] = useState([])
     const total = cartItems.reduce((acc, item) => acc + item.price, 0);
 
-
+    useEffect(() => {
+        const storedCart = JSON.parse(localStorage.getItem("cart")) || []
+        // setCartItems(storedCart);
+    }, [])
     return (
         <div className='lg:mx-16 px-4 py-10'>
             {/* Page Title */}
