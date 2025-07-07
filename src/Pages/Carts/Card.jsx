@@ -9,6 +9,7 @@ const Card = ({ cartItems, setCartItems }) => {
         setCartItems(UpdateCart)
 
         localStorage.setItem("cart", JSON.stringify(UpdateCart))
+        window.dispatchEvent(new Event("cartUpdated"));
         toast.success('Product Remove successfully')
     }
     return (

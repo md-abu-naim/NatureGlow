@@ -3,10 +3,12 @@ import { VscAccount } from "react-icons/vsc";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import useAuth from "../Provider/useAuth";
 import toast from "react-hot-toast";
+import useCart from "../Hooks/useCart";
 
 const Navbar = () => {
     const { user, LogoutUser } = useAuth();
     const navigate = useNavigate()
+    const cartCount = useCart()
 
     const handleLogout = () => {
         LogoutUser()
@@ -67,7 +69,7 @@ const Navbar = () => {
                 {/* Cart Icon */}
                 <NavLink to='/cart' className="relative">
                     <button className="text-2xl hover:text-green-600 transition-colors"><FaCartPlus /></button>
-                    <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">12</span>
+                    <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">{cartCount}</span>
                 </NavLink>
             </div>
         </div>

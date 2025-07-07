@@ -14,6 +14,7 @@ const ProductDetails = () => {
         if(alreadyInCart) return toast.error('Product already in cart');
         const updateCart = [...axistingCart, product]
         localStorage.setItem("cart", JSON.stringify(updateCart))
+        window.dispatchEvent(new Event("cartUpdated"));
         toast.success('Product Added To Cart successfully')
     }
     return (
