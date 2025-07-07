@@ -10,9 +10,11 @@ const ProductDetails = () => {
 
     const handleAddToCart = (product) => {
         const axistingCart = JSON.parse(localStorage.getItem("cart")) || []
+        const alreadyInCart = axistingCart.find(item => item.id === product.id)
+        if(alreadyInCart) return toast.error('Product already in cart');
         const updateCart = [...axistingCart, product]
         localStorage.setItem("cart", JSON.stringify(updateCart))
-        toast.success('Sign Up successfully')
+        toast.success('Product Added To Cart successfully')
     }
     return (
         <div className='px-4 md:px-16 py-10'>
@@ -41,7 +43,7 @@ const ProductDetails = () => {
                     <span className={`text-sm font-medium bg-green-200 p-1.5 rounded-lg ${product.status === 'In Stock' ? 'text-green-600' : 'text-red-500'}`}>{product.status}</span>
                     <div className="space-y-3 mt-4">
                         <Link to='/cart' onClick={() => handleAddToCart(product)} className="block w-full px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-xl transition-all text-center">Add to Cart</Link>
-                        <button className="w-full px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all text-center">Quick Purchase</button>
+                        <Link to={`/checkout/${product.id}`}  className="block w-full px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all text-center">Quick Purchase</Link>
                     </div>
                     <div className="mt-4 text-center">
                         <Link to="/shop" className="text-sm text-green-700 hover:underline">⬅ Back to Shop</Link>

@@ -9,7 +9,7 @@ const Card = ({ cartItems, setCartItems }) => {
         setCartItems(UpdateCart)
 
         localStorage.setItem("cart", JSON.stringify(UpdateCart))
-        toast.success('Sign Up successfully')
+        toast.success('Product Remove successfully')
     }
     return (
         <div className='lg:col-span-2 space-y-4 p-5 rounded-xl bg-green-100'>

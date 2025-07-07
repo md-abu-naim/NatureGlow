@@ -11,7 +11,7 @@ const Navbar = () => {
     const handleLogout = () => {
         LogoutUser()
         toast.success('Sign Out successfully')
-                navigate('/signIn')
+        navigate('/signIn')
     };
 
     const navLinks = (
