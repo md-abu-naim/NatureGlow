@@ -6,7 +6,7 @@ const Card = ({ cartItems, setCartItems }) => {
     const handleDeleteCart = id => {
 
         const UpdateCart = cartItems.filter(item => item.id !== id)
-        // setCartItems(UpdateCart)
+        setCartItems(UpdateCart)
 
         localStorage.setItem("cart", JSON.stringify(UpdateCart))
     }
