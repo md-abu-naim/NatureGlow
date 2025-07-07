@@ -1,4 +1,5 @@
 
+import toast from 'react-hot-toast';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 const ProductDetails = () => {
@@ -11,6 +12,7 @@ const ProductDetails = () => {
         const axistingCart = JSON.parse(localStorage.getItem("cart")) || []
         const updateCart = [...axistingCart, product]
         localStorage.setItem("cart", JSON.stringify(updateCart))
+        toast.success('Sign Up successfully')
     }
     return (
         <div className='px-4 md:px-16 py-10'>
