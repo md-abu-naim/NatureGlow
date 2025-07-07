@@ -1,14 +1,15 @@
+import toast from 'react-hot-toast';
 import { FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Card = ({ cartItems, setCartItems }) => {
 
     const handleDeleteCart = id => {
-
         const UpdateCart = cartItems.filter(item => item.id !== id)
         setCartItems(UpdateCart)
 
         localStorage.setItem("cart", JSON.stringify(UpdateCart))
+        toast.success('Sign Up successfully')
     }
     return (
         <div className='lg:col-span-2 space-y-4 p-5 rounded-xl bg-green-100'>
