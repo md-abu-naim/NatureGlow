@@ -1,7 +1,7 @@
 import { FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const Cart = ({ cartItems }) => {
+const Card = ({ cartItems }) => {
     return (
         <div className='lg:col-span-2 space-y-4 p-5 rounded-xl bg-green-100'>
             {
@@ -21,4 +21,4 @@ const Cart = ({ cartItems }) => {
     );
 };
 
-export default Cart;
+export default Card;

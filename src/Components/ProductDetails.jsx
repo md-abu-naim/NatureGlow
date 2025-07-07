@@ -7,7 +7,12 @@ const ProductDetails = () => {
 
     const product = products?.find(p => p.id == id)
 
-    
+    const handleAddToCart = (product) => {
+        // console.log(product);
+        const axistingCart = JSON.parse(localStorage.getItem("cart")) || []
+        const updateCart = [...axistingCart, product]
+        localStorage.setItem("cart", JSON.stringify(updateCart))
+    }
     return (
         <div className='px-4 md:px-16 py-10'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-green-50 p-6 rounded-2xl border border-green-100'>
@@ -34,7 +39,7 @@ const ProductDetails = () => {
                     </div>
                     <span className={`text-sm font-medium bg-green-200 p-1.5 rounded-lg ${product.status === 'In Stock' ? 'text-green-600' : 'text-red-500'}`}>{product.status}</span>
                     <div className="space-y-3 mt-4">
-                        <Link to='/cart' className="block w-full px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-xl transition-all text-center">Add to Cart</Link>
+                        <Link to='/cart' onClick={() => handleAddToCart(product)} className="block w-full px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-xl transition-all text-center">Add to Cart</Link>
                         <button className="w-full px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all text-center">Quick Purchase</button>
                     </div>
                     <div className="mt-4 text-center">

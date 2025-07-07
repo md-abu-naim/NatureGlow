@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import Cart from './Cart';
+import Card from './Card';
+import { useEffect } from 'react';
 
 const cartItems = [
     {
@@ -31,8 +32,11 @@ const cartItems = [
         image: '/images/rose-mist.jpg',
     },
 ];
+
 const Carts = () => {
     const total = cartItems.reduce((acc, item) => acc + item.price, 0);
+
+
     return (
         <div className='lg:mx-16 px-4 py-10'>
             {/* Page Title */}
@@ -43,7 +47,7 @@ const Carts = () => {
 
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mt-7'>
                 {/* Carts */}
-                <Cart cartItems={cartItems} />
+                <Card cartItems={cartItems} />
 
                 {/* Order Summary */}
                 <div className="w-full lg:col-span-1" >
