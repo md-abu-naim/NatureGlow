@@ -8,7 +8,6 @@ const ProductDetails = () => {
     const product = products?.find(p => p.id == id)
 
     const handleAddToCart = (product) => {
-        // console.log(product);
         const axistingCart = JSON.parse(localStorage.getItem("cart")) || []
         const updateCart = [...axistingCart, product]
         localStorage.setItem("cart", JSON.stringify(updateCart))

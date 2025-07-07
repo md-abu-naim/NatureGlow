@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react';
 
 
 const Carts = () => {
-    // const [cartItems, setCartItems] = useState([])
+    const [cartItems, setCartItems] = useState([])
     const total = cartItems.reduce((acc, item) => acc + item.price, 0);
 
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem("cart")) || []
-        // setCartItems(storedCart);
+        setCartItems(storedCart);
     }, [])
     return (
         <div className='lg:mx-16 px-4 py-10'>
@@ -21,7 +21,7 @@ const Carts = () => {
 
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mt-7'>
                 {/* Carts */}
-                <Card cartItems={cartItems} />
+                <Card cartItems={cartItems} setCartItems={setCartItems} />
 
                 {/* Order Summary */}
                 <div className="w-full lg:col-span-1" >
