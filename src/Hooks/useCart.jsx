@@ -5,7 +5,7 @@ const useCart = () => {
 
     const updateCartLength = () => {
         const cart = JSON.parse(localStorage.getItem("cart"))
-        setCartLength(cart.length)
+        setCartLength(cart?.length)
     }
 
     useEffect(() => {
