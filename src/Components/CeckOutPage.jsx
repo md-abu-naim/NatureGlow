@@ -69,7 +69,7 @@ const CheckoutPage = () => {
                   <img className='w-20 h-20 object-cover rounded-xl border shrink-0' src={item.image} alt="" />
                   <div className='flex-1'>
                     <h2 className='font-semibold text-green-700'>{item.name}</h2>
-                    <p className='text-sm text-gray-600'>Price:{item.price}</p>
+                    <p className='text-sm text-gray-600'>Price: {item.price}</p>
                     <div className='mt-2 flex items-center justify-center md:justify-start gap-2'>
                       <label className='text-sm'>Qty:</label>
                       <input type="number" min={1} defaultValue={1} name="" className='w-16 border border-green-300 rounded px-2 py-1 text-center' />
