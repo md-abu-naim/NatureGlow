@@ -20,13 +20,14 @@ const CheckoutPage = () => {
       axios.get('/Product.json')
         .then(res => {
           const data = res.data.find(p => p.id == id)
+          data.quantity = 1
           setProducts([data])
         })
     } else {
       const storedCart = JSON.parse(localStorage.getItem("cart")) || []
-      setProducts(storedCart);
+      const updateCart = storedCart.map(p => ({ ...p, quantity: p.quantity || 1}))
+      setProducts(updateCart);
     }
-
   }, [id])
 
 
