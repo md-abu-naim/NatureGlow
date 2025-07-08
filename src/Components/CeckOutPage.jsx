@@ -24,7 +24,7 @@ const CheckoutPage = () => {
   }, [id])
 
 
-  const total = product.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const total = product.reduce((sum, item) => sum + item.price, 0);
 
   return (
     <div>
@@ -89,7 +89,7 @@ const CheckoutPage = () => {
             product?.map(item => (
               <div key={item.id} className="flex justify-between text-sm">
                 <span>{item.name} × {item.quantity}</span>
-                <span>${item.price * item.quantity}.00</span>
+                <span>${item.price}.00</span>
               </div>
             ))
           }
