@@ -6,25 +6,31 @@ import { useParams } from 'react-router-dom';
 
 const CheckoutPage = () => {
   const [paymentMethod, setPaymentMethod] = useState('cod');
-  const [product, setProducts] = useState([])
-  const {id} = useParams()
+  const [products, setProducts] = useState([])
+  const { id } = useParams()
+
+
+  const handleQuantity = (id, value) => {
+    const updated = products.map(item => item.id === id ? { ...item, quantity: parseFloat(value) || 1 } : item)
+    setProducts(updated)
+  }
 
   useEffect(() => {
-    if(id){
+    if (id) {
       axios.get('/Product.json')
         .then(res => {
           const data = res.data.find(p => p.id == id)
           setProducts([data])
         })
-    }else{
+    } else {
       const storedCart = JSON.parse(localStorage.getItem("cart")) || []
-        setProducts(storedCart);
+      setProducts(storedCart);
     }
 
   }, [id])
 
 
-  const total = product.reduce((sum, item) => sum + item.price, 0);
+  const total = products.reduce((sum, item) => sum + item.price, 0);
 
   return (
     <div>
@@ -62,9 +68,9 @@ const CheckoutPage = () => {
         {/* Products List */}
         <section className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
           <h3 className="text-xl font-bold text-green-700 mb-4">Your Products</h3>
-          <div className={product?.length > 1 ? 'grid grid-cols-1 md:grid-cols-2 gap-4' : 'grid grid-cols-1 gap-4'}>
+          <div className={products?.length > 1 ? 'grid grid-cols-1 md:grid-cols-2 gap-4' : 'grid grid-cols-1 gap-4'}>
             {
-              product?.map(item => (
+              products?.map((item) => (
                 <div key={item.id} className='grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4 bg-white rounded-xl shadow border border-green-200 h-full'>
                   <img className='w-20 h-20 object-cover rounded-xl border shrink-0' src={item.image} alt="" />
                   <div className='flex-1'>
@@ -72,7 +78,7 @@ const CheckoutPage = () => {
                     <p className='text-sm text-gray-600'>Price: {item.price}</p>
                     <div className='mt-2 flex items-center justify-center md:justify-start gap-2'>
                       <label className='text-sm'>Qty:</label>
-                      <input type="number" min={1} defaultValue={1} name="" className='w-16 border border-green-300 rounded px-2 py-1 text-center' />
+                      <input onChange={(e) => handleQuantity(item.id, e.target.value)} type="number" min={1} defaultValue={1} name="" className='w-16 border border-green-300 rounded px-2 py-1 text-center' />
                     </div>
                   </div>
                   <button className='bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full transition-all '><FaTrashAlt className="w-5 h-5" /></button>
@@ -86,7 +92,7 @@ const CheckoutPage = () => {
         <section className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
           <h3 className='text-xl font-bold text-green-700 mb-4'>Order Summary</h3>
           {
-            product?.map(item => (
+            products?.map(item => (
               <div key={item.id} className="flex justify-between text-sm">
                 <span>{item.name} × {item.quantity}</span>
                 <span>${item.price}.00</span>
