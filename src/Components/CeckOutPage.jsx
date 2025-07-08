@@ -25,7 +25,7 @@ const CheckoutPage = () => {
         })
     } else {
       const storedCart = JSON.parse(localStorage.getItem("cart")) || []
-      const updateCart = storedCart.map(p => ({ ...p, quantity: p.quantity || 1}))
+      const updateCart = storedCart.map(p => ({ ...p, quantity: p.quantity || 1 }))
       setProducts(updateCart);
     }
   }, [id])
