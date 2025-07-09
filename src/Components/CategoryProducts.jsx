@@ -1,8 +1,10 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 
 const CategoryProducts = () => {
-  const products = useLoaderData()
-  console.log(products);
+  const data = useLoaderData()
+  const {category} = useParams()
+
+  const products = data.filter(p => p.category === category)
   return (
     <div className='lg:mx-10 px-4 py-10'>
       {/* Page Title */}
