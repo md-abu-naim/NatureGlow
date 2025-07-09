@@ -11,9 +11,9 @@ const CategoryProducts = () => {
         <p className='text-green-600 text-sm mt-2'> Discover the best of our curated <span className="font-semibold">Face Care</span> collection, designed to naturally nourish and enhance your beauty.</p>
       </section>
 
-      <section className="bg-green-100 p-5">
+      {/* <section className="bg-green-100 p-5">
 
-      </section>
+      </section> */}
     </div>
   );
 };
