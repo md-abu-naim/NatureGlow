@@ -121,13 +121,13 @@ const CheckoutPage = () => {
           <h3 className='text-xl font-bold text-green-700 mb-4'>Payment Method</h3>
           <div className='flex flex-col md:flex-row gap-4'>
             <button onClick={() => setPaymentMethod('cod')} className={`flex-1 border rounded-xl px-4 py-3 flex items-center justify-center gap-3 transition-all ${paymentMethod === 'cod' ? 'bg-green-200 border-green-600' : 'bg-white border-green-300'}`}>
-              <img src="https://i.ibb.co/4P8WbWF/cash-on-delivery-icon.png" alt="Cash on Delivery" className="w-6 h-6" /> Cash on Delivery
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnCqlRQLK4C8tZMpQ-TDcA5qrscE5B-yrQLQ&s" alt="Cash on Delivery" className="w-6 h-6" /> Cash on Delivery
             </button>
             <button onClick={() => setPaymentMethod('stripe')} className={`flex-1 border rounded-xl px-4 py-3 flex items-center justify-center gap-3 transition-all ${paymentMethod === 'stripe' ? 'bg-green-200 border-green-600' : 'bg-white border-green-300'}`}>
-              <img src="https://i.ibb.co/4P8WbWF/cash-on-delivery-icon.png" alt="Cash on Delivery" className="w-6 h-6" /> Stripe
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Stripe_logo%2C_revised_2014.png" alt="Cash on Delivery" className="w-6 h-6" /> Stripe
             </button>
             <button onClick={() => setPaymentMethod('ssl')} className={`flex-1 border rounded-xl px-4 py-3 flex items-center justify-center gap-3 transition-all ${paymentMethod === 'ssl' ? 'bg-green-200 border-green-600' : 'bg-white border-green-300'}`}>
-              <img src="https://i.ibb.co/4P8WbWF/cash-on-delivery-icon.png" alt="Cash on Delivery" className="w-6 h-6" /> SSLCommerz
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRptztEaor3TF8NjFZC9XGsW926pzTpWtc5ww&s" alt="Cash on Delivery" className="w-6 h-6" /> SSLCommerz
             </button>
           </div>
           <div className='mt-4'>

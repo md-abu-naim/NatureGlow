@@ -21,18 +21,44 @@ const Shop = () => {
                         <div className='mb-6'>
                             <h3 className='font-semibold text-green-800 mb-2'>Category</h3>
                             <ul className="space-y-2 text-sm">
-                                <li><input type="radio" name="category" className="mr-2" />All</li>
-                                <li><input type="radio" name="category" className="mr-2" />Face Care</li>
-                                <li><input type="radio" name="category" className="mr-2" />Body Care</li>
-                                <li><input type="radio" name="category" className="mr-2" />Hair Care</li>
-                                <li><input type="radio" name="category" className="mr-2" />Lip Care</li>
+                                <li>
+                                    <label htmlFor="all" className="cursor-pointer">
+                                        <input type="radio" id="all" name="category" className="mr-2 text-green-600 focus:ring-green-500" />
+                                        All
+                                    </label>
+                                </li>
+                                <li>
+                                    <label htmlFor="face" className="cursor-pointer">
+                                        <input type="radio" id="face" name="category" className="mr-2 text-green-600 focus:ring-green-500" />
+                                        Face Care
+                                    </label>
+                                </li>
+                                <li>
+                                    <label htmlFor="body" className="cursor-pointer">
+                                        <input type="radio" id="body" name="category" className="mr-2 text-green-600 focus:ring-green-500" />
+                                        Body Care
+                                    </label>
+                                </li>
+                                <li>
+                                    <label htmlFor="hair" className="cursor-pointer">
+                                        <input type="radio" id="hair" name="category" className="mr-2 text-green-600 focus:ring-green-500" />
+                                        Hair Care
+                                    </label>
+                                </li>
+                                <li>
+                                    <label htmlFor="lip" className="cursor-pointer">
+                                        <input type="radio" id="lip" name="category" className="mr-2 text-green-600 focus:ring-green-500" />
+                                        Lip Care
+                                    </label>
+                                </li>
                             </ul>
+
                         </div>
 
                         {/* Pricr Range */}
                         <div>
                             <h3 className="font-semibold text-green-800 mb-2">Price Range</h3>
-                            <input type="range" min='0' max='5000' className="w-full text-green-500" />
+                            <input type="range" min='0' max='5000' className="w-full text-green-600 focus:ring-green-500" />
                         </div>
 
                         {/* Status Filter */}
@@ -41,15 +67,15 @@ const Shop = () => {
                             <ul className="space-y-2 text-sm">
                                 <li>
                                     <input type="checkbox" id="status-instock" className='mr-2' />
-                                    <label htmlFor="status-instock" className="cursor-pointer select-none">In Stock</label>
+                                    <label htmlFor="status-instock" className="cursor-pointer select-none focus:ring-green-500">In Stock</label>
                                 </li>
                                 <li>
                                     <input type="checkbox" id="status-soldout" className='mr-2' />
-                                    <label htmlFor="status-soldout" className="cursor-pointer select-none">Sold Out</label>
+                                    <label htmlFor="status-soldout" className="cursor-pointer select-none focus:ring-green-500">Sold Out</label>
                                 </li>
                                 <li>
                                     <input type="checkbox" id="status-lowstock" className='mr-2' />
-                                    <label htmlFor="status-lowstock" className="cursor-pointer select-none">Low Stock</label>
+                                    <label htmlFor="status-lowstock" className="cursor-pointer select-none focus:ring-green-500">Low Stock</label>
                                 </li>
                             </ul>
                         </div>
@@ -91,7 +117,7 @@ const Shop = () => {
 
                         {/* Number of Page */}
                         {
-                            [1, 2, 2].map(num => <button key={num} className='px-4 py-2 rounded-full border border-green-300 text-green-700 hover:bg-green-500 hover:text-white transition'>{num}</button>)
+                            [1, 2, 3].map(num => <button key={num} className='px-4 py-2 rounded-full border border-green-300 text-green-700 hover:bg-green-500 hover:text-white transition'>{num}</button>)
                         }
 
                         {/* Next Button */}

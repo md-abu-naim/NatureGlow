@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const BestSelling = () => {
     const [products, setProducts] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         axios.get('/Product.json')
@@ -26,7 +27,7 @@ const BestSelling = () => {
                         <h2 className="mt-4 text-lg font-semibold group-hover:text-green-500 transition">{product.name}</h2>
                         <p className="text-sm text-gray-700">{product.shortBio}</p>
                         <h5 className="mt-3 text-green-600 font-bold text-md">${product.price}</h5>
-                        <Link to={`/checkout/${product.id}`} className="block mt-4 w-full bg-green-500 text-white py-2 rounded-full text-sm font-medium hover:bg-green-600 transition"> Quick Purchase </Link>
+                        <button onClick={(e) => {e.preventDefault(); navigate(`/checkout/${product.id}`);}} className="block mt-4 w-full bg-green-500 text-white py-2 rounded-full text-sm font-medium hover:bg-green-600 transition"> Quick Purchase </button>
                     </Link> )
                 }
             </div>

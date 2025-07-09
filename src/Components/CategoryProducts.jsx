@@ -9,8 +9,8 @@ const CategoryProducts = () => {
     <div className='lg:mx-10 px-4 py-10'>
       {/* Page Title */}
       <section className='bg-green-100 py-8 text-center rounded-lg'>
-        <h1 className='text-4xl font-extrabold text-green-800'>Face Care Products</h1>
-        <p className='text-green-600 text-sm mt-2'> Discover the best of our curated <span className="font-semibold">Face Care</span> collection, designed to naturally nourish and enhance your beauty.</p>
+        <h1 className='text-4xl font-extrabold text-green-800'>{category} Products</h1>
+        <p className='text-green-600 text-sm mt-2'> Discover the best of our curated <span className="font-semibold">{category}</span> collection, designed to naturally nourish and enhance your beauty.</p>
       </section>
 
       <section className='flex flex-col md:flex-row justify-center items-center bg-green-50 p-5 mt-7 gap-4 rounded-lg mb-6'>

@@ -69,7 +69,7 @@ const Navbar = () => {
                 {/* Cart Icon */}
                 <NavLink to='/cart' className="relative">
                     <button className="text-2xl hover:text-green-600 transition-colors"><FaCartPlus /></button>
-                    <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">{cartCount}</span>
+                    <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">{cartCount ? cartCount : 0}</span>
                 </NavLink>
             </div>
         </div>
