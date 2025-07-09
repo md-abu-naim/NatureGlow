@@ -43,12 +43,12 @@ const CategoryProducts = () => {
               <div className="flex items-center justify-between pt-2">
                 <span className="text-green-500 font-bold text-md">${product.price}</span>
                 <span className="text-sm bg-green-100 text-green-500 p-1.5 rounded-lg">{product.status}</span>
-              </div>
+              {/* </div>
               <div className="flex gap-3 w-full pt-3">
                 <Link to={`/details/${product.id}`} className="flex-1 px-4 py-2 rounded-full text-sm font-medium border border-green-500 text-green-600 hover:bg-green-100 transition">View Details</Link>
                 <Link to={`/checkout/${product.id}`} className="flex-1 px-4 py-2 rounded-full text-xm font-medium bg-green-500 text-white hover:bg-green-600 transition">Quick Buy</Link>
               </div>
-            </div>
+            </div> */}
           </div>)
         }
       </div>
