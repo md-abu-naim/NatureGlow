@@ -61,7 +61,8 @@ export const router = createBrowserRouter([
       },
       {
         path: '/chec',
-        element: <CategoryProducts />
+        element: <CategoryProducts />,
+        loader: () => fetch(`/Product.json`)
       }
     ]
   },
