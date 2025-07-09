@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaArrowLeft, FaArrowRight, FaFilter, FaSearch, FaTimes } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaFilter, } from 'react-icons/fa';
 import AllProducts from './AllProducts';
 
 const Shop = () => {
