@@ -2,6 +2,7 @@ import { FaEnvelope, FaLock, FaFacebookF, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Provider/useAuth";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const SignIn = () => {
     const { loginUser, signInWithGoogle, fbLogin, resetPassword } = useAuth();
@@ -40,7 +41,11 @@ const SignIn = () => {
         signInWithGoogle()
             .then((res) => {
                 console.log(res.user);
-                toast.success('Sign Up successfully')
+                Swal.fire({
+                    title: "Sign Up successfully",
+                    icon: "success",
+                    draggable: true
+                });
                 navigate('/')
             })
             .catch((err) => console.error(err.message));
@@ -86,7 +91,7 @@ const SignIn = () => {
                         <label className="text-sm font-medium text-green-700 mb-1">Password</label>
                         <div className="relative">
                             <input name="password" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="password" required placeholder="••••••••" />
-                            <FaLock className="absolute right-4 top-3.5 text-green-400" />
+                            <span><FaLock className="absolute right-4 top-3.5 text-green-400" /></span>
                         </div>
                         <div className="text-right">
                             <Link to="" onClick={() => handleResetPassword()} className="text-sm text-green-600 hover:underline">Forgot Password?</Link>
