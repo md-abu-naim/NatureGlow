@@ -21,7 +21,7 @@ const ProductDetails = () => {
             title: "Product Added To Cart successfully!",
             icon: "success",
             draggable: true,
-            timer: 1000,
+            timer: 1500,
             background: '#dcfce7',
         });
         navigate('/cart')

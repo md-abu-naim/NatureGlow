@@ -41,43 +41,6 @@ const Card = ({ cartItems, setCartItems }) => {
                 });
             }
         });
-        // Swal.fire({
-        //     title: "Are you sure?",
-        //     text: "You won't be able to revert this!",
-        //     icon: "warning",
-        //     background: "#1e1e2f", // Dark background
-        //     color: "#f1c40f",      // Golden text
-        //     showCancelButton: true,
-        //     confirmButtonText: "Yes, delete it!",
-            // cancelButtonText: "Cancel",
-            // buttonsStyling: false,
-            // customClass: {
-            //     popup: 'rounded-lg shadow-lg',
-            //     title: 'text-lg font-semibold text-yellow-400',
-            //     htmlContainer: 'text-sm text-gray-300',
-            //     confirmButton: 'bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded mr-2',
-            //     cancelButton: 'bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded'
-            // }
-        // }).then((result) => {
-        //     if (result.isConfirmed) {
-        //         const UpdateCart = cartItems.filter(item => item.id !== id);
-        //         setCartItems(UpdateCart);
-        //         localStorage.setItem("cart", JSON.stringify(UpdateCart));
-        //         window.dispatchEvent(new Event("cartUpdated"));
-
-        //         Swal.fire({
-        //             title: "Deleted!",
-        //             text: "The item has been removed from your cart.",
-        //             icon: "success",
-        //             background: "#1e1e2f",
-        //             color: "#f1c40f",
-        //             confirmButtonColor: "#f1c40f",
-        //             timer: 1500,
-        //             showConfirmButton: false
-        //         });
-        //     }
-        // });
-
     }
     return (
         <div className='lg:col-span-2 space-y-4 p-5 rounded-xl bg-green-100'>

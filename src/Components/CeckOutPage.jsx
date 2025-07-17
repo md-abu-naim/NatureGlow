@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const CheckoutPage = () => {
@@ -9,6 +10,50 @@ const CheckoutPage = () => {
   const [products, setProducts] = useState([])
   const { id } = useParams()
 
+  const handleDelete = id => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      background: '#dcfce7',
+      color: '#000000',
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "Cancel",
+      buttonsStyling: false,
+      customClass: {
+        popup: 'rounded-lg shadow-lg',
+        title: 'text-lg font-semibold text-yellow-400',
+        htmlContainer: 'text-sm text-gray-300',
+        confirmButton: 'bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2',
+        cancelButton: 'bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded'
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (id) {
+          const dltProduct = products.filter(p => p.id !== id)
+          console.log(dltProduct);
+          setProducts(dltProduct)
+        } else {
+          const UpdateCart = products.filter(item => item.id !== id)
+          setProducts(UpdateCart)
+
+          localStorage.setItem("cart", JSON.stringify(UpdateCart))
+          window.dispatchEvent(new Event("cartUpdated"));
+        }
+
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+          background: '#dcfce7',
+          timer: 800
+        });
+      }
+    });
+  }
 
   const handleQuantity = (id, value) => {
     const updated = products.map(item => item.id === id ? { ...item, quantity: parseFloat(value) || 1 } : item)
@@ -67,27 +112,30 @@ const CheckoutPage = () => {
 
 
         {/* Products List */}
-        <section className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
-          <h3 className="text-xl font-bold text-green-700 mb-4">Your Products</h3>
-          <div className={products?.length > 1 ? 'grid grid-cols-1 md:grid-cols-2 gap-4' : 'grid grid-cols-1 gap-4'}>
-            {
-              products?.map((item) => (
-                <div key={item.id} className='grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4 bg-white rounded-xl shadow border border-green-200 h-full'>
-                  <img className='w-20 h-20 object-cover rounded-xl border shrink-0' src={item.image} alt="" />
-                  <div className='flex-1'>
-                    <h2 className='font-semibold text-green-700'>{item.name}</h2>
-                    <p className='text-sm text-gray-600'>Price: {item.price}</p>
-                    <div className='mt-2 flex items-center justify-center md:justify-start gap-2'>
-                      <label className='text-sm'>Qty:</label>
-                      <input onChange={(e) => handleQuantity(item.id, e.target.value)} type="number" min={1} defaultValue={1} name="" className='w-16 border border-green-300 rounded px-2 py-1 text-center' />
-                    </div>
-                  </div>
-                  <button className='bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full transition-all '><FaTrashAlt className="w-5 h-5" /></button>
-                </div>
-              ))
-            }
-          </div>
-        </section>
+        {
+          products.length === 0 ? <div className="text-center mt-16 bg-green-50 p-10 rounded-xl border border-green-200 shadow-md">
+            <h2 className="text-2xl font-semibold text-green-700">Your CheckOut Page is feeling a little empty 🌿</h2>
+            <p className="text-green-600 mt-2">Looks like you haven’t added anything yet. Let nature glow with you—explore our organic skincare collection now.</p>
+            <Link to="/shop" className="inline-block mt-6 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-medium transition">🛒 Choose Products</Link>
+          </div> :
+            <section className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
+              <h3 className="text-xl font-bold text-green-700 mb-4">Your Products</h3>
+              <div className={products?.length > 1 ? 'grid grid-cols-1 md:grid-cols-2 gap-4' : 'grid grid-cols-1 gap-4'}>
+                {
+                  products?.map((item) => (
+                    <div key={item.id} className='grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4 bg-white rounded-xl shadow border border-green-200 h-full'>
+                      <img className='w-20 h-20 object-cover rounded-xl border shrink-0' src={item.image} alt="" />
+                      <div className='flex-1'>
+                        <h2 className='font-semibold text-green-700'>{item.name}</h2>
+                        <p className='text-sm text-gray-600'>Price: {item.price}</p>
+                        <div className='mt-2 flex items-center justify-center md:justify-start gap-2'>
+                          <label className='text-sm'>Qty:</label>
+                        
+                  ))
+                }
+              </div>
+            </section>
+        }
 
         {/* Summary */}
         <section className='bg-green-50 p-6 rounded-2xl border border-green-200 shadow-sm space-y-4'>
