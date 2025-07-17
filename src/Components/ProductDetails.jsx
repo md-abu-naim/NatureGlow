@@ -1,21 +1,30 @@
 
 import toast from 'react-hot-toast';
-import { Link, useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const ProductDetails = () => {
     const { id } = useParams();
     const products = useLoaderData()
+    const navigate = useNavigate()
 
     const product = products?.find(p => p.id == id)
 
     const handleAddToCart = (product) => {
         const axistingCart = JSON.parse(localStorage.getItem("cart")) || []
         const alreadyInCart = axistingCart.find(item => item.id === product.id)
-        if(alreadyInCart) return toast.error('Product already in cart');
+        if (alreadyInCart) return toast.error('Product already in cart');
         const updateCart = [...axistingCart, product]
         localStorage.setItem("cart", JSON.stringify(updateCart))
         window.dispatchEvent(new Event("cartUpdated"));
-        toast.success('Product Added To Cart successfully')
+        Swal.fire({
+            title: "Product Added To Cart successfully!",
+            icon: "success",
+            draggable: true,
+            timer: 1000,
+            background: '#dcfce7',
+        });
+        navigate('/cart')
     }
     return (
         <div className='px-4 md:px-16 py-10'>
@@ -43,8 +52,8 @@ const ProductDetails = () => {
                     </div>
                     <span className={`text-sm font-medium bg-green-200 p-1.5 rounded-lg ${product.status === 'In Stock' ? 'text-green-600' : 'text-red-500'}`}>{product.status}</span>
                     <div className="space-y-3 mt-4">
-                        <Link to='/cart' onClick={() => handleAddToCart(product)} className="block w-full px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-xl transition-all text-center">Add to Cart</Link>
-                        <Link to={`/checkout/${product.id}`}  className="block w-full px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all text-center">Quick Purchase</Link>
+                        <button onClick={() => handleAddToCart(product)} className="block w-full px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-xl transition-all text-center">Add to Cart</button>
+                        <Link to={`/checkout/${product.id}`} className="block w-full px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all text-center">Quick Purchase</Link>
                     </div>
                     <div className="mt-4 text-center">
                         <Link to="/shop" className="text-sm text-green-700 hover:underline">⬅ Back to Shop</Link>
