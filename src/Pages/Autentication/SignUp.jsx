@@ -43,7 +43,8 @@ const SignUp = () => {
                 Swal.fire({
                     title: "Sign Up successfully",
                     icon: "success",
-                    draggable: true
+                    draggable: true,
+                    timer: 1500
                 });
                 e.target.reset()
                 navigate('/')
