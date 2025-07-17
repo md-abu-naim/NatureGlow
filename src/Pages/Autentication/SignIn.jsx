@@ -17,11 +17,15 @@ const SignIn = () => {
         loginUser(email, password)
             .then((result) => {
                 console.log(result.user);
-                toast.success('Sign In successfully')
+                Swal.fire({
+                    title: "Sign In successfully",
+                    icon: "success",
+                    draggable: true
+                });
                 e.target.reset()
                 navigate('/')
             })
-            .catch((err) => console.error(err.message));
+            .catch((err) => toast.error(err.message));
     };
 
     const handleResetPassword = () => {
@@ -42,13 +46,13 @@ const SignIn = () => {
             .then((res) => {
                 console.log(res.user);
                 Swal.fire({
-                    title: "Sign Up successfully",
+                    title: "Sign In successfully",
                     icon: "success",
                     draggable: true
                 });
                 navigate('/')
             })
-            .catch((err) => console.error(err.message));
+            .catch((err) => toast.error(err.message));
     };
 
     const handleFacebook = () => {
@@ -56,13 +60,13 @@ const SignIn = () => {
             .then((res) => {
                 console.log(res.user);
                 Swal.fire({
-                    title: "Sign Up successfully",
+                    title: "Sign In successfully",
                     icon: "success",
                     draggable: true
                 });
                 navigate('/')
             })
-            .catch((err) => console.error(err.message));
+            .catch((err) => toast.error(err.message));
     };
 
     return (
