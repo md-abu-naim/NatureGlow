@@ -2,6 +2,7 @@ import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Provider/useAuth";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
     const {createUser, updateUser, setUser, user} = useAuth()
@@ -39,7 +40,11 @@ const SignUp = () => {
                     displayName: name,
                     photoURL: result.user.photoURL
                 })
-                toast.success('Sign Up successfully')
+                Swal.fire({
+                    title: "Sign Up successfully",
+                    icon: "success",
+                    draggable: true
+                });
                 e.target.reset()
                 navigate('/')
         })
