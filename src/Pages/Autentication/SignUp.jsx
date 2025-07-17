@@ -44,7 +44,8 @@ const SignUp = () => {
                     title: "Sign Up successfully",
                     icon: "success",
                     draggable: true,
-                    timer: 1500
+                    timer: 1500,
+                    background: '#dcfce7',
                 });
                 e.target.reset()
                 navigate('/')

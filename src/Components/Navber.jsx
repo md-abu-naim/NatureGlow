@@ -15,11 +15,12 @@ const Navbar = () => {
         LogoutUser()
         toast.success('Sign Out successfully')
         Swal.fire({
-                    title: "Sign Out successfully!",
-                    icon: "success",
-                    draggable: true,
-                    timer: 1500
-                });
+            title: "Sign Out successfully!",
+            icon: "success",
+            draggable: true,
+            timer: 1500,
+            background: '#dcfce7',
+        });
         navigate('/signIn')
     };
 

@@ -20,7 +20,8 @@ const SignIn = () => {
                 Swal.fire({
                     title: "Sign In successfully",
                     icon: "success",
-                    draggable: true
+                    draggable: true,
+                    background: '#dcfce7',
                 });
                 e.target.reset()
                 navigate('/')
@@ -49,7 +50,8 @@ const SignIn = () => {
                     title: "Sign In successfully",
                     icon: "success",
                     draggable: true,
-                    timer: 1500
+                    timer: 1500,
+                    background: '#dcfce7',
                 });
                 navigate('/')
             })
@@ -64,7 +66,8 @@ const SignIn = () => {
                     title: "Sign In successfully",
                     icon: "success",
                     draggable: true,
-                    timer: 1500
+                    timer: 1500,
+                    background: '#dcfce7',
                 });
                 navigate('/')
             })
