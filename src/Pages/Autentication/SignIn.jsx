@@ -55,7 +55,11 @@ const SignIn = () => {
         fbLogin()
             .then((res) => {
                 console.log(res.user);
-                toast.success('Sign Up successfully')
+                Swal.fire({
+                    title: "Sign Up successfully",
+                    icon: "success",
+                    draggable: true
+                });
                 navigate('/')
             })
             .catch((err) => console.error(err.message));
