@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom';
 
-const NotFound = () => {
+const ErrorElement = () => {
     return (
         <div className="min-h-screen flex flex-col md:flex-row items-center justify-center md:gap-16 px-6 py-12">
             <div className="text-center">
@@ -21,4 +21,4 @@ const NotFound = () => {
     );
 };
 
-export default NotFound;
+export default ErrorElement;
