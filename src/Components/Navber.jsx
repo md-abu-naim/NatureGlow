@@ -2,7 +2,6 @@ import { FaCartPlus } from "react-icons/fa";
 import { VscAccount } from "react-icons/vsc";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import useAuth from "../Provider/useAuth";
-import toast from "react-hot-toast";
 import useCart from "../Hooks/useCart";
 import Swal from "sweetalert2";
 
@@ -13,7 +12,6 @@ const Navbar = () => {
 
     const handleLogout = () => {
         LogoutUser()
-        toast.success('Sign Out successfully')
         Swal.fire({
             title: "Sign Out successfully!",
             icon: "success",
