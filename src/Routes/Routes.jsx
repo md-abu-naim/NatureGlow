@@ -13,7 +13,7 @@ import ProductDetails from "../Components/ProductDetails";
 import CheckoutPage from "../Components/CeckOutPage";
 import CategoryProducts from "../Components/CategoryProducts";
 import ErrorElement from '../Components/ErrorElement'
-import Dashboard from "../Pages/Dashboard/Dashboard";
+import Dashboard from "../MainLayout/Dashboard";
 
 export const router = createBrowserRouter([
   {
