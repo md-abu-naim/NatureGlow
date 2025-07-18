@@ -15,11 +15,7 @@ const NotFound = () => {
       </div>
 
       <div className="mt-12 max-w-lg">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/2748/2748558.png"
-          alt="404 Illustration"
-          className="w-72 mx-auto opacity-80"
-        />
+        <img src="https://cdn-icons-png.flaticon.com/512/2748/2748558.png" alt="404 Illustration" className="w-72 mx-auto opacity-80" />
       </div>
     </div>
   );
