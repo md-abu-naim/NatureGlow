@@ -24,6 +24,7 @@ const SignIn = () => {
                     icon: "success",
                     draggable: true,
                     background: '#dcfce7',
+                    timer: 2000,
                 });
                 e.target.reset()
                 navigate('/')
@@ -52,7 +53,7 @@ const SignIn = () => {
                     title: "Sign In successfully",
                     icon: "success",
                     draggable: true,
-                    timer: 1500,
+                    timer: 2000,
                     background: '#dcfce7',
                 });
                 navigate('/')
@@ -68,7 +69,7 @@ const SignIn = () => {
                     title: "Sign In successfully",
                     icon: "success",
                     draggable: true,
-                    timer: 1500,
+                    timer: 2000,
                     background: '#dcfce7',
                 });
                 navigate('/')

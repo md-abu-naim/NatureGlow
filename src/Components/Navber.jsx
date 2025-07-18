@@ -65,15 +65,15 @@ const Navbar = () => {
                         <div className="hidden md:block text-sm text-green-700 font-medium">
                             {user.displayName || "User"}
                         </div>
-                        <img src={user.photoURL || "/default-profile.png"} alt={user.displayName || "User Profile"} className="w-8 h-8 rounded-full border border-green-300" />
-                        <button onClick={handleLogout} className="text-xs md:text-sm bg-red-100 hover:bg-red-200 text-red-600 px-2 py-1 rounded-xl transition">Log Out</button>
+                        <NavLink to='/dashboard'><img src={user.photoURL || "/default-profile.png"} alt={user.displayName || "User Profile"} className="w-8 h-8 rounded-full border-2 border-green-300" /></NavLink>
+                        <button onClick={handleLogout} className="text-xs md:text-sm hover:font-medium bg-green-300 hover:bg-green-400 px-2 py-1 rounded-xl transition">Log Out</button>
                     </div>
                 ) : (
-                    <NavLink to="/signIn" className="text-2xl hover:text-green-600 transition-colors"><VscAccount /></NavLink>
+                    <NavLink to="/signIn" title="SignIn Page" className="text-2xl hover:text-green-600 transition-colors"><VscAccount /></NavLink>
                 )}
 
                 {/* Cart Icon */}
-                <NavLink to='/cart' className="relative">
+                <NavLink to='/cart' title="Cart Items" className="relative">
                     <button className="text-2xl hover:text-green-600 transition-colors"><FaCartPlus /></button>
                     <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">{cartCount ? cartCount : 0}</span>
                 </NavLink>

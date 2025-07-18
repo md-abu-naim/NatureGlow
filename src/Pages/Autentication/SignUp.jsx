@@ -1,11 +1,13 @@
-import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
+import { FaEnvelope, FaLock, FaUnlock, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Provider/useAuth";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const SignUp = () => {
     const {createUser, updateUser, setUser, user} = useAuth()
+    const [showPass, setShowPass] = useState(false)
     const navigate = useNavigate()
     
 
@@ -84,8 +86,13 @@ const SignUp = () => {
                     <div>
                         <label className="text-sm font-medium text-green-700 mb-1">Password</label>
                         <div className="relative">
-                            <input name="password" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="password" required placeholder="••••••••" />
-                            <FaLock className="absolute right-4 top-3.5 text-green-400" />
+                            <input name="password" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type={showPass ? 'text' : 'password'} required placeholder="••••••••" />
+                            <span onClick={() => setShowPass(!showPass)} title="Show Password" className="cursor-pointer">
+                                {
+                                    showPass ? <FaUnlock className="absolute right-4 top-3.5 text-green-400" /> : 
+                                    <FaLock className="absolute right-4 top-3.5 text-green-400" />
+                                }
+                            </span>
                         </div>
                     </div>
                     <button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-full transition duration-300">Sign Up</button>
