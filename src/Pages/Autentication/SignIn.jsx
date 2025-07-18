@@ -1,11 +1,13 @@
-import { FaEnvelope, FaLock, FaFacebookF, FaGoogle } from "react-icons/fa";
+import { FaEnvelope, FaLock, FaFacebookF, FaGoogle, FaUnlock } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Provider/useAuth";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const SignIn = () => {
     const { loginUser, signInWithGoogle, fbLogin, resetPassword } = useAuth();
+    const [showPass, setShowPass] = useState(false)
     const navigate = useNavigate()
 
     const handleLogin = (e) => {
@@ -103,8 +105,13 @@ const SignIn = () => {
                     <div>
                         <label className="text-sm font-medium text-green-700 mb-1">Password</label>
                         <div className="relative">
-                            <input name="password" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type="password" required placeholder="••••••••" />
-                            <span><FaLock className="absolute right-4 top-3.5 text-green-400" /></span>
+                            <input name="password" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type={showPass ? 'text' : 'password'} required placeholder="••••••••" />
+                            <span onClick={() => setShowPass(!showPass)} className="cursor-pointer">
+                                {
+                                    showPass ? <FaUnlock  className="absolute right-4 top-3.5 text-green-400" /> :
+                                    <FaLock  className="absolute right-4 top-3.5 text-green-400" />
+                                }
+                            </span>
                         </div>
                         <div className="text-right">
                             <Link to="" onClick={() => handleResetPassword()} className="text-sm text-green-600 hover:underline">Forgot Password?</Link>
