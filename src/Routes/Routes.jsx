@@ -13,6 +13,7 @@ import ProductDetails from "../Components/ProductDetails";
 import CheckoutPage from "../Components/CeckOutPage";
 import CategoryProducts from "../Components/CategoryProducts";
 import ErrorElement from '../Components/ErrorElement'
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -68,4 +69,9 @@ export const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: '/dashboard',
+    errorElement: <ErrorElement />,
+    element: <Dashboard />,
+  }
 ]);
