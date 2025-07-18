@@ -10,12 +10,7 @@ const NotFound = () => {
         <p className="mt-2 text-md text-gray-400">The page you’re looking for doesn’t exist or has been moved. </p>
 
         <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-medium px-6 py-3 rounded-lg shadow-lg transition duration-200"
-          >
-            ⬅️ Back to Home
-          </Link>
+          <Link to="/" className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-medium px-6 py-3 rounded-lg shadow-lg transition duration-200">⬅️ Back to Home </Link>
         </div>
       </div>
 
