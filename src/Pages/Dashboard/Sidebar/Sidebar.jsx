@@ -107,27 +107,31 @@ const Sideber = () => {
             </div>
 
             {/* Sidebar */}
-            <aside className={``}>
+            <aside className={`z-50 md:fixed flex flex-col justify-between overflow-x-hidden bg-green-200 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${isActive && '-translate-x-full'} md:translate-x-0 transition duration-200 ease-in-out`}>
                 <div>
-                    <div className='block cursor-pointer p-4 font-bold'>
+                    <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center mx-auto cursor-pointer p-4 font-bold'>
                         <Link to="/" className="text-3xl">
                             <img className='w-[180px] md:w-[250px]' src="/NatureGlowLogo.png" alt="NatureGlow Logo" />
                         </Link>
                     </div>
+                    <nav className='flex flex-col gap-2 ml-3 mt-3'>
+                        <NavLink className='flex items-center gap-2 p-2 hover:bg-green-400 rounded '><FaTachometerAlt /> Dashboard</NavLink>
+                        <NavLink className='flex items-center gap-2 p-2 hover:bg-green-400 rounded '><FaBoxOpen /> Products</NavLink>
+                        <NavLink className='flex items-center gap-2 p-2 hover:bg-green-400 rounded '><FaPlus /> Add Product</NavLink>
+                        <NavLink className='flex items-center gap-2 p-2 hover:bg-green-400 rounded '><FaShoppingCart /> Orders</NavLink>
+                        <NavLink className='flex items-center gap-2 p-2 hover:bg-green-400 rounded '><FaUsers /> Users</NavLink>
+                        <NavLink className='flex items-center gap-2 p-2 hover:bg-green-400 rounded '><FaStar /> Reviews</NavLink>
+                        <NavLink className='flex items-center gap-2 p-2 hover:bg-green-400 rounded '><FaMoneyBillAlt /> Payments</NavLink>
+                    </nav>
                 </div>
             </aside>
 
             {/* Sidebar */}
-            <div
+            <aside
                 className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden text-black bg-green-200 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${isActive && '-translate-x-full'
                     }  md:translate-x-0  transition duration-200 ease-in-out`}
             >
                 <div>
-                    <div>
-                        <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center mx-auto'>
-                            <Link to='/' className='text-2xl font-bold text-black'>ScholarHub</Link>
-                        </div>
-                    </div>
 
                     {/* Nav Items */}
                     <nav className="flex flex-col gap-2 ml-3 mt-3">
@@ -180,7 +184,7 @@ const Sideber = () => {
                         <span className='mx-4 font-medium'>Logout</span>
                     </button>
                 </div>
-            </div>
+            </aside>
         </div>
     );
 };
