@@ -107,9 +107,7 @@ const Sideber = () => {
             </div>
 
             {/* Sidebar */}
-            <div>
-                
-            </div>
+            <div className=''></div>
 
             {/* Sidebar */}
             <div
