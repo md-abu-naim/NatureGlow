@@ -95,8 +95,15 @@ const Sideber = () => {
     return (
         <div>
             {/* Small Screen Navber */}
-            <div>
-                
+            <div className='bg-green-50 text-green-800 flex justify-between md:hidden'>
+                <div>
+                    <div className='block cursor-pointer p-4 font-bold'>
+                        <Link to="/" className="text-3xl">
+                            <img className='w-[180px] md:w-[250px]' src="/NatureGlowLogo.png" alt="NatureGlow Logo" />
+                        </Link>
+                    </div>
+                </div>
+                <button onClick={handleToggle} className='mobile-menu-button p-4 focus:outline-none active:bg-green-200'><FaBars className='h-5 w-5' /></button>
             </div>
             {/* Small Screen Navbar */}
             <div className='bg-green-50 text-black flex justify-between md:hidden'>
