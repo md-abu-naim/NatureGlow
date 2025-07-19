@@ -12,11 +12,12 @@ const FeaturedCategories = () => {
 
     return (
         <section className="text-center my-20 px-2">
-            <div className="w-fit mx-auto  px-6 py-2 rounded-md">
+            <div className="w-fit mx-auto border-x-4 border-green-500 px-6 py-2 rounded-md">
                 <h1 className="text-xl md:text-3xl font-bold leading-tight">Featured Categories</h1>
+                <h3 className="font-medium text-green-500 text-sm mt-1">Explore our curated product categories</h3>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pt-5">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pt-7">
                 {
                     categories?.map(category => <Link to={`/category/${category.name}`} key={category.id} className="group p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 ease-in-out">
                         <img className="w-24 h-24 mx-auto border-2 border-green-200 rounded-full object-cover group-hover:border-green-500 transition-all duration-300" src={category.image} alt="" />
