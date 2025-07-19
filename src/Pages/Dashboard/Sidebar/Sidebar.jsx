@@ -94,9 +94,12 @@ const Sideber = () => {
 
     return (
         <div>
-            {/*  */}
+            {/* Small Screen Navber */}
+            <div>
+                
+            </div>
             {/* Small Screen Navbar */}
-            <div className='bg-green-100 text-black flex justify-between md:hidden'>
+            <div className='bg-green-50 text-black flex justify-between md:hidden'>
                 <div>
                     <div className='block cursor-pointer p-4 font-bold'>
                         <Link to='/' className='text-2xl text-black'>ScholarHub</Link>
@@ -113,7 +116,7 @@ const Sideber = () => {
 
             {/* Sidebar */}
             <div
-                className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden text-white bg-green-500 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${isActive && '-translate-x-full'
+                className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden text-black bg-green-200 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${isActive && '-translate-x-full'
                     }  md:translate-x-0  transition duration-200 ease-in-out`}
             >
                 <div>
@@ -124,7 +127,7 @@ const Sideber = () => {
                     </div>
 
                     {/* Nav Items */}
-                    <nav className="flex flex-col gap-2 text-black ml-3 mt-3">
+                    <nav className="flex flex-col gap-2 ml-3 mt-3">
                         <Link to="/dashboard" className="flex items-center gap-2 p-2 hover:bg-green-100 rounded">
                             <FaTachometerAlt /> Dashboard
                         </Link>
