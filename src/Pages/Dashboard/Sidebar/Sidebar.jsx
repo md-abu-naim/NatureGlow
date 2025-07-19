@@ -107,7 +107,15 @@ const Sideber = () => {
             </div>
 
             {/* Sidebar */}
-            <div className=''></div>
+            <aside className={``}>
+                <div>
+                    <div className='block cursor-pointer p-4 font-bold'>
+                        <Link to="/" className="text-3xl">
+                            <img className='w-[180px] md:w-[250px]' src="/NatureGlowLogo.png" alt="NatureGlow Logo" />
+                        </Link>
+                    </div>
+                </div>
+            </aside>
 
             {/* Sidebar */}
             <div
