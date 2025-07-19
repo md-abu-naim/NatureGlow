@@ -5,7 +5,7 @@ import { FcSettings } from 'react-icons/fc'
 import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import useAuth from '../../../Hooks/useAuth'
-import { FaBars, FaBoxOpen, FaMoneyBillAlt, FaPlus, FaShoppingCart, FaStar, FaTachometerAlt, FaUsers } from 'react-icons/fa'
+import { FaBars } from 'react-icons/fa'
 import AdminRoutes from './AdminRoutes'
 import UserRoutes from './UserRoutes'
 const Sideber = () => {
@@ -40,13 +40,13 @@ const Sideber = () => {
                         </Link>
                     </div>
                     <nav className='flex flex-col gap-2 ml-3 mt-3'>
-                        {/* <AdminRoutes /> */}
+                        <AdminRoutes />
                         <UserRoutes />
                     </nav>
                 </div>
                 <div>
                     <hr />
-                    <NavLink to='/profile' className={({isActive}) => `flex items-center gap-2 p-2 hover:bg-green-500 rounded transition-colors duration-300 transform ${isActive && 'bg-green-700 text-white hover:text-black'}`}>
+                    <NavLink to='/profile' className={({ isActive }) => `flex items-center gap-2 p-2 hover:bg-green-500 rounded transition-colors duration-300 transform ${isActive && 'bg-green-700 text-white hover:text-black'}`}>
                         <FcSettings className='w-5 h-5' /> <span className='font-medium'>Profile</span>
                     </NavLink>
                     <button onClick={logOutUser} className='flex w-full items-center p-2 mt-5 hover:bg-green-500 transition-colors duration-300 transform'>
