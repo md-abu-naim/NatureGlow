@@ -1,4 +1,4 @@
-import { FaBars, FaBoxOpen, FaMoneyBillAlt, FaPlus, FaShoppingCart, FaStar, FaTachometerAlt, FaUsers } from 'react-icons/fa'
+import {  FaBoxOpen, FaMoneyBillAlt, FaPlus, FaShoppingCart, FaStar, FaTachometerAlt, FaUsers } from 'react-icons/fa'
 import { NavLink } from 'react-router-dom';
 
 const AdminRoutes = () => {
