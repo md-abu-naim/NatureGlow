@@ -1,9 +1,9 @@
 import { FaCartPlus } from "react-icons/fa";
 import { VscAccount } from "react-icons/vsc";
 import { NavLink, Link, useNavigate } from "react-router-dom";
-import useAuth from "../Provider/useAuth";
 import useCart from "../Hooks/useCart";
 import Swal from "sweetalert2";
+import useAuth from "../Hooks/useAuth";
 
 const Navbar = () => {
     const { user, LogoutUser } = useAuth();

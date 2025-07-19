@@ -1,9 +1,9 @@
 import { FaEnvelope, FaLock, FaFacebookF, FaGoogle, FaUnlock } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import useAuth from "../../Provider/useAuth";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import { useState } from "react";
+import useAuth from "../../Hooks/useAuth";
 
 const SignIn = () => {
     const { loginUser, signInWithGoogle, fbLogin, resetPassword } = useAuth();
