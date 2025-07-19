@@ -83,6 +83,7 @@ import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import useAuth from '../../../Hooks/useAuth'
 import { FaBars, FaBoxOpen, FaMoneyBillAlt, FaPlus, FaShoppingCart, FaStar, FaTachometerAlt, FaUsers } from 'react-icons/fa'
+import AdminRoutes from './AdminRoutes'
 const Sideber = () => {
     const [isActive, setActive] = useState(false)
     const { logOutUser } = useAuth()
@@ -115,14 +116,17 @@ const Sideber = () => {
                         </Link>
                     </div>
                     <nav className='flex flex-col gap-2 ml-3 mt-3'>
-                        <NavLink className='flex items-center gap-2 p-2 hover:bg-green-400 rounded '><FaTachometerAlt /> Dashboard</NavLink>
-                        <NavLink className='flex items-center gap-2 p-2 hover:bg-green-400 rounded '><FaBoxOpen /> Products</NavLink>
-                        <NavLink className='flex items-center gap-2 p-2 hover:bg-green-400 rounded '><FaPlus /> Add Product</NavLink>
-                        <NavLink className='flex items-center gap-2 p-2 hover:bg-green-400 rounded '><FaShoppingCart /> Orders</NavLink>
-                        <NavLink className='flex items-center gap-2 p-2 hover:bg-green-400 rounded '><FaUsers /> Users</NavLink>
-                        <NavLink className='flex items-center gap-2 p-2 hover:bg-green-400 rounded '><FaStar /> Reviews</NavLink>
-                        <NavLink className='flex items-center gap-2 p-2 hover:bg-green-400 rounded '><FaMoneyBillAlt /> Payments</NavLink>
+                        <AdminRoutes />
                     </nav>
+                </div>
+                <div>
+                    <hr />
+                    <NavLink to='/profile' className={({isActive}) => `flex items-center gap-2 p-2 hover:bg-green-500 rounded transition-colors duration-300 transform ${isActive && 'bg-green-700 text-white hover:text-black'}`}>
+                        <FcSettings className='w-5 h-5' /> <span className='font-medium'>Profile</span>
+                    </NavLink>
+                    <button className='flex w-full items-center p-2 mt-5 hover:bg-green-500 transition-colors duration-300 transform'>
+                        <GrLogout className='w-5 h-5' /><span className='ml-2 font-medium'>Logout</span>
+                    </button>
                 </div>
             </aside>
 
