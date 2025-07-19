@@ -96,7 +96,7 @@ const Sideber = () => {
     return (
         <div>
             {/* Small Screen Navber */}
-            <div className='bg-green-50 text-green-800 flex justify-between md:hidden'>
+            <div className='bg-green-200 text-green-800 flex justify-between md:hidden'>
                 <div>
                     <div className='block cursor-pointer p-4 font-bold'>
                         <Link to="/" className="text-3xl">
@@ -110,7 +110,7 @@ const Sideber = () => {
             {/* Sidebar */}
             <aside className={`z-50 md:fixed flex flex-col justify-between overflow-x-hidden bg-green-200 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${isActive && '-translate-x-full'} md:translate-x-0 transition duration-200 ease-in-out`}>
                 <div>
-                    <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center mx-auto cursor-pointer p-4 font-bold'>
+                    <div className='w-full md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center mx-auto cursor-pointer p-4 font-bold'>
                         <Link to="/" className="text-3xl">
                             <img className='w-[180px] md:w-[250px]' src="/NatureGlowLogo.png" alt="NatureGlow Logo" />
                         </Link>
