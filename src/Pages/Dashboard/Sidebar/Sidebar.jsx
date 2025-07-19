@@ -105,21 +105,6 @@ const Sideber = () => {
                 </div>
                 <button onClick={handleToggle} className='mobile-menu-button p-4 focus:outline-none active:bg-green-200'><FaBars className='h-5 w-5' /></button>
             </div>
-            {/* Small Screen Navbar */}
-            <div className='bg-green-50 text-black flex justify-between md:hidden'>
-                <div>
-                    <div className='block cursor-pointer p-4 font-bold'>
-                        <Link to='/' className='text-2xl text-black'>ScholarHub</Link>
-                    </div>
-                </div>
-
-                <button
-                    onClick={handleToggle}
-                    className='mobile-menu-button p-4 focus:outline-none focus:bg-[#bba684]'
-                >
-                    <FaBars className='h-5 w-5' />
-                </button>
-            </div>
 
             {/* Sidebar */}
             <div
