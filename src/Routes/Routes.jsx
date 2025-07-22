@@ -14,6 +14,7 @@ import CheckoutPage from "../Components/CeckOutPage";
 import CategoryProducts from "../Components/CategoryProducts";
 import ErrorElement from '../Components/ErrorElement'
 import Dashboard from "../MainLayout/Dashboard";
+import Profile from "../Pages/Dashboard/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -73,5 +74,11 @@ export const router = createBrowserRouter([
     path: '/dashboard',
     errorElement: <ErrorElement />,
     element: <Dashboard />,
+    children: [
+      {
+        path: 'profile',
+        element: <Profile />
+      }
+    ]
   }
 ]);
