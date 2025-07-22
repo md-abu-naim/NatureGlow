@@ -1,4 +1,3 @@
-
 import { useState } from 'react'
 import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
@@ -49,7 +48,7 @@ const Sideber = () => {
                     <NavLink to='/profile' className={({ isActive }) => `flex items-center gap-2 p-2 hover:bg-green-500 rounded transition-colors duration-300 transform ${isActive && 'bg-green-700 text-white hover:text-black'}`}>
                         <FcSettings className='w-5 h-5' /> <span className='font-medium'>Profile</span>
                     </NavLink>
-                    <button onClick={logOutUser} className='flex w-full items-center p-2 mt-5 hover:bg-green-500 transition-colors duration-300 transform'>
+                    <button onClick={logOutUser} className='flex w-full items-center p-2 hover:bg-green-500 transition-colors duration-300 transform'>
                         <GrLogout className='w-5 h-5' /><span className='ml-2 font-medium'>Logout</span>
                     </button>
                 </div>
