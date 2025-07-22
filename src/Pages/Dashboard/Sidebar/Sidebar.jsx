@@ -1,20 +1,34 @@
 import { useState } from 'react'
 import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import useAuth from '../../../Hooks/useAuth'
 import { FaBars } from 'react-icons/fa'
 import AdminRoutes from './AdminRoutes'
 import UserRoutes from './UserRoutes'
+import Swal from 'sweetalert2'
 const Sideber = () => {
     const [isActive, setActive] = useState(false)
-    const { logOutUser } = useAuth()
+    const { LogoutUser } = useAuth()
+    const navigate = useNavigate()
 
     // Sidebar Responsive Handler
     const handleToggle = () => {
         setActive(!isActive)
     }
+
+    const handleLogout = () => {
+        LogoutUser()
+        Swal.fire({
+            title: "Sign Out successfully!",
+            icon: "success",
+            draggable: true,
+            timer: 1500,
+            background: '#dcfce7',
+        });
+        navigate('/signIn')
+    };
 
     return (
         <div>
@@ -48,7 +62,7 @@ const Sideber = () => {
                     <NavLink to='/profile' className={({ isActive }) => `flex items-center gap-2 p-2 hover:bg-green-500 rounded transition-colors duration-300 transform ${isActive && 'bg-green-700 text-white hover:text-black'}`}>
                         <FcSettings className='w-5 h-5' /> <span className='font-medium'>Profile</span>
                     </NavLink>
-                    <button onClick={logOutUser} className='flex w-full items-center p-2 hover:bg-green-500 transition-colors duration-300 transform'>
+                    <button onClick={handleLogout} className='flex w-full items-center p-2 hover:bg-green-500 transition-colors duration-300 transform'>
                         <GrLogout className='w-5 h-5' /><span className='ml-2 font-medium'>Logout</span>
                     </button>
                 </div>
