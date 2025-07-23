@@ -29,10 +29,14 @@ const Profile = () => {
             </div>
 
             {/* Role Update Request Button */}
-            <div className="my-6">
-              <button className="text-sm bg-green-100 hover:bg-green-200 text-green-700 border border-green-300 px-5 py-2 rounded-md">Request Role Update</button>
-              <p className="text-gray-600 text-sm mt-1">Want to become a seller or admin? Request role change.</p>
-            </div>
+            {
+              user?.role === 'User' && (
+                <div className="my-6">
+                  <button className="text-sm bg-green-100 hover:bg-green-200 text-green-700 border border-green-300 px-5 py-2 rounded-md">Request Role Update</button>
+                  <p className="text-gray-600 text-sm mt-1">Want to become a seller or admin? Request role change.</p>
+                </div>
+              )
+            }
           </div>
         </div>
       </div>
