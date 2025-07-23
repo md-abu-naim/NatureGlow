@@ -3,7 +3,7 @@ const Profile = () => {
   //   const { user } = useAuth();
   const user = {
     name: "Abu Naim",
-    userId: "USR123456",
+    uid: "USR123456",
     email: "naim@example.com",
     image: "https://i.pravatar.cc/150?img=3",
     role: "User"
@@ -21,6 +21,7 @@ const Profile = () => {
             </p>
             <h2 className="mt-3 text-2xl font-semibold text-black">{user?.displayName || "Anonymous"}</h2>
             <p className="text-gray-700 text-sm"><span className="font-semibold">Email: </span> {user?.email}</p>
+            <p className="text-gray-700 text-sm"><span className="font-semibold">User ID: </span> {user?.uid}</p>
           </div>
         </div>
       </div>
