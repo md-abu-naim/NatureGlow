@@ -19,6 +19,7 @@ const Profile = () => {
             <p className="mt-2 px-3 py-1 bg-green-200 text-green-700 rounded-full text-sm">
               Role: <span className="font-medium">{user?.role || "User"}</span>
             </p>
+            <h2 className="mt-3 text-2xl font-semibold text-black">{user?.displayName || "Anonymous"}</h2>
           </div>
         </div>
       </div>
