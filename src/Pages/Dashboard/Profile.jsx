@@ -12,7 +12,10 @@ const Profile = () => {
   return (
     <div>
       <div className="flex justify-center items-center min-h-screen px-4">
-        <div className="bg-green-50 shadow-lg border border-green-500 rounded-2xl w-full max-w-2xl text-center"></div>
+        <div className="bg-green-50 shadow-lg border border-green-500 rounded-2xl w-full max-w-2xl text-center">
+          <img src={user.image} alt="Cover" className="w-full h-36 object-cover rounded-t-2xl" />
+          <div className=""></div>
+        </div>
       </div>
 
       <div className="flex justify-center items-center min-h-screen px-4">
@@ -30,7 +33,7 @@ const Profile = () => {
               className="h-28 w-28 rounded-full border-4 border-green-500 object-cover"
             />
 
-            <p className="mt-2 px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">
+            <p className="mt-2 px-3 py-1 bg-green-200 text-green-700 rounded-full text-sm">
               Role: <span className="font-medium">{user.role || "User"}</span>
             </p>
 
