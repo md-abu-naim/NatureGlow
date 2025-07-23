@@ -26,8 +26,12 @@ const Profile = () => {
             <div className="mt-6 flex flex-col md:flex-row justify-center gap-4">
               <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md transition">Update Profile</button>
               <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-2 rounded-md border border-green-300">Change Password</button>
+            </div>
 
-              {/* Role Update Request Button */}
+            {/* Role Update Request Button */}
+            <div className="my-6">
+              <button className="text-sm bg-green-100 hover:bg-green-200 text-green-700 border border-green-300 px-5 py-2 rounded-md">Request Role Update</button>
+              <p className="text-gray-600 text-sm mt-1">Want to become a seller or admin? Request role change.</p>
             </div>
           </div>
         </div>
