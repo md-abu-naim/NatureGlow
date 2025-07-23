@@ -16,6 +16,9 @@ const Profile = () => {
           <img src={user.image} alt="Cover" className="w-full h-36 object-cover rounded-t-2xl" />
           <div className="-mt-14 flex flex-col items-center">
             <img src={user?.image} alt="Profile" className="h-28 w-28 rounded-full border-4 border-green-500 object-cover" />
+            <p className="mt-2 px-3 py-1 bg-green-200 text-green-700 rounded-full text-sm">
+              Role: <span className="font-medium">{user?.role || "User"}</span>
+            </p>
           </div>
         </div>
       </div>
@@ -27,14 +30,12 @@ const Profile = () => {
             src={user.image}
             className="w-full h-36 object-cover rounded-t-2xl"
           />
-
           <div className="-mt-14 flex flex-col items-center">
             <img
               alt="profile"
               src={user?.image}
               className="h-28 w-28 rounded-full border-4 border-green-500 object-cover"
             />
-
             <p className="mt-2 px-3 py-1 bg-green-200 text-green-700 rounded-full text-sm">
               Role: <span className="font-medium">{user.role || "User"}</span>
             </p>
