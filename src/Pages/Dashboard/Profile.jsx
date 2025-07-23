@@ -20,6 +20,7 @@ const Profile = () => {
               Role: <span className="font-medium">{user?.role || "User"}</span>
             </p>
             <h2 className="mt-3 text-2xl font-semibold text-black">{user?.displayName || "Anonymous"}</h2>
+            <p className="text-gray-700 text-sm"><span className="font-semibold">Email: </span> {user?.email}</p>
           </div>
         </div>
       </div>
