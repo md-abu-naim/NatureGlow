@@ -28,9 +28,9 @@ const AuthProvider = ({ children }) => {
     }
 
     const fbLogin = () => {
-            setUser(true)
-            return signInWithPopup(auth, fbProvider)
-        }
+        setUser(true)
+        return signInWithPopup(auth, fbProvider)
+    }
 
     const signInWithGoogle = () => {
         setLoading(true)
