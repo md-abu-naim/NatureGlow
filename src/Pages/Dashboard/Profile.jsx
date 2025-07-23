@@ -14,7 +14,9 @@ const Profile = () => {
       <div className="flex justify-center items-center min-h-screen px-4">
         <div className="bg-green-50 shadow-lg border border-green-500 rounded-2xl w-full max-w-2xl text-center">
           <img src={user.image} alt="Cover" className="w-full h-36 object-cover rounded-t-2xl" />
-          <div className=""></div>
+          <div className="-mt-14 flex flex-col items-center">
+            <img src={user?.image} alt="Profile" className="h-28 w-28 rounded-full border-4 border-green-500 object-cover" />
+          </div>
         </div>
       </div>
 
