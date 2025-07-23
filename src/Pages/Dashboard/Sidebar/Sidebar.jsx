@@ -59,7 +59,7 @@ const Sideber = () => {
                 </div>
                 <div>
                     <hr />
-                    <NavLink to='/profile' className={({ isActive }) => `flex items-center gap-2 p-2 hover:bg-green-500 rounded transition-colors duration-300 transform ${isActive && 'bg-green-700 text-white hover:text-black'}`}>
+                    <NavLink to='/dashboard/profile' className={({ isActive }) => `flex items-center gap-2 p-2 hover:bg-green-500 rounded transition-colors duration-300 transform ${isActive && 'bg-green-700 text-white hover:text-black'}`}>
                         <FcSettings className='w-5 h-5' /> <span className='font-medium'>Profile</span>
                     </NavLink>
                     <button onClick={handleLogout} className='flex w-full items-center p-2 hover:bg-green-500 transition-colors duration-300 transform'>
