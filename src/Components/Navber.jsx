@@ -9,6 +9,7 @@ const Navbar = () => {
     const { user, LogoutUser } = useAuth();
     const navigate = useNavigate()
     const cartCount = useCart()
+    console.log(user?.photoURL);
 
     const handleLogout = () => {
         LogoutUser()
@@ -65,7 +66,7 @@ const Navbar = () => {
                         <div className="hidden md:block text-sm text-green-700 font-medium">
                             {user.displayName || "User"}
                         </div>
-                        <NavLink to='/dashboard'><img src={user.photoURL || "/default-profile.png"} alt={user.displayName || "User Profile"} className="w-8 h-8 rounded-full border-2 border-green-300" /></NavLink>
+                        <NavLink to='/dashboard'><img src={user?.photoURL || "/default-profile.png"} alt={user.displayName || "User Profile"} className="w-8 h-8 rounded-full border-2 border-green-300" /></NavLink>
                         <button onClick={handleLogout} className="text-xs md:text-sm hover:font-medium bg-green-300 hover:bg-green-400 px-2 py-1 rounded-xl transition">Log Out</button>
                     </div>
                 ) : (

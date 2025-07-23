@@ -36,11 +36,11 @@ const SignUp = () => {
 
         createUser(email, password)
         .then(result => {
-            updateUser(name, result.user.photoURL)
+            updateUser(name, result?.user?.photoURL)
             setUser({
                     ...user,
                     displayName: name,
-                    photoURL: result.user.photoURL
+                    photoURL: result?.user?.photoURL
                 })
                 Swal.fire({
                     title: "Sign Up successfully",
