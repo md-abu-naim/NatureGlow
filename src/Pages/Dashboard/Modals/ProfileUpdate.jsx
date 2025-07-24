@@ -14,7 +14,7 @@ const ProfileUpdate = ({setOpenUpdateModal}) => {
       photoURL: photoURL
     })
     Swal.fire({
-      title: "Updated successfully!",
+      title: "Profile Updated Successfully!",
       icon: "success",
       draggable: true,
       timer: 1500,
@@ -33,8 +33,12 @@ const ProfileUpdate = ({setOpenUpdateModal}) => {
                         <input className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" placeholder={user?.displayName} type="text" name="name" required />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Photo</label>
+                        <label className="block text-sm font-medium text-gray-700">Select Profile</label>
                         <input className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" type='file' name="photoURL" />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">Select Cover</label>
+                        <input className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" type='file' name="cover" />
                     </div>
 
                     <div className="flex justify-end gap-4 p-2">

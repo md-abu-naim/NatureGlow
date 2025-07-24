@@ -8,26 +8,6 @@ const Profile = () => {
   const [openUpdateModal, setOpenUpdateModal] = useState(false)
   const [openPassModal, setOpenPassModal] = useState(false)
 
-  // const handleUpdateUser = (e) => {
-  //   e.preventDefault()
-  //   const name = e.target.name.value
-  //   const photoURL = e.target.photoURL.value
-  //   updateUser(name, photoURL)
-  //   setUser({
-  //     ...user,
-  //     displayName: name,
-  //     photoURL: photoURL
-  //   })
-  //   Swal.fire({
-  //     title: "Updated successfully!",
-  //     icon: "success",
-  //     draggable: true,
-  //     timer: 1500,
-  //     background: '#dcfce7',
-  //   });
-  //   setOpenUpdateModal(false)
-  // }
-
   return (
     <div>
       <div className="flex justify-center items-center min-h-screen px-4">

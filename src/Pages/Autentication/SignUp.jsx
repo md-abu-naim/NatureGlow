@@ -18,7 +18,7 @@ const SignUp = () => {
         const email = form.email.value
         const password = form.password.value
 
-        if( /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+        if(! /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
             return toast.error('Please enter your valid email')
         }
         if (password === '') {

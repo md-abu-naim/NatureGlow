@@ -2,11 +2,13 @@ import { auth } from "../Firebase/Firebase.config";
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types'
 import {
-    createUserWithEmailAndPassword, FacebookAuthProvider, GoogleAuthProvider, onAuthStateChanged,
+    createUserWithEmailAndPassword, EmailAuthProvider, FacebookAuthProvider, GoogleAuthProvider, onAuthStateChanged,
+    reauthenticateWithCredential,
     sendPasswordResetEmail,
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
+    updatePassword,
     updateProfile,
 } from "firebase/auth";
 export const AuthContext = createContext(null)
@@ -45,6 +47,17 @@ const AuthProvider = ({ children }) => {
         })
     }
 
+    const reauthencticateUser = (currentUser) => {
+        const user = auth.currentUser
+        const credential = EmailAuthProvider.credential(user.email, currentUser)
+        return reauthenticateWithCredential(user, credential)
+    }
+
+    const passwordUpdate = ( newPassword) => {
+        setLoading(true) 
+        return updatePassword(auth.currentUser, newPassword)
+    }
+
     const LogoutUser = () => {
         setLoading(true)
         return signOut(auth)
@@ -64,7 +77,7 @@ const AuthProvider = ({ children }) => {
     })
 
     const authInfo = {
-        createUser, loginUser, updateUser,
+        createUser, loginUser, updateUser, passwordUpdate, reauthencticateUser,
         loading, user, setUser, LogoutUser, signInWithGoogle, fbLogin, resetPassword
     }
 
