@@ -1,27 +1,27 @@
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 
-const ProfileUpdate = ({setOpenUpdateModal}) => {
-    const {user, updateUser, setUser} = useAuth()
+const ProfileUpdate = ({ setOpenUpdateModal }) => {
+    const { user, updateUser, setUser } = useAuth()
     const handleUpdateUser = (e) => {
-    e.preventDefault()
-    const name = e.target.name.value
-    const photoURL = e.target.photoURL.value
-    updateUser(name, photoURL)
-    setUser({
-      ...user,
-      displayName: name,
-      photoURL: photoURL
-    })
-    Swal.fire({
-      title: "Profile Updated Successfully!",
-      icon: "success",
-      draggable: true,
-      timer: 1500,
-      background: '#dcfce7',
-    });
-    setOpenUpdateModal(false)
-  }
+        e.preventDefault()
+        const name = e.target.name.value
+        const photoURL = e.target.photoURL.value
+        updateUser(name, photoURL)
+        setUser({
+            ...user,
+            displayName: name,
+            photoURL: photoURL
+        })
+        Swal.fire({
+            title: "Profile Updated Successfully!",
+            icon: "success",
+            draggable: true,
+            timer: 1500,
+            background: '#dcfce7',
+        });
+        setOpenUpdateModal(false)
+    }
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
