@@ -53,8 +53,8 @@ const AuthProvider = ({ children }) => {
         return reauthenticateWithCredential(user, credential)
     }
 
-    const passwordUpdate = ( newPassword) => {
-        setLoading(true) 
+    const passwordUpdate = (newPassword) => {
+        setLoading(true)
         return updatePassword(auth.currentUser, newPassword)
     }
 
