@@ -96,6 +96,10 @@ const CheckoutPage = () => {
               <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="" placeholder="Enter your full name" />
             </div>
             <div>
+              <label className='block text-sm font-medium text-green-700 mb-1'>Email (Optional)</label>
+              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="email" name="" placeholder="Enter valid email" />
+            </div>
+            <div>
               <label className='block text-sm font-medium text-green-700 mb-1'>Phone Number</label>
               <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="" placeholder="Enter your phone number" />
             </div>
@@ -104,7 +108,7 @@ const CheckoutPage = () => {
               <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="" placeholder="Enter your address" />
             </div>
             <div>
-              <label className='block text-sm font-medium text-green-700 mb-1'>Order note (optional)</label>
+              <label className='block text-sm font-medium text-green-700 mb-1'>Order note (Optional)</label>
               <textarea className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' name="" placeholder="Write your order note here" ></textarea>
             </div>
           </div>
