@@ -16,6 +16,7 @@ import ErrorElement from '../Components/ErrorElement'
 import Dashboard from "../MainLayout/Dashboard";
 import Profile from "../Pages/Dashboard/Profile";
 import Users from "../Pages/Dashboard/AdminBar/Users";
+import AddProduct from "../Pages/Dashboard/AdminBar/AddProduct";
 
 export const router = createBrowserRouter([
   {
@@ -79,6 +80,10 @@ export const router = createBrowserRouter([
       {
         path: 'users',
         element: <Users />
+      },
+      {
+        path: 'addProduct',
+        element: <AddProduct />
       },
       {
         path: 'profile',

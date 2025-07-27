@@ -30,15 +30,15 @@ const Users = () => {
                 <h1 className='text-4xl font-extrabold text-green-800'>All Users at a Glance</h1>
                 <p className='text-green-600 text-sm mt-2'>Here you can see everyone using your platform. Manage roles, check details, and stay in control — all in one place.</p>
             </section>
-            <form className='w-full bg-green-100 mt-3 p-2 rounded-lg'>
+            <form className='w-full bg-green-100 mt-3 p-3 rounded-lg'>
                 <div className='relative lg:w-2xl mx-auto'>
-                    <input placeholder="Search user name..." className="w-full px-4 pr-16 py-2 border border-green-300 rounded-full shadow-sm focus:outline-none" type="text" name="search" />
+                    <input placeholder="Search user name..." className="w-full px-4 pr-16 py-2 bg-green-50 border border-green-300 rounded-full shadow-sm focus:outline-none" type="text" name="search" />
                     <button type='submit' className="absolute top-1/2 -translate-y-1/2 right-2 bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full text-sm transition">Search..</button>
                 </div>
             </form>
 
-            <section className="mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-400">
-                <table className="min-w-full bg-green-50 divide-y divide-green-200">
+            <section className="mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
+                <table className="min-w-full bg-green-50 divide-y divide-green-300">
                     <thead className="bg-green-200">
                         <tr>
                             <th className="px-6 py-3 text-left text-sm font-bold text-green-800">Profile</th>
@@ -48,7 +48,7 @@ const Users = () => {
                             <th className="px-6 py-3 text-center text-sm font-bold text-green-800">Actions</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-green-200">
+                    <tbody className="divide-y divide-green-300">
                         {
                             users?.map(user => (
                                 <tr key={user.id} className="hover:bg-green-100 transition-all">
