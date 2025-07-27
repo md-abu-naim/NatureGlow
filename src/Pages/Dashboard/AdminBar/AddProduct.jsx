@@ -20,8 +20,10 @@ const AddProduct = () => {
         const image = form.image.value
         const shortBio = form.shortBio.value
         const description = form.description.value
-        const features = form.features.value
-        const product = {name, price, category, status, image, shortBio, description, features}
+        const rawEeatures = form.features.value
+
+        const features = rawEeatures.split('\n').map(f => f.replace(/^-\s*/, '').trim()).filter(f => f)
+        const product = { name, price, category, status, image, shortBio, description, features }
         console.log(product);
 
     }
