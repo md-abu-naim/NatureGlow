@@ -17,6 +17,7 @@ import Dashboard from "../MainLayout/Dashboard";
 import Profile from "../Pages/Dashboard/Profile";
 import Users from "../Pages/Dashboard/AdminBar/Users";
 import AddProduct from "../Pages/Dashboard/AdminBar/AddProduct";
+import AddressBook from "../Pages/Dashboard/UserBar/AddressBook";
 
 export const router = createBrowserRouter([
   {
@@ -77,6 +78,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorElement />,
     element: <Dashboard />,
     children: [
+      // Admin Routes
       {
         path: 'users',
         element: <Users />
@@ -85,6 +87,13 @@ export const router = createBrowserRouter([
         path: 'addProduct',
         element: <AddProduct />
       },
+      // User Routes
+      {
+        path: 'addressBook',
+        element: <AddressBook />
+      },
+
+      // Shared Routes
       {
         path: 'profile',
         element: <Profile />
