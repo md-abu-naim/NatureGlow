@@ -33,11 +33,24 @@ const AddProduct = () => {
                         <div className="w-full">
                             <label className="block text-green-700 font-medium mb-1">Status</label>
                             <select name="category" className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50">
-                                <option  value="In Stock">In Stock</option>
+                                <option value="In Stock">In Stock</option>
                                 <option value="Low Stock">Low Stock</option>
                                 <option value="Cooming soon">Coming Soon</option>
                             </select>
                         </div>
+                    </div>
+                    <div className="flex flex-col md:flex-row gap-5 mt-4">
+                        <div>
+                            <label className="block text-green-700 font-medium mb-1">Image</label>
+                            <input type="file" name="image" accept="image/*" className="w-full px-3 py-2 border border-green-300 rounded-md file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-green-100 file:text-green-700 hover:file:bg-green-200" />
+                        </div>
+                        {/* <div className="flex items-center justify-center">
+                            {selectedImage ? (
+                                <img src={selectedImage} alt="Preview" className="h-24 rounded-md" />
+                            ) : (
+                                <div className="text-gray-400">No image selected</div>
+                            )}
+                        </div> */}
                     </div>
                 </form>
             </section>
@@ -70,20 +83,20 @@ export default AddProduct;
 //                     </div>
 
 //                     {/* Image Upload */}
-//                     <div>
-//                         <label className="block text-green-700 font-medium mb-1">Product Image</label>
-//                         <input type="file" name="image" accept="image/*" onChange={handleImagePreview}
-//                             className="w-full px-3 py-2 border rounded-md file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-green-100 file:text-green-700 hover:file:bg-green-200" />
-//                     </div>
+// <div>
+//     <label className="block text-green-700 font-medium mb-1">Product Image</label>
+//     <input type="file" name="image" accept="image/*" onChange={handleImagePreview}
+//         className="w-full px-3 py-2 border rounded-md file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-green-100 file:text-green-700 hover:file:bg-green-200" />
+// </div>
 
 //                     {/* Image Preview */}
-//                     <div className="flex items-center justify-center">
-//                         {selectedImage ? (
-//                             <img src={selectedImage} alt="Preview" className="h-24 rounded-md" />
-//                         ) : (
-//                             <div className="text-gray-400">No image selected</div>
-//                         )}
-//                     </div>
+// <div className="flex items-center justify-center">
+//     {selectedImage ? (
+//         <img src={selectedImage} alt="Preview" className="h-24 rounded-md" />
+//     ) : (
+//         <div className="text-gray-400">No image selected</div>
+//     )}
+// </div>
 
 //                     {/* Price */}
 //                     <div>
