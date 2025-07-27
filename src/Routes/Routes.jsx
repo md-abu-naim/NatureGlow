@@ -91,7 +91,8 @@ export const router = createBrowserRouter([
       },
       {
         path: `update/:id`,
-        element: <UpdateProduct />
+        element: <UpdateProduct />,
+        loader: () => fetch(`/Product.json`)
       },
       {
         path: 'addProduct',
