@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Products = () => {
     const [products, setProducts] = useState([])
@@ -48,7 +49,7 @@ const Products = () => {
                                         <span className={`px-2 py-1 text-sm font-semibold rounded-full ${product.status === 'Low Stock' ? 'bg-red-200 text-red-800' : 'bg-green-200 text-green-800'}`}>{product.status}</span>
                                     </td>
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
-                                        <button title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
+                                        <NavLink to={`/dashboard/update/${product.id}`} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></NavLink>
                                         <button title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
                                     </td>
                                 </tr>
