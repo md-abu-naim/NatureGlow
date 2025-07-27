@@ -9,7 +9,6 @@ const Navbar = () => {
     const { user, LogoutUser } = useAuth();
     const navigate = useNavigate()
     const cartCount = useCart()
-    console.log(user?.photoURL);
 
     const handleLogout = () => {
         LogoutUser()

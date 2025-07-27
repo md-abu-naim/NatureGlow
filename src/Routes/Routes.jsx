@@ -15,7 +15,7 @@ import CategoryProducts from "../Components/CategoryProducts";
 import ErrorElement from '../Components/ErrorElement'
 import Dashboard from "../MainLayout/Dashboard";
 import Profile from "../Pages/Dashboard/Profile";
-import Users from "../Pages/Dashboard/Users";
+import Users from "../Pages/Dashboard/AdminBar/Users";
 
 export const router = createBrowserRouter([
   {
