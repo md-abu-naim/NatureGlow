@@ -38,8 +38,8 @@ const Users = () => {
             </form>
 
             <section className="mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
-                <table className="min-w-full bg-green-50 divide-y divide-green-300">
-                    <thead className="bg-green-200">
+                <table className="min-w-full text-sm text-left table-auto">
+                    <thead className="bg-green-100 text-green-800 font-semibold">
                         <tr>
                             <th className="px-6 py-3 text-left text-sm font-bold text-green-800">Profile</th>
                             <th className="px-6 py-3 text-left text-sm font-bold text-green-800">Name</th>
@@ -48,11 +48,11 @@ const Users = () => {
                             <th className="px-6 py-3 text-center text-sm font-bold text-green-800">Actions</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-green-300">
+                    <tbody className="text-gray-700 divide-y divide-green-100">
                         {
                             users?.map(user => (
                                 <tr key={user.id} className="hover:bg-green-100 transition-all">
-                                    <td className="px-6 py-4"><img src={user.image} className="w-10 h-10 rounded-full object-cover" alt={user.name} /></td>
+                                    <td className="px-4 py-3 "><img src={user.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={user.name} /></td>
                                     <td className="px-6 py-4 text-sm text-gray-800 font-medium">{user.name}</td>
                                     <td className="px-6 py-4 text-sm text-gray-600">{user.email}</td>
                                     <td className="px-6 py-4 text-sm">

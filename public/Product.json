@@ -41,7 +41,7 @@
       "Cold-pressed ingredients"
     ],
     "price": 4.80,
-    "status": "In Stock",
+    "status": "Coming Soon",
     "category": "Hair Care"
   },
   {
@@ -71,7 +71,7 @@
       "Mild vanilla scent"
     ],
     "price": 7.20,
-    "status": "In Stock",
+    "status": "Low Stock",
     "category": "Body Care"
   },
   {
@@ -86,7 +86,7 @@
       "No plastic beads"
     ],
     "price": 8.20,
-    "status": "In Stock",
+    "status": "Coming Soon",
     "category": "Body Care"
   },
   {
@@ -116,7 +116,7 @@
       "Paraben-free"
     ],
     "price": 3.20,
-    "status": "Sold Out",
+    "status": "Low Stock",
     "category": "Lip Care"
   }
 ]
