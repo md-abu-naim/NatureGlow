@@ -24,21 +24,18 @@ const AddProduct = () => {
                             <label className="block text-green-700 font-medium mb-1">Category*</label>
                             <select name="category" className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50">
                                 <option selected disabled>Select a category</option>
-                                <option value="Care">Face Care</option>
-                                <option value="Care">Face Care</option>
-                                <option value="Care">Face Care</option>
-                                <option value="Care">Face Care</option>
+                                <option value="Face Care">Face Care</option>
+                                <option value="Body Care">Body Care</option>
+                                <option value="Hair Care">Hair Care</option>
+                                <option value="Lip Care">Lip Care</option>
                             </select>
                         </div>
                         <div className="w-full">
-                            <label className="block text-green-700 font-medium mb-1">Category</label>
-                            <select name="category"
-                                className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400">
-                                <option disabled selected>Select a category</option>
-                                <option value="Face Care">Face Care</option>
-                                <option value="Hair Care">Hair Care</option>
-                                <option value="Body Care">Body Care</option>
-                                <option value="Lip Care">Lip Care</option>
+                            <label className="block text-green-700 font-medium mb-1">Status</label>
+                            <select name="category" className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50">
+                                <option  value="In Stock">In Stock</option>
+                                <option value="Low Stock">Low Stock</option>
+                                <option value="Cooming soon">Coming Soon</option>
                             </select>
                         </div>
                     </div>
