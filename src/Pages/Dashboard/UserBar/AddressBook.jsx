@@ -12,23 +12,27 @@ const AddressBook = () => {
                 <form className='space-y-4'>
                     <div>
                         <label className='block text-sm font-medium text-green-700 mb-1'>Full Name</label>
-                        <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="" placeholder="Enter your full name" />
+                        <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="name" placeholder="Enter full name" />
                     </div>
                     <div>
                         <label className='block text-sm font-medium text-green-700 mb-1'>Email (Optional)</label>
-                        <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="email" name="" placeholder="Enter valid email" />
+                        <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="email" name="email" placeholder="example@gmail.com" />
                     </div>
                     <div>
                         <label className='block text-sm font-medium text-green-700 mb-1'>Phone Number</label>
-                        <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="" placeholder="Enter your phone number" />
+                        <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="phone" placeholder="Enter phone number" />
                     </div>
                     <div>
                         <label className='block text-sm font-medium text-green-700 mb-1'>Address</label>
-                        <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="" placeholder="Enter your address" />
+                        <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="adress" placeholder="Enter Full address" />
                     </div>
                     <div>
-                        <label className='block text-sm font-medium text-green-700 mb-1'>Order note (Optional)</label>
-                        <textarea className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' name="" placeholder="Write your order note here" ></textarea>
+                        <label className='block text-sm font-medium text-green-700 mb-1'> Any note (Optional)</label>
+                        <textarea className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' name="note" placeholder="Write your order note here" ></textarea>
+                    </div>
+                    <div className="mt-5 flex justify-end gap-4">
+                        <button type="reset" className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Reset</button>
+                        <button type="submit" className="px-6 py-2 bg-green-600 text-white font-medium rounded hover:bg-green-700">Address Book</button>
                     </div>
                 </form>
             </section>
