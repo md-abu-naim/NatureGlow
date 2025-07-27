@@ -73,55 +73,6 @@ const Products = () => {
                     </tbody>
                 </table>
             </section>
-
-            <div className="overflow-x-auto rounded-lg border border-green-200">
-                <table className="min-w-full text-sm text-left table-auto">
-                    <thead className="bg-green-100 text-green-800 font-semibold">
-                        <tr>
-                            <th className="py-3 px-4">#</th>
-                            <th className="py-3 px-4">Image</th>
-                            <th className="py-3 px-4">Product Name</th>
-                            <th className="py-3 px-4">Category</th>
-                            <th className="py-3 px-4">Price</th>
-                            <th className="py-3 px-4">Stock</th>
-                            <th className="py-3 px-4 text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody className="text-gray-700 divide-y divide-green-100">
-                        {products.map((product, index) => (
-                            <tr key={product._id} className="hover:bg-green-100 transition-all">
-                                <td className="px-4 py-3 font-semibold">{index + 1}</td>
-                                <td className="px-4 py-3">
-                                    <img
-                                        src={product.image}
-                                        alt={product.name}
-                                        className="w-12 h-12 object-cover rounded-md border border-green-300"
-                                    />
-                                </td>
-                                <td className="px-4 py-3">{product.name}</td>
-                                <td className="px-4 py-3">{product.category}</td>
-                                <td className="px-4 py-3">${product.price}</td>
-                                <td className="px-4 py-3">
-                                    <span className={`px-2 py-1 text-xs font-semibold rounded-full 
-                    ${product.stock === 'In Stock' ? 'bg-green-200 text-green-800' :
-                                            product.stock === 'Low Stock' ? 'bg-yellow-200 text-yellow-800' :
-                                                'bg-red-200 text-red-800'}`}>
-                                        {product.stock}
-                                    </span>
-                                </td>
-                                <td className="px-4 py-3 flex items-center justify-center gap-2">
-                                    <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-xs">
-                                        Update
-                                    </button>
-                                    <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md text-xs">
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
         </div>
     );
 };
