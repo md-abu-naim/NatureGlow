@@ -7,8 +7,7 @@ const UpdateProduct = () => {
     const products = useLoaderData()
 
     const product = products?.find(p => p.id == id)
-    const {name, price, category, status, image, shortBio, description, features} = product || {}
-    console.log(product);
+    const { name, price, category, status, image:img, shortBio, description, features } = product || {}
 
     const handleImagePreview = (e) => {
         const file = e.target.files[0]
@@ -24,10 +23,18 @@ const UpdateProduct = () => {
         const price = form.price.value
         const category = form.category.value
         const status = form.status.value
-        const image = form.image.value
         const shortBio = form.shortBio.value
         const description = form.description.value
         const rawEeatures = form.features.value
+        const fileInput = form.image
+
+        let image;
+        if (fileInput.files && fileInput.files.length > 0) {
+            image = selectedImage
+        }else{
+            image = img || ''
+        }
+
 
         const features = rawEeatures.split('\n').map(f => f.replace(/^-\s*/, '').trim()).filter(f => f)
         const product = { name, price, category, status, image, shortBio, description, features }
@@ -81,7 +88,7 @@ const UpdateProduct = () => {
                             {selectedImage ? (
                                 <img src={selectedImage} alt="Preview" className="h-24 rounded-md" />
                             ) : (
-                                <img src={image} alt="Preview" className="h-24 rounded-md" />
+                                <img src={img} alt="Preview" className="h-24 rounded-md" />
                             )}
                         </div>
                     </div>
@@ -95,7 +102,7 @@ const UpdateProduct = () => {
                     </div>
                     <div className="w-full mt-4">
                         <label className="block text-green-700 font-medium mb-1">Features</label>
-                        <textarea name="features" defaultValue={features} rows='3' className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50" placeholder={`Write features line by line:\n- Feature 1\n- Feature 2`}></textarea>
+                        <textarea name="features" defaultValue={features.join('\n')} rows={features.length || 3} className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50" placeholder={`Write features line by line:\n- Feature 1\n- Feature 2`}></textarea>
                     </div>
                     <div className="mt-5 flex justify-end gap-4">
                         <button type="reset" className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Reset</button>
