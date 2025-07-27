@@ -60,6 +60,10 @@ const AddProduct = () => {
                         <label className="block text-green-700 font-medium mb-1">Description</label>
                         <textarea name="shortBio" rows='4' className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50" placeholder="A short one-liner about the product"></textarea>
                     </div>
+                    <div className="w-full mt-4">
+                        <label className="block text-green-700 font-medium mb-1">Description</label>
+                        <textarea name="features" rows='3' className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50" placeholder={`Write features line by line:\n- Feature 1\n- Feature 2`}></textarea>
+                    </div>
                 </form>
             </section>
         </div>
