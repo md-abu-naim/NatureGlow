@@ -1,5 +1,14 @@
+import { useState } from "react";
 
 const AddProduct = () => {
+    const [selectedImage, setSelectedImage] = useState(null)
+
+    const handleImagePreview = (e) => {
+        const file = e.target.files[0]
+        if (file) {
+            setSelectedImage(URL.createObjectURL(file))
+        }
+    }
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
@@ -40,17 +49,17 @@ const AddProduct = () => {
                         </div>
                     </div>
                     <div className="flex flex-col md:flex-row gap-5 mt-4">
-                        <div>
+                        <div className=" w-full">
                             <label className="block text-green-700 font-medium mb-1">Image</label>
-                            <input type="file" name="image" accept="image/*" className="w-full px-3 py-2 border border-green-300 rounded-md file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-green-100 file:text-green-700 hover:file:bg-green-200" />
+                            <input onChange={handleImagePreview} type="file" name="image" accept="image/*" className="w-full px-3 py-2 border border-green-300 rounded-md file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-green-100 file:text-green-700 hover:file:bg-green-200" />
                         </div>
-                        {/* <div className="flex items-center justify-center">
+                        <div className="flex items-center justify-center  w-full">
                             {selectedImage ? (
                                 <img src={selectedImage} alt="Preview" className="h-24 rounded-md" />
                             ) : (
                                 <div className="text-gray-400">No image selected</div>
                             )}
-                        </div> */}
+                        </div>
                     </div>
                     <div className="w-full mt-4">
                         <label className="block text-green-700 font-medium mb-1">Short Bio*</label>
