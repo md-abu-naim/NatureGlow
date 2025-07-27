@@ -1,3 +1,4 @@
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const Products = () => {
     const products = [
@@ -6,7 +7,7 @@ const Products = () => {
             name: 'Aloe Vera Face Gel',
             category: 'Face Care',
             price: 18,
-            stock: 'In Stock',
+            status: 'In Stock',
             image: 'https://i.ibb.co/z7kQQsX/aloe-vera.jpg'
         },
         {
@@ -14,7 +15,7 @@ const Products = () => {
             name: 'Herbal Hair Oil',
             category: 'Hair Care',
             price: 25,
-            stock: 'Low Stock',
+            status: 'Low Stock',
             image: 'https://i.ibb.co/3sSM0Tg/hair-oil.jpg'
         },
         {
@@ -22,7 +23,7 @@ const Products = () => {
             name: 'Natural Lip Balm',
             category: 'Lip Care',
             price: 10,
-            stock: 'Sold Out',
+            status: 'Sold Out',
             image: 'https://i.ibb.co/hWfR4b7/lip-balm.jpg'
         },
     ];
@@ -39,6 +40,40 @@ const Products = () => {
                 </div>
             </form>
 
+            <section className="mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
+                <table className="min-w-full text-sm text-left table-auto">
+                    <thead className="bg-green-100 text-green-800 font-semibold">
+                        <tr>
+                            <th className="py-3 px-4">#</th>
+                            <th className="py-3 px-4">Image</th>
+                            <th className="py-3 px-4">Name</th>
+                            <th className="py-3 px-4">Category</th>
+                            <th className="py-3 px-4">Price</th>
+                            <th className="py-3 px-4">Status</th>
+                            <th className="py-3 px-4 text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody className="text-gray-700 divide-y divide-green-100">
+                        {
+                            products?.map((product, i) => (
+                                <tr key={product.id} className="hover:bg-green-100 transition-all">
+                                    <td className="px-4 py-3 font-semibold">{i + 1}</td>
+                                    <td className="px-4 py-3 "><img src={product.image}className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name}/></td>
+                                    <td className="px-4 py-3 ">{product.name}</td>
+                                    <td className="px-4 py-3 ">{product.category}</td>
+                                    <td className="px-4 py-3 ">{product.price}</td>
+                                    <td className="px-4 py-3 ">{product.status}</td>
+                                    <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
+                                        <button title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
+                                        <button title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
+                                    </td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+            </section>
+
             <div className="overflow-x-auto rounded-lg border border-green-200">
                 <table className="min-w-full text-sm text-left table-auto">
                     <thead className="bg-green-100 text-green-800 font-semibold">
@@ -54,7 +89,7 @@ const Products = () => {
                     </thead>
                     <tbody className="text-gray-700 divide-y divide-green-100">
                         {products.map((product, index) => (
-                            <tr key={product._id} className="hover:bg-green-50 transition-all">
+                            <tr key={product._id} className="hover:bg-green-100 transition-all">
                                 <td className="px-4 py-3 font-semibold">{index + 1}</td>
                                 <td className="px-4 py-3">
                                     <img
