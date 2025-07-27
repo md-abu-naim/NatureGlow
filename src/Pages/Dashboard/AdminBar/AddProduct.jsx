@@ -64,6 +64,10 @@ const AddProduct = () => {
                         <label className="block text-green-700 font-medium mb-1">Description</label>
                         <textarea name="features" rows='3' className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50" placeholder={`Write features line by line:\n- Feature 1\n- Feature 2`}></textarea>
                     </div>
+                    <div className="mt-5 flex justify-end gap-4">
+                        <button type="reset" className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Reset</button>
+                        {/* <button type="submit" className="px-6 py-2 bg-green-600 text-white font-medium rounded hover:bg-green-700">Add Product</button> */}
+                    </div>
                 </form>
             </section>
         </div>
@@ -163,10 +167,10 @@ export default AddProduct;
 //                     </div>
 
 //                     {/* Buttons */}
-//                     <div className="col-span-2 flex justify-end gap-4">
-//                         <button type="reset" className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Reset</button>
-//                         <button type="submit" className="px-6 py-2 bg-green-600 text-white font-medium rounded hover:bg-green-700">Add Product</button>
-//                     </div>
+// <div className="col-span-2 flex justify-end gap-4">
+//     <button type="reset" className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Reset</button>
+//     <button type="submit" className="px-6 py-2 bg-green-600 text-white font-medium rounded hover:bg-green-700">Add Product</button>
+// </div>
 //                 </form>
 //             </div>
 //         </div>
