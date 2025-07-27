@@ -92,20 +92,20 @@ const CheckoutPage = () => {
           <h1 className="text-xl font-bold text-green-700 mb-4">Customer Information</h1>
           <div className='space-y-4'>
             <div>
-              <label className='block text-sm font-medium text-green-700 mb-1'>Full Name</label>
-              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="" placeholder="Enter your full name" />
+              <label className='block text-sm font-medium text-green-700 mb-1'>Full Name*</label>
+              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="name" required placeholder="Enter full name" />
             </div>
             <div>
               <label className='block text-sm font-medium text-green-700 mb-1'>Email (Optional)</label>
-              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="email" name="" placeholder="Enter valid email" />
+              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="email" name="email" placeholder="example@gmail.com" />
             </div>
             <div>
-              <label className='block text-sm font-medium text-green-700 mb-1'>Phone Number</label>
-              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="" placeholder="Enter your phone number" />
+              <label className='block text-sm font-medium text-green-700 mb-1'>Phone Number*</label>
+              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="number" name="number" required placeholder="Enter phone number" />
             </div>
             <div>
-              <label className='block text-sm font-medium text-green-700 mb-1'>Address</label>
-              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="" placeholder="Enter your address" />
+              <label className='block text-sm font-medium text-green-700 mb-1'>Address*</label>
+              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="address" required placeholder="Enter full address" />
             </div>
             <div>
               <label className='block text-sm font-medium text-green-700 mb-1'>Order note (Optional)</label>
