@@ -9,6 +9,22 @@ const AddProduct = () => {
             setSelectedImage(URL.createObjectURL(file))
         }
     }
+
+    const handleAddProduct = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        const price = form.price.value
+        const category = form.category.value
+        const status = form.status.value
+        const image = form.image.value
+        const shortBio = form.shortBio.value
+        const description = form.description.value
+        const features = form.features.value
+        const product = {name, price, category, status, image, shortBio, description, features}
+        console.log(product);
+
+    }
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
@@ -17,22 +33,21 @@ const AddProduct = () => {
             </section>
 
             <section className="bg-green-50 mt-6 p-5 rounded-2xl shadow border border-green-400">
-                <form className="">
+                <form onSubmit={handleAddProduct} className="">
                     <div className="flex flex-col md:flex-row gap-5">
                         <div className="w-full">
                             <label className="block text-green-700 font-medium mb-1">Name*</label>
-                            <input type="text" name="" className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Enter product name..." required />
+                            <input type="text" name="name" className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Enter product name..." required />
                         </div>
                         <div className="w-full">
                             <label className="block text-green-700 font-medium mb-1">Price*</label>
-                            <input type="number" name="" className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Enter product price..." required />
+                            <input type="number" name="price" className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Enter product price..." required />
                         </div>
                     </div>
                     <div className="flex flex-col md:flex-row gap-5 mt-4">
                         <div className="w-full">
                             <label className="block text-green-700 font-medium mb-1">Category*</label>
                             <select name="category" className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50">
-                                <option selected disabled>Select a category</option>
                                 <option value="Face Care">Face Care</option>
                                 <option value="Body Care">Body Care</option>
                                 <option value="Hair Care">Hair Care</option>
@@ -41,7 +56,7 @@ const AddProduct = () => {
                         </div>
                         <div className="w-full">
                             <label className="block text-green-700 font-medium mb-1">Status</label>
-                            <select name="category" className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50">
+                            <select name="status" className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50">
                                 <option value="In Stock">In Stock</option>
                                 <option value="Low Stock">Low Stock</option>
                                 <option value="Cooming soon">Coming Soon</option>
@@ -67,7 +82,7 @@ const AddProduct = () => {
                     </div>
                     <div className="w-full mt-4">
                         <label className="block text-green-700 font-medium mb-1">Description</label>
-                        <textarea name="shortBio" rows='4' className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50" placeholder="A short one-liner about the product"></textarea>
+                        <textarea name="description" rows='4' className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50" placeholder="A short one-liner about the product"></textarea>
                     </div>
                     <div className="w-full mt-4">
                         <label className="block text-green-700 font-medium mb-1">Description</label>
