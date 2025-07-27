@@ -6,13 +6,40 @@ const AddProduct = () => {
                 <h1 className='text-4xl font-extrabold text-green-800'>Add a New Product</h1>
                 <p className='text-green-600 text-sm mt-2'>Easily add your product details here — upload images, write descriptions, set pricing, and categorize your products to reach your customers better.</p>
             </section>
-            
-            <section className="bg-green-50 mt-6 p-8 rounded-l-2xl shadow border border-green-400">
+
+            <section className="bg-green-50 mt-6 p-5 rounded-2xl shadow border border-green-400">
                 <form className="">
-                    <div>
-                        <div>
+                    <div className="flex flex-col md:flex-row gap-5">
+                        <div className="w-full">
                             <label className="block text-green-700 font-medium mb-1">Name*</label>
-                            <input type="text" name=""  placeholder="Enter product name..." required />
+                            <input type="text" name="" className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Enter product name..." required />
+                        </div>
+                        <div className="w-full">
+                            <label className="block text-green-700 font-medium mb-1">Price*</label>
+                            <input type="number" name="" className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Enter product price..." required />
+                        </div>
+                    </div>
+                    <div className="flex flex-col md:flex-row gap-5 mt-4">
+                        <div className="w-full">
+                            <label className="block text-green-700 font-medium mb-1">Category*</label>
+                            <select name="category" className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50">
+                                <option selected disabled>Select a category</option>
+                                <option value="Care">Face Care</option>
+                                <option value="Care">Face Care</option>
+                                <option value="Care">Face Care</option>
+                                <option value="Care">Face Care</option>
+                            </select>
+                        </div>
+                        <div className="w-full">
+                            <label className="block text-green-700 font-medium mb-1">Category</label>
+                            <select name="category"
+                                className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400">
+                                <option disabled selected>Select a category</option>
+                                <option value="Face Care">Face Care</option>
+                                <option value="Hair Care">Hair Care</option>
+                                <option value="Body Care">Body Care</option>
+                                <option value="Lip Care">Lip Care</option>
+                            </select>
                         </div>
                     </div>
                 </form>
@@ -69,17 +96,17 @@ export default AddProduct;
 //                     </div>
 
 //                     {/* Category */}
-//                     <div className="col-span-2">
-//                         <label className="block text-green-700 font-medium mb-1">Category</label>
-//                         <select name="category"
-//                             className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400">
-//                             <option disabled selected>Select a category</option>
-//                             <option value="Face Care">Face Care</option>
-//                             <option value="Hair Care">Hair Care</option>
-//                             <option value="Body Care">Body Care</option>
-//                             <option value="Lip Care">Lip Care</option>
-//                         </select>
-//                     </div>
+// <div className="col-span-2">
+//     <label className="block text-green-700 font-medium mb-1">Category</label>
+//     <select name="category"
+//         className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400">
+//         <option disabled selected>Select a category</option>
+//         <option value="Face Care">Face Care</option>
+//         <option value="Hair Care">Hair Care</option>
+//         <option value="Body Care">Body Care</option>
+//         <option value="Lip Care">Lip Care</option>
+//     </select>
+// </div>
 
 //                     {/* Status */}
 //                     <div>
