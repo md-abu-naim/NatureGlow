@@ -18,6 +18,7 @@ import Profile from "../Pages/Dashboard/Profile";
 import Users from "../Pages/Dashboard/AdminBar/Users";
 import AddProduct from "../Pages/Dashboard/AdminBar/AddProduct";
 import AddressBook from "../Pages/Dashboard/UserBar/AddressBook";
+import Products from "../Pages/Dashboard/AdminBar/Products";
 
 export const router = createBrowserRouter([
   {
@@ -82,6 +83,10 @@ export const router = createBrowserRouter([
       {
         path: 'users',
         element: <Users />
+      },
+      {
+        path: 'products',
+        element: <Products />
       },
       {
         path: 'addProduct',
