@@ -58,7 +58,7 @@ const Products = () => {
                             products?.map((product, i) => (
                                 <tr key={product.id} className="hover:bg-green-100 transition-all">
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
-                                    <td className="px-4 py-3 "><img src={product.image}className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name}/></td>
+                                    <td className="px-4 py-3 "><img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} /></td>
                                     <td className="px-4 py-3 ">{product.name}</td>
                                     <td className="px-4 py-3 ">{product.category}</td>
                                     <td className="px-4 py-3 ">{product.price}</td>
