@@ -3,33 +3,7 @@ import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
 const Products = () => {
-    // const products = [
-    //     {
-    //         _id: '1',
-    //         name: 'Aloe Vera Face Gel',
-    //         category: 'Face Care',
-    //         price: 18,
-    //         status: 'In Stock',
-    //         image: 'https://i.ibb.co/z7kQQsX/aloe-vera.jpg'
-    //     },
-    //     {
-    //         _id: '2',
-    //         name: 'Herbal Hair Oil',
-    //         category: 'Hair Care',
-    //         price: 25,
-    //         status: 'Low Stock',
-    //         image: 'https://i.ibb.co/3sSM0Tg/hair-oil.jpg'
-    //     },
-    //     {
-    //         _id: '3',
-    //         name: 'Natural Lip Balm',
-    //         category: 'Lip Care',
-    //         price: 10,
-    //         status: 'Sold Out',
-    //         image: 'https://i.ibb.co/hWfR4b7/lip-balm.jpg'
-    //     },
-    // ];
-
+    
     const [products, setProducts] = useState([])
 
     useEffect(() => {
