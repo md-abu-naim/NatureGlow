@@ -6,6 +6,17 @@ const AddProduct = () => {
                 <h1 className='text-4xl font-extrabold text-green-800'>Add a New Product</h1>
                 <p className='text-green-600 text-sm mt-2'>Easily add your product details here — upload images, write descriptions, set pricing, and categorize your products to reach your customers better.</p>
             </section>
+            
+            <section className="bg-green-50 mt-6 p-8 rounded-l-2xl shadow border border-green-400">
+                <form className="">
+                    <div>
+                        <div>
+                            <label className="block text-green-700 font-medium mb-1">Name*</label>
+                            <input type="text" name=""  placeholder="Enter product name..." required />
+                        </div>
+                    </div>
+                </form>
+            </section>
         </div>
     );
 };
@@ -25,8 +36,6 @@ export default AddProduct;
 //     return (
 //         <div className="bg-green-50 min-h-screen px-6 py-8">
 //             <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow border border-green-200">
-//                 <h1 className="text-3xl font-bold text-green-800 mb-6 text-center">Add New Product</h1>
-
 //                 <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
 //                     {/* Product Name */}
 //                     <div className="col-span-2">
