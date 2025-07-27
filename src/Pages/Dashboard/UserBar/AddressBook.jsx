@@ -1,7 +1,7 @@
 import useAuth from "../../../Hooks/useAuth";
 
 const AddressBook = () => {
-    const {user} = useAuth()
+    const { user } = useAuth()
 
     const handleAddressBook = e => {
         e.preventDefault()
@@ -11,7 +11,7 @@ const AddressBook = () => {
         const phone = form.phone.value
         const address = form.address.value
         const note = form.note.value
-        const addressBook = {name, email, phone, address, note}
+        const addressBook = { name, email, phone, address, note }
         console.log(addressBook);
     }
     return (
