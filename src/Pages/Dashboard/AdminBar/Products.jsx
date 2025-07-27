@@ -1,32 +1,41 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
 const Products = () => {
-    const products = [
-        {
-            _id: '1',
-            name: 'Aloe Vera Face Gel',
-            category: 'Face Care',
-            price: 18,
-            status: 'In Stock',
-            image: 'https://i.ibb.co/z7kQQsX/aloe-vera.jpg'
-        },
-        {
-            _id: '2',
-            name: 'Herbal Hair Oil',
-            category: 'Hair Care',
-            price: 25,
-            status: 'Low Stock',
-            image: 'https://i.ibb.co/3sSM0Tg/hair-oil.jpg'
-        },
-        {
-            _id: '3',
-            name: 'Natural Lip Balm',
-            category: 'Lip Care',
-            price: 10,
-            status: 'Sold Out',
-            image: 'https://i.ibb.co/hWfR4b7/lip-balm.jpg'
-        },
-    ];
+    // const products = [
+    //     {
+    //         _id: '1',
+    //         name: 'Aloe Vera Face Gel',
+    //         category: 'Face Care',
+    //         price: 18,
+    //         status: 'In Stock',
+    //         image: 'https://i.ibb.co/z7kQQsX/aloe-vera.jpg'
+    //     },
+    //     {
+    //         _id: '2',
+    //         name: 'Herbal Hair Oil',
+    //         category: 'Hair Care',
+    //         price: 25,
+    //         status: 'Low Stock',
+    //         image: 'https://i.ibb.co/3sSM0Tg/hair-oil.jpg'
+    //     },
+    //     {
+    //         _id: '3',
+    //         name: 'Natural Lip Balm',
+    //         category: 'Lip Care',
+    //         price: 10,
+    //         status: 'Sold Out',
+    //         image: 'https://i.ibb.co/hWfR4b7/lip-balm.jpg'
+    //     },
+    // ];
+
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        axios.get('/Product.json')
+            .then(res => setProducts(res.data))
+    }, [setProducts])
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
@@ -61,8 +70,10 @@ const Products = () => {
                                     <td className="px-4 py-3 "><img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} /></td>
                                     <td className="px-4 py-3 ">{product.name}</td>
                                     <td className="px-4 py-3 ">{product.category}</td>
-                                    <td className="px-4 py-3 ">{product.price}</td>
-                                    <td className="px-4 py-3 ">{product.status}</td>
+                                    <td className="px-4 py-3 font-sans font-semibold">$ {product.price}</td>
+                                    <td className="px-4 py-3">
+                                        <span className={`px-2 py-1 text-sm font-semibold rounded-full ${product.status === 'Low Stock' ? 'bg-red-200 text-red-800' : 'bg-green-200 text-green-800'}`}>{product.status}</span>
+                                    </td>
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
                                         <button title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
                                         <button title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
