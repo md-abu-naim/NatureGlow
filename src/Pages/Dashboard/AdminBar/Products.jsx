@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
 const Products = () => {
-    
     const [products, setProducts] = useState([])
 
     useEffect(() => {
