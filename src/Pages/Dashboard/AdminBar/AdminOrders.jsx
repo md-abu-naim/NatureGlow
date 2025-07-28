@@ -47,6 +47,7 @@ const AdminOrders = () => {
                         <MdOutlineLocalShipping className="text-3xl" />
                     </div>
                 </div>
+                {/* Cancelled Orders */}
                 <div className="bg-gradient-to-br from-green-100 to-green-50 p-6 rounded-2xl shadow-md hover:shadow-xl ransition duration-300 ease-in-out group relative flex items-center justify-between">
                     <div>
                         <h3 className="text-xl font-bold text-green-800 group-hover:text-green-900 transition">Cancelled Orders</h3>
