@@ -23,7 +23,7 @@ const AdminOrders = () => {
             "image": "https://i.ibb.co/5vQFdxN/product2.jpg",
             "name": "Coconut Hair Oil",
             "date": "2025-07-22T09:45:00Z",
-            "orderStatus": "Order Shipped",
+            "orderStatus": "Shipped",
             "paymentStatus": "Paid",
             "totalPrice": 1890
         },
@@ -47,7 +47,7 @@ const AdminOrders = () => {
             "image": "https://i.ibb.co/Ln6dTn9/product5.jpg",
             "name": "Turmeric Clay Mask",
             "date": "2025-07-18T14:30:00Z",
-            "orderStatus": "Pending Review",
+            "orderStatus": "In Progress",
             "paymentStatus": "Paid",
             "totalPrice": 3200
         }
@@ -161,12 +161,20 @@ const AdminOrders = () => {
                                     <td className="px-4 py-3 ">{product.name}</td>
                                     <td className="px-4 py-3 ">Product</td>
                                     <td className="px-4 py-3 font-semibold">
-                                        <span className={`px-2 py-3 rounded text-sm font-medium shadow-sm ${product.paymentStatus === 'Paid' ? 'bg-green-100 text-green-700' : product.paymentStatus === 'Unpaid' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'}`}>
+                                        <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm ${product.paymentStatus === 'Paid' ? 'bg-green-100 text-green-700' : product.paymentStatus === 'Unpaid' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'}`}>
                                             {product.paymentStatus}
                                         </span>
                                     </td>
                                     <td className="px-4 py-3 font-sans font-semibold"> {product.date}</td>
-                                    <td className="px-4 py-3">{product.orderStatus}</td>
+                                    <td className="px-4 py-3 font-semibold">
+                                        <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm
+                                            ${product.orderStatus === 'In Progress' ? 'bg-yellow-100 text-yellow-700':
+                                              product.orderStatus === 'Shipped' ? 'bg-blue-100 text-blue-700' :
+                                              product.orderStatus === 'Delivered' ? 'bg-green-100 text-green-700': 'bg-red-100 text-red-700'
+                                            }`}>
+                                                {product.orderStatus}
+                                        </span>
+                                    </td>
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
                                         <button title="Edit"><AiOutlineEye className="hover:text-green-800 transition text-xl" /></button>
                                         <button title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
