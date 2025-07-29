@@ -15,13 +15,13 @@ const OrderTracking = ({ status = 'in progress', paymentStatus, orderStatus }) =
                     <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm ${paymentStatus === 'Paid' ? 'bg-green-100 text-green-700' : paymentStatus === 'Unpaid' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'}`}>
                                         paid
                                     </span>
-                                    {/* <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm
-                                            ${product.orderStatus === 'In Progress' ? 'bg-yellow-100 text-yellow-700' :
-                                            product.orderStatus === 'Shipped' ? 'bg-blue-100 text-blue-700' :
-                                                product.orderStatus === 'Delivered' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                                    <span className={`border rounded-full px-3 py-1 text-sm font-medium shadow
+                                            ${orderStatus === 'In Progress' ? 'border-yellow-300 text-yellow-700' :
+                                            orderStatus === 'Shipped' ? 'border-blue-300 text-blue-700' :
+                                                orderStatus === 'Delivered' ? 'border-green-300 text-green-700' : 'border-red-300 text-red-700'
                                         }`}>
-                                        {product.orderStatus}
-                                    </span> */}
+                                        {orderStatus}
+                                    </span>
                     {/* <span className='bg-green-100 text-green-700 py-1 px-2 shadow rounded text-sm font-medium'>{paymentStatus}</span> */}
                     <span className='border border-yellow-300 rounded-full text-yellow-500 px-3 py-1 text-sm font-medium shadow'>{orderStatus}</span>
                 </div>
