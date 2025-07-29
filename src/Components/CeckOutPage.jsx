@@ -134,7 +134,7 @@ const CheckoutPage = () => {
                         <p className='text-sm text-gray-600'>Price: {item.price}</p>
                         <div className='mt-2 flex items-center justify-center md:justify-start gap-2'>
                           <label className='text-sm'>Qty:</label>
-                          <input onChange={(e) => handleQuantity(item.id, e.target.value)} type="number" min={1} defaultValue={1} name="" className='w-16 border border-green-300 rounded px-2 py-1 text-center' />
+                          <input onChange={(e) => handleQuantity(item.id, e.target.value)} type="number" min={1} max={5} defaultValue={1} name="" className='w-16 border border-green-300 rounded px-2 py-1 text-center' />
                         </div>
                       </div>
                       <button onClick={() => handleDelete(item.id)} className='bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full transition-all '><FaTrashAlt className="w-5 h-5" /></button>
