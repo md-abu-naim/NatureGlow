@@ -59,7 +59,7 @@ const OrderDetails = () => {
                 <p className='text-green-600 text-sm mt-2'>Review complete customer information, payment and order status, and detailed product breakdown.</p>
             </section>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
                 <section className="col-span-2 mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
                     <div className="bg-green-100 border-b flex justify-between items-center px-3 py-2 border-green-300">
                         <h1 className="text-lg font-bold text-green-800">Ordering List</h1>
@@ -95,7 +95,7 @@ const OrderDetails = () => {
                 </section>
 
                 {/* Order Summary */}
-                <section className="w-full lg:col-span-1" >
+                <section className="w-full lg:col-span-1 mt-7" >
                     <div className='bg-green-50 p-4 rounded-xl w-full'>
                         <div className='p-6 shadow-md rounded-xl space-y-4'>
                             <h2 className="text-xl font-bold text-green-800">Order Summary</h2>
@@ -118,13 +118,11 @@ const OrderDetails = () => {
                     {/* Marster Card */}
                     <div className="bg-green-50 mt-4 rounded-2xl shadow p-6 max-w-md w-full mx-auto">
                         <div className="flex items-center justify-between mb-4">
-                            <div className="flex items-center gap-2 text-xl font-semibold text-gray-800">
-                                <FaCcMastercard className="text-red-500 text-3xl" />
-                                Master Card
+                            <div className="flex flex-center gap-2 text-xl font-semibold text-gray-800">
+                                <FaCcMastercard className="text-red-500 text-3xl" /> Master Card
                             </div>
                             <span className="text-sm text-gray-500">Payment Method</span>
                         </div>
-
                         <div className="bg-gray-100 rounded-lg p-4 text-gray-700 text-sm space-y-2">
                             <div className="flex justify-between">
                                 <span className="font-medium">Card Number:</span>
@@ -140,7 +138,6 @@ const OrderDetails = () => {
                             </div>
                         </div>
                     </div>
-
                 </section>
 
             </div>
