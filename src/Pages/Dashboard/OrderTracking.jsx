@@ -22,8 +22,7 @@ const OrderTracking = ({ status = 'in progress', paymentStatus, orderStatus }) =
                                         }`}>
                                         {orderStatus}
                                     </span>
-                    {/* <span className='bg-green-100 text-green-700 py-1 px-2 shadow rounded text-sm font-medium'>{paymentStatus}</span> */}
-                    <span className='border border-yellow-300 rounded-full text-yellow-500 px-3 py-1 text-sm font-medium shadow'>{orderStatus}</span>
+                   
                 </div>
             </div>
 
