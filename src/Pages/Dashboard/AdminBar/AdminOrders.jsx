@@ -176,7 +176,7 @@ const AdminOrders = () => {
                                         </span>
                                     </td>
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
-                                        <button title="Edit"><AiOutlineEye className="hover:text-green-800 transition text-xl" /></button>
+                                        <button title="View"><AiOutlineEye className="hover:text-green-800 transition text-xl" /></button>
                                         <button title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
                                         <button title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
                                     </td>
