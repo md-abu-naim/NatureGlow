@@ -143,36 +143,24 @@ const OrderDetails = () => {
                     </div>
 
                     {/* Customer Details */}
-
-                    <div className="bg-green-50 p-5 rounded-2xl shadow-md w-full max-w-xl space-y-4">
-                        <h2 className="text-xl font-bold text-green-800">Customer Details</h2>
-
-                        <div className="flex items-center gap-4">
-                            <img
-                                src="https://randomuser.me/api/portraits/men/75.jpg"
-                                alt="Customer"
-                                className="w-16 h-16 rounded-full border-2 border-green-300 shadow"
-                            />
+                    <div className="bg-green-50 p-6 rounded-2xl shadow max-w-md w-full mx-auto">
+                        <div className="border-b border-green-300 pb-3">
+                            <h2 className="text-xl font-bold text-green-800">Payment Information</h2>
+                        </div>
+                        <div className="flex items-center gap-4 mt-3">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" className="w-16 h-16 rounded-full border-2 border-green-300 shadow" alt="" />
                             <div>
-                                <h3 className="text-lg font-semibold text-gray-800">Gaston Lapierre</h3>
+                                <h2 className="text-lg font-semibold text-gray-800">Gaston Lapierre</h2>
                                 <p className="text-sm text-gray-600">hello@dundermuffilin.com</p>
                             </div>
                         </div>
 
                         <div className="text-sm text-gray-700 space-y-2">
-                            <div>
-                                <span className="font-medium text-gray-800">Contact Number:</span><br />
-                                (723) 732-760-5760
-                            </div>
-
-                            <div>
+                            <span className="font-medium text-gray-800">Contact Number: <span className="font-sans font-normal">(723) 732-760-5760</span></span>
+                            <div className="mt-1">
                                 <span className="font-medium text-gray-800">Shipping Address:</span>
-                                <address className="not-italic leading-relaxed mt-1 text-gray-600">
-                                    Wilson's Jewelers LTD<br />
-                                    1344 Hershell Hollow Road<br />
-                                    Tukwila, WA 98168<br />
-                                    United States<br />
-                                    (723) 732-760-5760
+                                <address className=" leading-relaxed mt-1 text-gray-600">
+                                    Khajuriya, Senbag, Noakhali
                                 </address>
                             </div>
                         </div>
