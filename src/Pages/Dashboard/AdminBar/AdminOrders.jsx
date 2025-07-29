@@ -1,5 +1,4 @@
-// import axios from "axios";
-// import { useEffect, useState } from "react";
+
 import { AiOutlineEye } from "react-icons/ai";
 import { BsCartX } from "react-icons/bs";
 import { FaEdit, FaShippingFast, FaTrash } from "react-icons/fa";
@@ -7,56 +6,10 @@ import { FiRefreshCw } from "react-icons/fi";
 import { LuClock } from "react-icons/lu";
 import { MdOutlineLocalShipping } from "react-icons/md";
 import { RiRefund2Line } from "react-icons/ri";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 
 const AdminOrders = () => {
-    const products = [
-        {
-            "_id": 1,
-            "image": "https://i.ibb.co/0YhPzTX/product1.jpg",
-            "name": "Herbal Aloe Face Wash",
-            "date": "2025-07-20T10:15:00Z",
-            "orderStatus": "Delivered",
-            "paymentStatus": "Paid",
-            "totalPrice": 2499
-        },
-        {
-            "_id": 2,
-            "image": "https://i.ibb.co/5vQFdxN/product2.jpg",
-            "name": "Coconut Hair Oil",
-            "date": "2025-07-22T09:45:00Z",
-            "orderStatus": "Shipped",
-            "paymentStatus": "Paid",
-            "totalPrice": 1890
-        },
-        {
-            "_id": 3,
-            "image": "https://i.ibb.co/J5Phn8b/product3.jpg",
-            "name": "Rose Body Lotion",
-            "date": "2025-07-25T12:10:00Z",
-            "orderStatus": "In Progress",
-            "paymentStatus": "Unpaid",
-            "totalPrice": 2785
-        },
-        {
-            "_id": 4,
-            "image": "https://i.ibb.co/SJ7Z0KR/product4.jpg",
-            "name": "Lip Balm (Strawberry)",
-            "date": "2025-07-23T16:00:00Z",
-            "orderStatus": "Cancelled",
-            "paymentStatus": "Refunded",
-            "totalPrice": 1540
-        },
-        {
-            "_id": 5,
-            "image": "https://i.ibb.co/Ln6dTn9/product5.jpg",
-            "name": "Turmeric Clay Mask",
-            "date": "2025-07-18T14:30:00Z",
-            "orderStatus": "In Progress",
-            "paymentStatus": "Paid",
-            "totalPrice": 3200
-        }
-    ]
+    const products = useLoaderData()
 
     return (
         <div>
@@ -164,8 +117,8 @@ const AdminOrders = () => {
                                         <img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} />
                                         <h5>{product.name}</h5>
                                     </td>
-                                    <td className="px-4 py-3 ">{product.name}</td>
-                                    <td className="px-4 py-3 ">Product</td>
+                                    <td className="px-4 py-3 ">{product.customer}</td>
+                                    <td className="px-4 py-3 ">{product.products?.length} Items</td>
                                     <td className="px-4 py-3 font-semibold">
                                         <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm ${product.paymentStatus === 'Paid' ? 'bg-green-100 text-green-700' : product.paymentStatus === 'Unpaid' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'}`}>
                                             {product.paymentStatus}
@@ -183,7 +136,7 @@ const AdminOrders = () => {
                                     </td>
                                     <td className="px-4 py-3 font-sans">$ {product.totalPrice}</td>
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
-                                        <NavLink to={`/dashboard/order-details/${product._id}`} title="View"><AiOutlineEye className="hover:text-green-800 transition text-xl" /></NavLink>
+                                        <NavLink to={`/dashboard/order-details/${product.id}`} title="View"><AiOutlineEye className="hover:text-green-800 transition text-xl" /></NavLink>
                                         <button title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
                                         <button title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
                                     </td>

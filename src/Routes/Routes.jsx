@@ -102,7 +102,8 @@ export const router = createBrowserRouter([
       },
       {
         path: 'admin-orders',
-        element: <AdminOrders />
+        element: <AdminOrders />,
+        loader: () => fetch(`/Orders.json`)
       },
       // User Routes
       {
@@ -113,7 +114,8 @@ export const router = createBrowserRouter([
       // Shared Routes
       {
         path: 'order-details/:id',
-        element: <OrderDetails />
+        element: <OrderDetails />,
+        loader: () => fetch(`/Orders.json`)
       },
       {
         path: 'profile',
