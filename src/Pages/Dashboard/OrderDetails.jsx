@@ -3,12 +3,12 @@ import { NavLink, useLoaderData, useParams } from "react-router-dom";
 import OrderTracking from "./OrderTracking";
 
 const OrderDetails = () => {
-    const {id} = useParams()
+    const { id } = useParams()
     const products = useLoaderData()
 
     const product = products.find(p => p.id === id)
 
-    const {paymentStatus, orderStatus} = product || {}
+    const { paymentStatus, orderStatus } = product || {}
     console.log(id, product);
     // const products = [
     //     {
