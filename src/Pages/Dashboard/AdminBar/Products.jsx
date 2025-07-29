@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import ReactStars from "react-rating-stars-component";
 
 const Products = () => {
     const [products, setProducts] = useState([])
@@ -10,6 +11,8 @@ const Products = () => {
         axios.get('/Product.json')
             .then(res => setProducts(res.data))
     }, [setProducts])
+
+    const ratings = parseInt(4.5)
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
@@ -32,11 +35,11 @@ const Products = () => {
                     <thead className="bg-green-100 text-green-800 font-semibold">
                         <tr>
                             <th className="py-3 px-4">#</th>
-                            <th className="py-3 px-4">Image</th>
-                            <th className="py-3 px-4">Name</th>
+                            <th className="py-3 px-4">Image & Name</th>
                             <th className="py-3 px-4">Category</th>
                             <th className="py-3 px-4">Price</th>
                             <th className="py-3 px-4">Status</th>
+                            <th className="py-3 px-4">Ratings</th>
                             <th className="py-3 px-4 text-center">Actions</th>
                         </tr>
                     </thead>
@@ -45,12 +48,24 @@ const Products = () => {
                             products?.map((product, i) => (
                                 <tr key={product.id} className="hover:bg-green-100 transition-all">
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
-                                    <td className="px-4 py-3 "><img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} /></td>
-                                    <td className="px-4 py-3 ">{product.name}</td>
+                                    <td className="px-4 py-3 flex items-center gap-1">
+                                        <img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} />
+                                        <h5>{product.name}</h5>
+                                    </td>
                                     <td className="px-4 py-3 ">{product.category}</td>
                                     <td className="px-4 py-3 font-sans font-semibold">$ {product.price}</td>
                                     <td className="px-4 py-3">
                                         <span className={`px-2 py-1 text-sm font-semibold rounded-full ${product.status === 'Low Stock' ? 'bg-red-200 text-red-800' : 'bg-green-200 text-green-800'}`}>{product.status}</span>
+                                    </td>
+                                    <td className="px-4 py-3">
+                                        <ReactStars
+                                            count={5}
+                                            value={ratings}
+                                            size={20}
+                                            edit={false}
+                                            isHalf={true}
+                                            activeColor="#22c55e"
+                                        />
                                     </td>
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
                                         <NavLink to={`/dashboard/update/${product.id}`} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></NavLink>

@@ -7,6 +7,7 @@ import { FiRefreshCw } from "react-icons/fi";
 import { LuClock } from "react-icons/lu";
 import { MdOutlineLocalShipping } from "react-icons/md";
 import { RiRefund2Line } from "react-icons/ri";
+import { NavLink } from "react-router-dom";
 
 const AdminOrders = () => {
     const products = [
@@ -131,6 +132,10 @@ const AdminOrders = () => {
 
             {/* Orders Table */}
             <section className="mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
+                <div className="bg-green-100 border-b flex justify-between items-center px-3 py-2 border-green-300">
+                    <h1 className="text-lg font-bold text-green-800">All Orders List</h1>
+                    <NavLink to="/dashboard/addProduct" className="bg-green-500 text-white py-1 px-2 rounded-lg">Add Product</NavLink>
+                </div>
                 <table className="min-w-full text-sm text-left table-auto">
                     <thead className="bg-green-100 text-green-800 font-semibold">
                         <tr>
@@ -149,7 +154,10 @@ const AdminOrders = () => {
                             products?.map((product, i) => (
                                 <tr key={product.id} className="hover:bg-green-100 transition-all">
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
-                                    <td className="px-4 py-3 "><img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} /></td>
+                                    <td className="px-4 py-3 flex items-center gap-1">
+                                        <img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} />
+                                        <h5>{product.name}</h5>
+                                    </td>
                                     <td className="px-4 py-3 ">{product.name}</td>
                                     <td className="px-4 py-3 ">Product</td>
                                     <td className="px-4 py-3 font-sans font-semibold">{product.paymentStatus}</td>
