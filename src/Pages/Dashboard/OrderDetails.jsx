@@ -6,12 +6,11 @@ const OrderDetails = () => {
     const { id } = useParams()
     const products = useLoaderData()
 
-    const product = products.find(p => p.id === id)
+    const product = products?.find(p => p.id === id)
 
     const { paymentStatus, orderStatus } = product || {}
-    console.log(id, product);
 
-    const total = Math.round(product.products.reduce((sum, item) => sum + item.totalPrice, 0) * 100) / 100;
+    const total = Math.round(product?.products?.reduce((sum, item) => sum + item.totalPrice, 0) * 100) / 100;
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
