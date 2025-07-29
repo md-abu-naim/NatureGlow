@@ -60,39 +60,41 @@ const OrderDetails = () => {
             </section>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-                <section className="col-span-2 mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
-                    <div className="bg-green-100 border-b flex justify-between items-center px-3 py-2 border-green-300">
-                        <h1 className="text-lg font-bold text-green-800">Ordering List</h1>
-                        <NavLink to="/dashboard/Update-orders" className="bg-green-500 text-white py-1 px-2 rounded-lg">Edit Product</NavLink>
-                    </div>
-                    <table className="min-w-full text-sm text-left table-auto">
-                        <thead className="bg-green-100 text-green-800 font-semibold">
-                            <tr>
-                                <th className="py-3 px-4">#</th>
-                                <th className="py-3 px-4">Image & Name</th>
-                                <th className="py-3 px-4">Quantity</th>
-                                <th className="py-3 px-4">Date</th>
-                                <th className="py-3 px-4">Total Price</th>
-                            </tr>
-                        </thead>
-                        <tbody className="text-gray-700 divide-y divide-green-100">
-                            {
-                                products?.map((product, i) => (
-                                    <tr key={product.id} className="hover:bg-green-100 transition-all">
-                                        <td className="px-4 py-3 font-semibold">{i + 1}</td>
-                                        <td className="px-4 py-3 flex items-center gap-1">
-                                            <img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} />
-                                            <h5>{product.name}</h5>
-                                        </td>
-                                        <td className="px-4 py-3 ">Product</td>
-                                        <td className="px-4 py-3 font-sans font-semibold"> {product.date}</td>
-                                        <td className="px-4 py-3 font-sans">$ {product.totalPrice}</td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </table>
-                </section>
+                <div className="col-span-2">
+                    <section className=" mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
+                        <div className="bg-green-100 border-b flex justify-between items-center px-3 py-2 border-green-300">
+                            <h1 className="text-lg font-bold text-green-800">Ordering List</h1>
+                            <NavLink to="/dashboard/Update-orders" className="bg-green-500 text-white py-1 px-2 rounded-lg">Edit Product</NavLink>
+                        </div>
+                        <table className="min-w-full text-sm text-left table-auto">
+                            <thead className="bg-green-100 text-green-800 font-semibold">
+                                <tr>
+                                    <th className="py-3 px-4">#</th>
+                                    <th className="py-3 px-4">Image & Name</th>
+                                    <th className="py-3 px-4">Quantity</th>
+                                    <th className="py-3 px-4">Date</th>
+                                    <th className="py-3 px-4">Total Price</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-gray-700 divide-y divide-green-100">
+                                {
+                                    products?.map((product, i) => (
+                                        <tr key={product.id} className="hover:bg-green-100 transition-all">
+                                            <td className="px-4 py-3 font-semibold">{i + 1}</td>
+                                            <td className="px-4 py-3 flex items-center gap-1">
+                                                <img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} />
+                                                <h5>{product.name}</h5>
+                                            </td>
+                                            <td className="px-4 py-3 ">Product</td>
+                                            <td className="px-4 py-3 font-sans font-semibold"> {product.date}</td>
+                                            <td className="px-4 py-3 font-sans">$ {product.totalPrice}</td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
 
                 {/* Order Summary */}
                 <section className="w-full lg:col-span-1 mt-7" >
@@ -116,7 +118,7 @@ const OrderDetails = () => {
                     </div>
 
                     {/* Marster Card */}
-                    <div className="bg-green-50 mt-4 rounded-2xl shadow p-6 max-w-md w-full mx-auto">
+                    <div className="bg-green-50 mt-4 rounded-2xl shadow p-6">
                         <div className="border-b border-green-300 pb-3">
                             <h2 className="text-xl font-bold text-green-800">Payment Information</h2>
                         </div>
@@ -143,7 +145,7 @@ const OrderDetails = () => {
                     </div>
 
                     {/* Customer Details */}
-                    <div className="bg-green-50 p-6 rounded-2xl shadow max-w-md w-full mx-auto">
+                    <div className="bg-green-50 p-6 rounded-2xl shadow mt-4">
                         <div className="border-b border-green-300 pb-3">
                             <h2 className="text-xl font-bold text-green-800">Payment Information</h2>
                         </div>
