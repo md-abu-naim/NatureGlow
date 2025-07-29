@@ -140,7 +140,7 @@ const AdminOrders = () => {
                     <thead className="bg-green-100 text-green-800 font-semibold">
                         <tr>
                             <th className="py-3 px-4">#</th>
-                            <th className="py-3 px-4">Image</th>
+                            <th className="py-3 px-4">Image & Name</th>
                             <th className="py-3 px-4">Customer</th>
                             <th className="py-3 px-4">Products</th>
                             <th className="py-3 px-4">Payment Status</th>
@@ -160,7 +160,11 @@ const AdminOrders = () => {
                                     </td>
                                     <td className="px-4 py-3 ">{product.name}</td>
                                     <td className="px-4 py-3 ">Product</td>
-                                    <td className="px-4 py-3 font-sans font-semibold">{product.paymentStatus}</td>
+                                    <td className="px-4 py-3 font-semibold">
+                                        <span className={`px-2 py-3 rounded text-sm font-medium shadow-sm ${product.paymentStatus === 'Paid' ? 'bg-green-100 text-green-700' : product.paymentStatus === 'Unpaid' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'}`}>
+                                            {product.paymentStatus}
+                                        </span>
+                                    </td>
                                     <td className="px-4 py-3 font-sans font-semibold"> {product.date}</td>
                                     <td className="px-4 py-3">{product.orderStatus}</td>
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
