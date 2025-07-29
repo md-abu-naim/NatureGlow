@@ -12,6 +12,7 @@ import { NavLink } from "react-router-dom";
 const AdminOrders = () => {
     const products = [
         {
+            "_id": 1,
             "image": "https://i.ibb.co/0YhPzTX/product1.jpg",
             "name": "Herbal Aloe Face Wash",
             "date": "2025-07-20T10:15:00Z",
@@ -20,6 +21,7 @@ const AdminOrders = () => {
             "totalPrice": 2499
         },
         {
+            "_id": 2,
             "image": "https://i.ibb.co/5vQFdxN/product2.jpg",
             "name": "Coconut Hair Oil",
             "date": "2025-07-22T09:45:00Z",
@@ -28,6 +30,7 @@ const AdminOrders = () => {
             "totalPrice": 1890
         },
         {
+            "_id": 3,
             "image": "https://i.ibb.co/J5Phn8b/product3.jpg",
             "name": "Rose Body Lotion",
             "date": "2025-07-25T12:10:00Z",
@@ -36,6 +39,7 @@ const AdminOrders = () => {
             "totalPrice": 2785
         },
         {
+            "_id": 4,
             "image": "https://i.ibb.co/SJ7Z0KR/product4.jpg",
             "name": "Lip Balm (Strawberry)",
             "date": "2025-07-23T16:00:00Z",
@@ -44,6 +48,7 @@ const AdminOrders = () => {
             "totalPrice": 1540
         },
         {
+            "_id": 5,
             "image": "https://i.ibb.co/Ln6dTn9/product5.jpg",
             "name": "Turmeric Clay Mask",
             "date": "2025-07-18T14:30:00Z",
@@ -176,7 +181,7 @@ const AdminOrders = () => {
                                         </span>
                                     </td>
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
-                                        <button title="View"><AiOutlineEye className="hover:text-green-800 transition text-xl" /></button>
+                                        <NavLink to={`/dashboard/order-details/${product._id}`} title="View"><AiOutlineEye className="hover:text-green-800 transition text-xl" /></NavLink>
                                         <button title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
                                         <button title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
                                     </td>

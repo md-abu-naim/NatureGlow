@@ -21,6 +21,7 @@ import AddressBook from "../Pages/Dashboard/UserBar/AddressBook";
 import Products from "../Pages/Dashboard/AdminBar/Products";
 import UpdateProduct from "../Pages/Dashboard/AdminBar/UpdateProduct";
 import AdminOrders from "../Pages/Dashboard/AdminBar/AdminOrders";
+import OrderDetails from "../Pages/Dashboard/OrderDetails";
 
 export const router = createBrowserRouter([
   {
@@ -110,6 +111,10 @@ export const router = createBrowserRouter([
       },
 
       // Shared Routes
+      {
+        path: 'order-details/:id',
+        element: <OrderDetails />
+      },
       {
         path: 'profile',
         element: <Profile />
