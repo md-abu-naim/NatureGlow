@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaStar, FaTrash } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import ReactStars from "react-rating-stars-component";
 
 const Products = () => {
     const [products, setProducts] = useState([])
@@ -12,7 +11,7 @@ const Products = () => {
             .then(res => setProducts(res.data))
     }, [setProducts])
 
-    const ratings = parseInt(4.5)
+    const ratings = parseFloat(4.5)
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
@@ -26,7 +25,7 @@ const Products = () => {
                 </div>
             </form>
 
-            <section className=" mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
+            <section className="mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
                 <div className="bg-green-100 border-b flex justify-between items-center px-3 py-2 border-green-300">
                     <h1 className="text-lg font-bold text-green-800">All Products List</h1>
                     <NavLink to="/dashboard/addProduct" className="bg-green-500 text-white py-1 px-2 rounded-lg">Add Product</NavLink>
@@ -52,21 +51,21 @@ const Products = () => {
                                         <img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} />
                                         <h5>{product.name}</h5>
                                     </td>
-                                    <td className="px-4 py-3 ">{product.category}</td>
+                                    <td className="px-4 py-3">{product.category}</td>
                                     <td className="px-4 py-3 font-sans font-semibold">$ {product.price}</td>
                                     <td className="px-4 py-3">
                                         <span className={`px-2 py-1 text-sm font-semibold rounded-full ${product.status === 'Low Stock' ? 'bg-red-200 text-red-800' : 'bg-green-200 text-green-800'}`}>{product.status}</span>
                                     </td>
                                     <td className="px-4 py-3">
-                                        <ReactStars
-                                            count={5}
-                                            value={ratings}
-                                            size={20}
-                                            edit={false}
-                                            isHalf={true}
-                                            activeColor="#22c55e"
-                                        />
+                                        <div className="flex items-center gap-2">
+                                            <div className="flex items-center bg-green-100 text-green-800 px-2 py-1 rounded-full shadow-sm">
+                                                <FaStar className="text-yellow-400 mr-1" />
+                                                <span className="font-semibold text-sm">{ratings}</span>
+                                            </div>
+                                            <span className="text-gray-600 text-sm">55 Reviews</span>
+                                        </div>
                                     </td>
+
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
                                         <NavLink to={`/dashboard/update/${product.id}`} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></NavLink>
                                         <button title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
