@@ -7,9 +7,14 @@ import { LuClock } from "react-icons/lu";
 import { MdOutlineLocalShipping } from "react-icons/md";
 import { RiRefund2Line } from "react-icons/ri";
 import { NavLink, useLoaderData } from "react-router-dom";
+import UpdateOrderModal from "../Modals/OrderUpdate";
+import { useState } from "react";
 
 const AdminOrders = () => {
-    const products = useLoaderData()
+    const Orders = useLoaderData()
+        const [isOpen, setIsOpen] = useState(false)
+        const [order, setOrder] = useState()
+
 
     return (
         <div>
@@ -111,32 +116,32 @@ const AdminOrders = () => {
                     </thead>
                     <tbody className="text-gray-700 divide-y divide-green-100">
                         {
-                            products?.map((product, i) => (
-                                <tr key={product.id} className="hover:bg-green-100 transition-all">
+                            Orders?.map((order, i) => (
+                                <tr key={order.id} className="hover:bg-green-100 transition-all">
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
-                                    <td className="px-4 py-3 font-medium">{product._id}</td>
-                                    <td className="px-4 py-3 font-semibold">{product.customerName}</td>
-                                    <td className="px-4 py-3 font-sans">{product.phone}</td>
-                                    <td className="px-4 py-3 ">{product.products?.length} Items</td>
+                                    <td className="px-4 py-3 font-medium">{order._id}</td>
+                                    <td className="px-4 py-3 font-semibold">{order.customerName}</td>
+                                    <td className="px-4 py-3 font-sans">{order.phone}</td>
+                                    <td className="px-4 py-3 ">{order.orders?.length} Items</td>
                                     <td className="px-4 py-3 font-semibold">
-                                        <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm ${product.paymentStatus === 'Paid' ? 'bg-green-100 text-green-700' : product.paymentStatus === 'Unpaid' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'}`}>
-                                            {product.paymentStatus}
+                                        <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm ${order.paymentStatus === 'Paid' ? 'bg-green-100 text-green-700' : order.paymentStatus === 'Unpaid' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'}`}>
+                                            {order.paymentStatus}
                                         </span>
                                     </td>
-                                    <td className="px-4 py-3 font-sans font-semibold"> {product.date}</td>
+                                    <td className="px-4 py-3 font-sans font-semibold"> {order.date}</td>
                                     <td className="px-4 py-3 font-semibold">
                                         <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm
-                                            ${product.orderStatus === 'In Progress' ? 'bg-yellow-100 text-yellow-700' :
-                                                product.orderStatus === 'Shipped' ? 'bg-blue-100 text-blue-700' :
-                                                    product.orderStatus === 'Delivered' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                                            ${order.orderStatus === 'In Progress' ? 'bg-yellow-100 text-yellow-700' :
+                                                order.orderStatus === 'Shipped' ? 'bg-blue-100 text-blue-700' :
+                                                    order.orderStatus === 'Delivered' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
                                             }`}>
-                                            {product.orderStatus}
+                                            {order.orderStatus}
                                         </span>
                                     </td>
-                                    <td className="px-4 py-3 font-sans">$ {product.totalPrice + 1}</td>
+                                    <td className="px-4 py-3 font-sans">$ {order.totalPrice + 1}</td>
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
-                                        <NavLink to={`/dashboard/order-details/${product._id}`} title="View"><AiOutlineEye className="hover:text-green-800 transition text-xl" /></NavLink>
-                                        <button title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
+                                        <NavLink to={`/dashboard/order-details/${order._id}`} title="View"><AiOutlineEye className="hover:text-green-800 transition text-xl" /></NavLink>
+                                        <button onClick={() => {setIsOpen(true); setOrder(order) }} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
                                         <button title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
                                     </td>
                                 </tr>
@@ -145,6 +150,7 @@ const AdminOrders = () => {
                     </tbody>
                 </table>
             </section>
+            {isOpen && <UpdateOrderModal setIsOpen={setIsOpen} order={order} />}
         </div>
     );
 };
