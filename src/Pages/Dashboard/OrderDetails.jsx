@@ -113,7 +113,7 @@ const OrderDetails = () => {
                         <div className="border-b border-green-300 pb-3">
                             <h2 className="text-xl font-bold text-green-800">Customer Details</h2>
                         </div>
-                        <div className="flex items-center gap-4 mt-3">
+                        <div className="flex items-center gap-4 my-3">
                             <img src={profile} className="w-16 h-16 rounded-full border-2 border-green-300 shadow" alt={customerName} />
                             <div>
                                 <h2 className="text-lg font-semibold text-gray-800">{customerName}</h2>
@@ -122,7 +122,7 @@ const OrderDetails = () => {
                         </div>
 
                         <div className="text-sm text-gray-700 space-y-2">
-                            <span className="font-medium text-gray-800">Contact Number: <span className="font-sans font-normal">{phone}</span></span>
+                            <span className="font-medium text-gray-800">Contact Number: <span className="font-sans font-normal">+88{phone}</span></span>
                             <div className="mt-1">
                                 <span className="font-medium text-gray-800">Shipping Address:</span>
                                 <address className=" leading-relaxed mt-1 text-gray-600">

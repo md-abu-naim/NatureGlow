@@ -1,136 +1,163 @@
 [
-    {
-        "_id": "15sfd",
-        "customerName": "Naim",
-        "Profile": "https://randomuser.me/api/portraits/men/75.jpg",
-        "paymentStatus": "Paid",
-        "orderStatus": "In Progress",
-        "date": "1-2-2025",
-        "totalPrice": "48.5",
-        "address": "Khajuria Senbag",
-        "phone": "01882585833",
-        "email": "example@gmail.com",
-        "products": [
-            {
-                "id": 1,
-                "name": "Green Tea Cream",
-                "image": "https://i.postimg.cc/RVNGzwQD/Soothing-Green-Tea-Face-Cream.jpg",
-                "shortBio": "Calms sensitive skin & controls oil.",
-                "description": "This lightweight face cream is infused with green tea and aloe vera to soothe redness, hydrate skin, and reduce oil build-up.",
-                "features": [
-                    "Ideal for acne-prone skin",
-                    "Non-comedogenic formula",
-                    "Day and night use"
-                ],
-                "price": 8.50,
-                "status": "In Stock",
-                "category": "Face Care"
-            },
-            {
-                "id": 2,
-                "name": "Rose Face Mist",
-                "image": "https://i.postimg.cc/h4M3nDFf/Rose-Petal-Hydrating-Face-Mist.jpg",
-                "shortBio": "Refreshes and tones your skin naturally.",
-                "description": "Made with pure rose water and botanical extracts, this face mist keeps your skin hydrated and glowing all day long.",
-                "features": [
-                    "Tightens pores",
-                    "100% alcohol-free",
-                    "Use before or after makeup"
-                ],
-                "price": 6.20,
-                "status": "Low Stock",
-                "category": "Face Care"
-            },
-            {
-                "id": 3,
-                "name": "Herbal Hair Oil",
-                "image": "https://i.postimg.cc/0NmB17xs/Herbal-Strengthening-Hair-Oil.webp",
-                "shortBio": "Reduces hair fall and promotes growth.",
-                "description": "A natural blend of amla, bhringraj, and coconut oil that nourishes your scalp and strengthens hair from the roots.",
-                "features": [
-                    "Prevents dandruff",
-                    "No mineral oil or silicone",
-                    "Cold-pressed ingredients"
-                ],
-                "price": 4.80,
-                "status": "Coming Soon",
-                "category": "Hair Care"
-            },
-            {
-                "id": 4,
-                "name": "Neem Shampoo",
-                "image": "https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp",
-                "shortBio": "Fights dandruff and soothes scalp.",
-                "description": "This sulfate-free shampoo cleanses gently while neem and aloe vera work to eliminate flakes and calm itching.",
-                "features": [
-                    "SLS & Paraben free",
-                    "pH balanced formula",
-                    "Suitable for daily use"
-                ],
-                "price": 6.90,
-                "status": "In Stock",
-                "category": "Hair Care"
-            },
-            {
-                "id": 5,
-                "name": "Cocoa Body Lotion",
-                "image": "https://i.postimg.cc/WbbCqDmG/Cocoa-Butter-Body-Lotion.jpg",
-                "shortBio": "Deep moisturization for dry skin.",
-                "description": "Enriched with pure cocoa butter and vitamin E, this lotion provides 24-hour hydration and improves skin elasticity.",
-                "features": [
-                    "Non-greasy texture",
-                    "Long-lasting hydration",
-                    "Mild vanilla scent"
-                ],
-                "price": 7.20,
-                "status": "Low Stock",
-                "category": "Body Care"
-            },
-            {
-                "id": 6,
-                "name": "Coffee Scrub",
-                "image": "https://i.postimg.cc/x1B4Ztw5/Exfoliating-Coffee-Body-Scrub.webp",
-                "shortBio": "Removes dead skin and boosts glow.",
-                "description": "This all-natural coffee scrub gently exfoliates, reduces cellulite appearance, and leaves your body smooth and refreshed.",
-                "features": [
-                    "Made with real Arabica coffee",
-                    "Promotes blood circulation",
-                    "No plastic beads"
-                ],
-                "price": 8.20,
-                "status": "Coming Soon",
-                "category": "Body Care"
-            },
-            {
-                "id": 7,
-                "name": "Mint Lip Balm",
-                "image": "https://i.postimg.cc/V6WZd1dZ/Mint-Shea-Lip-Balm.jpg",
-                "shortBio": "Heals cracked lips & freshens breath.",
-                "description": "A nourishing lip balm made with shea butter and peppermint oil to keep your lips soft, smooth, and cool.",
-                "features": [
-                    "No petroleum jelly",
-                    "100% natural ingredients",
-                    "Tingly mint finish"
-                ],
-                "price": 2.50,
-                "status": "In Stock",
-                "category": "Lip Care"
-            },
-            {
-                "id": 8,
-                "name": "Rose Lip Butter",
-                "image": "https://i.postimg.cc/hvJmN1W8/Rose-Tinted-Lip-Butter.avif",
-                "shortBio": "Adds natural pink tint & moisture.",
-                "description": "Combining beetroot extract and rose oil, this lip butter adds a gentle pink shade while deeply hydrating your lips.",
-                "features": [
-                    "Light natural tint",
-                    "Long-lasting softness",
-                    "Paraben-free"
-                ],
-                "price": 3.20,
-                "status": "Low Stock",
-                "category": "Lip Care"
-            }
-        ]
-    }
+  {
+    "_id": "ORD001",
+    "customerName": "Afsana Rahman",
+    "customerImage": "https://i.pravatar.cc/150?img=31",
+    "email": "afsana@example.com",
+    "address": "Dhanmondi, Dhaka",
+    "phone": "+8801780011122",
+    "paymentStatus": "Paid",
+    "orderStatus": "Shipped",
+    "date": "2025-07-26",
+    "products": [
+      {
+        "id": 1,
+        "name": "Green Tea Cream",
+        "image": "https://i.postimg.cc/RVNGzwQD/Soothing-Green-Tea-Face-Cream.jpg",
+        "shortBio": "Calms sensitive skin & controls oil.",
+        "description": "This lightweight face cream is infused with green tea and aloe vera to soothe redness, hydrate skin, and reduce oil build-up.",
+        "features": [
+          "Ideal for acne-prone skin",
+          "Non-comedogenic formula",
+          "Day and night use"
+        ],
+        "price": 8.50,
+        "status": "In Stock",
+        "category": "Face Care"
+      },
+      {
+        "id": 4,
+        "name": "Neem Shampoo",
+        "image": "https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp",
+        "shortBio": "Fights dandruff and soothes scalp.",
+        "description": "This sulfate-free shampoo cleanses gently while neem and aloe vera work to eliminate flakes and calm itching.",
+        "features": [
+          "SLS & Paraben free",
+          "pH balanced formula",
+          "Suitable for daily use"
+        ],
+        "price": 6.90,
+        "status": "In Stock",
+        "category": "Hair Care"
+      }
+    ],
+    "totalPrice": 15.40
+  },
+  {
+    "_id": "ORD002",
+    "customerName": "Mehedi Hasan",
+    "customerImage": "https://i.pravatar.cc/150?img=11",
+    "email": "mehedi@example.com",
+    "address": "Chittagong",
+    "phone": "+8801300022244",
+    "paymentStatus": "Unpaid",
+    "orderStatus": "In Progress",
+    "date": "2025-07-28",
+    "products": [
+      {
+        "id": 5,
+        "name": "Cocoa Body Lotion",
+        "image": "https://i.postimg.cc/WbbCqDmG/Cocoa-Butter-Body-Lotion.jpg",
+        "shortBio": "Deep moisturization for dry skin.",
+        "description": "Enriched with pure cocoa butter and vitamin E, this lotion provides 24-hour hydration and improves skin elasticity.",
+        "features": [
+          "Non-greasy texture",
+          "Long-lasting hydration",
+          "Mild vanilla scent"
+        ],
+        "price": 7.20,
+        "status": "Low Stock",
+        "category": "Body Care"
+      }
+    ],
+    "totalPrice": 7.20
+  },
+  {
+    "_id": "ORD003",
+    "customerName": "Rafiul Islam",
+    "customerImage": "https://i.pravatar.cc/150?img=41",
+    "email": "rafi@example.com",
+    "address": "Rajshahi",
+    "phone": "+8801700345667",
+    "paymentStatus": "Paid",
+    "orderStatus": "Delivered",
+    "date": "2025-07-22",
+    "products": [
+      {
+        "id": 2,
+        "name": "Rose Face Mist",
+        "image": "https://i.postimg.cc/h4M3nDFf/Rose-Petal-Hydrating-Face-Mist.jpg",
+        "shortBio": "Refreshes and tones your skin naturally.",
+        "description": "Made with pure rose water and botanical extracts, this face mist keeps your skin hydrated and glowing all day long.",
+        "features": [
+          "Tightens pores",
+          "100% alcohol-free",
+          "Use before or after makeup"
+        ],
+        "price": 6.20,
+        "status": "Low Stock",
+        "category": "Face Care"
+      },
+      {
+        "id": 7,
+        "name": "Mint Lip Balm",
+        "image": "https://i.postimg.cc/V6WZd1dZ/Mint-Shea-Lip-Balm.jpg",
+        "shortBio": "Heals cracked lips & freshens breath.",
+        "description": "A nourishing lip balm made with shea butter and peppermint oil to keep your lips soft, smooth, and cool.",
+        "features": [
+          "No petroleum jelly",
+          "100% natural ingredients",
+          "Tingly mint finish"
+        ],
+        "price": 2.50,
+        "status": "In Stock",
+        "category": "Lip Care"
+      },
+      {
+        "id": 8,
+        "name": "Rose Lip Butter",
+        "image": "https://i.postimg.cc/hvJmN1W8/Rose-Tinted-Lip-Butter.avif",
+        "shortBio": "Adds natural pink tint & moisture.",
+        "description": "Combining beetroot extract and rose oil, this lip butter adds a gentle pink shade while deeply hydrating your lips.",
+        "features": [
+          "Light natural tint",
+          "Long-lasting softness",
+          "Paraben-free"
+        ],
+        "price": 3.20,
+        "status": "Low Stock",
+        "category": "Lip Care"
+      }
+    ],
+    "totalPrice": 11.90
+  },
+  {
+    "_id": "ORD004",
+    "customerName": "Sadia Jahan",
+    "customerImage": "https://i.pravatar.cc/150?img=24",
+    "email": "sadia@example.com",
+    "address": "Sylhet Sadar",
+    "phone": "+8801944778899",
+    "paymentStatus": "Paid",
+    "orderStatus": "Cancelled",
+    "date": "2025-07-29",
+    "products": [
+      {
+        "id": 3,
+        "name": "Saffron Night Serum",
+        "image": "https://i.postimg.cc/y8VG0Pty/Night-Repair-Saffron-Serum.jpg",
+        "shortBio": "Repairs and brightens overnight.",
+        "description": "Infused with real saffron strands and vitamin C, this serum reduces dark spots and enhances radiance as you sleep.",
+        "features": [
+          "Boosts collagen production",
+          "No artificial fragrance",
+          "Perfect for all skin types"
+        ],
+        "price": 9.80,
+        "status": "In Stock",
+        "category": "Face Care"
+      }
+    ],
+    "totalPrice": 9.80
+  }
 ]

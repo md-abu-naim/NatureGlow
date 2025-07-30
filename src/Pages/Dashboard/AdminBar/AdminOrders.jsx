@@ -133,7 +133,7 @@ const AdminOrders = () => {
                                             {product.orderStatus}
                                         </span>
                                     </td>
-                                    <td className="px-4 py-3 font-sans">$ {product.totalPrice}</td>
+                                    <td className="px-4 py-3 font-sans">$ {product.totalPrice + 1}</td>
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
                                         <NavLink to={`/dashboard/order-details/${product._id}`} title="View"><AiOutlineEye className="hover:text-green-800 transition text-xl" /></NavLink>
                                         <button title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
