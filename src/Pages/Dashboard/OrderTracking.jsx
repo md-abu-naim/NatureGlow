@@ -1,7 +1,7 @@
 import { Box, Stepper, Step, StepLabel } from '@mui/material';
 
 const steps = ['In Progress', 'Shipped', 'Delivered']
-const OrderTracking = ({ paymentStatus, orderStatus = 'in progress' }) => {
+const OrderTracking = ({_id, paymentStatus, orderStatus = 'in progress' }) => {
     const stepIndex = {
         'in progress': 0,
         shipped: 1,
@@ -10,7 +10,12 @@ const OrderTracking = ({ paymentStatus, orderStatus = 'in progress' }) => {
     return (
         <div className="bg-green-50 p-4 mt-6 rounded-lg">
             <div className="flex flex-col md:flex-row justify-between items-center pb-10">
-                <h3 className="text-xl font-bold text-green-800">Order Tracking</h3>
+                <div className='flex flex-col md:flex-row md:items-center gap-1 md:gap-3'>
+                    <h3 className="text-xl font-bold text-green-800">🧾 Order Tracking</h3>
+                    <div className='text-sm text-gray-600 font-medium bg-gray-100 px-3 py-1 rounded-md shadow-sm border border-green-200'>
+                        <span className='text-gray-800'>Order ID:</span> <span className='font-semibold text-green-700'>{_id}</span>
+                    </div>
+                </div>
                 <div className='flex gap-2 mt-2 lg:mt-0'>
                     <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm ${paymentStatus === 'Paid' ? 'bg-green-100 text-green-700' : paymentStatus === 'Unpaid' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'}`}>
                         {paymentStatus}
@@ -22,9 +27,9 @@ const OrderTracking = ({ paymentStatus, orderStatus = 'in progress' }) => {
                         }`}>
                         {orderStatus}
                     </span>
-
                 </div>
             </div>
+
 
             {/* Order tracking */}
             {

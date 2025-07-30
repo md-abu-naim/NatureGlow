@@ -21,7 +21,7 @@ const OrderDetails = () => {
                 <div className="col-span-2">
                     <div>
                         {/* <OrderTracking /> */}
-                        <OrderTracking orderStatus={orderStatus} paymentStatus={paymentStatus} />
+                        <OrderTracking orderStatus={orderStatus} paymentStatus={paymentStatus} _id={_id} />
 
                         {/* Order List */}
                         <section className=" mt-6 overflow-x-auto rounded-lg shadow-lg border border-green-300">
