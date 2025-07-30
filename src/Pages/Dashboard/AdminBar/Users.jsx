@@ -47,28 +47,34 @@ const Users = () => {
                 <table className="min-w-full text-sm text-left table-auto">
                     <thead className="bg-green-100 text-green-800 font-semibold">
                         <tr>
-                            <th className="px-6 py-3 text-left text-sm font-bold text-green-800">Profile</th>
-                            <th className="px-6 py-3 text-left text-sm font-bold text-green-800">Name</th>
-                            <th className="px-6 py-3 text-left text-sm font-bold text-green-800">Email</th>
-                            <th className="px-6 py-3 text-left text-sm font-bold text-green-800">Role</th>
-                            <th className="px-6 py-3 text-center text-sm font-bold text-green-800">Actions</th>
+                            <th className="py-3 px-4">#</th>
+                            <th className="py-3 px-4">Profile & Name</th>
+                            <th className="py-3 px-4">Email</th>
+                            <th className="py-3 px-4">Phone Number</th>
+                            <th className="py-3 px-4">Address</th>
+                            <th className="py-3 px-4">User Role</th>
+                            <th className="py-3 px-4 text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody className="text-gray-700 divide-y divide-green-100">
                         {
-                            users?.map(user => (
-                                <tr key={user.id} className="hover:bg-green-100 transition-all">
-                                    <td className="px-4 py-3 "><img src={user.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={user.name} /></td>
-                                    <td className="px-6 py-4 text-sm text-gray-800 font-medium">{user.name}</td>
-                                    <td className="px-6 py-4 text-sm text-gray-600">{user.email}</td>
-                                    <td className="px-6 py-4 text-sm">
-                                        <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${user.role === "admin" ? "bg-green-200 text-green-800" : "bg-blue-200 text-blue-800"}`}>
-                                            {user.role}
+                            users?.map((u, i) => (
+                                <tr key={i} className="hover:bg-green-100 transition-all">
+                                    <td className="px-4 py-3 font-semibold">{i + 1}</td>
+                                    <td className="px-4 py-3 flex items-center gap-1">
+                                        <img src={u.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={u.name} />
+                                        <h5>{u.name}</h5>
+                                    </td>
+                                    <td className="px-4 py-3">{u.email}</td>
+                                    <td className="px-4 py-3 font-sans">+8801882585833</td>
+                                    <td className="px-4 py-3">kalam beparir fild, Khajuria, senbag, Noakhalim, chittagang</td>
+                                    <td className="px-6 py-4 ">
+                                        <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${u.role === "Admin" ? "bg-green-200 text-green-800" : "bg-blue-200 text-blue-800"}`}>
+                                            {u.role}
                                         </span>
                                     </td>
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
-                                        <button onClick={() => {setIsOpen(true), setUserRole(user)}} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
-                                        <button title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
+                                        <button onClick={() => { setIsOpen(true), setUserRole(u) }} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>                                        <button title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
                                     </td>
                                 </tr>
                             ))
