@@ -1,9 +1,15 @@
 [
     {
-        "id": "ORD1001",
-        "name": "Organic Skincare Combo",
-        "image": "https://example.com/images/order1.jpg",
-        "customer": "Gaston Lapierre",
+        "_id": "15sfd",
+        "customerName": "Naim",
+        "Profile": "https://randomuser.me/api/portraits/men/75.jpg",
+        "paymentStatus": "Paid",
+        "orderStatus": "In Progress",
+        "date": "1-2-2025",
+        "totalPrice": "150",
+        "address": "Khajuria Senbag",
+        "phone": "01882585833",
+        "email": "example@gmail.com",
         "products": [
             {
                 "id": 1,
@@ -21,79 +27,110 @@
                 "category": "Face Care"
             },
             {
-                "_id": 2,
-                "image": "https://i.ibb.co/5vQFdxN/product2.jpg",
-                "name": "Coconut Hair Oil",
-                "date": "2025-07-22T09:45:00Z",
-                "orderStatus": "Shipped",
-                "paymentStatus": "Paid",
-                "totalPrice": 1890
-            }
-        ],
-        "paymentStatus": "Paid",
-        "date": "2025-07-25",
-        "orderStatus": "Delivered",
-        "totalPrice": 42.99,
-        "address": "1344 Hershell Hollow Road, Tukwila, WA 98168, United States",
-        "phoneNumber": "(723) 732-760-5760",
-        "quantity": 2
-    },
-    {
-        "id": "ORD1002",
-        "name": "Natural Lip Care Pack",
-        "image": "https://example.com/images/order2.jpg",
-        "customer": "Sophie Delgado",
-        "products": [
+                "id": 2,
+                "name": "Rose Face Mist",
+                "image": "https://i.postimg.cc/h4M3nDFf/Rose-Petal-Hydrating-Face-Mist.jpg",
+                "shortBio": "Refreshes and tones your skin naturally.",
+                "description": "Made with pure rose water and botanical extracts, this face mist keeps your skin hydrated and glowing all day long.",
+                "features": [
+                    "Tightens pores",
+                    "100% alcohol-free",
+                    "Use before or after makeup"
+                ],
+                "price": 6.20,
+                "status": "Low Stock",
+                "category": "Face Care"
+            },
             {
-            "_id": 2,
-            "image": "https://i.ibb.co/5vQFdxN/product2.jpg",
-            "name": "Coconut Hair Oil",
-            "date": "2025-07-22T09:45:00Z",
-            "orderStatus": "Shipped",
-            "paymentStatus": "Paid",
-            "totalPrice": 1890
-        }
-        ],
-        "paymentStatus": "Unpaid",
-        "date": "2025-07-26",
-        "orderStatus": "In Progress",
-        "totalPrice": 9.99,
-        "address": "921 Maple Street, Springfield, IL 62704, United States",
-        "phoneNumber": "(312) 998-4401",
-        "quantity": 3
-    },
-    {
-        "id": "ORD1003",
-        "name": "Hair Nourishment Essentials",
-        "image": "https://example.com/images/order3.jpg",
-        "customer": "Liam Martinez",
-        "products": [
-            "Coconut Hair Oil",
-            "Herbal Shampoo",
-            "Protein Conditioner"
-        ],
-        "paymentStatus": "Paid",
-        "date": "2025-07-27",
-        "orderStatus": "Shipped",
-        "totalPrice": 31.50,
-        "address": "508 Lakeview Drive, Austin, TX 73301, United States",
-        "phoneNumber": "(512) 555-7800",
-        "quantity": 1
-    },
-    {
-        "id": "ORD1004",
-        "name": "Body Care Summer Set",
-        "image": "https://example.com/images/order4.jpg",
-        "customer": "Emily Stone",
-        "products": [
-            "Aloe Body Lotion",
-            "Sandalwood Scrub"
-        ],
-        "paymentStatus": "Refunded",
-        "date": "2025-07-22",
-        "orderStatus": "Cancelled",
-        "totalPrice": 27.00,
-        "address": "49 Crescent Blvd, San Diego, CA 92117, United States",
-        "phoneNumber": "(619) 888-4422"
+                "id": 3,
+                "name": "Herbal Hair Oil",
+                "image": "https://i.postimg.cc/0NmB17xs/Herbal-Strengthening-Hair-Oil.webp",
+                "shortBio": "Reduces hair fall and promotes growth.",
+                "description": "A natural blend of amla, bhringraj, and coconut oil that nourishes your scalp and strengthens hair from the roots.",
+                "features": [
+                    "Prevents dandruff",
+                    "No mineral oil or silicone",
+                    "Cold-pressed ingredients"
+                ],
+                "price": 4.80,
+                "status": "Coming Soon",
+                "category": "Hair Care"
+            },
+            {
+                "id": 4,
+                "name": "Neem Shampoo",
+                "image": "https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp",
+                "shortBio": "Fights dandruff and soothes scalp.",
+                "description": "This sulfate-free shampoo cleanses gently while neem and aloe vera work to eliminate flakes and calm itching.",
+                "features": [
+                    "SLS & Paraben free",
+                    "pH balanced formula",
+                    "Suitable for daily use"
+                ],
+                "price": 6.90,
+                "status": "In Stock",
+                "category": "Hair Care"
+            },
+            {
+                "id": 5,
+                "name": "Cocoa Body Lotion",
+                "image": "https://i.postimg.cc/WbbCqDmG/Cocoa-Butter-Body-Lotion.jpg",
+                "shortBio": "Deep moisturization for dry skin.",
+                "description": "Enriched with pure cocoa butter and vitamin E, this lotion provides 24-hour hydration and improves skin elasticity.",
+                "features": [
+                    "Non-greasy texture",
+                    "Long-lasting hydration",
+                    "Mild vanilla scent"
+                ],
+                "price": 7.20,
+                "status": "Low Stock",
+                "category": "Body Care"
+            },
+            {
+                "id": 6,
+                "name": "Coffee Scrub",
+                "image": "https://i.postimg.cc/x1B4Ztw5/Exfoliating-Coffee-Body-Scrub.webp",
+                "shortBio": "Removes dead skin and boosts glow.",
+                "description": "This all-natural coffee scrub gently exfoliates, reduces cellulite appearance, and leaves your body smooth and refreshed.",
+                "features": [
+                    "Made with real Arabica coffee",
+                    "Promotes blood circulation",
+                    "No plastic beads"
+                ],
+                "price": 8.20,
+                "status": "Coming Soon",
+                "category": "Body Care"
+            },
+            {
+                "id": 7,
+                "name": "Mint Lip Balm",
+                "image": "https://i.postimg.cc/V6WZd1dZ/Mint-Shea-Lip-Balm.jpg",
+                "shortBio": "Heals cracked lips & freshens breath.",
+                "description": "A nourishing lip balm made with shea butter and peppermint oil to keep your lips soft, smooth, and cool.",
+                "features": [
+                    "No petroleum jelly",
+                    "100% natural ingredients",
+                    "Tingly mint finish"
+                ],
+                "price": 2.50,
+                "status": "In Stock",
+                "category": "Lip Care"
+            },
+            {
+                "id": 8,
+                "name": "Rose Lip Butter",
+                "image": "https://i.postimg.cc/hvJmN1W8/Rose-Tinted-Lip-Butter.avif",
+                "shortBio": "Adds natural pink tint & moisture.",
+                "description": "Combining beetroot extract and rose oil, this lip butter adds a gentle pink shade while deeply hydrating your lips.",
+                "features": [
+                    "Light natural tint",
+                    "Long-lasting softness",
+                    "Paraben-free"
+                ],
+                "price": 3.20,
+                "status": "Low Stock",
+                "category": "Lip Care"
+            }
+        ]
     }
 ]

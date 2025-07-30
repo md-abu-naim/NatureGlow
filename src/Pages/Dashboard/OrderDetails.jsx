@@ -1,12 +1,12 @@
-import { FaCcMastercard, FaEdit, FaTrash } from "react-icons/fa";
+import { FaCcMastercard, } from "react-icons/fa";
 import { NavLink, useLoaderData, useParams } from "react-router-dom";
 import OrderTracking from "./OrderTracking";
 
 const OrderDetails = () => {
-    const { id } = useParams()
+    const { _id } = useParams()
     const products = useLoaderData()
 
-    const product = products?.find(p => p.id === id)
+    const product = products?.find(p => p.id === _id)
 
     const { paymentStatus, orderStatus, customer, phoneNumber, address } = product || {}
 
@@ -42,7 +42,7 @@ const OrderDetails = () => {
                                 </thead>
                                 <tbody className="text-gray-700 divide-y divide-green-100">
                                     {
-                                        product.products?.map((product, i) => (
+                                        product?.products?.map((product, i) => (
                                             <tr key={product.id} className="hover:bg-green-100 transition-all">
                                                 <td className="px-4 py-3 font-semibold">{i + 1}</td>
                                                 <td className="px-4 py-3 flex items-center gap-1">

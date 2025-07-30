@@ -113,7 +113,7 @@ export const router = createBrowserRouter([
 
       // Shared Routes
       {
-        path: 'order-details/:id',
+        path: 'order-details/:_id',
         element: <OrderDetails />,
         loader: () => fetch(`/Orders.json`)
       },
