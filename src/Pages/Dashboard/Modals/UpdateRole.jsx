@@ -1,11 +1,11 @@
 
 const UpdateRole = ({setIsOpen, user}) => {
 
-    // const updateUserRole = e => {
-    //     e.preventDefault()
-    //     const role = e.target.role.value
-    //     console.log(role);
-    // }
+    const updateUserRole = e => {
+        e.preventDefault()
+        const role = e.target.role.value
+        console.log(role);
+    }
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-end mr-6">
             <div className="bg-green-100 rounded-lg p-6 shadow-lg border border-green-300">
