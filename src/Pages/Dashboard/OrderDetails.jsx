@@ -5,6 +5,7 @@ import OrderTracking from "./OrderTracking";
 const OrderDetails = () => {
     const { _id } = useParams()
     const orders = useLoaderData()
+    const role = "User"
 
     const order = orders?.find(o => o._id === _id)
 
@@ -27,7 +28,10 @@ const OrderDetails = () => {
                         <section className=" mt-6 overflow-x-auto rounded-lg shadow-lg border border-green-300">
                             <div className="bg-green-100 border-b flex justify-between items-center px-3 py-2 border-green-300">
                                 <h1 className="text-lg font-bold text-green-800">Ordering List</h1>
-                                <NavLink to="/dashboard/Update-orders" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Edit Product</NavLink>
+                                {
+                                    role === 'Admin' ? <NavLink to="/dashboard/Update-orders" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Edit Product</NavLink> :
+                                    <button title="Order Cancel" className="bg-red-100 hover:bg-red-300 text-red-700 px-3 py-1 rounded-sm transition">Order Cancel</button>
+                                }
                             </div>
                             <table className="min-w-full text-sm text-left table-auto">
                                 <thead className="bg-green-100 text-green-800 font-semibold">
