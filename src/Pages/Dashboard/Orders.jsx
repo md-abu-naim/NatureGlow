@@ -14,7 +14,7 @@ const Orders = () => {
     const Orders = useLoaderData()
     const [isOpen, setIsOpen] = useState(false)
     const [order, setOrder] = useState()
-    const role = 'User'
+    const role = 'Admin'
 
 
     return (

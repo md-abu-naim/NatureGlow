@@ -1,29 +1,35 @@
+import { useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import UpdateRole from "../Modals/UpdateRole";
 
 const users = [
     {
         id: 1,
         name: "Naim Web Dev",
         email: "naim@example.com",
-        role: "admin",
+        role: "Admin",
         image: "https://i.pravatar.cc/150?img=3",
     },
     {
         id: 2,
         name: "Sarah Islam",
         email: "sarah@example.com",
-        role: "student",
+        role: "Student",
         image: "https://i.pravatar.cc/150?img=5",
     },
     {
         id: 3,
         name: "Mizan Rahman",
         email: "mizan@example.com",
-        role: "tutor",
+        role: "Admin",
         image: "https://i.pravatar.cc/150?img=8",
     },
 ];
+
+
 const Users = () => {
+    const [isOpen, setIsOpen] = useState(false)
+    const [userRole, setUserRole] = useState([])
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
@@ -61,8 +67,8 @@ const Users = () => {
                                         </span>
                                     </td>
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
-                                        <button title="Edit"><FaEdit className="hover:text-green-800 transition" /></button>
-                                        <button title="Delete"><FaTrash className="hover:text-red-500 transition" /></button>
+                                        <button onClick={() => {setIsOpen(true), setUserRole(user)}} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
+                                        <button title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
                                     </td>
                                 </tr>
                             ))
@@ -70,6 +76,9 @@ const Users = () => {
                     </tbody>
                 </table>
             </section>
+            {
+                isOpen && <UpdateRole setIsOpen={setIsOpen} user={userRole} />
+            }
         </div>
     );
 };

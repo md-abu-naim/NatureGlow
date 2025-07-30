@@ -4,9 +4,9 @@ const OrderUpdate = ({ setIsOpen, order}) => {
     const handleOrderUpdate = e => {
         e.preventDefault()
         const form = e.target
-        const PaymentStatus = form.Payment.value
-        const OrderStatus = form.order.value
-        console.log(PaymentStatus, OrderStatus);
+        const paymentStatus = form.payment.value
+        const orderStatus = form.order.value
+        console.log(paymentStatus, orderStatus);
     }
 
     return (
@@ -16,7 +16,7 @@ const OrderUpdate = ({ setIsOpen, order}) => {
                 <form onSubmit={handleOrderUpdate} className="space-y-4">
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Select Payment Status</label>
-                        <select name="Payment" defaultValue={order.paymentStatus} className="w-full mt-1 border rounded px-2 py-1" >
+                        <select name="payment" defaultValue={order.paymentStatus} className="w-full mt-1 border rounded px-2 py-1" >
                             <option value="Paid">Paid</option>
                             <option value="Unpaid">Unpaid</option>
                             <option value="Refunded">Refunded</option>
