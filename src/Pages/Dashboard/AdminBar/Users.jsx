@@ -5,7 +5,7 @@ import UpdateRole from "../Modals/UpdateRole";
 const users = [
     {
         id: 1,
-        name: "Naim Web Dev",
+        name: "Mohammad Naim Web Dev",
         email: "naim@example.com",
         role: "Admin",
         image: "https://i.pravatar.cc/150?img=3",
