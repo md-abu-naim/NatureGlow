@@ -7,10 +7,10 @@ import { LuClock } from "react-icons/lu";
 import { MdOutlineLocalShipping } from "react-icons/md";
 import { RiRefund2Line } from "react-icons/ri";
 import { NavLink, useLoaderData } from "react-router-dom";
-import UpdateOrderModal from "../Modals/OrderUpdate";
+import UpdateOrderModal from "./Modals/OrderUpdate";
 import { useState } from "react";
 
-const AdminOrders = () => {
+const Orders = () => {
     const Orders = useLoaderData()
     const [isOpen, setIsOpen] = useState(false)
     const [order, setOrder] = useState()
@@ -122,7 +122,7 @@ const AdminOrders = () => {
                     <tbody className="text-gray-700 divide-y divide-green-100">
                         {
                             Orders?.map((order, i) => (
-                                <tr key={order.id} className="hover:bg-green-100 transition-all">
+                                <tr key={i} className="hover:bg-green-100 transition-all">
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
                                     <td className="px-4 py-3 font-medium">{order._id}</td>
                                     {
@@ -169,4 +169,4 @@ const AdminOrders = () => {
     );
 };
 
-export default AdminOrders;
+export default Orders;

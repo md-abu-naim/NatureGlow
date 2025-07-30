@@ -20,8 +20,8 @@ import AddProduct from "../Pages/Dashboard/AdminBar/AddProduct";
 import AddressBook from "../Pages/Dashboard/UserBar/AddressBook";
 import Products from "../Pages/Dashboard/AdminBar/Products";
 import UpdateProduct from "../Pages/Dashboard/AdminBar/UpdateProduct";
-import AdminOrders from "../Pages/Dashboard/AdminBar/AdminOrders";
 import OrderDetails from "../Pages/Dashboard/OrderDetails";
+import Orders from "../Pages/Dashboard/Orders";
 
 export const router = createBrowserRouter([
   {
@@ -100,11 +100,6 @@ export const router = createBrowserRouter([
         path: 'addProduct',
         element: <AddProduct />
       },
-      {
-        path: 'admin-orders',
-        element: <AdminOrders />,
-        loader: () => fetch(`/Orders.json`)
-      },
       // User Routes
       {
         path: 'addressBook',
@@ -112,6 +107,11 @@ export const router = createBrowserRouter([
       },
 
       // Shared Routes
+      {
+        path: 'orders',
+        element: <Order/>,
+        loader: () => fetch(`/Orders.json`)
+      },
       {
         path: 'order-details/:_id',
         element: <OrderDetails />,
