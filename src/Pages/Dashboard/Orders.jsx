@@ -14,7 +14,7 @@ const Orders = () => {
     const Orders = useLoaderData()
     const [isOpen, setIsOpen] = useState(false)
     const [order, setOrder] = useState()
-    const role = 'Admin'
+    const role = 'User'
 
 
     return (
@@ -98,7 +98,10 @@ const Orders = () => {
             <section className="mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
                 <div className="bg-green-100 border-b flex justify-between items-center px-3 py-2 border-green-300">
                     <h1 className="text-lg font-bold text-green-800">All Orders List</h1>
-                    <NavLink to="/dashboard/addProduct" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Add Product</NavLink>
+                    {
+                        role === 'Admin' ? <NavLink to="/dashboard/addProduct" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Add Product</NavLink>:
+                        <NavLink to="/shop" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Shop New</NavLink>
+                    }
                 </div>
                 <table className="min-w-full text-sm text-left table-auto">
                     <thead className="bg-green-100 text-green-800 font-semibold">
