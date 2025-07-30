@@ -35,7 +35,8 @@
         "orderStatus": "Delivered",
         "totalPrice": 42.99,
         "address": "1344 Hershell Hollow Road, Tukwila, WA 98168, United States",
-        "phoneNumber": "(723) 732-760-5760"
+        "phoneNumber": "(723) 732-760-5760",
+        "quantity": 2
     },
     {
         "id": "ORD1002",
@@ -58,7 +59,8 @@
         "orderStatus": "In Progress",
         "totalPrice": 9.99,
         "address": "921 Maple Street, Springfield, IL 62704, United States",
-        "phoneNumber": "(312) 998-4401"
+        "phoneNumber": "(312) 998-4401",
+        "quantity": 3
     },
     {
         "id": "ORD1003",
@@ -75,7 +77,8 @@
         "orderStatus": "Shipped",
         "totalPrice": 31.50,
         "address": "508 Lakeview Drive, Austin, TX 73301, United States",
-        "phoneNumber": "(512) 555-7800"
+        "phoneNumber": "(512) 555-7800",
+        "quantity": 1
     },
     {
         "id": "ORD1004",

@@ -10,7 +10,7 @@ const OrderDetails = () => {
 
     const { paymentStatus, orderStatus } = product || {}
 
-    const total = Math.round(product?.products?.reduce((sum, item) => sum + item.totalPrice, 0) * 100) / 100;
+    const total = Math.round(product?.products?.reduce((sum, item) => sum + item.price, 0) * 100) / 100;
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
@@ -49,9 +49,9 @@ const OrderDetails = () => {
                                                     <img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} />
                                                     <h5>{product.name}</h5>
                                                 </td>
-                                                <td className="px-4 py-3 ">Product</td>
+                                                <td className="px-4 py-3 ">{products?.length}</td>
                                                 <td className="px-4 py-3 font-sans font-semibold"> {product.date}</td>
-                                                <td className="px-4 py-3 font-sans">$ {product.totalPrice}</td>
+                                                <td className="px-4 py-3 font-sans">$ {product.price}</td>
                                             </tr>
                                         ))
                                     }
