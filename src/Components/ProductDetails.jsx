@@ -78,7 +78,7 @@ const ProductDetails = () => {
                 <h3 className='text-2xl text-green-800 font-bold'>Related Products</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-4">
                     {
-                        relatedProduct?.map(product => <div to={`/details/${product.id}`} key={product.id} className="group shadow-xl rounded-3xl p-5 relative hover:shadow-2xl transition duration-300">
+                        relatedProduct?.slice(0, 4).map(product => <div to={`/details/${product.id}`} key={product.id} className="group shadow-xl rounded-3xl p-5 relative hover:shadow-2xl transition duration-300">
                             <div className="overflow-hidden rounded-xl">
                                 <img className="w-full h-52 object-contain rounded-xl group-hover:scale-105 transition-transform duration-300" src={product.image} alt={product.name} />
                             </div>
