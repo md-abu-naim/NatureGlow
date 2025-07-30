@@ -53,7 +53,7 @@ const Orders = () => {
                     <div>
                         <h3 className="text-xl font-bold text-green-800 group-hover:text-green-900 transition">Delivered Orders</h3>
                         <p className="text-3xl font-semibold text-gray-800 mt-1">250</p>
-                        <p className="text-sm text-green-600 mt-1">Successfully delivered to customers</p>
+                        <p className="text-sm text-green-600 mt-1">Successfully delivered to {role === 'Admin' ? 'customers' : 'you'}</p>
                     </div>
                     <div className="bg-green-200 text-green-800 p-4 rounded-full shadow-inner group-hover:bg-green-300 transition">
                         <MdOutlineLocalShipping className="text-3xl" />
@@ -64,7 +64,7 @@ const Orders = () => {
                     <div>
                         <h3 className="text-xl font-bold text-green-800 group-hover:text-green-900 transition">Cancelled Orders</h3>
                         <p className="text-3xl font-semibold text-gray-800 mt-1">250</p>
-                        <p className="text-sm text-green-600 mt-1">Total canceled by users</p>
+                        <p className="text-sm text-green-600 mt-1">Total canceled by {role === 'Admin' ? 'users' : 'you'}</p>
                     </div>
                     <div className="bg-green-200 text-green-800 p-4 rounded-full shadow-inner group-hover:bg-green-300 transition">
                         <BsCartX className="text-3xl" />
@@ -75,7 +75,7 @@ const Orders = () => {
                     <div>
                         <h3 className="text-xl font-bold text-green-800 group-hover:text-green-900 transition">Pending Payments</h3>
                         <p className="text-3xl font-semibold text-gray-800 mt-1">250</p>
-                        <p className="text-sm text-green-600 mt-1">Awaiting customer payment confirmation</p>
+                        <p className="text-sm text-green-600 mt-1">Awaiting {role === 'Admin' ? 'customer' : 'your'} payment confirmation</p>
                     </div>
                     <div className="bg-green-200 text-green-800 p-4 rounded-full shadow-inner group-hover:bg-green-300 transition">
                         <LuClock className="text-3xl" />
@@ -86,7 +86,7 @@ const Orders = () => {
                     <div>
                         <h3 className="text-xl font-bold text-green-800 group-hover:text-green-900 transition">Payment Refunded</h3>
                         <p className="text-3xl font-semibold text-gray-800 mt-1">250</p>
-                        <p className="text-sm text-green-600 mt-1">Total orders refunded to users</p>
+                        <p className="text-sm text-green-600 mt-1">Total orders refunded to {role === 'Admin' ? 'users' : 'you'}</p>
                     </div>
                     <div className="bg-green-200 text-green-800 p-4 rounded-full shadow-inner group-hover:bg-green-300 transition">
                         <RiRefund2Line className="text-3xl" />
