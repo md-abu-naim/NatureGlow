@@ -4,13 +4,12 @@ import OrderTracking from "./OrderTracking";
 
 const OrderDetails = () => {
     const { _id } = useParams()
-    const products = useLoaderData()
+    const orders = useLoaderData()
 
-    const product = products?.find(p => p.id === _id)
+    const order = orders?.find(o => o._id === _id)
 
-    const { paymentStatus, orderStatus, customer, phoneNumber, address } = product || {}
+    const {customerName, profile, paymentStatus, orderStatus, phone, address, email, products, totalPrice } = order || {}
 
-    const total = Math.round(product?.products?.reduce((sum, item) => sum + item.price, 0) * 100) / 100;
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
@@ -35,22 +34,22 @@ const OrderDetails = () => {
                                     <tr>
                                         <th className="py-3 px-4">#</th>
                                         <th className="py-3 px-4">Image & Name</th>
-                                        <th className="py-3 px-4">Quantity</th>
-                                        <th className="py-3 px-4">Date</th>
-                                        <th className="py-3 px-4">Total Price</th>
+                                        <th className="py-3 px-4">Category</th>
+                                        <th className="py-3 px-4">Status</th>
+                                        <th className="py-3 px-4">Price</th>
                                     </tr>
                                 </thead>
                                 <tbody className="text-gray-700 divide-y divide-green-100">
                                     {
-                                        product?.products?.map((product, i) => (
+                                        products?.map((product, i) => (
                                             <tr key={product.id} className="hover:bg-green-100 transition-all">
                                                 <td className="px-4 py-3 font-semibold">{i + 1}</td>
                                                 <td className="px-4 py-3 flex items-center gap-1">
                                                     <img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} />
                                                     <h5>{product.name}</h5>
                                                 </td>
-                                                <td className="px-4 py-3 ">{products?.length}</td>
-                                                <td className="px-4 py-3 font-sans font-semibold"> {product.date}</td>
+                                                <td className="px-4 py-3 font-semibold italic">{product.category}</td>
+                                                <td className="px-4 py-3 font-sans font-semibold"> {product.status}</td>
                                                 <td className="px-4 py-3 font-sans">$ {product.price}</td>
                                             </tr>
                                         ))
@@ -68,7 +67,7 @@ const OrderDetails = () => {
                             <h2 className="text-xl font-bold text-green-800">Order Summary</h2>
                             <div className="flex justify-between text-sm">
                                 <span>Subtotal</span>
-                                <span>$ {total}</span>
+                                <span>$ {totalPrice}</span>
                             </div>
                             <div className="flex justify-between text-sm">
                                 <span>Shipping</span>
@@ -77,7 +76,7 @@ const OrderDetails = () => {
                             <hr />
                             <div className="flex justify-between font-bold text-green-900">
                                 <span>Total</span>
-                                <span>$ {total + 1}</span>
+                                <span>$ {totalPrice + 1}</span>
                             </div>
                         </div>
                     </div>
@@ -115,15 +114,15 @@ const OrderDetails = () => {
                             <h2 className="text-xl font-bold text-green-800">Customer Details</h2>
                         </div>
                         <div className="flex items-center gap-4 mt-3">
-                            <img src="https://randomuser.me/api/portraits/men/75.jpg" className="w-16 h-16 rounded-full border-2 border-green-300 shadow" alt={customer} />
+                            <img src={profile} className="w-16 h-16 rounded-full border-2 border-green-300 shadow" alt={customerName} />
                             <div>
-                                <h2 className="text-lg font-semibold text-gray-800">{customer}</h2>
-                                <p className="text-sm text-gray-600">hello@dundermuffilin.com</p>
+                                <h2 className="text-lg font-semibold text-gray-800">{customerName}</h2>
+                                <p className="text-sm text-gray-600">{email}</p>
                             </div>
                         </div>
 
                         <div className="text-sm text-gray-700 space-y-2">
-                            <span className="font-medium text-gray-800">Contact Number: <span className="font-sans font-normal">{phoneNumber}</span></span>
+                            <span className="font-medium text-gray-800">Contact Number: <span className="font-sans font-normal">{phone}</span></span>
                             <div className="mt-1">
                                 <span className="font-medium text-gray-800">Shipping Address:</span>
                                 <address className=" leading-relaxed mt-1 text-gray-600">
