@@ -8,7 +8,7 @@ const OrderDetails = () => {
 
     const product = products?.find(p => p.id === id)
 
-    const { paymentStatus, orderStatus } = product || {}
+    const { paymentStatus, orderStatus, customer, phoneNumber, address } = product || {}
 
     const total = Math.round(product?.products?.reduce((sum, item) => sum + item.price, 0) * 100) / 100;
     return (
@@ -115,19 +115,19 @@ const OrderDetails = () => {
                             <h2 className="text-xl font-bold text-green-800">Customer Details</h2>
                         </div>
                         <div className="flex items-center gap-4 mt-3">
-                            <img src="https://randomuser.me/api/portraits/men/75.jpg" className="w-16 h-16 rounded-full border-2 border-green-300 shadow" alt="" />
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" className="w-16 h-16 rounded-full border-2 border-green-300 shadow" alt={customer} />
                             <div>
-                                <h2 className="text-lg font-semibold text-gray-800">Gaston Lapierre</h2>
+                                <h2 className="text-lg font-semibold text-gray-800">{customer}</h2>
                                 <p className="text-sm text-gray-600">hello@dundermuffilin.com</p>
                             </div>
                         </div>
 
                         <div className="text-sm text-gray-700 space-y-2">
-                            <span className="font-medium text-gray-800">Contact Number: <span className="font-sans font-normal">(723) 732-760-5760</span></span>
+                            <span className="font-medium text-gray-800">Contact Number: <span className="font-sans font-normal">{phoneNumber}</span></span>
                             <div className="mt-1">
                                 <span className="font-medium text-gray-800">Shipping Address:</span>
                                 <address className=" leading-relaxed mt-1 text-gray-600">
-                                    Khajuriya, Senbag, Noakhali
+                                    {address}
                                 </address>
                             </div>
                         </div>
