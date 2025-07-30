@@ -8,7 +8,7 @@ const OrderDetails = () => {
 
     const order = orders?.find(o => o._id === _id)
 
-    const {customerName, profile, paymentStatus, orderStatus, phone, address, email, products, totalPrice } = order || {}
+    const { customerName, profile, paymentStatus, orderStatus, phone, address, email, products, totalPrice } = order || {}
 
     return (
         <div>
@@ -48,8 +48,10 @@ const OrderDetails = () => {
                                                     <img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} />
                                                     <h5>{product.name}</h5>
                                                 </td>
-                                                <td className="px-4 py-3 font-semibold italic">{product.category}</td>
-                                                <td className="px-4 py-3 font-sans font-semibold"> {product.status}</td>
+                                                <td className="px-4 py-3 font-semibold italic"> {product.category}</td>
+                                                <td className="px-4 py-3">
+                                                    <span className={`px-2 py-1 text-sm font-semibold rounded-full ${product.status === 'Low Stock' ? 'bg-red-200 text-red-800' : 'bg-green-200 text-green-800'}`}>{product.status}</span>
+                                                </td>
                                                 <td className="px-4 py-3 font-sans">$ {product.price}</td>
                                             </tr>
                                         ))
