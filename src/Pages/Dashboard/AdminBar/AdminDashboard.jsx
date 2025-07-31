@@ -46,6 +46,16 @@ const AdminDashboard = () => {
                         <h3 className="text-2xl font-semibold text-green-800">522</h3>
                     </div>
                 </div>
+                {/* Total Eanrnings */}
+                <div className="bg-white border border-green-200 rounded-2xl shadow-md hover:shadow-xl flex items-center gap-4 p-5 transition-all">
+                    <div className="bg-green-100 text-green-700 p-3 rounded-full shadow-inner">
+                        <FaMoneyBillWave className="text-2xl" />
+                    </div>
+                    <div>
+                        <p className="text-sm text-gray-500 font-medium">Total Earnings</p>
+                        <h3 className="text-2xl font-semibold text-green-800">522</h3>
+                    </div>
+                </div>
             </section>
 
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
