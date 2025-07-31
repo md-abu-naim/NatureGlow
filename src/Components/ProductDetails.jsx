@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
-
+import { FaStar } from "react-icons/fa";
 const ProductDetails = () => {
     const [relatedProduct, setRelatedProduct] = useState([])
     const { id } = useParams();
@@ -31,6 +31,29 @@ const ProductDetails = () => {
         });
         navigate('/cart')
     }
+
+    const [rating, setRating] = useState(0);
+    const [hover, setHover] = useState(null);
+    const [comment, setComment] = useState("");
+    const [reviews, setReviews] = useState([
+        { id: 1, rating: 4, comment: "Great product!", user: "John Doe" },
+        { id: 2, rating: 5, comment: "Absolutely loved it!", user: "Jane Smith" },
+    ]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!rating || !comment.trim()) return;
+
+        const newReview = {
+            id: Date.now(),
+            rating,
+            comment,
+            user: "You", // you can replace with actual user data
+        };
+        setReviews([newReview, ...reviews]);
+        setRating(0);
+        setComment("");
+    };
 
 
     useEffect(() => {
@@ -99,6 +122,77 @@ const ProductDetails = () => {
                     }
                 </div>
             </div>
+            <div className='mt-10'>
+                <h3 className='text-2xl text-green-800 font-bold'>Customer Review</h3>
+                
+            </div>
+            <div className=" mt-12 px-4">
+                <h2 className="text-xl font-bold text-gray-800 mb-4">Leave a Review</h2>
+
+                <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow">
+                    <div className="flex items-center mb-4 gap-1">
+                        {[...Array(5)].map((_, index) => {
+                            const currentRating = index + 1;
+                            return (
+                                <button
+                                    key={index}
+                                    type="button"
+                                    onClick={() => setRating(currentRating)}
+                                    onMouseEnter={() => setHover(currentRating)}
+                                    onMouseLeave={() => setHover(null)}
+                                >
+                                    <FaStar
+                                        className={`text-2xl transition ${currentRating <= (hover || rating)
+                                                ? "text-yellow-400"
+                                                : "text-gray-300"
+                                            }`}
+                                    />
+                                </button>
+                            );
+                        })}
+                    </div>
+
+                    <textarea
+                        className="w-full border rounded px-3 py-2 text-sm"
+                        placeholder="Write your review..."
+                        value={comment}
+                        onChange={(e) => setComment(e.target.value)}
+                        rows={3}
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        className="mt-3 bg-green-600 hover:bg-green-700 text-white py-1.5 px-4 rounded text-sm"
+                    >
+                        Submit Review
+                    </button>
+                </form>
+
+                <div className="mt-8">
+                    <h3 className="text-lg font-semibold mb-2">Customer Reviews</h3>
+                    {reviews.length === 0 && (
+                        <p className="text-gray-500 text-sm">No reviews yet.</p>
+                    )}
+                    {reviews.map((review) => (
+                        <div key={review.id} className="border-b py-3">
+                            <div className="flex items-center gap-2 mb-1">
+                                <span className="font-medium text-gray-700">{review.user}</span>
+                                <div className="flex">
+                                    {[...Array(5)].map((_, i) => (
+                                        <FaStar
+                                            key={i}
+                                            className={`text-sm ${i < review.rating ? "text-yellow-400" : "text-gray-300"
+                                                }`}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                            <p className="text-sm text-gray-600">{review.comment}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            );
         </div>
     );
 };
