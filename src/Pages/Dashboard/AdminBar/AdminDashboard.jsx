@@ -1,5 +1,6 @@
 
-import { FaUsers, FaShoppingCart, FaMoneyBillWave } from "react-icons/fa";
+import { FaUsers, FaShoppingCart, FaMoneyBillWave, FaUser, FaUserPlus } from "react-icons/fa";
+import { LuPackagePlus } from "react-icons/lu";
 
 const AdminDashboard = () => {
     return (
@@ -18,10 +19,20 @@ const AdminDashboard = () => {
                 {/* Daily Users */}
                 <div className="bg-white border border-green-200 rounded-2xl shadow-md hover:shadow-xl flex items-center gap-4 p-5 transition-all">
                     <div className="bg-green-100 text-green-700 p-3 rounded-full shadow-inner">
-                        <FaUsers className="text-2xl" />
+                        <FaUserPlus className="text-2xl" />
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">Daily Users</p>
+                        <h3 className="text-2xl font-semibold text-green-800">522</h3>
+                    </div>
+                </div>
+                {/* Total Orders */}
+                <div className="bg-white border border-green-200 rounded-2xl shadow-md hover:shadow-xl flex items-center gap-4 p-5 transition-all">
+                    <div className="bg-green-100 text-green-700 p-3 rounded-full shadow-inner">
+                        <FaShoppingCart className="text-2xl" />
+                    </div>
+                    <div>
+                        <p className="text-sm text-gray-500 font-medium">Total Orders</p>
                         <h3 className="text-2xl font-semibold text-green-800">522</h3>
                     </div>
                 </div>
