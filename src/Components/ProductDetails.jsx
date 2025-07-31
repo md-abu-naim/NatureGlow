@@ -6,6 +6,28 @@ import toast from 'react-hot-toast';
 import { Link, useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../Hooks/useAuth';
+
+const reviews = [
+    {
+        name: "Sarah Ahmed",
+        profile: "https://randomuser.me/api/portraits/women/65.jpg",
+        review: "This product really exceeded my expectations. Quality is top-notch and delivery was super fast!",
+        rating: 5,
+    },
+    {
+        name: "Ratul Hossain",
+        profile: "https://randomuser.me/api/portraits/men/32.jpg",
+        review: "Product ta valo chilo, but packaging could be better. Overall, I’m satisfied.",
+        rating: 4,
+    },
+    {
+        name: "Mim Akter",
+        profile: "https://randomuser.me/api/portraits/women/72.jpg",
+        review: "I didn’t find it as useful as described. Maybe it’s not for my skin type.",
+        rating: 2,
+    },
+];
+
 const ProductDetails = () => {
     const [relatedProduct, setRelatedProduct] = useState([])
     const [value, setValue] = useState(0);
@@ -117,54 +139,62 @@ const ProductDetails = () => {
             </section>
 
             {/* Review */}
-            <section className='flex flex-col-reverse md:flex-row items-center gap-4 mt-10'>
-                <div className='flex-1/2 bg-green-50 p-4 rounded-lg'>
+            <section className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-10'>
+                <div className='order-2 md:order-1 bg-green-50 p-4 rounded-lg'>
                     <h3 className='text-2xl text-green-800 font-bold'>Customer Review</h3>
-                    <div className='bg-green-100 p-4 rounded-lg shadow-inner mt-2'>
-                        <div className='flex items-center gap-2'>
-                            <img className='w-14 h-14 rounded-full border-2 border-green-300' src="/public/Promo.png" alt="Customer Profile" />
-                            <div>
-                                <h5 className='text-lg font-semibold'>Mohammad naim web dev</h5>
-                                <span className='text-gray-800 text-sm'>
-                                    <Box sx={{ '& > legend': { mt: 2 } }}>
-                                        <Rating
-                                            name="simple-controlled"
-                                            value={value}
-                                            readOnly={true}
-                                        />
-                                    </Box>
-                                </span>
+                    {
+                        reviews.map((review, i) => (
+                            <div key={i} className='bg-green-100 p-4 rounded-lg shadow-inner mt-2'>
+                                <div className='flex items-center gap-2'>
+                                    <img className='w-14 h-14 rounded-full border-2 border-green-300' src={review.profile} alt="Customer Profile" />
+                                    <div>
+                                        <h5 className='text-lg font-semibold'>{review.name}</h5>
+                                        <span className='text-gray-800 text-sm'>
+                                            <Box sx={{ '& > legend': { mt: 2 } }}>
+                                                <Rating
+                                                    name="simple-controlled"
+                                                    value={review.rating}
+                                                    readOnly={true}
+                                                />
+                                            </Box>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span className='text-green-800 font-semibold'>Review:</span > <span className='text-gray-800'>{review.review}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <span className='text-green-800 font-semibold'>Review:</span > <span className='text-gray-800'>asfjsa;fjksa;lfjksakdfjsajkfj</span>
-                        </div>
-                    </div>
+                        ))
+                    }
                 </div>
 
-                <form onSubmit={handleReview} className='w-full flex-1/2 p-4 rounded bg-green-50 shadow lg:mt-20'>
-                    <h3 className='text-2xl text-green-800 font-bold'>Leave a Review</h3>
-                    <div>
-                        <label className="block text-green-700 font-medium mb-1">Rating*</label>
-                        <Box sx={{ '& > legend': { mt: 2 } }}>
-                            <Rating
-                                name="simple-controlled"
-                                value={value}
-                                onChange={(event, newValue) => {
-                                    setValue(newValue);
-                                }}
-                            />
-                        </Box>
-                    </div>
-                    <div className="w-full ">
-                        <label className="block text-green-700 font-medium mb-1">Review*</label>
-                        <textarea name="review" rows='2' className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50" placeholder="Write your review..."></textarea>
-                    </div>
-                    <div className="mt-1 flex gap-2">
-                        <button type="reset" className="px-4 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Reset</button>
-                        <button type="submit" className="px-4 py-1 bg-green-600 text-white font-medium rounded hover:bg-green-700">Submit Review</button>
-                    </div>
-                </form>
+                <div className='order-1 md:order-2'>
+                    <form onSubmit={handleReview} className=' p-4 rounded bg-green-50 shadow'>
+                        <h3 className='text-2xl text-green-800 font-bold'>Leave a Review</h3>
+                        <div className='bg-green-100 shadow-inner p-4 rounded-lg mt-2'>
+                            <div>
+                                <label className="block text-green-700 font-medium mb-1">Rating*</label>
+                                <Box sx={{ '& > legend': { mt: 2 } }}>
+                                    <Rating
+                                        name="simple-controlled"
+                                        value={value}
+                                        onChange={(event, newValue) => {
+                                            setValue(newValue);
+                                        }}
+                                    />
+                                </Box>
+                            </div>
+                            <div className="w-full ">
+                                <label className="block text-green-700 font-medium mb-1">Review*</label>
+                                <textarea name="review" rows='2' className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50" placeholder="Write your review..."></textarea>
+                            </div>
+                            <div className="mt-1 flex gap-2">
+                                <button type="reset" className="px-4 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Reset</button>
+                                <button type="submit" className="px-4 py-1 bg-green-600 text-white font-medium rounded hover:bg-green-700">Submit Review</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </section>
         </div>
     );
