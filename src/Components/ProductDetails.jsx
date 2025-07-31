@@ -113,7 +113,7 @@ const ProductDetails = () => {
                     }
                 </div>
             </div>
-            <div className='flex flex-col md:flex-row items-center gap-4 mt-10'>
+            <div className='flex flex-col-reverse md:flex-row items-center gap-4 mt-10'>
                 <div className='flex-1/2 bg-green-50 p-4 rounded-lg'>
                     <h3 className='text-2xl text-green-800 font-bold'>Customer Review</h3>
                     <div className='bg-green-100 p-4 rounded-lg shadow-inner mt-2'>
