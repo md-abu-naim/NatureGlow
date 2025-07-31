@@ -124,7 +124,16 @@ const ProductDetails = () => {
             </div>
             <div className='mt-10'>
                 <h3 className='text-2xl text-green-800 font-bold'>Customer Review</h3>
-                
+                <form className='p-4 rounded shadow'>
+                    <div className="w-full mt-4">
+                        <label className="block text-green-700 font-medium mb-1">Short Bio*</label>
+                        <textarea name="shortBio" rows='2' className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50" placeholder="Write your review..."></textarea>
+                    </div>
+                    <div className="mt-3 flex gap-4">
+                        <button type="reset" className="px-4 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Reset</button>
+                        <button type="submit" className="px-4 py-1 bg-green-600 text-white font-medium rounded hover:bg-green-700">Submit Review</button>
+                    </div>
+                </form>
             </div>
             <div className=" mt-12 px-4">
                 <h2 className="text-xl font-bold text-gray-800 mb-4">Leave a Review</h2>
@@ -143,8 +152,8 @@ const ProductDetails = () => {
                                 >
                                     <FaStar
                                         className={`text-2xl transition ${currentRating <= (hover || rating)
-                                                ? "text-yellow-400"
-                                                : "text-gray-300"
+                                            ? "text-yellow-400"
+                                            : "text-gray-300"
                                             }`}
                                     />
                                 </button>
