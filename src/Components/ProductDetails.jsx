@@ -88,7 +88,9 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div>
-            <div className='mt-10'>
+
+            {/* Related Products */}
+            <section className='mt-10'>
                 <h3 className='text-2xl text-green-800 font-bold'>Related Products</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-4">
                     {
@@ -112,8 +114,10 @@ const ProductDetails = () => {
                         </div>)
                     }
                 </div>
-            </div>
-            <div className='flex flex-col-reverse md:flex-row items-center gap-4 mt-10'>
+            </section>
+
+            {/* Review */}
+            <section className='flex flex-col-reverse md:flex-row items-center gap-4 mt-10'>
                 <div className='flex-1/2 bg-green-50 p-4 rounded-lg'>
                     <h3 className='text-2xl text-green-800 font-bold'>Customer Review</h3>
                     <div className='bg-green-100 p-4 rounded-lg shadow-inner mt-2'>
@@ -161,7 +165,7 @@ const ProductDetails = () => {
                         <button type="submit" className="px-4 py-1 bg-green-600 text-white font-medium rounded hover:bg-green-700">Submit Review</button>
                     </div>
                 </form>
-            </div>
+            </section>
         </div>
     );
 };
