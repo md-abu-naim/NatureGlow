@@ -22,7 +22,7 @@ import Products from "../Pages/Dashboard/AdminBar/Products";
 import UpdateProduct from "../Pages/Dashboard/AdminBar/UpdateProduct";
 import OrderDetails from "../Pages/Dashboard/OrderDetails";
 import Orders from "../Pages/Dashboard/Orders";
-import AdminDashboard from "../Pages/Dashboard/AdminBar/AdminDashboard";
+import AdminDashboard from "../Pages/Dashboard/AdminBar/AdminDashboard/AdminDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -86,7 +86,8 @@ export const router = createBrowserRouter([
       // Admin Routes
       {
         path: 'admin-dashboard',
-        element: <AdminDashboard />
+        element: <AdminDashboard />,
+        loader: () => fetch(`/Orders.json`)
       },
       {
         path: 'users',
