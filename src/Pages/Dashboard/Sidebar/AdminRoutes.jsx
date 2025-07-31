@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const AdminRoutes = () => {
     return (
         <div>
-            <NavLink to='/dashboard' className={({ isActive }) => `flex items-center gap-2 p-2 hover:bg-green-500 rounded transition-colors duration-300 transform ${isActive && 'bg-green-700 text-white hover:text-black'}`}><FaTachometerAlt /> Dashboard</NavLink>
+            <NavLink to='/dashboard/admin-dashboard' className={({ isActive }) => `flex items-center gap-2 p-2 hover:bg-green-500 rounded transition-colors duration-300 transform ${isActive && 'bg-green-700 text-white hover:text-black'}`}><FaTachometerAlt /> Dashboard</NavLink>
             <NavLink to='/dashboard/products' className={({ isActive }) => `flex items-center gap-2 p-2 hover:bg-green-500 rounded transition-colors duration-300 transform ${isActive && 'bg-green-700 text-white hover:text-black'}`}><FaBoxOpen /> Products</NavLink>
             <NavLink to='/dashboard/addProduct' className={({ isActive }) => `flex items-center gap-2 p-2 hover:bg-green-500 rounded transition-colors duration-300 transform ${isActive && 'bg-green-700 text-white hover:text-black'}`}><FaPlus /> Add Product</NavLink>
             <NavLink to='/dashboard/orders' className={({ isActive }) => `flex items-center gap-2 p-2 hover:bg-green-500 rounded transition-colors duration-300 transform ${isActive && 'bg-green-700 text-white hover:text-black'}`}><FaShoppingCart /> Orders</NavLink>
