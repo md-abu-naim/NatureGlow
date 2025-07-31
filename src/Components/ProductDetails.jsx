@@ -5,12 +5,15 @@ import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useAuth from '../Hooks/useAuth';
 const ProductDetails = () => {
     const [relatedProduct, setRelatedProduct] = useState([])
     const [value, setValue] = useState(0);
-    const { id } = useParams();
     const products = useLoaderData()
     const navigate = useNavigate()
+    const { id } = useParams();
+    const { user } = useAuth()
+
 
     const product = products?.find(p => p.id == id)
     const { name, image, description, features, price, category, status } = product || {}
@@ -36,7 +39,12 @@ const ProductDetails = () => {
         e.preventDefault()
         const review = e.target.review.value
         const rating = value
-        console.log(review, rating);
+        const productID = id
+        const name = user?.displayName
+        const profile = user?.photoURL
+        const email = user?.email
+        const submitReview = { review, rating, productID, name, profile, email }
+        console.log(submitReview);
     }
 
     useEffect(() => {
@@ -105,23 +113,50 @@ const ProductDetails = () => {
                     }
                 </div>
             </div>
-            <div className='mt-10'>
-                <h3 className='text-2xl text-green-800 font-bold'>Customer Review</h3>
-                <form onSubmit={handleReview} className='p-4 rounded shadow'>
-                    <Box sx={{ '& > legend': { mt: 2 } }}>
-                        <Rating
-                            name="simple-controlled"
-                            value={value}
-                            onChange={(event, newValue) => {
-                                setValue(newValue);
-                            }}
-                        />
-                    </Box>
-                    <div className="w-full mt-4">
+            <div className='flex flex-col md:flex-row items-center gap-4 mt-10'>
+                <div className='flex-1/2 bg-green-50 p-4 rounded-lg'>
+                    <h3 className='text-2xl text-green-800 font-bold'>Customer Review</h3>
+                    <div className='bg-green-100 p-4 rounded-lg shadow-inner mt-2'>
+                        <div className='flex items-center gap-2'>
+                            <img className='w-14 h-14 rounded-full border-2 border-green-300' src="/public/Promo.png" alt="Customer Profile" />
+                            <div>
+                                <h5 className='text-lg font-semibold'>Mohammad naim web dev</h5>
+                                <span className='text-gray-800 text-sm'>
+                                    <Box sx={{ '& > legend': { mt: 2 } }}>
+                                        <Rating
+                                            name="simple-controlled"
+                                            value={value}
+                                            readOnly={true}
+                                        />
+                                    </Box>
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <span className='text-green-800 font-semibold'>Review:</span > <span className='text-gray-800'>asfjsa;fjksa;lfjksakdfjsajkfj</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form onSubmit={handleReview} className='w-full flex-1/2 p-4 rounded bg-green-50 shadow lg:mt-20'>
+                    <h3 className='text-2xl text-green-800 font-bold'>Leave a Review</h3>
+                    <div>
+                        <label className="block text-green-700 font-medium mb-1">Rating*</label>
+                        <Box sx={{ '& > legend': { mt: 2 } }}>
+                            <Rating
+                                name="simple-controlled"
+                                value={value}
+                                onChange={(event, newValue) => {
+                                    setValue(newValue);
+                                }}
+                            />
+                        </Box>
+                    </div>
+                    <div className="w-full ">
                         <label className="block text-green-700 font-medium mb-1">Review*</label>
                         <textarea name="review" rows='2' className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50" placeholder="Write your review..."></textarea>
                     </div>
-                    <div className="mt-3 flex gap-4">
+                    <div className="mt-1 flex gap-2">
                         <button type="reset" className="px-4 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Reset</button>
                         <button type="submit" className="px-4 py-1 bg-green-600 text-white font-medium rounded hover:bg-green-700">Submit Review</button>
                     </div>
