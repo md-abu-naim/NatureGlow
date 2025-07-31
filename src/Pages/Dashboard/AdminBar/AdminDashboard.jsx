@@ -1,5 +1,7 @@
 
+import { BsTruck } from "react-icons/bs";
 import { FaUsers, FaShoppingCart, FaMoneyBillWave, FaUser, FaUserPlus } from "react-icons/fa";
+import { FiTrendingUp } from "react-icons/fi";
 import { LuPackagePlus } from "react-icons/lu";
 
 const AdminDashboard = () => {
@@ -53,6 +55,26 @@ const AdminDashboard = () => {
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">Total Earnings</p>
+                        <h3 className="text-2xl font-semibold text-green-800">522</h3>
+                    </div>
+                </div>
+                {/* Daily Eanrnings */}
+                <div className="bg-white border border-green-200 rounded-2xl shadow-md hover:shadow-xl flex items-center gap-4 p-5 transition-all">
+                    <div className="bg-green-100 text-green-700 p-3 rounded-full shadow-inner">
+                        <FiTrendingUp className="text-2xl" />
+                    </div>
+                    <div>
+                        <p className="text-sm text-gray-500 font-medium">Daily Earnings</p>
+                        <h3 className="text-2xl font-semibold text-green-800">522</h3>
+                    </div>
+                </div>
+                {/* Total Delivered */}
+                <div className="bg-white border border-green-200 rounded-2xl shadow-md hover:shadow-xl flex items-center gap-4 p-5 transition-all">
+                    <div className="bg-green-100 text-green-700 p-3 rounded-full shadow-inner">
+                        <BsTruck className="text-2xl" />
+                    </div>
+                    <div>
+                        <p className="text-sm text-gray-500 font-medium">Total Delivered</p>
                         <h3 className="text-2xl font-semibold text-green-800">522</h3>
                     </div>
                 </div>
