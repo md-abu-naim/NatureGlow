@@ -1,5 +1,5 @@
 
-import { BsTruck } from "react-icons/bs";
+import { BsBan, BsTruck } from "react-icons/bs";
 import { FaUsers, FaShoppingCart, FaMoneyBillWave, FaUser, FaUserPlus } from "react-icons/fa";
 import { FiTrendingUp } from "react-icons/fi";
 import { LuPackagePlus } from "react-icons/lu";
@@ -75,6 +75,16 @@ const AdminDashboard = () => {
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">Total Delivered</p>
+                        <h3 className="text-2xl font-semibold text-green-800">522</h3>
+                    </div>
+                </div>
+                {/* Total Cancelled */}
+                <div className="bg-white border border-green-200 rounded-2xl shadow-md hover:shadow-xl flex items-center gap-4 p-5 transition-all">
+                    <div className="bg-green-100 text-green-700 p-3 rounded-full shadow-inner">
+                        <BsBan className="text-2xl" />
+                    </div>
+                    <div>
+                        <p className="text-sm text-gray-500 font-medium">Total Cancelled</p>
                         <h3 className="text-2xl font-semibold text-green-800">522</h3>
                     </div>
                 </div>
