@@ -1,16 +1,16 @@
-
+import Box from '@mui/material/Box';
+import Rating from '@mui/material/Rating';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { FaStar } from "react-icons/fa";
 const ProductDetails = () => {
     const [relatedProduct, setRelatedProduct] = useState([])
+    const [value, setValue] = useState(0);
     const { id } = useParams();
     const products = useLoaderData()
     const navigate = useNavigate()
-    console.log(relatedProduct);
 
     const product = products?.find(p => p.id == id)
     const { name, image, description, features, price, category, status } = product || {}
@@ -32,29 +32,12 @@ const ProductDetails = () => {
         navigate('/cart')
     }
 
-    const [rating, setRating] = useState(0);
-    const [hover, setHover] = useState(null);
-    const [comment, setComment] = useState("");
-    const [reviews, setReviews] = useState([
-        { id: 1, rating: 4, comment: "Great product!", user: "John Doe" },
-        { id: 2, rating: 5, comment: "Absolutely loved it!", user: "Jane Smith" },
-    ]);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!rating || !comment.trim()) return;
-
-        const newReview = {
-            id: Date.now(),
-            rating,
-            comment,
-            user: "You", // you can replace with actual user data
-        };
-        setReviews([newReview, ...reviews]);
-        setRating(0);
-        setComment("");
-    };
-
+    const handleReview = e => {
+        e.preventDefault()
+        const review = e.target.review.value
+        const rating = value
+        console.log(review, rating);
+    }
 
     useEffect(() => {
         axios.get('/Product.json')
@@ -124,10 +107,19 @@ const ProductDetails = () => {
             </div>
             <div className='mt-10'>
                 <h3 className='text-2xl text-green-800 font-bold'>Customer Review</h3>
-                <form className='p-4 rounded shadow'>
+                <form onSubmit={handleReview} className='p-4 rounded shadow'>
+                    <Box sx={{ '& > legend': { mt: 2 } }}>
+                        <Rating
+                            name="simple-controlled"
+                            value={value}
+                            onChange={(event, newValue) => {
+                                setValue(newValue);
+                            }}
+                        />
+                    </Box>
                     <div className="w-full mt-4">
-                        <label className="block text-green-700 font-medium mb-1">Short Bio*</label>
-                        <textarea name="shortBio" rows='2' className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50" placeholder="Write your review..."></textarea>
+                        <label className="block text-green-700 font-medium mb-1">Review*</label>
+                        <textarea name="review" rows='2' className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50" placeholder="Write your review..."></textarea>
                     </div>
                     <div className="mt-3 flex gap-4">
                         <button type="reset" className="px-4 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Reset</button>
@@ -135,73 +127,6 @@ const ProductDetails = () => {
                     </div>
                 </form>
             </div>
-            <div className=" mt-12 px-4">
-                <h2 className="text-xl font-bold text-gray-800 mb-4">Leave a Review</h2>
-
-                <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow">
-                    <div className="flex items-center mb-4 gap-1">
-                        {[...Array(5)].map((_, index) => {
-                            const currentRating = index + 1;
-                            return (
-                                <button
-                                    key={index}
-                                    type="button"
-                                    onClick={() => setRating(currentRating)}
-                                    onMouseEnter={() => setHover(currentRating)}
-                                    onMouseLeave={() => setHover(null)}
-                                >
-                                    <FaStar
-                                        className={`text-2xl transition ${currentRating <= (hover || rating)
-                                            ? "text-yellow-400"
-                                            : "text-gray-300"
-                                            }`}
-                                    />
-                                </button>
-                            );
-                        })}
-                    </div>
-
-                    <textarea
-                        className="w-full border rounded px-3 py-2 text-sm"
-                        placeholder="Write your review..."
-                        value={comment}
-                        onChange={(e) => setComment(e.target.value)}
-                        rows={3}
-                    ></textarea>
-
-                    <button
-                        type="submit"
-                        className="mt-3 bg-green-600 hover:bg-green-700 text-white py-1.5 px-4 rounded text-sm"
-                    >
-                        Submit Review
-                    </button>
-                </form>
-
-                <div className="mt-8">
-                    <h3 className="text-lg font-semibold mb-2">Customer Reviews</h3>
-                    {reviews.length === 0 && (
-                        <p className="text-gray-500 text-sm">No reviews yet.</p>
-                    )}
-                    {reviews.map((review) => (
-                        <div key={review.id} className="border-b py-3">
-                            <div className="flex items-center gap-2 mb-1">
-                                <span className="font-medium text-gray-700">{review.user}</span>
-                                <div className="flex">
-                                    {[...Array(5)].map((_, i) => (
-                                        <FaStar
-                                            key={i}
-                                            className={`text-sm ${i < review.rating ? "text-yellow-400" : "text-gray-300"
-                                                }`}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-                            <p className="text-sm text-gray-600">{review.comment}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-            );
         </div>
     );
 };
