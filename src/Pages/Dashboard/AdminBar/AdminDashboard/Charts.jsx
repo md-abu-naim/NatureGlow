@@ -110,17 +110,19 @@ export const AreaCharts = ({ orders }) => {
 
 // Pie Chart
 
-// const STATUS_COLORS = {
-//     Delivered: '#00C49F',
-//     Cancelled: 
-// }
-// Pie chart colors per status
 const STATUS_COLORS = {
-  Delivered: '#16A34A',
-  Cancelled: '#EF4444',
-  'In Progress': '#EAB308',
-  Shipped: '#3B82F6',
-};
+    Delivered: '#16A34A',
+    Cancelled: '#EF4444',
+    'In Progress': '#EAB308',
+    Shipped: '#3B82F6',
+}
+// Pie chart colors per status
+// const STATUS_COLORS = {
+//   Delivered: '#16A34A',
+//   Cancelled: '#EF4444',
+//   'In Progress': '#EAB308',
+//   Shipped: '#3B82F6',
+// };
 
 export const StatusPieChart = ({ orders }) => {
   // Count orders by status
