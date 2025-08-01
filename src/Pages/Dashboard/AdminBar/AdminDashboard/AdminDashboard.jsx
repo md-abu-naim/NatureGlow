@@ -3,7 +3,7 @@ import { FaUsers, FaShoppingCart, FaMoneyBillWave, FaUserPlus } from "react-icon
 import { FiTrendingUp } from "react-icons/fi";
 import { LuPackagePlus } from "react-icons/lu";
 import { useLoaderData } from 'react-router-dom';
-import { AreaCharts, StatusPieChart,  } from './Charts';
+import { PieCharts, StatusAreaChart} from './Charts';
 
 
 
@@ -97,10 +97,10 @@ const AdminDashboard = () => {
             <section className="grid grid-cols-1 md:grid-cols-2 gap-4 p-5">
                 <div className="w-full">
                     <h2 className='text-xl font-bold text-green-800'>Salles Report</h2>
-                    <AreaCharts orders={orders} />
+                    <StatusAreaChart orders={orders} />
                 </div>
                 <div className="">
-                    <StatusPieChart orders={orders} />
+                    <PieCharts orders={orders} />
                 </div>
             </section>
         </div>

@@ -20,7 +20,7 @@ const formatDateLabel = (date, type) => {
     }
 }
 
-export const AreaCharts = ({ orders }) => {
+export const StatusAreaChart = ({ orders }) => {
     const [activeTab, setActiveTab] = useState("today")
 
     const chartData = useMemo(() => {
@@ -108,54 +108,45 @@ export const AreaCharts = ({ orders }) => {
 
 
 
-// Pie Chart
-
+// Pie Chart Start here
 const STATUS_COLORS = {
     Delivered: '#16A34A',
     Cancelled: '#EF4444',
     'In Progress': '#EAB308',
     Shipped: '#3B82F6',
 }
-// Pie chart colors per status
-// const STATUS_COLORS = {
-//   Delivered: '#16A34A',
-//   Cancelled: '#EF4444',
-//   'In Progress': '#EAB308',
-//   Shipped: '#3B82F6',
-// };
 
-export const StatusPieChart = ({ orders }) => {
-  // Count orders by status
-  const chartData = [
-    { name: 'Delivered', value: orders.filter(order => order.orderStatus === 'Delivered').length },
-    { name: 'Cancelled', value: orders.filter(order => order.orderStatus === 'Cancelled').length },
-    { name: 'In Progress', value: orders.filter(order => order.orderStatus === 'In Progress').length },
-    { name: 'Shipped', value: orders.filter(order => order.orderStatus === 'Shipped').length },
-  ].filter(item => item.value > 0); // Remove zero-value statuses
+export const PieCharts = ({orders}) => {
+    const chartData = [
+        { name: 'Delivered', value: orders.filter(order => order.orderStatus === 'Delivered')?.length},
+        { name: 'Cancelled', value: orders.filter(order => order.orderStatus === 'Cancelled')?.length},
+        { name: 'In Progress', value: orders.filter(order => order.orderStatus === 'In Progress')?.length},
+        { name: 'Shipped', value: orders.filter(order => order.orderStatus === 'Shipped')?.length}
+    ].filter(item => item.value > 0)
 
-  return (
-    <div className="w-full h-[300px] p-5 bg-white rounded-2xl shadow-md">
-      <h2 className="text-xl font-semibold mb-4">Order Status Overview</h2>
-      <ResponsiveContainer width="100%" height="100%">
-        <PieChart>
-          <Pie
-            data={chartData}
-            dataKey="value"
-            nameKey="name"
-            cx="50%"
-            cy="50%"
-            outerRadius={90}
-            fill="#8884d8"
-            label
-          >
-            {chartData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={STATUS_COLORS[entry.name]} />
-            ))}
-          </Pie>
-          <Tooltip />
-          <Legend />
-        </PieChart>
-      </ResponsiveContainer>
-    </div>
-  );
-};
+    return (
+            <div className="w-full h-[300px] p-5 bg-white rounded-2xl shadow-md">
+                <h2 className='text-xl font-bold text-green-800'>Order Status Overview</h2>
+                <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                        <Pie
+                            data={chartData}
+                            dataKey="value"
+                            nameKey="name"
+                            cx="50%"
+                            cy="50%"
+                            outerRadius={90}
+                            fill="#8884d8"
+                            label
+                        >
+                            {chartData.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={STATUS_COLORS[entry.name]} />
+                            ))}
+                        </Pie>
+                        <Tooltip />
+                        <Legend />
+                    </PieChart>
+                </ResponsiveContainer>
+            </div>
+    )
+}
