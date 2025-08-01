@@ -69,9 +69,9 @@ export const StatusAreaChart = ({ orders }) => {
     }, [orders])
     return (
         <div>
-            <div className="bg-white rounded-xl shadow p-4 h-[400px] sm:h-[350px] md:h-[400px]">
-                <h2 className='text-xl font-bold text-green-800'>Salles Report</h2>
-                <div className="flex gap-4 flex-wrap">
+            <div className="bg-white rounded-xl shadow h-[450px] sm:h-[350px] md:h-[400px]">
+                <h2 className='text-xl font-bold text-green-800 p-4'>Salles Report</h2>
+                <div className="flex gap-2 flex-wrap p-4">
                     {
                         ["today", "monthly", "yearly"].map((tab, i) => (
                             <button onClick={() => setActiveTab(tab)} key={i} className={`px-5 py-2 rounded-full font-semibold capitalize transition
@@ -83,26 +83,25 @@ export const StatusAreaChart = ({ orders }) => {
                 </div>
 
                 {/* Chart */}
-            <div className="h-72">
-                <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart
-                        data={chartData[activeTab]}
-                        // margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-                    >
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis />
-                        <Tooltip />
-                        <Area
-                            type="monotone"
-                            dataKey="total"
-                            stroke="#10B981"
-                            fill="#D1FAE5"
-                            animationDuration={500}
-                        />
-                    </AreaChart>
-                </ResponsiveContainer>
-            </div>
+                <div className="h-60 lg:h-72 mt-3">
+                    <ResponsiveContainer width="100%" height="100%">
+                        <AreaChart
+                            data={chartData[activeTab]}
+                        >
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="name" />
+                            <YAxis />
+                            <Tooltip />
+                            <Area
+                                type="monotone"
+                                dataKey="total"
+                                stroke="#10B981"
+                                fill="#D1FAE5"
+                                animationDuration={500}
+                            />
+                        </AreaChart>
+                    </ResponsiveContainer>
+                </div>
             </div>
         </div>
     )
@@ -128,28 +127,30 @@ export const StatusPieChart = ({ orders }) => {
     ].filter(item => item.value > 0)
 
     return (
-        <div className="bg-white rounded-xl shadow p-4 h-[300px] sm:h-[350px] md:h-[400px]">
-            <h2 className='text-xl font-bold text-green-800'>Order Status Overview</h2>
-            <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                    <Pie
-                        data={chartData}
-                        dataKey="value"
-                        nameKey="name"
-                        cx="50%"
-                        cy="50%"
-                        outerRadius={90}
-                        fill="#8884d8"
-                        label
-                    >
-                        {chartData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={STATUS_COLORS[entry.name]} />
-                        ))}
-                    </Pie>
-                    <Tooltip />
-                    <Legend />
-                </PieChart>
-            </ResponsiveContainer>
+        <div className="bg-white rounded-xl shadow p-4 h-[400px] sm:h-[350px] md:h-[400px]">
+            {/* <h2 className='text-xl font-bold text-green-800'>Order Status Overview</h2>
+            <div className="h-[300px] ">
+                <ResponsiveContainer width="100%" height="100%"> */}
+                    <PieChart>
+                        <Pie
+                            data={chartData}
+                            dataKey="value"
+                            nameKey="name"
+                            cx="50%"
+                            cy="50%"
+                            outerRadius={90}
+                            fill="#8884d8"
+                            label
+                        >
+                            {chartData.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={STATUS_COLORS[entry.name]} />
+                            ))}
+                        </Pie>
+                        <Tooltip />
+                        <Legend />
+                    </PieChart>
+                </ResponsiveContainer>
+            </div>
         </div>
     )
 }

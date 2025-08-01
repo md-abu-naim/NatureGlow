@@ -94,24 +94,16 @@ const AdminDashboard = () => {
                     </div>
                 </div>
             </section>
-            {/* <section className="grid grid-cols-1 md:grid-cols-2 gap-4 p-5">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-4 p-5">
 
-                <StatusAreaChart orders={orders} />
-
-                <StatusPieChart orders={orders} />
-            </section> */}
-            <section className="flex flex-col md:flex-row items-center justify-between gap-6 p-4">
-                {/* Area Chart */}
                 <div className="w-full">
                     <StatusAreaChart orders={orders} />
                 </div>
 
-                {/* Pie Chart */}
                 <div className="w-full">
                     <StatusPieChart orders={orders} />
                 </div>
             </section>
-
         </div>
     );
 };
