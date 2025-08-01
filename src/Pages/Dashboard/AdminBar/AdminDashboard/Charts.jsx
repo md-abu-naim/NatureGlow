@@ -61,11 +61,11 @@ export const AreaCharts = ({ orders }) => {
         ]
         dataYearly.sort((a, b) => monthOrder.indexOf(a.name) - monthOrder.indexOf(b.name))
 
-        // return {
-        //     today: dataToday,
-        //     monthly: dataMonthly,
-        //     yearly: dataYearly,
-        // }
+        return {
+            today: dataToday,
+            monthly: dataMonthly,
+            yearly: dataYearly,
+        }
     }, [orders])
     return (
         <div>
