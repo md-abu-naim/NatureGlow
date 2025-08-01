@@ -11,20 +11,31 @@ import {
 import { LuPackagePlus } from "react-icons/lu";
 
 const formatDateLabel = (date, type) => {
-    const d = new Date(date);
-    if (type === "today") {
-        // For today: show hour like '08 AM', '13 PM'
-        return d.toLocaleTimeString([], { hour: "2-digit", hour12: true });
+    const d = new Date(date)
+    if(type === 'today'){
+        return d.toLocaleTimeString([], {hour: "2-digit", hour12: true})
+    }if(type === "monthly"){
+        return d.getDate().toString()
+    }if(type === "yearly"){
+        return d.toLocaleString("default", {month: "short"})
     }
-    if (type === "monthly") {
-        // For monthly: show day number
-        return d.getDate().toString();
-    }
-    if (type === "yearly") {
-        // For yearly: show month short name
-        return d.toLocaleString("default", { month: "short" });
-    }
-};
+}
+
+// const formatDateLabel = (date, type) => {
+//     const d = new Date(date);
+//     if (type === "today") {
+//         // For today: show hour like '08 AM', '13 PM'
+//         return d.toLocaleTimeString([], { hour: "2-digit", hour12: true });
+//     }
+//     if (type === "monthly") {
+//         // For monthly: show day number
+//         return d.getDate().toString();
+//     }
+//     if (type === "yearly") {
+//         // For yearly: show month short name
+//         return d.toLocaleString("default", { month: "short" });
+//     }
+// };
 
 const AreaCharts = ({ orders }) => {
     const [activeTab, setActiveTab] = useState("today");
