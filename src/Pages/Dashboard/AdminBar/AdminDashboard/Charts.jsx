@@ -26,9 +26,9 @@ export const AreaCharts = ({ orders }) => {
     const chartData = useMemo(() => {
         const now = new Date();
 
-        // const dataToday = []
-        // const dataMonthly = []
-        // const dataYearly = []
+        const dataToday = []
+        const dataMonthly = []
+        const dataYearly = []
 
         const addToData = (array, label, amount) => {
             const found = array.find((item) => item.name === label)
