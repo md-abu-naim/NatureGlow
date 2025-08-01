@@ -116,7 +116,7 @@ const STATUS_COLORS = {
     Shipped: '#3B82F6',
 }
 
-export const PieCharts = ({ orders }) => {
+export const StatusPieChart = ({ orders }) => {
     const chartData = [
         { name: 'Delivered', value: orders.filter(order => order.orderStatus === 'Delivered')?.length },
         { name: 'Cancelled', value: orders.filter(order => order.orderStatus === 'Cancelled')?.length },

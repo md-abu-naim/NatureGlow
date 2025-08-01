@@ -3,7 +3,7 @@ import { FaUsers, FaShoppingCart, FaMoneyBillWave, FaUserPlus } from "react-icon
 import { FiTrendingUp } from "react-icons/fi";
 import { LuPackagePlus } from "react-icons/lu";
 import { useLoaderData } from 'react-router-dom';
-import { PieCharts, StatusAreaChart} from './Charts';
+import {  StatusAreaChart, StatusPieChart} from './Charts';
 
 
 
@@ -100,7 +100,7 @@ const AdminDashboard = () => {
                     <StatusAreaChart orders={orders} />
                 </div>
                 <div className="">
-                    <PieCharts orders={orders} />
+                    <StatusPieChart orders={orders} />
                 </div>
             </section>
         </div>
