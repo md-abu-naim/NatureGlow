@@ -71,27 +71,13 @@ export const AreaCharts = ({ orders }) => {
         <div>
             <div className="flex gap-4">
                 {
-                //     ["today", "monthly", "yearly"].map((tab, i) => {
-                //         <button onClick={() => setActiveTab(tab)} key={i} className={`px-5 py-2 rounded-full font-semibold capitalize transition
-                //             ${activeTab === tab ? 'bg-green-600 text-white shadow-lg' :
-                //                 "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                //             }`}>{tab}</button>
-                //     })
-                // }
-            </div>
-            <div className="flex gap-4">
-                {["today", "monthly", "yearly"].map((tab) => (
-                    <button
-                        key={tab}
-                        onClick={() => setActiveTab(tab)}
-                        className={`px-5 py-2 rounded-full font-semibold capitalize transition ${activeTab === tab
-                            ? "bg-green-600 text-white shadow-lg"
-                            : "bg-gray-100 text-gray-700 hover:bg-green-200"
-                            }`}
-                    >
-                        {tab}
-                    </button>
-                ))}
+                    ["today", "monthly", "yearly"].map((tab, i) => (
+                        <button onClick={() => setActiveTab(tab)} key={i} className={`px-5 py-2 rounded-full font-semibold capitalize transition
+                            ${activeTab === tab ? 'bg-green-600 text-white shadow-lg' :
+                                "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                            }`}>{tab}</button>
+                    ))
+                }
             </div>
 
             {/* Chart */}
