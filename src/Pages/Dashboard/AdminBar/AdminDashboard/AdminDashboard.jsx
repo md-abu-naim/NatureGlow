@@ -3,7 +3,7 @@ import { FaUsers, FaShoppingCart, FaMoneyBillWave, FaUserPlus } from "react-icon
 import { FiTrendingUp } from "react-icons/fi";
 import { LuPackagePlus } from "react-icons/lu";
 import { useLoaderData } from 'react-router-dom';
-import {  StatusAreaChart, StatusPieChart} from './Charts';
+import { StatusAreaChart, StatusPieChart } from './Charts';
 
 
 
@@ -94,15 +94,24 @@ const AdminDashboard = () => {
                     </div>
                 </div>
             </section>
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-4 p-5">
+            {/* <section className="grid grid-cols-1 md:grid-cols-2 gap-4 p-5">
+
+                <StatusAreaChart orders={orders} />
+
+                <StatusPieChart orders={orders} />
+            </section> */}
+            <section className="flex flex-col md:flex-row items-center justify-between gap-6 p-4">
+                {/* Area Chart */}
                 <div className="w-full">
-                    <h2 className='text-xl font-bold text-green-800'>Salles Report</h2>
                     <StatusAreaChart orders={orders} />
                 </div>
-                <div className="">
+
+                {/* Pie Chart */}
+                <div className="w-full">
                     <StatusPieChart orders={orders} />
                 </div>
             </section>
+
         </div>
     );
 };

@@ -69,23 +69,25 @@ export const StatusAreaChart = ({ orders }) => {
     }, [orders])
     return (
         <div>
-            <div className="flex gap-4">
-                {
-                    ["today", "monthly", "yearly"].map((tab, i) => (
-                        <button onClick={() => setActiveTab(tab)} key={i} className={`px-5 py-2 rounded-full font-semibold capitalize transition
+            <div className="bg-white rounded-xl shadow p-4 h-[400px] sm:h-[350px] md:h-[400px]">
+                <h2 className='text-xl font-bold text-green-800'>Salles Report</h2>
+                <div className="flex gap-4 flex-wrap">
+                    {
+                        ["today", "monthly", "yearly"].map((tab, i) => (
+                            <button onClick={() => setActiveTab(tab)} key={i} className={`px-5 py-2 rounded-full font-semibold capitalize transition
                             ${activeTab === tab ? 'bg-green-600 text-white shadow-lg' :
-                                "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                            }`}>{tab}</button>
-                    ))
-                }
-            </div>
+                                    "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                                }`}>{tab}</button>
+                        ))
+                    }
+                </div>
 
-            {/* Chart */}
-            <div className="bg-white rounded-xl shadow p-4 h-72">
+                {/* Chart */}
+            <div className="h-72">
                 <ResponsiveContainer width="100%" height="100%">
                     <AreaChart
                         data={chartData[activeTab]}
-                        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                        // margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
                     >
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
@@ -100,6 +102,7 @@ export const StatusAreaChart = ({ orders }) => {
                         />
                     </AreaChart>
                 </ResponsiveContainer>
+            </div>
             </div>
         </div>
     )
@@ -125,7 +128,7 @@ export const StatusPieChart = ({ orders }) => {
     ].filter(item => item.value > 0)
 
     return (
-        <div className="w-full h-[300px] p-5 bg-white rounded-2xl shadow-md">
+        <div className="bg-white rounded-xl shadow p-4 h-[300px] sm:h-[350px] md:h-[400px]">
             <h2 className='text-xl font-bold text-green-800'>Order Status Overview</h2>
             <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
