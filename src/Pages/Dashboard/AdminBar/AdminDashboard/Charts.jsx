@@ -30,14 +30,14 @@ export const AreaCharts = ({ orders }) => {
         const dataMonthly = []
         const dataYearly = []
 
-        // const addToData = (array, label, amount) => {
-        //     const found = array.find((item) => item.name === label)
-        //     if (found) {
-        //         found.total += amount
-        //     } else {
-        //         array.push({ name: label, array: amount })
-        //     }
-        // }
+        const addToData = (array, label, amount) => {
+            const found = array.find((item) => item.name === label)
+            if (found) {
+                found.total += amount
+            } else {
+                array.push({ name: label, array: amount })
+            }
+        }
 
         orders.forEach(order => {
             const orderDate = new Date(order.date)
