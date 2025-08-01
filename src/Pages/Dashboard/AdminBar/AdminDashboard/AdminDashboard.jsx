@@ -4,53 +4,7 @@ import { FaUsers, FaShoppingCart, FaMoneyBillWave, FaUserPlus } from "react-icon
 import { FiTrendingUp } from "react-icons/fi";
 import { LuPackagePlus } from "react-icons/lu";
 import { useLoaderData } from 'react-router-dom';
-import AreaCharts from './Charts';
-// import { useState } from 'react';
-
-// const data = [
-//     {
-//         name: 'Page A',
-//         uv: 4000,
-//         pv: 2400,
-//         amt: 2400,
-//     },
-//     {
-//         name: 'Page B',
-//         uv: 3000,
-//         pv: 1398,
-//         amt: 2210,
-//     },
-//     {
-//         name: 'Page C',
-//         uv: 2000,
-//         pv: 9800,
-//         amt: 2290,
-//     },
-//     {
-//         name: 'Page D',
-//         uv: 2780,
-//         pv: 3908,
-//         amt: 2000,
-//     },
-//     {
-//         name: 'Page E',
-//         uv: 1890,
-//         pv: 4800,
-//         amt: 2181,
-//     },
-//     {
-//         name: 'Page F',
-//         uv: 2390,
-//         pv: 3800,
-//         amt: 2500,
-//     },
-//     {
-//         name: 'Page G',
-//         uv: 3490,
-//         pv: 4300,
-//         amt: 2100,
-//     },
-// ];
+import { AreaCharts } from './Charts';
 
 const datas = [
     { name: "Delivered", value: 540 },
@@ -233,6 +187,7 @@ const AdminDashboard = () => {
                         </AreaChart>
                     </ResponsiveContainer> */}
                     <AreaCharts orders={orders} />
+                    {/* <AreaChar orders={orders} /> */}
                 </div>
                 <div className="w-full">
                     <ResponsiveContainer width="100%" height="100%">
@@ -264,104 +219,3 @@ const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
-
-
-// import { useLoaderData } from 'react-router-dom';
-// import { useState } from 'react';
-// import {
-//   AreaChart,
-//   Area,
-//   XAxis,
-//   YAxis,
-//   CartesianGrid,
-//   Tooltip,
-//   ResponsiveContainer,
-// } from 'recharts';
-// import { LuPackagePlus } from 'react-icons/lu';
-
-// const AdminDashboard = () => {
-//   const products = useLoaderData(); // assuming it's an array
-//   const totalProducts = products?.length || 0;
-
-//   const [activeTab, setActiveTab] = useState('today');
-
-//   // Dummy chart data for demonstration
-//   const chartData = {
-//     today: [
-//       { name: '8AM', uv: 3 },
-//       { name: '10AM', uv: 5 },
-//       { name: '12PM', uv: 2 },
-//       { name: '2PM', uv: 6 },
-//       { name: '4PM', uv: 4 },
-//     ],
-//     monthly: [
-//       { name: 'Week 1', uv: 40 },
-//       { name: 'Week 2', uv: 60 },
-//       { name: 'Week 3', uv: 30 },
-//       { name: 'Week 4', uv: 50 },
-//     ],
-//     yearly: [
-//       { name: 'Jan', uv: 200 },
-//       { name: 'Feb', uv: 180 },
-//       { name: 'Mar', uv: 220 },
-//       { name: 'Apr', uv: 160 },
-//       { name: 'May', uv: 300 },
-//     ],
-//   };
-
-//   return (
-//     <div className="p-6 space-y-6">
-
-//   {/* Total Products Card */}
-//   <div className="bg-white shadow rounded-xl p-5 flex items-center justify-between border-l-4 border-green-500">
-//     <div>
-//       <h2 className="text-lg font-semibold text-gray-700">Total Products</h2>
-//       <p className="text-2xl font-bold text-green-600">{totalProducts}</p>
-//     </div>
-//     <LuPackagePlus className="text-4xl text-green-500" />
-//   </div>
-
-//       {/* Tab System for Chart */}
-//   <div className="space-y-4">
-// <div className="flex gap-4">
-//   {['today', 'monthly', 'yearly'].map((tab) => (
-//     <button
-//       key={tab}
-//       onClick={() => setActiveTab(tab)}
-//       className={`px-4 py-1.5 rounded-full font-semibold capitalize transition-all ${
-//         activeTab === tab
-//           ? 'bg-green-600 text-white shadow'
-//           : 'bg-gray-100 text-gray-700 hover:bg-green-100'
-//       }`}
-//     >
-//       {tab}
-//     </button>
-//   ))}
-// </div>
-
-//         {/* Area Chart */}
-//         <div className="bg-white rounded-xl shadow p-4 h-[300px]">
-//           <ResponsiveContainer width="100%" height="100%">
-//             <AreaChart
-//               data={chartData[activeTab]}
-//               margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-//             >
-//               <CartesianGrid strokeDasharray="3 3" />
-//               <XAxis dataKey="name" />
-//               <YAxis />
-//               <Tooltip />
-//               <Area
-//                 type="monotone"
-//                 dataKey="uv"
-//                 stroke="#10B981"
-//                 fill="#D1FAE5"
-//               />
-//             </AreaChart>
-//           </ResponsiveContainer>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AdminDashboard;
