@@ -128,9 +128,9 @@ export const StatusPieChart = ({ orders }) => {
 
     return (
         <div className="bg-white rounded-xl shadow p-4 h-[400px] sm:h-[350px] md:h-[400px]">
-            {/* <h2 className='text-xl font-bold text-green-800'>Order Status Overview</h2>
+            <h2 className='text-xl font-bold text-green-800'>Order Status Overview</h2>
             <div className="h-[300px] ">
-                <ResponsiveContainer width="100%" height="100%"> */}
+                <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                         <Pie
                             data={chartData}
