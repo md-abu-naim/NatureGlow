@@ -35,7 +35,7 @@ export const AreaCharts = ({ orders }) => {
             if (found) {
                 found.total += amount
             } else {
-                array.push({ name: label, array: amount })
+                array.push({ name: label, total: amount })
             }
         }
 
@@ -44,7 +44,7 @@ export const AreaCharts = ({ orders }) => {
             if (orderDate.toDateString() === now.toDateString()) {
                 const label = formatDateLabel(orderDate, "today")
                 addToData(dataToday, label, order.totalPrice)
-            } if (orderDate.getMonth() === now.getMonth() && orderDate.getFullYear === now.getFullYear) {
+            } if (orderDate.getMonth() === now.getMonth() && orderDate.getFullYear() === now.getFullYear()) {
                 const label = formatDateLabel(orderDate, "monthly")
                 addToData(dataMonthly, label, order.totalPrice)
             } if (orderDate.getFullYear() === now.getFullYear()) {
