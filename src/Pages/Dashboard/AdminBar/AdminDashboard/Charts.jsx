@@ -119,10 +119,10 @@ const STATUS_COLORS = {
 export const PieCharts = ({orders}) => {
     const chartData = [
         { name: 'Delivered', value: orders.filter(order => order.orderStatus === 'Delivered')?.length},
-        { name: 'Cancelled', value: orders.filter(order => order.orderStatus === 'Cancelled')?.length},
-        { name: 'In Progress', value: orders.filter(order => order.orderStatus === 'In Progress')?.length},
-        { name: 'Shipped', value: orders.filter(order => order.orderStatus === 'Shipped')?.length}
-    ].filter(item => item.value > 0)
+    //     { name: 'Cancelled', value: orders.filter(order => order.orderStatus === 'Cancelled')?.length},
+    //     { name: 'In Progress', value: orders.filter(order => order.orderStatus === 'In Progress')?.length},
+    //     { name: 'Shipped', value: orders.filter(order => order.orderStatus === 'Shipped')?.length}
+    // ].filter(item => item.value > 0)
 
     return (
             <div className="w-full h-[300px] p-5 bg-white rounded-2xl shadow-md">
