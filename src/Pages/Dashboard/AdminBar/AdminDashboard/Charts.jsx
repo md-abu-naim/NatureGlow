@@ -127,7 +127,7 @@ export const PieCharts = ({orders}) => {
     return (
             <div className="w-full h-[300px] p-5 bg-white rounded-2xl shadow-md">
                 <h2 className='text-xl font-bold text-green-800'>Order Status Overview</h2>
-                <ResponsiveContainer width="100%" height="100%">
+                {/* <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                         <Pie
                             data={chartData}
@@ -146,7 +146,7 @@ export const PieCharts = ({orders}) => {
                         <Tooltip />
                         <Legend />
                     </PieChart>
-                </ResponsiveContainer>
+                </ResponsiveContainer> */}
             </div>
     )
 }
