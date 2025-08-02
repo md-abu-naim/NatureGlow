@@ -202,22 +202,14 @@ export const StatusPieChart = ({ orders }) => {
 //   },
 // ];
 export const StatusLineChart = ({ users }) => {
-    // const active = users.filter(u => u.status === 'active').length
-    // const inActive = users.filter(u => u.status === 'inactive').length
-    // const userStatusData = [
-    //     {name: 'This Year',
-    //     active: active,
-    //     inActive: inActive}
-    // ]
-
-    const months = Array.from({ length: 12 }, (_, i) => {
-        const date = subMonths(new Date(), 11 - i);
+    const months = Array.from({length: 12}, (_, i) => {
+        const date = subMonths(new Date(), 11 - i)
         return {
             label: format(date, "MMM yyyy"),
             start: new Date(date.getFullYear(), date.getMonth(), 1),
             end: new Date(date.getFullYear(), date.getMonth() + 1, 0),
-        };
-    });
+        }
+    })
 
     // প্রতিমাসে active এবং inactive ইউজার কাউন্ট করি
     const userStatusData = months.map((month) => {
