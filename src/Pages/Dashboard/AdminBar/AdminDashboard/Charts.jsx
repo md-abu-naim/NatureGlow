@@ -83,7 +83,7 @@ export const StatusAreaChart = ({ orders }) => {
                 </div>
 
                 {/* Chart */}
-                <div className="h-60 :h-80 mt-3">
+                <div className="h-60 md:h-80 mt-3">
                     <ResponsiveContainer width="100%" height="100%">
                         <AreaChart
                             data={chartData[activeTab]}
