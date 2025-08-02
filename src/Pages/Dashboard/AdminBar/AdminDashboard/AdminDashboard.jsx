@@ -13,7 +13,8 @@ import axios from "axios";
 const AdminDashboard = () => {
     const [usersData, setUsersData] = useState([])
     const orders = useLoaderData()
-console.log(usersData);
+
+    
     useEffect(() => {
         axios.get('/Users.json')
         .then(res => {

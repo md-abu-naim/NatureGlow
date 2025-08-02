@@ -200,7 +200,8 @@ const data = [
     amt: 2100,
   },
 ];
-export const StatusLineChart = () => {
+export const StatusLineChart = ({users}) => {
+    console.log(users);
     return (
         <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[450px]">
             <h2 className='text-2xl font-bold text-green-800 pb-2'>Yearly Users Overview</h2>
