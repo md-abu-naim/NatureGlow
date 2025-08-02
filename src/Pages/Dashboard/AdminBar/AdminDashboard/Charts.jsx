@@ -60,7 +60,7 @@ export const StatusAreaChart = ({ orders }) => {
             })
         } else if (activeTab === 'monthly') {
             dataArray.sort((a, b) => parseInt(a.name) - parseInt(b.name))
-        }else if(activeTab === 'yearly'){
+        } else if (activeTab === 'yearly') {
             const monthOrder = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
                 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
             dataArray.sort((a, b) => monthOrder.indexOf(a.name) - monthOrder.indexOf(b.name))
