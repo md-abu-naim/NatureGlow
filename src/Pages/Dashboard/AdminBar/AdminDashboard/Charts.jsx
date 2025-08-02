@@ -214,25 +214,43 @@ export const StatusLineChart = ({ users }) => {
     const userStatusData = months.map(month => {
         const active = users.filter(u => {
             const created = parseISO(u.createdAt)
-            isWithinInterval(created, {start: month.start, end: month.end})
-        }).length
+            return(
+                u.status === "active" && isWithinInterval(created, {start: month.start, end: month.end})
+            )
+        })?.length
+
+        const inActive = users.filter(u => {
+            const created = parseISO(u.createdAt)
+            return u.status === "inactive" && isWithinInterval(created, { start: month.start, end: month.end})
+        })?.length
+
+        return {name: month.label, active, inActive}
     })
  
     // প্রতিমাসে active এবং inactive ইউজার কাউন্ট করি
-    const userStatusData = months.map((month) => {
-        const active = users.filter((u) => {
-            const created = parseISO(u.createdAt);
-            return (
-                u.status === "active" &&
-                isWithinInterval(created, { start: month.start, end: month.end })
-            );
-        }).length;
-        return {
-            name: month.label,
-            active, 
-            inActive
-        }
-    });
+    // const userStatusData = months.map((month) => {
+    //     const active = users.filter((u) => {
+    //         const created = parseISO(u.createdAt);
+    //         return (
+    //             u.status === "active" &&
+    //             isWithinInterval(created, { start: month.start, end: month.end })
+    //         );
+    //     }).length;
+
+    //     const inActive = users.filter((u) => {
+    //         const created = parseISO(u.createdAt);
+    //         return (
+    //             u.status === "inactive" &&
+    //             isWithinInterval(created, { start: month.start, end: month.end })
+    //         );
+    //     }).length;
+
+    //     return {
+    //         name: month.label,
+    //         active,
+    //         inActive,
+    //     };
+    // });
     return (
         <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[450px]">
             <h2 className='text-2xl font-bold text-green-800 pb-2'>Yearly Users Overview</h2>
