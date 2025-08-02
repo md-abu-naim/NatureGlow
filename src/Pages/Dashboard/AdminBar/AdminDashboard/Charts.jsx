@@ -227,20 +227,11 @@ export const StatusLineChart = ({ users }) => {
                 isWithinInterval(created, { start: month.start, end: month.end })
             );
         }).length;
-
-        const inActive = users.filter((u) => {
-            const created = parseISO(u.createdAt);
-            return (
-                u.status === "inactive" &&
-                isWithinInterval(created, { start: month.start, end: month.end })
-            );
-        }).length;
-
         return {
             name: month.label,
-            active,
-            inActive,
-        };
+            active, 
+            inActive
+        }
     });
     return (
         <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[450px]">
