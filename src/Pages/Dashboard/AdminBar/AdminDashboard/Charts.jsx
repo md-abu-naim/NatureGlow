@@ -55,10 +55,10 @@ export const StatusAreaChart = ({ orders }) => {
                 const getMinutes = (t) => {
                     const date = parseISO(`2023-01-01T${t}`)
                     return date.getHours() * 60 + date.getMinutes()
-                }
-                return getMinutes(a.name) - getMinutes(b.name)
-            })
-        } else if (activeTab === 'monthly') {
+        //         }
+        //         return getMinutes(a.name) - getMinutes(b.name)
+        //     })
+        // } else if (activeTab === 'monthly') {
             dataArray.sort((a, b) => parseInt(a.name) - parseInt(b.name))
         }else if(activeTab === 'yearly'){
             const monthOrder = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
