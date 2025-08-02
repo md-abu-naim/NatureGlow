@@ -202,7 +202,7 @@ export const StatusPieChart = ({ orders }) => {
 //   },
 // ];
 export const StatusLineChart = ({ users }) => {
-    const months = Array.from({length: 12}, (_, i) => {
+    const months = Array.from({ length: 12 }, (_, i) => {
         const date = subMonths(new Date(), 11 - i)
         return {
             label: format(date, "MMM yyyy"),
@@ -214,51 +214,27 @@ export const StatusLineChart = ({ users }) => {
     const userStatusData = months.map(month => {
         const active = users.filter(u => {
             const created = parseISO(u.createdAt)
-            return(
-                u.status === "active" && isWithinInterval(created, {start: month.start, end: month.end})
+            return (
+                u.status === "active" && isWithinInterval(created, { start: month.start, end: month.end })
             )
         })?.length
 
         const inActive = users.filter(u => {
             const created = parseISO(u.createdAt)
-            return u.status === "inactive" && isWithinInterval(created, { start: month.start, end: month.end})
+            return u.status === "inactive" && isWithinInterval(created, { start: month.start, end: month.end })
         })?.length
 
-        return {name: month.label, active, inActive}
+        return { name: month.label, active, inActive }
     })
- 
-    // প্রতিমাসে active এবং inactive ইউজার কাউন্ট করি
-    // const userStatusData = months.map((month) => {
-    //     const active = users.filter((u) => {
-    //         const created = parseISO(u.createdAt);
-    //         return (
-    //             u.status === "active" &&
-    //             isWithinInterval(created, { start: month.start, end: month.end })
-    //         );
-    //     }).length;
 
-    //     const inActive = users.filter((u) => {
-    //         const created = parseISO(u.createdAt);
-    //         return (
-    //             u.status === "inactive" &&
-    //             isWithinInterval(created, { start: month.start, end: month.end })
-    //         );
-    //     }).length;
 
-    //     return {
-    //         name: month.label,
-    //         active,
-    //         inActive,
-    //     };
-    // });
     return (
         <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[450px]">
             <h2 className='text-2xl font-bold text-green-800 pb-2'>Yearly Users Overview</h2>
-            <div className="h-[400px]">
+            <div className="h-[400px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
                     <LineChart
                         data={userStatusData}
-                        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                     >
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
