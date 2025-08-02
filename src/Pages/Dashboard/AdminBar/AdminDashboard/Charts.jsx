@@ -6,7 +6,7 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    ResponsiveContainer, PieChart, Pie, Cell, Legend,
+    ResponsiveContainer, PieChart, Pie, Cell, Legend, LineChart, Line,
 } from "recharts";
 
 const formatDateLabel = (date, type) => {
@@ -69,8 +69,8 @@ export const StatusAreaChart = ({ orders }) => {
     }, [orders])
     return (
         <div>
-            <div className="bg-white rounded-xl shadow h-[450px] sm:h-[350px] md:h-[400px]">
-                <h2 className='text-xl font-bold text-green-800 p-4'>Salles Report</h2>
+            <div className="bg-white rounded-xl shadow h-[450px] sm:h-[350px] md:h-[500px]">
+                <h2 className='text-2xl font-bold text-green-800 p-4'>Salles Report</h2>
                 <div className="flex gap-2 flex-wrap p-4">
                     {
                         ["today", "monthly", "yearly"].map((tab, i) => (
@@ -83,7 +83,7 @@ export const StatusAreaChart = ({ orders }) => {
                 </div>
 
                 {/* Chart */}
-                <div className="h-60 lg:h-64 mt-3">
+                <div className="h-60 :h-80 mt-3">
                     <ResponsiveContainer width="100%" height="100%">
                         <AreaChart
                             data={chartData[activeTab]}
@@ -95,8 +95,8 @@ export const StatusAreaChart = ({ orders }) => {
                             <Area
                                 type="monotone"
                                 dataKey="total"
-                                stroke="#10B981"
-                                fill="#D1FAE5"
+                                stroke="#22c55e"
+                                fill="#bbf7d0"
                                 animationDuration={500}
                             />
                         </AreaChart>
@@ -127,9 +127,10 @@ export const StatusPieChart = ({ orders }) => {
     ].filter(item => item.value > 0)
 
     return (
-        <div className="bg-white rounded-xl shadow p-4 h-[400px] sm:h-[350px] md:h-[400px]">
-            <h2 className='text-xl font-bold text-green-800'>Order Status Overview</h2>
-            <div className="h-[300px] ">
+        <div className="bg-white rounded-xl shadow p-4 h-[500px] sm:h-[350px] md:h-[500px]">
+            <h2 className='text-2xl font-bold text-green-800 pb-2'>Order Status Overview</h2>
+            <p className="text-gray-700 text-sm">Visual breakdown of all order statuses — easily track how many orders are Delivered, Shipped, In Progress, or Cancelled at a glance.</p>
+            <div className="h-[300px] lg:mt-5">
                 <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                         <Pie
@@ -154,3 +155,58 @@ export const StatusPieChart = ({ orders }) => {
         </div>
     )
 }
+
+const data = [
+  {
+    name: 'Page A',
+    uv: 4000,
+    pv: 2400,
+    amt: 2400,
+  },
+  {
+    name: 'Page B',
+    uv: 3000,
+    pv: 1398,
+    amt: 2210,
+  },
+  {
+    name: 'Page C',
+    uv: 2000,
+    pv: 9800,
+    amt: 2290,
+  },
+  {
+    name: 'Page D',
+    uv: 2780,
+    pv: 3908,
+    amt: 2000,
+  },
+  {
+    name: 'Page E',
+    uv: 1890,
+    pv: 4800,
+    amt: 2181,
+  },
+  {
+    name: 'Page F',
+    uv: 2390,
+    pv: 3800,
+    amt: 2500,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+];
+
+
+
+export const StatusLineChart = () => {
+    return (
+        <div>
+            
+        </div>
+    );
+};
