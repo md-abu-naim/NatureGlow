@@ -32,10 +32,10 @@ export const StatusAreaChart = ({ orders }) => {
                 if (dataMap.has(label)) {
                     const prev = dataMap.get(label)
                     dataMap.set(label, {
-                        totalPrice: prev.totalPrice + order.totalPrice,
-                        orderCount: prev.orderCount + 1
-                    })
-                } else {
+                //         totalPrice: prev.totalPrice + order.totalPrice,
+                //         orderCount: prev.orderCount + 1
+                //     })
+                // } else {
                     dataMap.set(label, {
                         totalPrice: order.totalPrice,
                         orderCount: 1
