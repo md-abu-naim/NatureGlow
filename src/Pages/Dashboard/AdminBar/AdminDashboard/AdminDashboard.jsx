@@ -114,7 +114,7 @@ const AdminDashboard = () => {
                 </div>
 
                 <div className="w-full col-span-1">
-                    <StatusPieCharorders={orders} />
+                    <StatusPieChart orders={orders} />
                 </div>
             </section>
 
