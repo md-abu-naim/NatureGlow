@@ -211,6 +211,13 @@ export const StatusLineChart = ({ users }) => {
         }
     })
 
+    const userStatusData = months.map(month => {
+        const active = users.filter(u => {
+            const created = parseISO(u.createdAt)
+            isWithinInterval(created, {start: month.start, end: month.end})
+        }).length
+    })
+ 
     // প্রতিমাসে active এবং inactive ইউজার কাউন্ট করি
     const userStatusData = months.map((month) => {
         const active = users.filter((u) => {
