@@ -14,12 +14,12 @@ const AdminDashboard = () => {
     const [usersData, setUsersData] = useState([])
     const orders = useLoaderData()
 
-    
+
     useEffect(() => {
         axios.get('/Users.json')
-        .then(res => {
-            setUsersData(res.data)
-        })
+            .then(res => {
+                setUsersData(res.data)
+            })
     }, [])
     return (
         <div>
