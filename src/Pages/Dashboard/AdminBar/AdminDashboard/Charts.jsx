@@ -15,8 +15,8 @@ export const StatusAreaChart = ({ orders }) => {
         if (activeTab === 'today') {
             startDate = subDays(now, 1)
         } else if (activeTab === 'monthly') {
-        //     startDate = subMonths(now, 1)
-        // } else if (activeTab === 'yearly') {
+            startDate = subMonths(now, 1)
+        } else if (activeTab === 'yearly') {
             startDate = subYears(now, 1)
         }
 
