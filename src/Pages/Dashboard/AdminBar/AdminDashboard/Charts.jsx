@@ -8,6 +8,7 @@ import {
     Tooltip,
     ResponsiveContainer, PieChart, Pie, Cell, Legend, LineChart, Line,
 } from "recharts";
+import { format, subMonths, isWithinInterval, parseISO } from "date-fns";
 
 const formatDateLabel = (date, type) => {
     const d = new Date(date)
@@ -156,77 +157,110 @@ export const StatusPieChart = ({ orders }) => {
     )
 }
 
-const data = [
-  {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
-export const StatusLineChart = ({users}) => {
-    console.log(users);
+// const data = [
+//   {
+//     name: 'Page A',
+//     uv: 4000,
+//     pv: 2400,
+//     amt: 2400,
+//   },
+//   {
+//     name: 'Page B',
+//     uv: 3000,
+//     pv: 1398,
+//     amt: 2210,
+//   },
+//   {
+//     name: 'Page C',
+//     uv: 2000,
+//     pv: 9800,
+//     amt: 2290,
+//   },
+//   {
+//     name: 'Page D',
+//     uv: 2780,
+//     pv: 3908,
+//     amt: 2000,
+//   },
+//   {
+//     name: 'Page E',
+//     uv: 1890,
+//     pv: 4800,
+//     amt: 2181,
+//   },
+//   {
+//     name: 'Page F',
+//     uv: 2390,
+//     pv: 3800,
+//     amt: 2500,
+//   },
+//   {
+//     name: 'Page G',
+//     uv: 3490,
+//     pv: 4300,
+//     amt: 2100,
+//   },
+// ];
+export const StatusLineChart = ({ users }) => {
+    // const active = users.filter(u => u.status === 'active').length
+    // const inActive = users.filter(u => u.status === 'inactive').length
+    // const userStatusData = [
+    //     {name: 'This Year',
+    //     active: active,
+    //     inActive: inActive}
+    // ]
+
+    const months = Array.from({ length: 12 }, (_, i) => {
+        const date = subMonths(new Date(), 11 - i);
+        return {
+            label: format(date, "MMM yyyy"),
+            start: new Date(date.getFullYear(), date.getMonth(), 1),
+            end: new Date(date.getFullYear(), date.getMonth() + 1, 0),
+        };
+    });
+
+    // প্রতিমাসে active এবং inactive ইউজার কাউন্ট করি
+    const userStatusData = months.map((month) => {
+        const active = users.filter((u) => {
+            const created = parseISO(u.createdAt);
+            return (
+                u.status === "active" &&
+                isWithinInterval(created, { start: month.start, end: month.end })
+            );
+        }).length;
+
+        const inActive = users.filter((u) => {
+            const created = parseISO(u.createdAt);
+            return (
+                u.status === "inactive" &&
+                isWithinInterval(created, { start: month.start, end: month.end })
+            );
+        }).length;
+
+        return {
+            name: month.label,
+            active,
+            inActive,
+        };
+    });
     return (
         <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[450px]">
             <h2 className='text-2xl font-bold text-green-800 pb-2'>Yearly Users Overview</h2>
             <div className="h-[400px]">
                 <ResponsiveContainer width="100%" height="100%">
-                <LineChart
-                    width={500}
-                    height={300}
-                    data={data}
-                    margin={{
-                        top: 5,
-                        right: 30,
-                        left: 20,
-                        bottom: 5,
-                    }}
-                >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-                </LineChart>
-            </ResponsiveContainer>
+                    <LineChart
+                        data={userStatusData}
+                        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis allowDecimals={false} />
+                        <Tooltip />
+                        <Legend />
+                        <Line type="monotone" dataKey="active" stroke="#4CAF50" activeDot={{ r: 6 }} />
+                        <Line type="monotone" dataKey="inActive" stroke="#FF5722" />
+                    </LineChart>
+                </ResponsiveContainer>
             </div>
         </div>
     );
