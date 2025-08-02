@@ -3,13 +3,23 @@ import { FaUsers, FaShoppingCart, FaMoneyBillWave, FaUserPlus } from "react-icon
 import { FiTrendingUp } from "react-icons/fi";
 import { LuPackagePlus } from "react-icons/lu";
 import { useLoaderData } from 'react-router-dom';
-import { StatusAreaChart, StatusPieChart } from './Charts';
+import { StatusAreaChart, StatusLineChart, StatusPieChart } from './Charts';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 
 
 
 const AdminDashboard = () => {
+    const [usersData, setUsersData] = useState([])
     const orders = useLoaderData()
+console.log(usersData);
+    useEffect(() => {
+        axios.get('/Users.json')
+        .then(res => {
+            setUsersData(res.data)
+        })
+    }, [])
     return (
         <div>
             <section className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-6 p-4">
@@ -94,10 +104,24 @@ const AdminDashboard = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Orders overview by Chart */}
             <section className="grid grid-cols-1 md:grid-cols-3 gap-4 p-5">
 
                 <div className="w-full col-span-1 md:col-span-2">
                     <StatusAreaChart orders={orders} />
+                </div>
+
+                <div className="w-full col-span-1">
+                    <StatusPieChart orders={orders} />
+                </div>
+            </section>
+
+            {/* users overview by chart */}
+            <section className="grid grid-cols-1 md:grid-cols-3 gap-4 p-5">
+
+                <div className="w-full col-span-1 md:col-span-2">
+                    <StatusLineChart users={usersData} />
                 </div>
 
                 <div className="w-full col-span-1">
