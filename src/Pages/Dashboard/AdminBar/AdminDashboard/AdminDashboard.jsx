@@ -126,7 +126,7 @@ const AdminDashboard = () => {
                 </div>
 
                 <div className="w-full col-span-1">
-                    <StatusComposedChart orders={orders} />
+                    <StatusComposedChart users={usersData} />
                 </div>
             </section>
         </div>

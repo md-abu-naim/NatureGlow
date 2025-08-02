@@ -3,7 +3,7 @@ import {
     AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ComposedChart, Bar,
     ResponsiveContainer, PieChart, Pie, Cell, Legend, LineChart, Line,
 } from "recharts";
-import { format, subMonths, isWithinInterval, parseISO, subDays, subYears } from "date-fns";
+import { format, subMonths, isWithinInterval, parseISO, subDays, subYears, isAfter } from "date-fns";
 
 export const StatusAreaChart = ({ orders }) => {
     const [activeTab, setActiveTab] = useState("today")
@@ -103,7 +103,6 @@ export const StatusAreaChart = ({ orders }) => {
                                 animationDuration={500}
                             />
                             <Line type="monotone" dataKey="orderCount" stroke="#FF5722" name="Total Orders" activeDot={{ r: 6 }} />
-
                         </AreaChart>
                     </ResponsiveContainer>
                 </div>
@@ -215,46 +214,90 @@ export const StatusLineChart = ({ users }) => {
 
 // ComposedChart Start Here
 
+export const StatusComposedChart = ({ users }) => {
+    // const data = useMemo(() => {
+    //     const now = new Date();
+    //     // const oneWeekAgo = subDays(now, 6); // past 7 days including today
 
-const data = [
-    {
-        name: 'Page A',
-        uv: 590,
-        pv: 800,
-        amt: 1400,
-    },
-    {
-        name: 'Page B',
-        uv: 868,
-        pv: 967,
-        amt: 1506,
-    },
-    {
-        name: 'Page C',
-        uv: 1397,
-        pv: 1098,
-        amt: 989,
-    },
-    {
-        name: 'Page D',
-        uv: 1480,
-        pv: 1200,
-        amt: 1228,
-    },
-    {
-        name: 'Page E',
-        uv: 1520,
-        pv: 1108,
-        amt: 1100,
-    },
-    {
-        name: 'Page F',
-        uv: 1400,
-        pv: 680,
-        amt: 1700,
-    },
-];
-export const StatusComposedChart = () => {
+    //     // 7 days label mapping
+    //     const dateMap = new Map();
+    //     for (let i = 0; i < 7; i++) {
+    //         const date = subDays(now, 6 - i);
+    //         const label = format(date, 'MMM d');
+    //         dateMap.set(label, 0);
+    //     }
+
+    //     // Filter current users (active in last 7 days)
+    //     const currentUsers = users.filter((user) => {
+    //         const createdAt = parseISO(user.createdAt);
+    //         const lastLogin = parseISO(user.lastLogin);
+    //         return (
+    //             isAfter(createdAt, subDays(now, 7)) ||
+    //             format(createdAt, 'yyyy-MM-dd') === format(now, 'yyyy-MM-dd') ||
+    //             isAfter(lastLogin, subDays(now, 7)) ||
+    //             format(lastLogin, 'yyyy-MM-dd') === format(now, 'yyyy-MM-dd')
+    //         );
+    //     });
+
+    //     // Count users by signup date
+    //     currentUsers.forEach((user) => {
+    //         const createdAt = parseISO(user.createdAt);
+    //         const label = format(createdAt, 'MMM d');
+    //         if (dateMap.has(label)) {
+    //             dateMap.set(label, dateMap.get(label) + 1);
+    //         }
+    //     });
+
+    //     return Array.from(dateMap.entries()).map(([date, count]) => ({
+    //         date,
+    //         signups: count
+    //     }));
+    // }, [users]);
+
+const data = useMemo(() => {
+    const now = new Date();
+
+    // Last 7 days (today + past 6 days)
+    const dateMap = new Map();
+    for (let i = 0; i < 7; i++) {
+      const date = subDays(now, 6 - i);
+      const label = format(date, 'MMM d');
+      dateMap.set(label, { signups: 0, logins: 0 });
+    }
+
+    // Filter users active within 7 days
+    const currentUsers = users.filter((user) => {
+      const createdAt = parseISO(user.createdAt);
+      const lastLogin = parseISO(user.lastLogin);
+      return (
+        isAfter(createdAt, subDays(now, 7)) ||
+        format(createdAt, 'yyyy-MM-dd') === format(now, 'yyyy-MM-dd') ||
+        isAfter(lastLogin, subDays(now, 7)) ||
+        format(lastLogin, 'yyyy-MM-dd') === format(now, 'yyyy-MM-dd')
+      );
+    });
+
+    // Count signups and logins per day
+    currentUsers.forEach((user) => {
+      const createdAt = parseISO(user.createdAt);
+      const loginAt = parseISO(user.lastLogin);
+
+      const signupLabel = format(createdAt, 'MMM d');
+      if (dateMap.has(signupLabel)) {
+        dateMap.get(signupLabel).signups += 1;
+      }
+
+      const loginLabel = format(loginAt, 'MMM d');
+      if (dateMap.has(loginLabel)) {
+        dateMap.get(loginLabel).logins += 1;
+      }
+    });
+
+    return Array.from(dateMap.entries()).map(([date, value]) => ({
+      date,
+      ...value
+    }));
+  }, [users]);
     return (
         <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[450px]">
             <h2 className='text-2xl font-bold text-green-800 p-4 pb-2'>Current Users</h2>
@@ -264,12 +307,12 @@ export const StatusComposedChart = () => {
                         data={data}
                     >
                         <CartesianGrid stroke="#f5f5f5" />
-                        <XAxis dataKey="name" scale="band" />
+                        <XAxis dataKey="date" scale="band" />
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="uv" barSize={20} fill="#413ea0" />
-                        <Line type="monotone" dataKey="uv" stroke="#ff7300" />
+                        <Bar dataKey="signups" barSize={20} fill="#413ea0" name='SignUp' />
+                        <Line type="monotone" dataKey="logins" stroke="#ff7300" name="SignIn" />
                     </ComposedChart>
                 </ResponsiveContainer>
             </div>
