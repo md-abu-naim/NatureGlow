@@ -163,14 +163,7 @@ export const StatusPieChart = ({ orders }) => {
 
 // LineChart Start here
 export const StatusLineChart = ({ users }) => {
-    // const months = Array.from({ length: 12 }, (_, i) => {
-    //     const date = subMonths(new Date(), 11 - i)
-    //     return {
-    //         label: format(date, "MMM yyyy"),
-    //         start: new Date(date.getFullYear(), date.getMonth(), 1),
-    //         end: new Date(date.getFullYear(), date.getMonth() + 1, 0),
-    //     }
-    // })
+    
 
 
     const today = new Date()
