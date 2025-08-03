@@ -129,7 +129,7 @@ const UserDashboard = () => {
             </section>
 
             <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[470px] md:pr-5 md:mx-5">
-                <div className="flex flex-col md:flex-row items-center sm:text-start text-center justify-between pl-3 p-2">
+                <div className="flex flex-col md:flex-row items-center sm:text-start text-centerF justify-between pl-3 p-2">
                 <h2 className='text-2xl font-bold text-green-800'>Weekly Orders Overview</h2>
                 <p className="bg-green-200 py-1 px-2 rounded-md">{dateRangeLabel}</p>
             </div>
