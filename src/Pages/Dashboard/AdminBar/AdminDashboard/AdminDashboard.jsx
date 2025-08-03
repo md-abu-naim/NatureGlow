@@ -17,7 +17,7 @@ const AdminDashboard = () => {
     const date = new Date().toLocaleDateString()
 
     const dailyUsers = usersData?.filter(u => u.createdAt && u.lastLogin === date)?.length
-    // const dailyOrders = orders?.filter(o => o.date === date).length
+    const dailyOrders = orders?.filter(o => o.date === date).length
     const totalEarnings = orders?.reduce((acc, sum) => acc + sum.totalPrice, 0)
     const dailyEarnings = orders?.filter(o => o.date === date)?.reduce((acc, sum) => acc + sum.totalPrice, 0)
     const totalDelivered = orders?.filter(order => order.orderStatus === "Delivered")?.length
