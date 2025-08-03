@@ -251,6 +251,7 @@ export const StatusComposedChart = ({ users }) => {
         })
         return Array.from(dateMap.entries()).map(([date, value]) => ({date, ...value}))
     }, [users])
+    
     return (
         <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[450px]">
             <h2 className='text-2xl font-bold text-green-800 p-4 pb-2'>Current Users</h2>
