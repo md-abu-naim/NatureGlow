@@ -165,7 +165,6 @@ export const StatusPieChart = ({ orders }) => {
 export const StatusLineChart = ({ users }) => {
     
 
-
     const today = new Date()
     const oneYearAgo = subYears(today, 1)
     const dateRangeLabel = `${format(oneYearAgo, "MMM d, yyyy")} - ${format(today, "MMM d, yyyy")}`
