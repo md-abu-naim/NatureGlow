@@ -23,6 +23,7 @@ import UpdateProduct from "../Pages/Dashboard/AdminBar/UpdateProduct";
 import OrderDetails from "../Pages/Dashboard/OrderDetails";
 import Orders from "../Pages/Dashboard/Orders";
 import AdminDashboard from "../Pages/Dashboard/AdminBar/AdminDashboard/AdminDashboard";
+import UserDashboard from "../Pages/Dashboard/UserBar/UserDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -107,6 +108,10 @@ export const router = createBrowserRouter([
         element: <AddProduct />
       },
       // User Routes
+      {
+        path: 'user-dashboard',
+        element: <UserDashboard />
+      },
       {
         path: 'addressBook',
         element: <AddressBook />
