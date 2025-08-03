@@ -15,7 +15,7 @@ const AdminDashboard = () => {
     const orders = useLoaderData()
 
     const TotalEarnings = orders?.reduce((acc, sum) => acc + sum.totalPrice, 0)
-    const totalDelivered = orders?.filter(order => order.orderStatus === "Delivered")?.length
+    // const totalDelivered = orders?.filter(order => order.orderStatus === "Delivered")?.length
     console.log(totalDelivered);
 
 
