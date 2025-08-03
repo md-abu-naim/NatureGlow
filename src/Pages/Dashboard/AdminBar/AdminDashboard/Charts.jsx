@@ -251,54 +251,6 @@ export const StatusComposedChart = ({ users }) => {
         })
         return Array.from(dateMap.entries()).map(([date, value]) => ({date, ...value}))
     }, [users])
-
-    // const data = useMemo(() => {
-    //     const now = new Date();
-
-    //     // Last 7 days (today + past 6 days)
-    //     const dateMap = new Map();
-    //     for (let i = 0; i < 7; i++) {
-    //         const date = subDays(now, 6 - i);
-    //         const label = format(date, 'M/d/yyyy');
-    //         dateMap.set(label, { signups: 0, logins: 0 });
-    //     }
-
-    //     // Filter users active within 7 days
-    //     const currentUsers = users.filter((user) => {
-    //         const createdAt = parse(user.createdAt, 'M/d/yyyy', new Date());
-    //         const lastLogin = parse(user.lastLogin, 'M/d/yyyy', new Date());
-
-    //         return (
-    //             isAfter(createdAt, subDays(now, 7)) ||
-    //             format(createdAt, 'M/d/yyyy') === format(now, 'M/d/yyyy') ||
-    //             isAfter(lastLogin, subDays(now, 7)) ||
-    //             format(lastLogin, 'M/d/yyyy') === format(now, 'M/d/yyyy')
-    //         );
-    //     });
-
-    //     // Count signups and logins per day
-    //     currentUsers.forEach((user) => {
-    //         const createdAt = parse(user.createdAt, 'M/d/yyyy', new Date());
-    //         const loginAt = parse(user.lastLogin, 'M/d/yyyy', new Date());
-
-    //         const signupLabel = format(createdAt, 'M/d/yyyy');
-    //         if (dateMap.has(signupLabel)) {
-    //             dateMap.get(signupLabel).signups += 1;
-    //         }
-
-    //         const loginLabel = format(loginAt, 'M/d/yyyy');
-    //         if (dateMap.has(loginLabel)) {
-    //             dateMap.get(loginLabel).logins += 1;
-    //         }
-    //     });
-
-    //     return Array.from(dateMap.entries()).map(([date, value]) => ({
-    //         date,
-    //         ...value
-    //     }));
-    // }, [users]);
-
-
     return (
         <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[450px]">
             <h2 className='text-2xl font-bold text-green-800 p-4 pb-2'>Current Users</h2>
