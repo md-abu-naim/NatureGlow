@@ -92,7 +92,8 @@ export const router = createBrowserRouter([
       },
       {
         path: 'users',
-        element: <Users />
+        element: <Users />,
+        loader: () => fetch(`/Users.json`)
       },
       {
         path: 'products',

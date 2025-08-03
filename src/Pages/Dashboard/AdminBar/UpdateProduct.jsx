@@ -7,7 +7,7 @@ const UpdateProduct = () => {
     const products = useLoaderData()
 
     const product = products?.find(p => p.id == id)
-    const { name, price, category, status, image:img, shortBio, description, features } = product || {}
+    const { name, price, category, status, image: img, shortBio, description, features } = product || {}
 
     const handleImagePreview = (e) => {
         const file = e.target.files[0]
@@ -31,7 +31,7 @@ const UpdateProduct = () => {
         let image;
         if (fileInput.files && fileInput.files.length > 0) {
             image = selectedImage
-        }else{
+        } else {
             image = img || ''
         }
 

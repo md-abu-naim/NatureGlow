@@ -1,35 +1,37 @@
 import { useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import UpdateRole from "../Modals/UpdateRole";
+import { useLoaderData } from "react-router-dom";
 
-const users = [
-    {
-        id: 1,
-        name: "Mohammad Naim Web Dev",
-        email: "naim@example.com",
-        role: "Admin",
-        image: "https://i.pravatar.cc/150?img=3",
-    },
-    {
-        id: 2,
-        name: "Sarah Islam",
-        email: "sarah@example.com",
-        role: "Student",
-        image: "https://i.pravatar.cc/150?img=5",
-    },
-    {
-        id: 3,
-        name: "Mizan Rahman",
-        email: "mizan@example.com",
-        role: "Admin",
-        image: "https://i.pravatar.cc/150?img=8",
-    },
-];
+// const users = [
+//     {
+//         id: 1,
+//         name: "Mohammad Naim Web Dev",
+//         email: "naim@example.com",
+//         role: "Admin",
+//         image: "https://i.pravatar.cc/150?img=3",
+//     },
+//     {
+//         id: 2,
+//         name: "Sarah Islam",
+//         email: "sarah@example.com",
+//         role: "Student",
+//         image: "https://i.pravatar.cc/150?img=5",
+//     },
+//     {
+//         id: 3,
+//         name: "Mizan Rahman",
+//         email: "mizan@example.com",
+//         role: "Admin",
+//         image: "https://i.pravatar.cc/150?img=8",
+//     },
+// ];
 
 
 const Users = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [userRole, setUserRole] = useState([])
+    const users = useLoaderData()
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
