@@ -110,7 +110,8 @@ export const router = createBrowserRouter([
       // User Routes
       {
         path: 'user-dashboard',
-        element: <UserDashboard />
+        element: <UserDashboard />,
+        loader: () => fetch(`/Orders.json`)
       },
       {
         path: 'addressBook',
