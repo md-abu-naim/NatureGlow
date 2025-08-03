@@ -13,8 +13,8 @@ const UserDashboard = () => {
     const totalSpent = orders?.reduce((acc, sum) => acc + sum.totalPrice, 0)
     const dailySpent = dailyOrders?.reduce((acc, sum) => acc + sum.totalPrice, 0)
     const totalDelivered = orders?.filter(order => order.orderStatus === "Delivered")?.length
+        const total = orders?.filter(order => order.orderStatus === "Cancelled")?.length
     const totalCancelled = orders?.filter(order => order.orderStatus === "Cancelled")?.length
-    const total = orders?.filter(order => order.orderStatus === "Cancelled")?.length
     
     return (
         <div>
