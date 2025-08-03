@@ -1,10 +1,11 @@
-import { isWithinInterval, parse, subDays } from "date-fns";
+import { format, isSameDay, isWithinInterval, parse, subDays } from "date-fns";
 import { AiOutlineEye } from "react-icons/ai";
 import { BsBan, BsTruck } from "react-icons/bs";
 import { FaMoneyBillWave, FaShippingFast, FaShoppingCart } from "react-icons/fa";
 import { FiRefreshCw, FiTrendingUp } from "react-icons/fi";
 import { LuPackagePlus } from "react-icons/lu";
 import { NavLink, useLoaderData } from "react-router-dom";
+import { Bar, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
 const UserDashboard = () => {
     const orders = useLoaderData()
@@ -14,8 +15,23 @@ const UserDashboard = () => {
 
     const recentOrders = orders?.filter(order => {
         const createdDate = parse(order.date, 'M/d/yyyy', new Date())
-        return isWithinInterval(createdDate, {start: oneWeekAgo, end: today})
+        return isWithinInterval(createdDate, { start: oneWeekAgo, end: today })
     })
+
+    const chartData = []
+    for(let i = 0; i < 7; i++){
+        const day = subDays(today, 6 - i)
+        const ordersOfTheDay = recentOrders?.filter(order => {
+            const orderDate = parse(order.date, 'M/d/yyyy', new Date())
+            return isSameDay(orderDate, day)
+        })
+        const totalPrice = ordersOfTheDay?.reduce((acc, sum) => acc + sum.totalPrice, 0) || 0
+        chartData.push({
+            name: format(day, 'EEE'),
+            totalOrders: ordersOfTheDay?.length,
+            totalPrice
+        })
+    }
 
     const dailyOrders = orders?.filter(o => o.date === today)
     const totalSpent = orders?.reduce((acc, sum) => acc + sum.totalPrice, 0)
@@ -110,7 +126,24 @@ const UserDashboard = () => {
                 </div>
             </section>
 
-
+            <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[450px]">
+                <h2 className='text-2xl font-bold text-green-800 p-4 pb-2'>Current Users</h2>
+                <div className="h-[400px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                        <ComposedChart
+                            data={chartData}
+                        >
+                            <CartesianGrid stroke="#f5f5f5" />
+                            <XAxis dataKey="name" scale="band" />
+                            <YAxis />
+                            <Tooltip />
+                            <Legend />
+                            <Bar dataKey="totalPrice" barSize={20} fill="#413ea0" />
+                            <Line type="monotone" dataKey="totalOrders" stroke="#ff7300"/>
+                        </ComposedChart>
+                    </ResponsiveContainer>
+                </div>
+            </div>
 
 
             {/* This Week's Orders List */}
