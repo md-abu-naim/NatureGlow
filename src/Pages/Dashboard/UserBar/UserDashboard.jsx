@@ -12,6 +12,8 @@ const UserDashboard = () => {
 
     const today = new Date().toLocaleDateString()
     const oneWeekAgo = subDays(today, 7)
+    const dateRangeLabel = `${format(oneWeekAgo, "MMM d")} - ${format(today, "MMM d, yyyy")}`
+    console.log(dateRangeLabel);
 
     const recentOrders = orders?.filter(order => {
         const createdDate = parse(order.date, 'M/d/yyyy', new Date())
@@ -126,8 +128,11 @@ const UserDashboard = () => {
                 </div>
             </section>
 
-            <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[450px] md:pr-5 md:mx-5">
-                <h2 className='text-2xl font-bold text-green-800 p-4 pb-2'>Current Users</h2>
+            <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[470px] md:pr-5 md:mx-5">
+                <div className="flex flex-col md:flex-row items-center sm:text-start text-center justify-between pl-3 p-2">
+                <h2 className='text-2xl font-bold text-green-800'>Weekly Orders Overview</h2>
+                <p className="bg-green-200 py-1 px-2 rounded-md">{dateRangeLabel}</p>
+            </div>
                 <div className="h-[400px]">
                     <ResponsiveContainer width="100%" height="100%">
                         <ComposedChart
@@ -138,8 +143,8 @@ const UserDashboard = () => {
                             <YAxis />
                             <Tooltip />
                             <Legend />
-                            <Bar dataKey="totalPrice" barSize={20} fill="#413ea0" />
-                            <Line type="monotone" dataKey="totalOrders" stroke="#ff7300" />
+                            <Bar dataKey="totalPrice" barSize={20} fill="#413ea0" name='Total Spent' />
+                            <Line type="monotone" dataKey="totalOrders" stroke="#ff7300" name="Total Orders" />
                         </ComposedChart>
                     </ResponsiveContainer>
                 </div>
