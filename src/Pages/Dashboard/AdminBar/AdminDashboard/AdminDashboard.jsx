@@ -14,6 +14,10 @@ const AdminDashboard = () => {
     const [usersData, setUsersData] = useState([])
     const orders = useLoaderData()
 
+    // const TotalEarnings = orders?.reduce((acc, sum) => acc + sum.totalPrice, 0)
+    const totalDelivered = orders?.filter(order => order.orderStatus === "Delivered")?.length
+    console.log(totalDelivered);
+
 
     useEffect(() => {
         axios.get('/Users.json')
@@ -31,7 +35,7 @@ const AdminDashboard = () => {
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">Total Users</p>
-                        <h3 className="text-2xl font-semibold text-green-800">1522</h3>
+                        <h3 className="text-2xl font-semibold text-green-800">{usersData?.length}</h3>
                     </div>
                 </div>
                 {/* Daily Users */}
@@ -51,7 +55,7 @@ const AdminDashboard = () => {
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">Total Orders</p>
-                        <h3 className="text-2xl font-semibold text-green-800">522</h3>
+                        <h3 className="text-2xl font-semibold text-green-800">{orders?.length}</h3>
                     </div>
                 </div>
                 {/* Daily Orders */}
@@ -71,7 +75,7 @@ const AdminDashboard = () => {
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">Total Earnings</p>
-                        <h3 className="text-2xl font-semibold text-green-800">522</h3>
+                        <h3 className="text-2xl font-semibold text-green-800">${TotalEarnings}</h3>
                     </div>
                 </div>
                 {/* Daily Eanrnings */}
@@ -91,7 +95,7 @@ const AdminDashboard = () => {
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">Total Delivered</p>
-                        <h3 className="text-2xl font-semibold text-green-800">522</h3>
+                        <h3 className="text-2xl font-semibold text-green-800">{totalDelivered}</h3>
                     </div>
                 </div>
                 {/* Total Cancelled */}
