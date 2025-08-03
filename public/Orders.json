@@ -8,7 +8,7 @@
     "phone": "+8801780011122",
     "paymentStatus": "Paid",
     "orderStatus": "Shipped",
-    "date": "2025-08-02",
+    "date": "8/3/2025",
     "products": [
       {
         "id": 1,
@@ -52,7 +52,7 @@
     "phone": "+8801300022244",
     "paymentStatus": "Unpaid",
     "orderStatus": "In Progress",
-    "date": "2025-08-02",
+    "date": "8/3/2025",
     "products": [
       {
         "id": 5,
@@ -81,7 +81,7 @@
     "phone": "+8801700345667",
     "paymentStatus": "Paid",
     "orderStatus": "Delivered",
-    "date": "2025-08-01",
+    "date": "2025-08-03",
     "products": [
       {
         "id": 2,

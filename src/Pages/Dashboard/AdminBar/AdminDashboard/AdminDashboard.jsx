@@ -14,9 +14,14 @@ const AdminDashboard = () => {
     const [usersData, setUsersData] = useState([])
     const orders = useLoaderData()
 
-    const TotalEarnings = orders?.reduce((acc, sum) => acc + sum.totalPrice, 0)
-    const totalDelivered = orders?.filter(order => order.orderStatus === "Delivered")?.length
-    console.log(totalDelivered);
+    const date = new Date().toLocaleDateString()
+
+    const dailyUsers = usersData?.filter(u => u.createdAt && u.lastLogin === date)?.length
+    const dailyOrders = orders?.filter(o => o.date === date).length
+    const totalEarnings = orders?.reduce((acc, sum) => acc + sum.totalPrice, 0)
+    const dailyEarnings = orders?.filter(o => o.date === date)?.reduce((acc, sum) => acc + sum.totalPrice, 0)
+    // const totalDelivered = orders?.filter(order => order.orderStatus === "Delivered")?.length
+    const totalCancelled = orders?.filter(order => order.orderStatus === "Cancelled")?.length
 
 
     useEffect(() => {
@@ -45,7 +50,7 @@ const AdminDashboard = () => {
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">Daily Users</p>
-                        <h3 className="text-2xl font-semibold text-green-800">522</h3>
+                        <h3 className="text-2xl font-semibold text-green-800">{dailyUsers}</h3>
                     </div>
                 </div>
                 {/* Total Orders */}
@@ -65,7 +70,7 @@ const AdminDashboard = () => {
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">Daily Orders</p>
-                        <h3 className="text-2xl font-semibold text-green-800">522</h3>
+                        <h3 className="text-2xl font-semibold text-green-800">{dailyOrders}</h3>
                     </div>
                 </div>
                 {/* Total Eanrnings */}
@@ -75,7 +80,7 @@ const AdminDashboard = () => {
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">Total Earnings</p>
-                        <h3 className="text-2xl font-semibold text-green-800">${TotalEarnings}</h3>
+                        <h3 className="text-2xl font-semibold text-green-800">${totalEarnings}</h3>
                     </div>
                 </div>
                 {/* Daily Eanrnings */}
@@ -85,7 +90,7 @@ const AdminDashboard = () => {
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">Daily Earnings</p>
-                        <h3 className="text-2xl font-semibold text-green-800">522</h3>
+                        <h3 className="text-2xl font-semibold text-green-800">${dailyEarnings}</h3>
                     </div>
                 </div>
                 {/* Total Delivered */}
@@ -105,7 +110,7 @@ const AdminDashboard = () => {
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">Total Cancelled</p>
-                        <h3 className="text-2xl font-semibold text-green-800">522</h3>
+                        <h3 className="text-2xl font-semibold text-green-800">{totalCancelled}</h3>
                     </div>
                 </div>
             </section>
