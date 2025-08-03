@@ -87,7 +87,7 @@ const UserDashboard = () => {
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">Total Shipped</p>
-                        <h3 className="text-2xl font-semibold text-green-800">{totalCancelled}</h3>
+                        <h3 className="text-2xl font-semibold text-green-800">{totalSipped}</h3>
                     </div>
                 </div>
                 {/* Total Cancelled */}
