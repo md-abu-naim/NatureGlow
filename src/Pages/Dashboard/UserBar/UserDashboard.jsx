@@ -14,6 +14,7 @@ const UserDashboard = () => {
     const dailyEarnings = dailyOrders?.reduce((acc, sum) => acc + sum.totalPrice, 0)
     const totalDelivered = orders?.filter(order => order.orderStatus === "Delivered")?.length
     const totalCancelled = orders?.filter(order => order.orderStatus === "Cancelled")?.length
+    
     return (
         <div>
             <section className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-6 p-4">
