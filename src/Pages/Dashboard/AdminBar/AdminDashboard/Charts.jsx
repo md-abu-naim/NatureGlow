@@ -3,7 +3,7 @@ import {
     AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ComposedChart, Bar,
     ResponsiveContainer, PieChart, Pie, Cell, Legend, LineChart, Line,
 } from "recharts";
-import { format, subMonths, isWithinInterval, parseISO, subDays, subYears, isAfter, parse } from "date-fns";
+import { format, subMonths, isWithinInterval, parseISO, subDays, subYears, isAfter, parse, addMonths } from "date-fns";
 
 export const StatusAreaChart = ({ orders }) => {
     const [activeTab, setActiveTab] = useState("today")
@@ -163,14 +163,49 @@ export const StatusPieChart = ({ orders }) => {
 
 // LineChart Start here
 export const StatusLineChart = ({ users }) => {
-    const months = Array.from({ length: 12 }, (_, i) => {
-        const date = subMonths(new Date(), 11 - i)
-        return {
-            label: format(date, "MMM yyyy"),
-            start: new Date(date.getFullYear(), date.getMonth(), 1),
-            end: new Date(date.getFullYear(), date.getMonth() + 1, 0),
-        }
-    })
+    // const months = Array.from({ length: 12 }, (_, i) => {
+    //     const date = subMonths(new Date(), 11 - i)
+    //     return {
+    //         label: format(date, "MMM yyyy"),
+    //         start: new Date(date.getFullYear(), date.getMonth(), 1),
+    //         end: new Date(date.getFullYear(), date.getMonth() + 1, 0),
+    //     }
+    // })
+
+    // const userStatusData = months.map(month => {
+    //     const active = users.filter(u => {
+    //         const created = parse(u.createdAt, 'M/d/yyyy', new Date())
+    //         return (
+    //             u.status === "active" && isWithinInterval(created, { start: month.start, end: month.end })
+    //         )
+    //     })?.length
+
+    //     const inActive = users.filter(u => {
+    //         const created = parse(u.createdAt, 'M/d/yyyy', new Date())
+    //         return u.status === "inactive" && isWithinInterval(created, { start: month.start, end: month.end })
+    //     })?.length
+
+    //     return { name: month.label, active, inActive }
+    // })
+
+
+    const today = new Date()
+    const oneYearAgo = subYears(today, 1)
+    const dateRangeLabel = `${format(oneYearAgo, "MMM d, yyyy")} - ${format(today, "MMM d, yyyy")}`
+
+    const months = []
+    let current = new Date(oneYearAgo)
+
+    while (current <= today) {
+        const next = addMonths(current, 1)
+        months.push({
+            label: format(current, "MMM yyyy"),
+            start: current,
+            end: subDays(next, 1)
+        })
+
+        current = next
+    }
 
     const userStatusData = months.map(month => {
         const active = users.filter(u => {
@@ -179,19 +214,24 @@ export const StatusLineChart = ({ users }) => {
                 u.status === "active" && isWithinInterval(created, { start: month.start, end: month.end })
             )
         })?.length
-
         const inActive = users.filter(u => {
             const created = parse(u.createdAt, 'M/d/yyyy', new Date())
-            return u.status === "inactive" && isWithinInterval(created, { start: month.start, end: month.end })
+            return (
+                u.status === "inactive" && isWithinInterval(created, { start: month.start, end: month.end })
+            )
         })?.length
 
         return { name: month.label, active, inActive }
     })
 
 
+
     return (
         <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[450px]">
-            <h2 className='text-2xl font-bold text-green-800 pb-2'>Yearly Users Overview</h2>
+            <div className="flex flex-col md:flex-row items-center justify-between  p-2">
+                <h2 className='text-2xl font-bold text-green-800'>Yearly Users Overview</h2>
+                <p className="bg-green-200 py-1 px-2 rounded-md">{dateRangeLabel}</p>
+            </div>
             <div className="h-[400px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
                     <LineChart
