@@ -99,8 +99,8 @@ const Orders = () => {
                 <div className="bg-green-100 border-b flex justify-between items-center px-3 py-2 border-green-300">
                     <h1 className="text-lg font-bold text-green-800">All Orders List</h1>
                     {
-                        role === 'Admin' ? <NavLink to="/dashboard/addProduct" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Add Product</NavLink>:
-                        <NavLink to="/shop" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Shop New</NavLink>
+                        role === 'Admin' ? <NavLink to="/dashboard/addProduct" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Add Product</NavLink> :
+                            <NavLink to="/shop" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Shop New</NavLink>
                     }
                 </div>
                 <table className="min-w-full text-sm text-left table-auto">
