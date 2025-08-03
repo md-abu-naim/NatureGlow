@@ -68,8 +68,8 @@ const Users = () => {
                                         <h5>{u.name}</h5>
                                     </td>
                                     <td className="px-4 py-3">{u.email}</td>
-                                    <td className="px-4 py-3 font-sans">+8801882585833</td>
-                                    <td className="px-4 py-3">kalam beparir fild, Khajuria, senbag, Noakhalim, chittagang</td>
+                                    <td className="px-4 py-3 font-sans">{u.phone}</td>
+                                    <td className="px-4 py-3">{u.address}</td>
                                     <td className="px-6 py-4 ">
                                         <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${u.role === "Admin" ? "bg-green-200 text-green-800" : "bg-blue-200 text-blue-800"}`}>
                                             {u.role}

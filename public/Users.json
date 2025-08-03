@@ -6,8 +6,10 @@
     "profilePic": "https://randomuser.me/api/portraits/men/1.jpg",
     "status": "active",
     "createdAt": "8/3/2025",
-    "role": "user",
-    "lastLogin": "8/1/2025"
+    "role": "User",
+    "lastLogin": "8/1/2025",
+    "address": "123 Mirpur Road, Dhaka, Bangladesh",
+    "phone": "+880-1711-123456"
   },
   {
     "id": "u2",
@@ -16,8 +18,10 @@
     "profilePic": "https://randomuser.me/api/portraits/women/2.jpg",
     "status": "inactive",
     "createdAt": "7/29/2025",
-    "role": "admin",
-    "lastLogin": "8/3/2025"
+    "role": "Admin",
+    "lastLogin": "8/3/2025",
+    "address": "456 Gulshan Avenue, Dhaka, Bangladesh",
+    "phone": "+880-1819-234567"
   },
   {
     "id": "u3",
@@ -26,8 +30,10 @@
     "profilePic": "https://randomuser.me/api/portraits/men/3.jpg",
     "status": "active",
     "createdAt": "7/29/2025",
-    "role": "moderator",
-    "lastLogin": "8/2/2025"
+    "role": "User",
+    "lastLogin": "8/2/2025",
+    "address": "789 Uttara Sector 4, Dhaka, Bangladesh",
+    "phone": "+880-1912-345678"
   },
   {
     "id": "u4",
@@ -36,8 +42,10 @@
     "profilePic": "https://randomuser.me/api/portraits/women/4.jpg",
     "status": "inactive",
     "createdAt": "7/30/2025",
-    "role": "user",
-    "lastLogin": "7/31/2025"
+    "role": "User",
+    "lastLogin": "7/31/2025",
+    "address": "101 Dhanmondi 32, Dhaka, Bangladesh",
+    "phone": "+880-1613-456789"
   },
   {
     "id": "u5",
@@ -46,8 +54,10 @@
     "profilePic": "https://randomuser.me/api/portraits/men/5.jpg",
     "status": "active",
     "createdAt": "7/30/2025",
-    "role": "user",
-    "lastLogin": "8/2/2025"
+    "role": "User",
+    "lastLogin": "8/2/2025",
+    "address": "202 Banani Road 11, Dhaka, Bangladesh",
+    "phone": "+880-1514-567890"
   },
   {
     "id": "u6",
@@ -56,8 +66,10 @@
     "profilePic": "https://randomuser.me/api/portraits/women/6.jpg",
     "status": "active",
     "createdAt": "7/31/2025",
-    "role": "admin",
-    "lastLogin": "8/2/2025"
+    "role": "Admin",
+    "lastLogin": "8/2/2025",
+    "address": "303 Elephant Road, Dhaka, Bangladesh",
+    "phone": "+880-1715-678901"
   },
   {
     "id": "u7",
@@ -66,8 +78,10 @@
     "profilePic": "https://randomuser.me/api/portraits/men/7.jpg",
     "status": "inactive",
     "createdAt": "7/31/2025",
-    "role": "user",
-    "lastLogin": "8/1/2025"
+    "role": "User",
+    "lastLogin": "8/1/2025",
+    "address": "404 Malibagh Chowdhurypara, Dhaka, Bangladesh",
+    "phone": "+880-1816-789012"
   },
   {
     "id": "u8",
@@ -76,8 +90,10 @@
     "profilePic": "https://randomuser.me/api/portraits/women/8.jpg",
     "status": "active",
     "createdAt": "8/1/2025",
-    "role": "moderator",
-    "lastLogin": "8/2/2025"
+    "role": "Admin",
+    "lastLogin": "8/2/2025",
+    "address": "505 Shantinagar, Dhaka, Bangladesh",
+    "phone": "+880-1917-890123"
   },
   {
     "id": "u9",
@@ -86,8 +102,10 @@
     "profilePic": "https://randomuser.me/api/portraits/men/9.jpg",
     "status": "active",
     "createdAt": "8/1/2025",
-    "role": "user",
-    "lastLogin": "8/2/2025"
+    "role": "User",
+    "lastLogin": "8/2/2025",
+    "address": "606 Mohammadpur Ring Road, Dhaka, Bangladesh",
+    "phone": "+880-1618-901234"
   },
   {
     "id": "u10",
@@ -96,8 +114,10 @@
     "profilePic": "https://randomuser.me/api/portraits/women/10.jpg",
     "status": "inactive",
     "createdAt": "8/2/2025",
-    "role": "admin",
-    "lastLogin": "8/2/2025"
+    "role": "Admin",
+    "lastLogin": "8/2/2025",
+    "address": "707 Khilgaon Taltola, Dhaka, Bangladesh",
+    "phone": "+880-1519-012345"
   },
   {
     "id": "u11",
@@ -106,8 +126,10 @@
     "profilePic": "https://randomuser.me/api/portraits/men/11.jpg",
     "status": "active",
     "createdAt": "7/28/2025",
-    "role": "user",
-    "lastLogin": "8/2/2025"
+    "role": "User",
+    "lastLogin": "8/2/2025",
+    "address": "808 Jatrabari, Dhaka, Bangladesh",
+    "phone": "+880-1720-123456"
   },
   {
     "id": "u12",
@@ -116,8 +138,10 @@
     "profilePic": "https://randomuser.me/api/portraits/women/12.jpg",
     "status": "active",
     "createdAt": "7/29/2025",
-    "role": "moderator",
-    "lastLogin": "8/2/2025"
+    "role": "User",
+    "lastLogin": "8/2/2025",
+    "address": "909 Rampura, Dhaka, Bangladesh",
+    "phone": "+880-1821-234567"
   },
   {
     "id": "u13",
@@ -126,8 +150,10 @@
     "profilePic": "https://randomuser.me/api/portraits/men/13.jpg",
     "status": "inactive",
     "createdAt": "7/30/2025",
-    "role": "user",
-    "lastLogin": "7/31/2025"
+    "role": "User",
+    "lastLogin": "7/31/2025",
+    "address": "1010 Demra, Dhaka, Bangladesh",
+    "phone": "+880-1922-345678"
   },
   {
     "id": "u14",
@@ -136,8 +162,10 @@
     "profilePic": "https://randomuser.me/api/portraits/women/14.jpg",
     "status": "active",
     "createdAt": "7/31/2025",
-    "role": "admin",
-    "lastLogin": "8/2/2025"
+    "role": "Admin",
+    "lastLogin": "8/2/2025",
+    "address": "1111 Badda, Dhaka, Bangladesh",
+    "phone": "+880-1623-456789"
   },
   {
     "id": "u15",
@@ -146,8 +174,10 @@
     "profilePic": "https://randomuser.me/api/portraits/men/15.jpg",
     "status": "active",
     "createdAt": "8/1/2025",
-    "role": "user",
-    "lastLogin": "8/2/2025"
+    "role": "User",
+    "lastLogin": "8/2/2025",
+    "address": "1212 Gulshan 2, Dhaka, Bangladesh",
+    "phone": "+880-1524-567890"
   },
   {
     "id": "u16",
@@ -156,8 +186,10 @@
     "profilePic": "https://randomuser.me/api/portraits/women/16.jpg",
     "status": "inactive",
     "createdAt": "8/1/2025",
-    "role": "moderator",
-    "lastLogin": "8/2/2025"
+    "role": "Admin",
+    "lastLogin": "8/2/2025",
+    "address": "1313 Puran Dhaka, Dhaka, Bangladesh",
+    "phone": "+880-1725-678901"
   },
   {
     "id": "u17",
@@ -166,8 +198,10 @@
     "profilePic": "https://randomuser.me/api/portraits/men/17.jpg",
     "status": "active",
     "createdAt": "8/2/2025",
-    "role": "user",
-    "lastLogin": "8/2/2025"
+    "role": "User",
+    "lastLogin": "8/2/2025",
+    "address": "1414 Farmgate, Dhaka, Bangladesh",
+    "phone": "+880-1826-789012"
   },
   {
     "id": "u18",
@@ -176,8 +210,10 @@
     "profilePic": "https://randomuser.me/api/portraits/women/18.jpg",
     "status": "inactive",
     "createdAt": "8/2/2025",
-    "role": "admin",
-    "lastLogin": "8/2/2025"
+    "role": "Admin",
+    "lastLogin": "8/2/2025",
+    "address": "1515 Mirpur 1, Dhaka, Bangladesh",
+    "phone": "+880-1927-890123"
   },
   {
     "id": "u19",
@@ -186,8 +222,10 @@
     "profilePic": "https://randomuser.me/api/portraits/men/19.jpg",
     "status": "active",
     "createdAt": "7/28/2025",
-    "role": "user",
-    "lastLogin": "8/2/2025"
+    "role": "User",
+    "lastLogin": "8/2/2025",
+    "address": "1616 Shahbagh, Dhaka, Bangladesh",
+    "phone": "+880-1628-901234"
   },
   {
     "id": "u20",
@@ -196,8 +234,10 @@
     "profilePic": "https://randomuser.me/api/portraits/women/20.jpg",
     "status": "active",
     "createdAt": "7/29/2025",
-    "role": "moderator",
-    "lastLogin": "8/2/2025"
+    "role": "User",
+    "lastLogin": "8/2/2025",
+    "address": "1717 Paltan, Dhaka, Bangladesh",
+    "phone": "+880-1529-012345"
   },
   {
     "id": "u21",
@@ -206,8 +246,10 @@
     "profilePic": "https://randomuser.me/api/portraits/men/21.jpg",
     "status": "inactive",
     "createdAt": "7/30/2025",
-    "role": "user",
-    "lastLogin": "8/2/2025"
+    "role": "User",
+    "lastLogin": "8/2/2025",
+    "address": "1818 Mouchak, Dhaka, Bangladesh",
+    "phone": "+880-1730-123456"
   },
   {
     "id": "u22",
@@ -216,8 +258,10 @@
     "profilePic": "https://randomuser.me/api/portraits/women/22.jpg",
     "status": "active",
     "createdAt": "7/31/2025",
-    "role": "admin",
-    "lastLogin": "8/3/2025"
+    "role": "Admin",
+    "lastLogin": "8/3/2025",
+    "address": "1919 Kakrail, Dhaka, Bangladesh",
+    "phone": "+880-1831-234567"
   },
   {
     "id": "u23",
@@ -226,8 +270,10 @@
     "profilePic": "https://randomuser.me/api/portraits/men/23.jpg",
     "status": "active",
     "createdAt": "8/3/2025",
-    "role": "user",
-    "lastLogin": "8/2/2025"
+    "role": "User",
+    "lastLogin": "8/2/2025",
+    "address": "2020 Segunbagicha, Dhaka, Bangladesh",
+    "phone": "+880-1932-345678"
   },
   {
     "id": "u24",
@@ -236,7 +282,9 @@
     "profilePic": "https://randomuser.me/api/portraits/women/24.jpg",
     "status": "inactive",
     "createdAt": "8/2/2025",
-    "role": "moderator",
-    "lastLogin": "8/2/2025"
+    "role": "Admin",
+    "lastLogin": "8/2/2025",
+    "address": "2121 Eskaton, Dhaka, Bangladesh",
+    "phone": "+880-1633-456789"
   }
 ]
