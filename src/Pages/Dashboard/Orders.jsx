@@ -134,7 +134,7 @@ const Orders = () => {
                                             <td className="px-4 py-3 font-sans">{order.phone}</td>
                                         </>
                                     }
-                                    <td className="px-4 py-3 ">{order.orders?.length} Items</td>
+                                    <td className="px-4 py-3 ">{order.products?.length} Items</td>
                                     <td className="px-4 py-3 font-semibold">
                                         <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm ${order.paymentStatus === 'Paid' ? 'bg-green-100 text-green-700' : order.paymentStatus === 'Unpaid' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'}`}>
                                             {order.paymentStatus}
