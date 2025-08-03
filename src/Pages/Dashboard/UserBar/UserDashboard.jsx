@@ -19,7 +19,7 @@ const UserDashboard = () => {
     })
 
     const chartData = []
-    for(let i = 0; i < 7; i++){
+    for (let i = 0; i < 7; i++) {
         const day = subDays(today, 6 - i)
         const ordersOfTheDay = recentOrders?.filter(order => {
             const orderDate = parse(order.date, 'M/d/yyyy', new Date())
@@ -139,7 +139,7 @@ const UserDashboard = () => {
                             <Tooltip />
                             <Legend />
                             <Bar dataKey="totalPrice" barSize={20} fill="#413ea0" />
-                            <Line type="monotone" dataKey="totalOrders" stroke="#ff7300"/>
+                            <Line type="monotone" dataKey="totalOrders" stroke="#ff7300" />
                         </ComposedChart>
                     </ResponsiveContainer>
                 </div>
