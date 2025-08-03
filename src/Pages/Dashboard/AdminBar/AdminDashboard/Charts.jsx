@@ -215,90 +215,88 @@ export const StatusLineChart = ({ users }) => {
 // ComposedChart Start Here
 
 export const StatusComposedChart = ({ users }) => {
+
+    const data = useMemo(() => {
+        const now = new Date()
+
+        const dateMap = new Map()
+        for (let i = 0; i < 7; i++) {
+            const date = subDays(now, 6 - i)
+            const label = format(date, 'M/d/yyyy')
+            dateMap.set(label, { signups: 0, logins: 0 })
+        }
+
+        const currentUsers = users.filter((user) => {
+            const createdAt = parse(user.createdAt, 'M/d/yyyy', new Date())
+            const lastLogin = parse(user.lastLogin, 'M/d/yyyy', new Date())
+
+            return (
+                isAfter(createdAt, subDays(now, 7)) ||
+                format(createdAt, 'M/d/yyyy') === format(now, 'M/d/yyyy') ||
+                isAfter(lastLogin, subDays(now, 7)) ||
+                format(lastLogin, 'M/d/yyyy') === format(now, 'M/d/yyyy')
+            )
+        })
+
+        currentUsers.forEach((user) => {
+            const createdAt = parse(user.createdAt, 'M/d/yyyy', new Date())
+            const loginAt = parse(user.lastLogin, 'M/d/yyyy', new Date())
+
+            const signupLabel = format(createdAt, 'M/d/yyyy')
+            if (dateMap.has(signupLabel)) dateMap.get(signupLabel).signups += 1
+
+            const loginLabel = format(loginAt, 'M/d/yyyy')
+            if (dateMap.has(loginLabel)) dateMap.get(loginLabel).logins += 1
+
+        })
+        return Array.from(dateMap.entries()).map(([date, value]) => ({date, ...value}))
+    }, [users])
+
     // const data = useMemo(() => {
     //     const now = new Date();
-    //     // const oneWeekAgo = subDays(now, 6); // past 7 days including today
 
-    //     // 7 days label mapping
+    //     // Last 7 days (today + past 6 days)
     //     const dateMap = new Map();
     //     for (let i = 0; i < 7; i++) {
     //         const date = subDays(now, 6 - i);
-    //         const label = format(date, 'MMM d');
-    //         dateMap.set(label, 0);
+    //         const label = format(date, 'M/d/yyyy');
+    //         dateMap.set(label, { signups: 0, logins: 0 });
     //     }
 
-    //     // Filter current users (active in last 7 days)
+    //     // Filter users active within 7 days
     //     const currentUsers = users.filter((user) => {
-    //         const createdAt = parseISO(user.createdAt);
-    //         const lastLogin = parseISO(user.lastLogin);
+    //         const createdAt = parse(user.createdAt, 'M/d/yyyy', new Date());
+    //         const lastLogin = parse(user.lastLogin, 'M/d/yyyy', new Date());
+
     //         return (
     //             isAfter(createdAt, subDays(now, 7)) ||
-    //             format(createdAt, 'yyyy-MM-dd') === format(now, 'yyyy-MM-dd') ||
+    //             format(createdAt, 'M/d/yyyy') === format(now, 'M/d/yyyy') ||
     //             isAfter(lastLogin, subDays(now, 7)) ||
-    //             format(lastLogin, 'yyyy-MM-dd') === format(now, 'yyyy-MM-dd')
+    //             format(lastLogin, 'M/d/yyyy') === format(now, 'M/d/yyyy')
     //         );
     //     });
 
-    //     // Count users by signup date
+    //     // Count signups and logins per day
     //     currentUsers.forEach((user) => {
-    //         const createdAt = parseISO(user.createdAt);
-    //         const label = format(createdAt, 'MMM d');
-    //         if (dateMap.has(label)) {
-    //             dateMap.set(label, dateMap.get(label) + 1);
+    //         const createdAt = parse(user.createdAt, 'M/d/yyyy', new Date());
+    //         const loginAt = parse(user.lastLogin, 'M/d/yyyy', new Date());
+
+    //         const signupLabel = format(createdAt, 'M/d/yyyy');
+    //         if (dateMap.has(signupLabel)) {
+    //             dateMap.get(signupLabel).signups += 1;
+    //         }
+
+    //         const loginLabel = format(loginAt, 'M/d/yyyy');
+    //         if (dateMap.has(loginLabel)) {
+    //             dateMap.get(loginLabel).logins += 1;
     //         }
     //     });
 
-    //     return Array.from(dateMap.entries()).map(([date, count]) => ({
+    //     return Array.from(dateMap.entries()).map(([date, value]) => ({
     //         date,
-    //         signups: count
+    //         ...value
     //     }));
     // }, [users]);
-
-const data = useMemo(() => {
-  const now = new Date();
-
-  // Last 7 days (today + past 6 days)
-  const dateMap = new Map();
-  for (let i = 0; i < 7; i++) {
-    const date = subDays(now, 6 - i);
-    const label = format(date, 'M/d/yyyy');
-    dateMap.set(label, { signups: 0, logins: 0 });
-  }
-
-  // Filter users active within 7 days
-  const currentUsers = users.filter((user) => {
-    const createdAt = parse(user.createdAt, 'M/d/yyyy', new Date());
-    const lastLogin = parse(user.lastLogin, 'M/d/yyyy', new Date());
-
-    return (
-      isAfter(createdAt, subDays(now, 7)) ||
-      format(createdAt, 'M/d/yyyy') === format(now, 'M/d/yyyy') ||
-      isAfter(lastLogin, subDays(now, 7)) ||
-      format(lastLogin, 'M/d/yyyy') === format(now, 'M/d/yyyy')
-    );
-  });
-
-  // Count signups and logins per day
-  currentUsers.forEach((user) => {
-    const createdAt = parse(user.createdAt, 'M/d/yyyy', new Date());
-    const loginAt = parse(user.lastLogin, 'M/d/yyyy', new Date());
-
-    const signupLabel = format(createdAt, 'M/d/yyyy');
-    if (dateMap.has(signupLabel)) {
-      dateMap.get(signupLabel).signups += 1;
-    }
-
-    const loginLabel = format(loginAt, 'M/d/yyyy');
-    if (dateMap.has(loginLabel)) {
-      dateMap.get(loginLabel).logins += 1;
-    }
-  });
-
-  return Array.from(dateMap.entries()).map(([date, value]) => ({
-    date,
-    ...value
-  }));
-}, [users]);
 
 
     return (
