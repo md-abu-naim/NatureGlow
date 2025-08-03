@@ -1,3 +1,4 @@
+import { isWithinInterval, parse, subDays } from "date-fns";
 import { AiOutlineEye } from "react-icons/ai";
 import { BsBan, BsTruck } from "react-icons/bs";
 import { FaMoneyBillWave, FaShippingFast, FaShoppingCart } from "react-icons/fa";
@@ -8,9 +9,15 @@ import { NavLink, useLoaderData } from "react-router-dom";
 const UserDashboard = () => {
     const orders = useLoaderData()
 
-    const date = new Date().toLocaleDateString()
+    const today = new Date().toLocaleDateString()
+    const oneWeekAgo = subDays(today, 7)
 
-    const dailyOrders = orders?.filter(o => o.date === date)
+    const recentOrders = orders?.filter(order => {
+        const createdDate = parse(order.date, 'M/d/yyyy', new Date())
+        return isWithinInterval(createdDate, {start: oneWeekAgo, end: today})
+    })
+
+    const dailyOrders = orders?.filter(o => o.date === today)
     const totalSpent = orders?.reduce((acc, sum) => acc + sum.totalPrice, 0)
     const dailySpent = dailyOrders?.reduce((acc, sum) => acc + sum.totalPrice, 0)
     const totalDelivered = orders?.filter(order => order.orderStatus === "Delivered")?.length
@@ -127,7 +134,7 @@ const UserDashboard = () => {
                     </thead>
                     <tbody className="text-gray-700 divide-y divide-green-100">
                         {
-                            dailyOrders?.map((order, i) => (
+                            recentOrders?.map((order, i) => (
                                 <tr key={i} className="hover:bg-green-100 transition-all">
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
                                     <td className="px-4 py-3 font-medium">{order._id}</td>
