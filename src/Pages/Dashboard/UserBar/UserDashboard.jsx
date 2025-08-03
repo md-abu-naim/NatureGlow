@@ -126,7 +126,7 @@ const UserDashboard = () => {
                 </div>
             </section>
 
-            <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[450px]  mx-5">
+            <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[450px] md:pr-5 md:mx-5">
                 <h2 className='text-2xl font-bold text-green-800 p-4 pb-2'>Current Users</h2>
                 <div className="h-[400px]">
                     <ResponsiveContainer width="100%" height="100%">
