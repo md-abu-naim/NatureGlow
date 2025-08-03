@@ -172,22 +172,6 @@ export const StatusLineChart = ({ users }) => {
     //     }
     // })
 
-    // const userStatusData = months.map(month => {
-    //     const active = users.filter(u => {
-    //         const created = parse(u.createdAt, 'M/d/yyyy', new Date())
-    //         return (
-    //             u.status === "active" && isWithinInterval(created, { start: month.start, end: month.end })
-    //         )
-    //     })?.length
-
-    //     const inActive = users.filter(u => {
-    //         const created = parse(u.createdAt, 'M/d/yyyy', new Date())
-    //         return u.status === "inactive" && isWithinInterval(created, { start: month.start, end: month.end })
-    //     })?.length
-
-    //     return { name: month.label, active, inActive }
-    // })
-
 
     const today = new Date()
     const oneYearAgo = subYears(today, 1)
