@@ -1,15 +1,9 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { FaEdit, FaStar, FaTrash } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 
 const Products = () => {
-    const [products, setProducts] = useState([])
-
-    useEffect(() => {
-        axios.get('/Product.json')
-            .then(res => setProducts(res.data))
-    }, [setProducts])
+    const {data} = useLoaderData()
+    const products = data
 
     const ratings = parseFloat(4.5)
     return (
@@ -45,7 +39,7 @@ const Products = () => {
                     <tbody className="text-gray-700 divide-y divide-green-100">
                         {
                             products?.map((product, i) => (
-                                <tr key={product.id} className="hover:bg-green-100 transition-all">
+                                <tr key={i} className="hover:bg-green-100 transition-all">
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
                                     <td className="px-4 py-3 flex items-center gap-1">
                                         <img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} />
@@ -67,7 +61,7 @@ const Products = () => {
                                     </td>
 
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
-                                        <NavLink to={`/dashboard/update/${product.id}`} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></NavLink>
+                                        <NavLink to={`/dashboard/update/${product._id}`} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></NavLink>
                                         <button title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
                                     </td>
                                 </tr>

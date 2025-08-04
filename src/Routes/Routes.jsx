@@ -24,6 +24,7 @@ import OrderDetails from "../Pages/Dashboard/OrderDetails";
 import Orders from "../Pages/Dashboard/Orders";
 import AdminDashboard from "../Pages/Dashboard/AdminBar/AdminDashboard/AdminDashboard";
 import UserDashboard from "../Pages/Dashboard/UserBar/UserDashboard";
+import axios from "axios";
 
 export const router = createBrowserRouter([
   {
@@ -98,7 +99,8 @@ export const router = createBrowserRouter([
       },
       {
         path: 'products',
-        element: <Products />
+        element: <Products />,
+        loader: () => axios(`http://localhost:3000/products`)
       },
       {
         path: `update/:id`,
