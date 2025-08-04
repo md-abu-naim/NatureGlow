@@ -70,10 +70,10 @@ const ProductDetails = () => {
     }
 
     useEffect(() => {
-        axios.get('/Product.json')
+        axios.get(`http://localhost:3000/products/${category}`)
             .then(res => {
-                const products = res.data.filter(p => p.category === category)
-                setRelatedProduct(products)
+                // const products = res.data.filter(p => p.category === category)
+                setRelatedProduct(res.data)
             })
     }, [category])
     return (
