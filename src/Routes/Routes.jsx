@@ -105,7 +105,7 @@ export const router = createBrowserRouter([
       {
         path: `update/:id`,
         element: <UpdateProduct />,
-        loader: () => fetch(`/Product.json`)
+        loader: ({params}) => axios(`http://localhost:3000/product/${params.id}`)
       },
       {
         path: 'addProduct',

@@ -1,13 +1,11 @@
 import { useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 const UpdateProduct = () => {
     const [selectedImage, setSelectedImage] = useState(null)
-    const { id } = useParams();
-    const products = useLoaderData()
+    const {data} = useLoaderData()
 
-    const product = products?.find(p => p.id == id)
-    const { name, price, category, status, image: img, shortBio, description, features } = product || {}
+    const { name, price, category, status, image: img, shortBio, description, features } = data || {}
 
     const handleImagePreview = (e) => {
         const file = e.target.files[0]
@@ -34,7 +32,6 @@ const UpdateProduct = () => {
         } else {
             image = img || ''
         }
-
 
         const features = rawEeatures.split('\n').map(f => f.replace(/^-\s*/, '').trim()).filter(f => f)
         const product = { name, price, category, status, image, shortBio, description, features }
