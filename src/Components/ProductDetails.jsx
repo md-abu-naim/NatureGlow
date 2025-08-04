@@ -72,7 +72,6 @@ const ProductDetails = () => {
     useEffect(() => {
         axios.get(`http://localhost:3000/products/${category}`)
             .then(res => {
-                console.log(res.data);
                 setRelatedProduct(res.data)
             })
     }, [category])
