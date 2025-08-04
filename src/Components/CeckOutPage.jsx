@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 const CheckoutPage = () => {
   const [paymentMethod, setPaymentMethod] = useState('cod');
   const [products, setProducts] = useState([])
-  const { id } = useParams()
+  const { _id } = useParams()
 
   const handleDelete = id => {
     Swal.fire({
@@ -61,10 +61,10 @@ const CheckoutPage = () => {
   }
 
   useEffect(() => {
-    if (id) {
-      axios.get('/Product.json')
+    if (_id) {
+      axios.get(`http://localhost:3000/products/${_id}`)
         .then(res => {
-          const data = res.data.find(p => p.id == id)
+          const data = res.data
           data.quantity = 1
           setProducts([data])
         })
@@ -73,7 +73,7 @@ const CheckoutPage = () => {
       const updateCart = storedCart.map(p => ({ ...p, quantity: p.quantity || 1 }))
       setProducts(updateCart);
     }
-  }, [id])
+  }, [_id])
 
 
   const total = Math.round(products.reduce((sum, item) => sum + item.price * item.quantity, 0) * 100) / 100;
@@ -127,17 +127,17 @@ const CheckoutPage = () => {
               <div className={products?.length > 1 ? 'grid grid-cols-1 md:grid-cols-2 gap-4' : 'grid grid-cols-1 gap-4'}>
                 {
                   products?.map((item) => (
-                    <div key={item.id} className='grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4 bg-white rounded-xl shadow border border-green-200 h-full'>
+                    <div key={item._id} className='grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4 bg-white rounded-xl shadow border border-green-200 h-full'>
                       <img className='w-20 h-20 object-cover rounded-xl border shrink-0' src={item.image} alt="" />
                       <div className='flex-1'>
                         <h2 className='font-semibold text-green-700'>{item.name}</h2>
                         <p className='text-sm text-gray-600'>Price: {item.price}</p>
                         <div className='mt-2 flex items-center justify-center md:justify-start gap-2'>
                           <label className='text-sm'>Qty:</label>
-                          <input onChange={(e) => handleQuantity(item.id, e.target.value)} type="number" min={1} max={5} defaultValue={1} name="" className='w-16 border border-green-300 rounded px-2 py-1 text-center' />
+                          <input onChange={(e) => handleQuantity(item._id, e.target.value)} type="number" min={1} max={5} defaultValue={1} name="" className='w-16 border border-green-300 rounded px-2 py-1 text-center' />
                         </div>
                       </div>
-                      <button onClick={() => handleDelete(item.id)} className='bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full transition-all '><FaTrashAlt className="w-5 h-5" /></button>
+                      <button onClick={() => handleDelete(item._id)} className='bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full transition-all '><FaTrashAlt className="w-5 h-5" /></button>
                     </div>
                   ))
                 }

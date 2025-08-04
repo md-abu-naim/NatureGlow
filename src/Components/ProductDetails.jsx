@@ -72,7 +72,6 @@ const ProductDetails = () => {
     useEffect(() => {
         axios.get(`http://localhost:3000/products/${category}`)
             .then(res => {
-                // const products = res.data.filter(p => p.category === category)
                 setRelatedProduct(res.data)
             })
     }, [category])
@@ -116,7 +115,7 @@ const ProductDetails = () => {
                 <h3 className='text-2xl text-green-800 font-bold'>Related Products</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-4">
                     {
-                        relatedProduct?.slice(0, 4).map(product => <div to={`/details/${product.id}`} key={product.id} className="group shadow-xl rounded-3xl p-5 relative hover:shadow-2xl transition duration-300">
+                        relatedProduct?.slice(0, 4).map(product => <div key={product._id} className="group shadow-xl rounded-3xl p-5 relative hover:shadow-2xl transition duration-300">
                             <div className="overflow-hidden rounded-xl">
                                 <img className="w-full h-52 object-contain rounded-xl group-hover:scale-105 transition-transform duration-300" src={product.image} alt={product.name} />
                             </div>
@@ -129,8 +128,8 @@ const ProductDetails = () => {
                                     <span className="text-sm bg-green-100 text-green-500 p-1.5 rounded-lg">{product.status}</span>
                                 </div>
                                 <div className="flex gap-3 w-full pt-3">
-                                    <Link to={`/details/${product.id}`} className="flex-1 px-4 py-2 rounded-full text-sm font-medium border border-green-500 text-green-600 hover:bg-green-100 transition">View Details</Link>
-                                    <Link to={`/checkout/${product.id}`} className="flex-1 px-4 py-2 rounded-full text-xm font-medium bg-green-500 text-white hover:bg-green-600 transition">Quick Buy</Link>
+                                    <Link to={`/details/${product._id}`} className="flex-1 px-4 py-2 rounded-full text-sm font-medium border border-green-500 text-green-600 hover:bg-green-100 transition">View Details</Link>
+                                    <Link to={`/checkout/${product._id}`} className="flex-1 px-4 py-2 rounded-full text-xm font-medium bg-green-500 text-white hover:bg-green-600 transition">Quick Buy</Link>
                                 </div>
                             </div>
                         </div>)
