@@ -26,7 +26,7 @@ const AddProduct = () => {
 
         const features = rawEeatures.split('\n').map(f => f.replace(/^-\s*/, '').trim()).filter(f => f)
         const product = { name, price, category, status, image, shortBio, description, features }
-        console.log(product);
+        
         axios.post('http://localhost:3000/product', product)
             .then(res => {
                 if (res.data.insertedId) {
@@ -34,7 +34,7 @@ const AddProduct = () => {
                         title: "Product added successfully!",
                         icon: "success",
                         draggable: true,
-                        timer: 2000,
+                        timer: 2300,
                         background: '#dcfce7',
                     });
                     e.target.reset()

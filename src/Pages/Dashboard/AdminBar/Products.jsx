@@ -1,11 +1,53 @@
+import axios from "axios";
+import { useState } from "react";
 import { FaEdit, FaStar, FaTrash } from "react-icons/fa";
 import { NavLink, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Products = () => {
-    const {data} = useLoaderData()
-    const products = data
+    const { data } = useLoaderData()
+    const [products, setProducts] = useState(data)
 
     const ratings = parseFloat(4.5)
+
+    const handleDeleteProduct = id => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            background: '#dcfce7',
+            color: '#000000',
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "Cancel",
+            buttonsStyling: false,
+            customClass: {
+                popup: 'rounded-lg shadow-lg',
+                title: 'text-lg font-semibold text-yellow-400',
+                htmlContainer: 'text-sm text-gray-300',
+                confirmButton: 'bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2',
+                cancelButton: 'bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:3000/product/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success",
+                                background: '#dcfce7',
+                                timer: 2300
+                            });
+                            setProducts(prev => prev.filter(p => p._id !== id))
+                        }
+                    })
+            }
+        });
+    }
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
@@ -48,7 +90,7 @@ const Products = () => {
                                     <td className="px-4 py-3">{product.category}</td>
                                     <td className="px-4 py-3 font-sans font-semibold">$ {product.price}</td>
                                     <td className="px-4 py-3">
-                                        <span className={`px-2 py-1 text-sm font-semibold rounded-full ${product.status === 'Low Stock' ? 'bg-red-200 text-red-800' : product.status === 'In Stock' ? 'bg-green-200 text-green-800': 'bg-blue-100 text-blue-700'}`}>{product.status}</span>
+                                        <span className={`px-2 py-1 text-sm font-semibold rounded-full ${product.status === 'Low Stock' ? 'bg-red-200 text-red-800' : product.status === 'In Stock' ? 'bg-green-200 text-green-800' : 'bg-blue-100 text-blue-700'}`}>{product.status}</span>
                                     </td>
                                     <td className="px-4 py-3">
                                         <div className="flex items-center gap-2">
@@ -62,7 +104,7 @@ const Products = () => {
 
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
                                         <NavLink to={`/dashboard/update/${product._id}`} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></NavLink>
-                                        <button title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
+                                        <button onClick={() => handleDeleteProduct(product._id)} title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
                                     </td>
                                 </tr>
                             ))

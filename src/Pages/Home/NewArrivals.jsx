@@ -19,7 +19,7 @@ const NewArrivals = () => {
             {/* Grid Layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-10">
                 {
-                    products?.map(product => <div key={product._id} className="group shadow-xl rounded-3xl p-5 relative hover:shadow-2xl transition duration-300">
+                    products?.slice(0, 8)?.map(product => <div key={product._id} className="group shadow-xl rounded-3xl p-5 relative hover:shadow-2xl transition duration-300">
                         <div className="overflow-hidden rounded-xl">
                             <img className="w-full h-52 object-contain rounded-xl group-hover:scale-105 transition-transform duration-300" src={product.image} alt={product.name} />
                         </div>
