@@ -10,9 +10,9 @@ const Shop = () => {
 
     useEffect(() => {
         axios(`http://localhost:3000/products?search=${search}`)
-        .then(res => {
-            setProducts(res.data)
-        })
+            .then(res => {
+                setProducts(res.data)
+            })
     }, [search])
 
     const handleSearch = e => {
