@@ -1,11 +1,14 @@
+import axios from "axios";
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
     const [selectedImage, setSelectedImage] = useState(null)
-    const {data} = useLoaderData()
+    const { data } = useLoaderData()
+    const navigate = useNavigate()
 
-    const { name, price, category, status, image: img, shortBio, description, features } = data || {}
+    const { _id, name, price, category, status, image: img, shortBio, description, features } = data || {}
 
     const handleImagePreview = (e) => {
         const file = e.target.files[0]
@@ -35,7 +38,21 @@ const UpdateProduct = () => {
 
         const features = rawEeatures.split('\n').map(f => f.replace(/^-\s*/, '').trim()).filter(f => f)
         const product = { name, price, category, status, image, shortBio, description, features }
-        console.log(product);
+
+        axios.put(`http://localhost:3000/product/${_id}`, product)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: "Product info updated successfully.",
+                        icon: "success",
+                        draggable: true,
+                        timer: 2300,
+                        background: '#dcfce7',
+                    });
+                    navigate('/dashboard/products')
+                }
+            })
 
     }
     return (
@@ -54,7 +71,7 @@ const UpdateProduct = () => {
                         </div>
                         <div className="w-full">
                             <label className="block text-green-700 font-medium mb-1">Price*</label>
-                            <input type="number" name="price" defaultValue={price} className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Enter product price..." required />
+                            <input type="number" step="0.01" min="0" name="price" defaultValue={price} className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Enter product price..." />
                         </div>
                     </div>
                     <div className="flex flex-col md:flex-row gap-5 mt-4">
