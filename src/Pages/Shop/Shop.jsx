@@ -1,11 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaFilter, } from 'react-icons/fa';
 import AllProducts from './AllProducts';
-import { useLoaderData } from 'react-router-dom';
+import axios from 'axios';
 
 const Shop = () => {
     const [showFilters, setShowFilters] = useState(false);
-    const products = useLoaderData()
+    const [products, setProducts] = useState([])
+    const [search, setSearch] = useState('')
+
+    useEffect(() => {
+        axios(`http://localhost:3000/products?search=${search}`)
+        .then(res => {
+            setProducts(res.data)
+        })
+    }, [search])
+
+    const handleSearch = e => {
+        e.preventDefault()
+        const search = e.target.search.value
+        setSearch(search)
+    }
 
     return (
         <div className='px-4 md:px-10 py-10'>
@@ -87,7 +101,7 @@ const Shop = () => {
                 <div className='md:col-span-3'>
                     <section className='flex flex-col md:flex-row justify-between items-center bg-green-50 p-5 gap-4 rounded-lg mb-6'>
                         {/* Search Bar */}
-                        <form className='w-full  '>
+                        <form onSubmit={handleSearch} className='w-full  '>
                             <div className='relative'>
                                 <input placeholder="Search products..." className="w-full px-4 pr-16 py-2 border border-green-300 rounded-full shadow-sm focus:outline-none" type="text" name="search" />
                                 <button type='submit' className="absolute top-1/2 -translate-y-1/2 right-2 bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full text-sm transition">Search..</button>
