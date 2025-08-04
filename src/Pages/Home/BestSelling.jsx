@@ -7,7 +7,7 @@ const BestSelling = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get('/Product.json')
+        axios.get('http://localhost:3000/products')
         .then(res => setProducts(res.data))
     },[setProducts])
     return (
@@ -20,14 +20,14 @@ const BestSelling = () => {
             {/* Grid layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-10">
                 {
-                    products?.map(product => <Link to={`/details/${product.id}`} key={product.id} className="group border border-gray-200 rounded-xl shadow-sm hover:shadow-md hover:border-green-400 transition duration-300 p-4 text-center">
+                    products?.map(product => <Link to={`/details/${product._id}`} key={product.id} className="group border border-gray-200 rounded-xl shadow-sm hover:shadow-md hover:border-green-400 transition duration-300 p-4 text-center">
                         <div className="overflow-hidden rounded-lg">
                             <img className="w-full h-48 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300" src={product.image} alt="" />
                         </div>
                         <h2 className="mt-4 text-lg font-semibold group-hover:text-green-500 transition">{product.name}</h2>
                         <p className="text-sm text-gray-700">{product.shortBio}</p>
                         <h5 className="mt-3 text-green-600 font-bold text-md">${product.price}</h5>
-                        <button onClick={(e) => {e.preventDefault(); navigate(`/checkout/${product.id}`);}} className="block mt-4 w-full bg-green-500 text-white py-2 rounded-full text-sm font-medium hover:bg-green-600 transition"> Quick Purchase </button>
+                        <button onClick={(e) => {e.preventDefault(); navigate(`/checkout/${product._id}`);}} className="block mt-4 w-full bg-green-500 text-white py-2 rounded-full text-sm font-medium hover:bg-green-600 transition"> Quick Purchase </button>
                     </Link> )
                 }
             </div>

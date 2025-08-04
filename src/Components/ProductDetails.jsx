@@ -33,16 +33,16 @@ const ProductDetails = () => {
     const [value, setValue] = useState(0);
     const products = useLoaderData()
     const navigate = useNavigate()
-    const { id } = useParams();
+    const { _id } = useParams();
     const { user } = useAuth()
 
 
-    const product = products?.find(p => p.id == id)
+    const product = products?.find(p => p._id == _id)
     const { name, image, description, features, price, category, status } = product || {}
 
     const handleAddToCart = (product) => {
         const axistingCart = JSON.parse(localStorage.getItem("cart")) || []
-        const alreadyInCart = axistingCart.find(item => item.id === product.id)
+        const alreadyInCart = axistingCart.find(item => item._id === product._id)
         if (alreadyInCart) return toast.error('Product already in cart');
         const updateCart = [...axistingCart, product]
         localStorage.setItem("cart", JSON.stringify(updateCart))
@@ -61,7 +61,7 @@ const ProductDetails = () => {
         e.preventDefault()
         const review = e.target.review.value
         const rating = value
-        const productID = id
+        const productID = _id
         const name = user?.displayName
         const profile = user?.photoURL
         const email = user?.email
@@ -103,7 +103,7 @@ const ProductDetails = () => {
                     <span className={`text-sm font-medium bg-green-200 p-1.5 rounded-lg ${status === 'In Stock' ? 'text-green-600' : 'text-red-500'}`}>{status}</span>
                     <div className="space-y-3 mt-4">
                         <button onClick={() => handleAddToCart(product)} className="block w-full px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-xl transition-all text-center">Add to Cart</button>
-                        <Link to={`/checkout/${product.id}`} className="block w-full px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all text-center">Quick Purchase</Link>
+                        <Link to={`/checkout/${product._id}`} className="block w-full px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all text-center">Quick Purchase</Link>
                     </div>
                     <div className="mt-4 text-center">
                         <Link to="/shop" className="text-sm text-green-700 hover:underline">⬅ Back to Shop</Link>

@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "name": "Green Tea Cream",
     "image": "https://i.postimg.cc/RVNGzwQD/Soothing-Green-Tea-Face-Cream.jpg",
     "shortBio": "Calms sensitive skin & controls oil.",
@@ -15,7 +14,6 @@
     "category": "Face Care"
   },
   {
-    "id": 2,
     "name": "Rose Face Mist",
     "image": "https://i.postimg.cc/h4M3nDFf/Rose-Petal-Hydrating-Face-Mist.jpg",
     "shortBio": "Refreshes and tones your skin naturally.",
@@ -30,7 +28,6 @@
     "category": "Face Care"
   },
   {
-    "id": 3,
     "name": "Herbal Hair Oil",
     "image": "https://i.postimg.cc/0NmB17xs/Herbal-Strengthening-Hair-Oil.webp",
     "shortBio": "Reduces hair fall and promotes growth.",
@@ -45,7 +42,6 @@
     "category": "Hair Care"
   },
   {
-    "id": 4,
     "name": "Neem Shampoo",
     "image": "https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp",
     "shortBio": "Fights dandruff and soothes scalp.",
@@ -60,7 +56,6 @@
     "category": "Hair Care"
   },
   {
-    "id": 5,
     "name": "Cocoa Body Lotion",
     "image": "https://i.postimg.cc/WbbCqDmG/Cocoa-Butter-Body-Lotion.jpg",
     "shortBio": "Deep moisturization for dry skin.",
@@ -75,7 +70,6 @@
     "category": "Body Care"
   },
   {
-    "id": 6,
     "name": "Coffee Scrub",
     "image": "https://i.postimg.cc/x1B4Ztw5/Exfoliating-Coffee-Body-Scrub.webp",
     "shortBio": "Removes dead skin and boosts glow.",
@@ -90,7 +84,6 @@
     "category": "Body Care"
   },
   {
-    "id": 7,
     "name": "Mint Lip Balm",
     "image": "https://i.postimg.cc/V6WZd1dZ/Mint-Shea-Lip-Balm.jpg",
     "shortBio": "Heals cracked lips & freshens breath.",
@@ -105,7 +98,6 @@
     "category": "Lip Care"
   },
   {
-    "id": 8,
     "name": "Rose Lip Butter",
     "image": "https://i.postimg.cc/hvJmN1W8/Rose-Tinted-Lip-Butter.avif",
     "shortBio": "Adds natural pink tint & moisture.",
