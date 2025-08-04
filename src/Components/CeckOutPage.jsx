@@ -62,7 +62,7 @@ const CheckoutPage = () => {
 
   useEffect(() => {
     if (_id) {
-      axios.get(`http://localhost:3000/products/${_id}`)
+      axios.get(`http://localhost:3000/product/${_id}`)
         .then(res => {
           const data = res.data
           data.quantity = 1
@@ -150,7 +150,7 @@ const CheckoutPage = () => {
           <h3 className='text-xl font-bold text-green-700 mb-4'>Order Summary</h3>
           {
             products?.map(item => (
-              <div key={item.id} className="flex justify-between text-sm">
+              <div key={item._id} className="flex justify-between text-sm">
                 <span>{item.name} × {item.quantity}</span>
                 <span>${item.price * item.quantity}</span>
               </div>
