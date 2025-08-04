@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaFilter, } from 'react-icons/fa';
 import AllProducts from './AllProducts';
+import { useLoaderData } from 'react-router-dom';
 
 const Shop = () => {
     const [showFilters, setShowFilters] = useState(false);
+    const products = useLoaderData()
 
     return (
         <div className='px-4 md:px-10 py-10'>
@@ -108,7 +110,7 @@ const Shop = () => {
                     </section>
 
                     {/* Products Displaying */}
-                    <AllProducts />
+                    <AllProducts products={products} />
 
                     {/* Pagination */}
                     <section className='mt-10 flex justify-center items-center gap-3'>
