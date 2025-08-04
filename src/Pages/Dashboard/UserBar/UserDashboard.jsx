@@ -13,7 +13,6 @@ const UserDashboard = () => {
     const today = new Date().toLocaleDateString()
     const oneWeekAgo = subDays(today, 7)
     const dateRangeLabel = `${format(oneWeekAgo, "MMM d")} - ${format(today, "MMM d, yyyy")}`
-    console.log(dateRangeLabel);
 
     const recentOrders = orders?.filter(order => {
         const createdDate = parse(order.date, 'M/d/yyyy', new Date())

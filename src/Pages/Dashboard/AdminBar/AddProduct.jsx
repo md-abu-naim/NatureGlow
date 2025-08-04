@@ -1,4 +1,6 @@
+import axios from "axios";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
     const [selectedImage, setSelectedImage] = useState(null)
@@ -17,7 +19,7 @@ const AddProduct = () => {
         const price = form.price.value
         const category = form.category.value
         const status = form.status.value
-        const image = form.image.value
+        const image = selectedImage
         const shortBio = form.shortBio.value
         const description = form.description.value
         const rawEeatures = form.features.value
@@ -25,6 +27,19 @@ const AddProduct = () => {
         const features = rawEeatures.split('\n').map(f => f.replace(/^-\s*/, '').trim()).filter(f => f)
         const product = { name, price, category, status, image, shortBio, description, features }
         console.log(product);
+        axios.post('http://localhost:3000/product', product)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        title: "Product added successfully!",
+                        icon: "success",
+                        draggable: true,
+                        timer: 2000,
+                        background: '#dcfce7',
+                    });
+                    e.target.reset()
+                }
+            })
 
     }
     return (
