@@ -48,7 +48,7 @@ const Products = () => {
                                     <td className="px-4 py-3">{product.category}</td>
                                     <td className="px-4 py-3 font-sans font-semibold">$ {product.price}</td>
                                     <td className="px-4 py-3">
-                                        <span className={`px-2 py-1 text-sm font-semibold rounded-full ${product.status === 'Low Stock' ? 'bg-red-200 text-red-800' : 'bg-green-200 text-green-800'}`}>{product.status}</span>
+                                        <span className={`px-2 py-1 text-sm font-semibold rounded-full ${product.status === 'Low Stock' ? 'bg-red-200 text-red-800' : product.status === 'In Stock' ? 'bg-green-200 text-green-800': 'bg-blue-100 text-blue-700'}`}>{product.status}</span>
                                     </td>
                                     <td className="px-4 py-3">
                                         <div className="flex items-center gap-2">
