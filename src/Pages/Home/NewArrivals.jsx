@@ -6,7 +6,7 @@ const NewArrivals = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:3000/products')
+        axios.get('http://localhost:3000/products/new')
             .then(res => setProducts(res.data))
     }, [setProducts])
     return (

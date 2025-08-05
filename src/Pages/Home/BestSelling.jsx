@@ -7,7 +7,7 @@ const BestSelling = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get('http://localhost:3000/products')
+        axios.get('http://localhost:3000/products/best')
         .then(res => setProducts(res.data))
     },[setProducts])
     return (
