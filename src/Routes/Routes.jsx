@@ -103,7 +103,7 @@ export const router = createBrowserRouter([
       {
         path: `update/:id`,
         element: <UpdateProduct />,
-        loader: ({params}) => axios(`http://localhost:3000/product/${params.id}`)
+        loader: ({ params }) => axios(`http://localhost:3000/product/${params.id}`)
       },
       {
         path: 'addProduct',
@@ -123,7 +123,7 @@ export const router = createBrowserRouter([
       // Shared Routes
       {
         path: 'orders',
-        element: <Orders/>,
+        element: <Orders />,
         loader: () => fetch(`/Orders.json`)
       },
       {
