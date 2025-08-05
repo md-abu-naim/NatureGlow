@@ -14,6 +14,7 @@ const Shop = () => {
                 setProducts(res.data)
             })
     }, [search])
+    console.log(search);
 
     const handleSearch = e => {
         e.preventDefault()
