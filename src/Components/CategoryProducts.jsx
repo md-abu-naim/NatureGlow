@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 const CategoryProducts = () => {
-  const [products, setProducts] = useState()
+  const [products, setProducts] = useState([])
   const [search, setSearch] = useState('')
+  const [sort, setSort] = useState('')
   const { category } = useParams()
 
 
@@ -13,14 +14,18 @@ const CategoryProducts = () => {
     setSearch(search)
   }
 
-  console.log(products);
+  const handleSort = e => {
+    const sort = e.target.value
+    setSort(sort)
+  }
+
 
   useEffect(() => {
-        axios(`http://localhost:3000/products/${category}?search=${search}`)
-            .then(res => {
-                setProducts(res.data)
-            })
-    }, [category, search])
+    axios(`http://localhost:3000/products/${category}?search=${search}&sort=${sort}`)
+      .then(res => {
+        setProducts(res.data)
+      })
+  }, [category, search, sort])
   return (
     <div className='lg:mx-10 px-4 py-10'>
       {/* Page Title */}
@@ -39,7 +44,7 @@ const CategoryProducts = () => {
         </form>
 
         {/* Sorting */}
-        <select className="border border-green-300 rounded-full px-4 py-2 focus:outline-none w-full md:w-auto">
+        <select onChange={handleSort} className="border border-green-300 rounded-full px-4 py-2 focus:outline-none w-full md:w-auto">
           <option>Sort By</option>
           <option value="price_asc">Price: Low to High</option>
           <option value="price-dsc">Price: High to Low</option>
