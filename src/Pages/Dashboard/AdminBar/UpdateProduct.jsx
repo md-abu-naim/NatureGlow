@@ -4,17 +4,20 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
-    const [selectedImage, setSelectedImage] = useState(null)
+    const [image_url, setImage_url] = useState(null)
     const { data } = useLoaderData()
     const navigate = useNavigate()
 
-    const { _id, name, price, category, status, image: img, shortBio, description, features } = data || {}
+    const { _id, name, price, category, status, image, shortBio, description, features } = data || {}
 
-    const handleImagePreview = (e) => {
-        const file = e.target.files[0]
-        if (file) {
-            setSelectedImage(URL.createObjectURL(file))
-        }
+    const handleImagePreview = e => {
+        const img = e.target.files[0]
+        const formData = new FormData()
+        formData.append('image', img)
+        axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_API_KEY}`, formData)
+            .then(res => {
+                setImage_url(res.data.data.display_url)
+            })
     }
 
     const handleAddProduct = (e) => {
@@ -24,24 +27,17 @@ const UpdateProduct = () => {
         const price = form.price.value
         const category = form.category.value
         const status = form.status.value
+        const image = image_url
         const shortBio = form.shortBio.value
         const description = form.description.value
         const rawEeatures = form.features.value
-        const fileInput = form.image
-
-        let image;
-        if (fileInput.files && fileInput.files.length > 0) {
-            image = selectedImage
-        } else {
-            image = img || ''
-        }
+        
 
         const features = rawEeatures.split('\n').map(f => f.replace(/^-\s*/, '').trim()).filter(f => f)
         const product = { name, price, category, status, image, shortBio, description, features }
 
         axios.put(`http://localhost:3000/product/${_id}`, product)
             .then(res => {
-                console.log(res.data);
                 if (res.data.modifiedCount > 0) {
                     Swal.fire({
                         title: "Product info updated successfully.",
@@ -99,10 +95,10 @@ const UpdateProduct = () => {
                             <input onChange={handleImagePreview} type="file" name="image" accept="image/*" className="w-full px-3 py-2 border border-green-300 rounded-md file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-green-100 file:text-green-700 hover:file:bg-green-200" />
                         </div>
                         <div className="flex items-center justify-center  w-full">
-                            {selectedImage ? (
-                                <img src={selectedImage} alt="Preview" className="h-24 rounded-md" />
+                            {image_url ? (
+                                <img src={image_url} alt="Preview" className="h-24 rounded-md" />
                             ) : (
-                                <img src={img} alt="Preview" className="h-24 rounded-md" />
+                                <img src={image} alt="Preview" className="h-24 rounded-md" />
                             )}
                         </div>
                     </div>

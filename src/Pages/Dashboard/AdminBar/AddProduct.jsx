@@ -5,6 +5,16 @@ import Swal from "sweetalert2";
 const AddProduct = () => {
     const [image_url, setImage_url] = useState(null)
 
+    const handleImagePreview = e => {
+        const img = e.target.files[0]
+        const formData = new FormData()
+        formData.append('image', img)
+        axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_API_KEY}`, formData)
+            .then(res => {
+                setImage_url(res.data.data.display_url)
+            })
+    }
+
     const handleAddProduct = (e) => {
         e.preventDefault()
         const form = e.target
@@ -12,24 +22,15 @@ const AddProduct = () => {
         const price = form.price.value
         const category = form.category.value
         const status = form.status.value
-        const img = form.image.files[0]
-        const createdAt = new Date().toLocaleDateString()
         const totalSold = 0
+        const image = image_url
         const shortBio = form.shortBio.value
         const description = form.description.value
-        const rawEeatures = form.features.value
-        const image = image_url
+        const rawEeatures = form.features.valu
+        const createdAt = new Date().toLocaleDateString()
 
-        const formData = new FormData()
-        formData.append('image', img)
-        axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_API_KEY}`, formData)
-            .then(res => {
-                setImage_url(res.data.data.display_url)
-            })
-
-        const features = rawEeatures.split('\n').map(f => f.replace(/^-\s*/, '').trim()).filter(f => f)
+        const features = rawEeatures?.split('\n').map(f => f.replace(/^-\s*/, '').trim()).filter(f => f)
         const product = { name, price, category, status, image, createdAt, totalSold, shortBio, description, features }
-        console.log(product);
 
         axios.post('http://localhost:3000/product', product)
             .then(res => {
@@ -87,7 +88,7 @@ const AddProduct = () => {
                     <div className="flex flex-col md:flex-row gap-5 mt-4">
                         <div className=" w-full">
                             <label className="block text-green-700 font-medium mb-1">Image</label>
-                            <input type="file" name="image" accept="image/*" className="w-full px-3 py-2 border border-green-300 rounded-md file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-green-100 file:text-green-700 hover:file:bg-green-200" />
+                            <input onChange={handleImagePreview} type="file" name="image" accept="image/*" className="w-full px-3 py-2 border border-green-300 rounded-md file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-green-100 file:text-green-700 hover:file:bg-green-200" />
                         </div>
                         <div className="flex items-center justify-center  w-full">
                             {image_url ? (
