@@ -1,10 +1,26 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 const CategoryProducts = () => {
-  const data = useLoaderData()
-  const {category} = useParams()
+  const [products, setProducts] = useState()
+  const [search, setSearch] = useState('')
+  const { category } = useParams()
 
-  const products = data.filter(p => p.category === category)
+
+  const handleSearch = e => {
+    const search = e.target.value
+    setSearch(search)
+  }
+
+  console.log(products);
+
+  useEffect(() => {
+        axios(`http://localhost:3000/products/${category}?search=${search}`)
+            .then(res => {
+                setProducts(res.data)
+            })
+    }, [category, search])
   return (
     <div className='lg:mx-10 px-4 py-10'>
       {/* Page Title */}
@@ -17,7 +33,7 @@ const CategoryProducts = () => {
         {/* Search Bar */}
         <form className='w-3xl  '>
           <div className='relative'>
-            <input placeholder="Search your fvrt products..." className="w-full px-4 pr-16 py-2 border border-green-300 rounded-full shadow-sm focus:outline-none" type="text" name="search" />
+            <input onChange={handleSearch} placeholder="Search your fvrt products..." className="w-full px-4 pr-16 py-2 border border-green-300 rounded-full shadow-sm focus:outline-none" type="text" name="search" />
             <button type='submit' className="absolute top-1/2 -translate-y-1/2 right-2 bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full text-sm transition">Search..</button>
           </div>
         </form>
@@ -25,10 +41,10 @@ const CategoryProducts = () => {
         {/* Sorting */}
         <select className="border border-green-300 rounded-full px-4 py-2 focus:outline-none w-full md:w-auto">
           <option>Sort By</option>
-          <option>Price: Low to High</option>
-          <option>Price: High to Low</option>
-          <option>Newest</option>
-          <option>Best Selling</option>
+          <option value="price_asc">Price: Low to High</option>
+          <option value="price-dsc">Price: High to Low</option>
+          <option value="newest">Newest</option>
+          <option value="best">Best Selling</option>
         </select>
       </section>
 
