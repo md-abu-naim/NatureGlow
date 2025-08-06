@@ -38,7 +38,7 @@ const ProductDetails = () => {
     const { user } = useAuth()
 
 
-    const product = products?.find(p => p._id == _id)
+    const product = products.data?.find(p => p._id == _id)
     const { name, image, description, features, price, category, status } = product || {}
 
     const handleAddToCart = (product) => {

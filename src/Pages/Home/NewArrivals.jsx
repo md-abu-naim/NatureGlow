@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useAxiosCommon from "../../Hooks/useAxiosCommon";
 
 const NewArrivals = () => {
     const [products, setProducts] = useState([])
+    const axiosCommon = useAxiosCommon()
 
     useEffect(() => {
-        axios.get('http://localhost:3000/products/new')
+        axiosCommon.get('http://localhost:3000/products/new')
             .then(res => setProducts(res.data))
     }, [setProducts])
     return (
