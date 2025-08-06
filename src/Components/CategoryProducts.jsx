@@ -1,11 +1,12 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import useAxiosCommon from "../Hooks/useAxiosCommon";
 
 const CategoryProducts = () => {
   const [products, setProducts] = useState([])
   const [search, setSearch] = useState('')
   const [sort, setSort] = useState('')
+  const axiosCommon = useAxiosCommon()
   const { category } = useParams()
 
 
@@ -21,11 +22,11 @@ const CategoryProducts = () => {
 
 
   useEffect(() => {
-    axios(`http://localhost:3000/products/${category}?search=${search}&sort=${sort}`)
+    axiosCommon.get(`/products/${category}?search=${search}&sort=${sort}`)
       .then(res => {
         setProducts(res.data)
       })
-  }, [category, search, sort])
+  }, [axiosCommon, category, search, sort])
   return (
     <div className='lg:mx-10 px-4 py-10'>
       {/* Page Title */}
