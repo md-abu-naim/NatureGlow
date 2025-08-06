@@ -7,7 +7,7 @@ const OrderDetails = () => {
     const orders = useLoaderData()
     const role = "User"
 
-    const order = orders?.find(o => o._id === _id)
+    const order = orders.data?.find(o => o._id === _id)
 
     const { customerName, profile, paymentStatus, orderStatus, phone, address, email, products, totalPrice } = order || {}
 

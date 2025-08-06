@@ -124,7 +124,7 @@ const Orders = () => {
                     </thead>
                     <tbody className="text-gray-700 divide-y divide-green-100">
                         {
-                            Orders?.map((order, i) => (
+                            Orders.data?.map((order, i) => (
                                 <tr key={i} className="hover:bg-green-100 transition-all">
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
                                     <td className="px-4 py-3 font-medium">{order._id}</td>

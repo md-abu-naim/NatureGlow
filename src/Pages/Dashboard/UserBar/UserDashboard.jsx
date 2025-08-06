@@ -8,7 +8,8 @@ import { NavLink, useLoaderData } from "react-router-dom";
 import { Bar, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
 const UserDashboard = () => {
-    const orders = useLoaderData()
+    const {data} = useLoaderData()
+    const orders = data
 
     const today = new Date().toLocaleDateString()
     const oneWeekAgo = subDays(today, 7)

@@ -113,7 +113,7 @@ export const router = createBrowserRouter([
       {
         path: 'user-dashboard',
         element: <UserDashboard />,
-        loader: () => fetch(`/Orders.json`)
+        loader: () => axios(`/Orders.json`)
       },
       {
         path: 'addressBook',
@@ -124,12 +124,12 @@ export const router = createBrowserRouter([
       {
         path: 'orders',
         element: <Orders />,
-        loader: () => fetch(`/Orders.json`)
+        loader: () => axios(`/Orders.json`)
       },
       {
         path: 'order-details/:_id',
         element: <OrderDetails />,
-        loader: () => fetch(`/Orders.json`)
+        loader: () => axios(`/Orders.json`)
       },
       {
         path: 'profile',
