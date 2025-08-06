@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAxiosCommon from "../../Hooks/useAxiosCommon";
@@ -8,9 +7,9 @@ const NewArrivals = () => {
     const axiosCommon = useAxiosCommon()
 
     useEffect(() => {
-        axiosCommon.get('http://localhost:3000/products/new')
+        axiosCommon.get('/products/new')
             .then(res => setProducts(res.data))
-    }, [setProducts])
+    }, [axiosCommon, setProducts])
     return (
         <section className="text-center my-16 px-2">
             <div className="w-fit mx-auto border-x-4 border-green-500 px-6 py-2 rounded-md">
