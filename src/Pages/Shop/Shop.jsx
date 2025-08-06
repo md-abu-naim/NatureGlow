@@ -13,7 +13,6 @@ const Shop = () => {
     const [sort, setSort] = useState('')
     const axiosCommon = useAxiosCommon()
 
-    console.log(status);
     const handleSearch = e => {
         const search = e.target.value
         setSearch(search)
@@ -24,12 +23,22 @@ const Shop = () => {
         setSort(sort)
     }
 
+    const handleStatus = e => {
+        const value = e.target.value
+        const checked = e.target.checked
+        if(checked) {
+            setStatus(prev => [...prev, value])
+        }else {
+            setStatus(prev => prev.filter(item => item !== value))
+        }
+    }
+
     useEffect(() => {
-        axiosCommon.get(`/products?search=${search}&sort=${sort}&category=${category}&price=${price}`)
+        axiosCommon.get(`/products?search=${search}&sort=${sort}&category=${category}&price=${price}&status=${status}`)
             .then(res => {
                 setProducts(res.data)
             })
-    }, [axiosCommon, search, sort, category, price])
+    }, [axiosCommon, search, sort, category, price, status])
 
     return (
         <div className='px-4 md:px-10 py-10'>
@@ -97,15 +106,15 @@ const Shop = () => {
                             <h3 className="font-semibold text-green-800 mb-2">Availability</h3>
                             <ul className="space-y-2 text-sm">
                                 <li>
-                                    <input onChange={(e) => setStatus(e.target.value)} value='In Stock' type="checkbox" id="status-instock" className='mr-2' />
+                                    <input onChange={handleStatus} value='In Stock' type="checkbox" id="status-instock" className='mr-2' />
                                     <label htmlFor="status-instock" className="cursor-pointer select-none focus:ring-green-500">In Stock</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" id="status-lowstock" value='Low Stock' className='mr-2' />
+                                    <input onChange={handleStatus} type="checkbox" id="status-lowstock" value='Low Stock' className='mr-2' />
                                     <label htmlFor="status-lowstock" className="cursor-pointer select-none focus:ring-green-500">Low Stock</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" id="status-Coming" value='Coming Soon' className='mr-2' />
+                                    <input onChange={handleStatus} type="checkbox" id="status-Coming" value='Coming Soon' className='mr-2' />
                                     <label htmlFor="status-Coming" className="cursor-pointer select-none focus:ring-green-500">Coming Soon</label>
                                 </li>
                             </ul>
