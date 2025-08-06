@@ -1,11 +1,11 @@
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../Hooks/useAuth';
+import useAxiosCommon from '../Hooks/useAxiosCommon';
 
 const reviews = [
     {
@@ -32,6 +32,7 @@ const ProductDetails = () => {
     const [relatedProduct, setRelatedProduct] = useState([])
     const [value, setValue] = useState(0);
     const products = useLoaderData()
+    const axiosCommon = useAxiosCommon()
     const navigate = useNavigate()
     const { _id } = useParams();
     const { user } = useAuth()
@@ -70,11 +71,11 @@ const ProductDetails = () => {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/products/${category}`)
+        axiosCommon.get(`/products/${category}`)
             .then(res => {
                 setRelatedProduct(res.data)
             })
-    }, [category])
+    }, [axiosCommon, category])
     return (
         <div className='px-4 md:px-16 py-10'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-green-50 p-6 rounded-2xl border border-green-100'>
