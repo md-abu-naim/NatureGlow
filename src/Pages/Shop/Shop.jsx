@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaFilter, } from 'react-icons/fa';
 import AllProducts from './AllProducts';
-import axios from 'axios';
+import useAxiosCommon from '../../Hooks/useAxiosCommon';
 
 const Shop = () => {
     const [showFilters, setShowFilters] = useState(false);
     const [products, setProducts] = useState([])
     const [search, setSearch] = useState('')
     const [sort, setSort] = useState('')
+    const axiosCommon = useAxiosCommon()
 
 
     const handleSearch = e => {
@@ -21,11 +22,11 @@ const Shop = () => {
     }
 
     useEffect(() => {
-        axios(`http://localhost:3000/products?search=${search}&sort=${sort}`)
+        axiosCommon.get(`/products?search=${search}&sort=${sort}`)
             .then(res => {
                 setProducts(res.data)
             })
-    }, [search, sort])
+    }, [axiosCommon, search, sort])
 
     return (
         <div className='px-4 md:px-10 py-10'>
