@@ -6,11 +6,12 @@ import useAxiosCommon from '../../Hooks/useAxiosCommon';
 const Shop = () => {
     const [showFilters, setShowFilters] = useState(false);
     const [products, setProducts] = useState([])
+    const [category, setCategory] = useState('')
     const [search, setSearch] = useState('')
     const [sort, setSort] = useState('')
     const axiosCommon = useAxiosCommon()
 
-
+    console.log(category);
     const handleSearch = e => {
         const search = e.target.value
         setSearch(search)
@@ -22,11 +23,11 @@ const Shop = () => {
     }
 
     useEffect(() => {
-        axiosCommon.get(`/products?search=${search}&sort=${sort}`)
+        axiosCommon.get(`/products?search=${search}&sort=${sort}&category=${category}`)
             .then(res => {
                 setProducts(res.data)
             })
-    }, [axiosCommon, search, sort])
+    }, [axiosCommon, search, sort, category])
 
     return (
         <div className='px-4 md:px-10 py-10'>
@@ -46,31 +47,31 @@ const Shop = () => {
                             <ul className="space-y-2 text-sm">
                                 <li>
                                     <label htmlFor="all" className="cursor-pointer">
-                                        <input type="radio" id="all" name="category" className="mr-2 text-green-600 focus:ring-green-500" />
+                                        <input onChange={() => setCategory('')} type="radio" value="All" id="all" name="category" className="mr-2 text-green-600 focus:ring-green-500" />
                                         All
                                     </label>
                                 </li>
                                 <li>
                                     <label htmlFor="face" className="cursor-pointer">
-                                        <input type="radio" id="face" name="category" className="mr-2 text-green-600 focus:ring-green-500" />
+                                        <input onChange={(e) => setCategory(e.target.value)} type="radio" id="face" value='Face Care' name="category" className="mr-2 text-green-600 focus:ring-green-500" />
                                         Face Care
                                     </label>
                                 </li>
                                 <li>
                                     <label htmlFor="body" className="cursor-pointer">
-                                        <input type="radio" id="body" name="category" className="mr-2 text-green-600 focus:ring-green-500" />
+                                        <input onChange={(e) => setCategory(e.target.value)} type="radio" id="body" value='Body Care' name="category" className="mr-2 text-green-600 focus:ring-green-500" />
                                         Body Care
                                     </label>
                                 </li>
                                 <li>
                                     <label htmlFor="hair" className="cursor-pointer">
-                                        <input type="radio" id="hair" name="category" className="mr-2 text-green-600 focus:ring-green-500" />
+                                        <input onChange={(e) => setCategory(e.target.value)} type="radio" id="hair" value='Hair Care' name="category" className="mr-2 text-green-600 focus:ring-green-500" />
                                         Hair Care
                                     </label>
                                 </li>
                                 <li>
                                     <label htmlFor="lip" className="cursor-pointer">
-                                        <input type="radio" id="lip" name="category" className="mr-2 text-green-600 focus:ring-green-500" />
+                                        <input onChange={(e) => setCategory(e.target.value)} type="radio" id="lip" value='Lip Care' name="category" className="mr-2 text-green-600 focus:ring-green-500" />
                                         Lip Care
                                     </label>
                                 </li>
@@ -89,16 +90,16 @@ const Shop = () => {
                             <h3 className="font-semibold text-green-800 mb-2">Availability</h3>
                             <ul className="space-y-2 text-sm">
                                 <li>
-                                    <input type="checkbox" id="status-instock" className='mr-2' />
+                                    <input value='In Stock' type="checkbox" id="status-instock" className='mr-2' />
                                     <label htmlFor="status-instock" className="cursor-pointer select-none focus:ring-green-500">In Stock</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" id="status-soldout" className='mr-2' />
-                                    <label htmlFor="status-soldout" className="cursor-pointer select-none focus:ring-green-500">Sold Out</label>
+                                    <input type="checkbox" id="status-lowstock" value='Low Stock' className='mr-2' />
+                                    <label htmlFor="status-lowstock" className="cursor-pointer select-none focus:ring-green-500">Low Stock</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" id="status-lowstock" className='mr-2' />
-                                    <label htmlFor="status-lowstock" className="cursor-pointer select-none focus:ring-green-500">Low Stock</label>
+                                    <input type="checkbox" id="status-Coming" value='Coming Soon' className='mr-2' />
+                                    <label htmlFor="status-Coming" className="cursor-pointer select-none focus:ring-green-500">Coming Soon</label>
                                 </li>
                             </ul>
                         </div>
