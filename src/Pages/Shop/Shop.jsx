@@ -8,10 +8,11 @@ const Shop = () => {
     const [products, setProducts] = useState([])
     const [category, setCategory] = useState('')
     const [search, setSearch] = useState('')
+    const [price, setPrice] = useState(0)
     const [sort, setSort] = useState('')
     const axiosCommon = useAxiosCommon()
 
-    console.log(category);
+    console.log(price);
     const handleSearch = e => {
         const search = e.target.value
         setSearch(search)
@@ -23,11 +24,11 @@ const Shop = () => {
     }
 
     useEffect(() => {
-        axiosCommon.get(`/products?search=${search}&sort=${sort}&category=${category}`)
+        axiosCommon.get(`/products?search=${search}&sort=${sort}&category=${category}&price=${price}`)
             .then(res => {
                 setProducts(res.data)
             })
-    }, [axiosCommon, search, sort, category])
+    }, [axiosCommon, search, sort, category, price])
 
     return (
         <div className='px-4 md:px-10 py-10'>
@@ -82,11 +83,16 @@ const Shop = () => {
                         {/* Pricr Range */}
                         <div>
                             <h3 className="font-semibold text-green-800 mb-2">Price Range</h3>
-                            <input type="range" min='0' max='5000' className="w-full text-green-600 focus:ring-green-500" />
+                            <input onChange={(e) => setPrice(e.target.value)} type="range" min='1' max='10' className="w-full text-green-600 focus:ring-green-500" />
+                            <div className='flex items-center justify-between text-green-600'>
+                                <p>min: $1</p>
+                                <p>crnt:$ {price}</p>
+                                <p>max: $10</p>
+                            </div>
                         </div>
 
                         {/* Status Filter */}
-                        <div>
+                        <div className='mt-2'>
                             <h3 className="font-semibold text-green-800 mb-2">Availability</h3>
                             <ul className="space-y-2 text-sm">
                                 <li>
