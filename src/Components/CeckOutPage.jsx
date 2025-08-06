@@ -1,13 +1,14 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import { Link, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useAxiosCommon from '../Hooks/useAxiosCommon';
 
 
 const CheckoutPage = () => {
   const [paymentMethod, setPaymentMethod] = useState('cod');
   const [products, setProducts] = useState([])
+  const axiosCommon = useAxiosCommon()
   const { _id } = useParams()
 
   const handleDelete = id => {
@@ -62,7 +63,7 @@ const CheckoutPage = () => {
 
   useEffect(() => {
     if (_id) {
-      axios.get(`http://localhost:3000/product/${_id}`)
+      axiosCommon.get(`/product/${_id}`)
         .then(res => {
           const data = res.data
           data.quantity = 1
@@ -73,7 +74,7 @@ const CheckoutPage = () => {
       const updateCart = storedCart.map(p => ({ ...p, quantity: p.quantity || 1 }))
       setProducts(updateCart);
     }
-  }, [_id])
+  }, [axiosCommon, _id])
 
 
   const total = Math.round(products.reduce((sum, item) => sum + item.price * item.quantity, 0) * 100) / 100;
