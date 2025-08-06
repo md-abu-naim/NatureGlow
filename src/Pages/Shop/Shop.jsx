@@ -8,11 +8,12 @@ const Shop = () => {
     const [products, setProducts] = useState([])
     const [category, setCategory] = useState('')
     const [search, setSearch] = useState('')
+    const [status, setStatus] = useState('')
     const [price, setPrice] = useState(0)
     const [sort, setSort] = useState('')
     const axiosCommon = useAxiosCommon()
 
-    console.log(price);
+    console.log(status);
     const handleSearch = e => {
         const search = e.target.value
         setSearch(search)
@@ -83,7 +84,7 @@ const Shop = () => {
                         {/* Pricr Range */}
                         <div>
                             <h3 className="font-semibold text-green-800 mb-2">Price Range</h3>
-                            <input onChange={(e) => setPrice(e.target.value)} type="range" min='1' max='10' className="w-full text-green-600 focus:ring-green-500" />
+                            <input onChange={(e) => setPrice(e.target.value)} value={price} type="range" min='1' max='10' className="w-full text-green-600 focus:ring-green-500" />
                             <div className='flex items-center justify-between text-green-600'>
                                 <p>min: $1</p>
                                 <p>crnt:$ {price}</p>
@@ -96,7 +97,7 @@ const Shop = () => {
                             <h3 className="font-semibold text-green-800 mb-2">Availability</h3>
                             <ul className="space-y-2 text-sm">
                                 <li>
-                                    <input value='In Stock' type="checkbox" id="status-instock" className='mr-2' />
+                                    <input onChange={(e) => setStatus(e.target.value)} value='In Stock' type="checkbox" id="status-instock" className='mr-2' />
                                     <label htmlFor="status-instock" className="cursor-pointer select-none focus:ring-green-500">In Stock</label>
                                 </li>
                                 <li>
