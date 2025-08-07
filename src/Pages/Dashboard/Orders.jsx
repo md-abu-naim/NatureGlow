@@ -18,6 +18,13 @@ const Orders = () => {
     const axiosCommon = useAxiosCommon()
     const role = 'Admin'
 
+    const totalInProgress = orders?.filter(order => order.orderStatus === "In Progress")?.length
+    // const totalShipped = orders?.filter(order => order.orderStatus === "Shipped")?.length
+    // const totalDelivered = orders?.filter(order => order.orderStatus === "Delivered")?.length
+    // const totalCancelled = orders?.filter(order => order.orderStatus === "Cancelled")?.length
+    // const totalPendingPayment = orders?.filter(order => order.paymentStatus === "Unpaid")?.length
+    // const totalRefundedPayment = orders?.filter(order => order.paymentStatus === "Refunded")?.length
+
 
     useEffect(() => {
         axiosCommon.get('/orders')
@@ -38,7 +45,7 @@ const Orders = () => {
                 <div className="bg-gradient-to-br from-green-100 to-green-50 p-6 rounded-2xl shadow-md hover:shadow-xl ransition duration-300 ease-in-out group relative flex items-center justify-between">
                     <div>
                         <h3 className="text-xl font-bold text-green-800 group-hover:text-green-900 transition">In Progress</h3>
-                        <p className="text-3xl font-semibold text-gray-800 mt-1">250</p>
+                        <p className="text-3xl font-semibold text-gray-800 mt-1">{totalInProgress}</p>
                         <p className="text-sm text-green-600 mt-1">Currently being prepared or processed</p>
                     </div>
                     <div className="bg-green-200 text-green-800 p-4 rounded-full shadow-inner group-hover:bg-green-300 transition">
@@ -49,7 +56,7 @@ const Orders = () => {
                 <div className="bg-gradient-to-br from-green-100 to-green-50 p-6 rounded-2xl shadow-md hover:shadow-xl ransition duration-300 ease-in-out group relative flex items-center justify-between">
                     <div>
                         <h3 className="text-xl font-bold text-green-800 group-hover:text-green-900 transition">Orders Shipped</h3>
-                        <p className="text-3xl font-semibold text-gray-800 mt-1">250</p>
+                        <p className="text-3xl font-semibold text-gray-800 mt-1">{totalShipped}</p>
                         <p className="text-sm text-green-600 mt-1">Parcels dispatched to courier</p>
                     </div>
                     <div className="bg-green-200 text-green-800 p-4 rounded-full shadow-inner group-hover:bg-green-300 transition">
@@ -60,7 +67,7 @@ const Orders = () => {
                 <div className="bg-gradient-to-br from-green-100 to-green-50 p-6 rounded-2xl shadow-md hover:shadow-xl ransition duration-300 ease-in-out group relative flex items-center justify-between">
                     <div>
                         <h3 className="text-xl font-bold text-green-800 group-hover:text-green-900 transition">Delivered Orders</h3>
-                        <p className="text-3xl font-semibold text-gray-800 mt-1">250</p>
+                        <p className="text-3xl font-semibold text-gray-800 mt-1">{totalDelivered}</p>
                         <p className="text-sm text-green-600 mt-1">Successfully delivered to {role === 'Admin' ? 'customers' : 'you'}</p>
                     </div>
                     <div className="bg-green-200 text-green-800 p-4 rounded-full shadow-inner group-hover:bg-green-300 transition">
@@ -71,7 +78,7 @@ const Orders = () => {
                 <div className="bg-gradient-to-br from-green-100 to-green-50 p-6 rounded-2xl shadow-md hover:shadow-xl ransition duration-300 ease-in-out group relative flex items-center justify-between">
                     <div>
                         <h3 className="text-xl font-bold text-green-800 group-hover:text-green-900 transition">Cancelled Orders</h3>
-                        <p className="text-3xl font-semibold text-gray-800 mt-1">250</p>
+                        <p className="text-3xl font-semibold text-gray-800 mt-1">{totalCancelled}</p>
                         <p className="text-sm text-green-600 mt-1">Total canceled by {role === 'Admin' ? 'users' : 'you'}</p>
                     </div>
                     <div className="bg-green-200 text-green-800 p-4 rounded-full shadow-inner group-hover:bg-green-300 transition">
@@ -82,7 +89,7 @@ const Orders = () => {
                 <div className="bg-gradient-to-br from-green-100 to-green-50 p-6 rounded-2xl shadow-md hover:shadow-xl ransition duration-300 ease-in-out group relative flex items-center justify-between">
                     <div>
                         <h3 className="text-xl font-bold text-green-800 group-hover:text-green-900 transition">Pending Payments</h3>
-                        <p className="text-3xl font-semibold text-gray-800 mt-1">250</p>
+                        <p className="text-3xl font-semibold text-gray-800 mt-1">{totalPendingPayment}</p>
                         <p className="text-sm text-green-600 mt-1">Awaiting {role === 'Admin' ? 'customer' : 'your'} payment confirmation</p>
                     </div>
                     <div className="bg-green-200 text-green-800 p-4 rounded-full shadow-inner group-hover:bg-green-300 transition">
@@ -93,7 +100,7 @@ const Orders = () => {
                 <div className="bg-gradient-to-br from-green-100 to-green-50 p-6 rounded-2xl shadow-md hover:shadow-xl ransition duration-300 ease-in-out group relative flex items-center justify-between">
                     <div>
                         <h3 className="text-xl font-bold text-green-800 group-hover:text-green-900 transition">Payment Refunded</h3>
-                        <p className="text-3xl font-semibold text-gray-800 mt-1">250</p>
+                        <p className="text-3xl font-semibold text-gray-800 mt-1">{totalRefundedPayment}</p>
                         <p className="text-sm text-green-600 mt-1">Total orders refunded to {role === 'Admin' ? 'users' : 'you'}</p>
                     </div>
                     <div className="bg-green-200 text-green-800 p-4 rounded-full shadow-inner group-hover:bg-green-300 transition">
