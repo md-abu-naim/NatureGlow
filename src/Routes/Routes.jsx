@@ -123,8 +123,7 @@ export const router = createBrowserRouter([
       // Shared Routes
       {
         path: 'orders',
-        element: <Orders />,
-        loader: () => axios(`http://localhost:3000/orders`)
+        element: <Orders />
       },
       {
         path: 'order-details/:_id',

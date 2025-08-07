@@ -6,19 +6,25 @@ import { FiRefreshCw } from "react-icons/fi";
 import { LuClock } from "react-icons/lu";
 import { MdOutlineLocalShipping } from "react-icons/md";
 import { RiRefund2Line } from "react-icons/ri";
-import { NavLink, useLoaderData } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import UpdateOrderModal from "./Modals/OrderUpdate";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useAxiosCommon from "../../Hooks/useAxiosCommon";
 
 const Orders = () => {
-    const {data} = useLoaderData()
+    const [orders, setOrders] = useState([])
     const [isOpen, setIsOpen] = useState(false)
     const [order, setOrder] = useState()
+    const axiosCommon = useAxiosCommon()
     const role = 'Admin'
-    const orders = data
-    console.log(data);
 
 
+    useEffect(() => {
+        axiosCommon.get('/orders')
+        .then(res => {
+            setOrders(res.data)
+        })
+    }, [axiosCommon])
     return (
         <div>
             {/* Title */}
