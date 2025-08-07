@@ -10,7 +10,7 @@
     "date": "8/3/2025",
     "products": [
       {
-        "id": 1,
+        "_id": "5f1b827c1a938c53a8c3d9b1",
         "name": "Green Tea Cream",
         "image": "https://i.postimg.cc/RVNGzwQD/Soothing-Green-Tea-Face-Cream.jpg",
         "shortBio": "Calms sensitive skin & controls oil.",
@@ -25,7 +25,7 @@
         "category": "Face Care"
       },
       {
-        "id": 4,
+        "_id": "5f1b827c1a938c53a8c3d9b4",
         "name": "Neem Shampoo",
         "image": "https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp",
         "shortBio": "Fights dandruff and soothes scalp.",
@@ -53,7 +53,7 @@
     "date": "8/3/2025",
     "products": [
       {
-        "id": 5,
+        "_id": "5f1b827c1a938c53a8c3d9b5",
         "name": "Cocoa Body Lotion",
         "image": "https://i.postimg.cc/WbbCqDmG/Cocoa-Butter-Body-Lotion.jpg",
         "shortBio": "Deep moisturization for dry skin.",
@@ -81,7 +81,7 @@
     "date": "7/28/2025",
     "products": [
       {
-        "id": 2,
+        "_id": "5f1b827c1a938c53a8c3d9b2",
         "name": "Rose Face Mist",
         "image": "https://i.postimg.cc/h4M3nDFf/Rose-Petal-Hydrating-Face-Mist.jpg",
         "shortBio": "Refreshes and tones your skin naturally.",
@@ -96,7 +96,7 @@
         "category": "Face Care"
       },
       {
-        "id": 7,
+        "_id": "5f1b827c1a938c53a8c3d9b7",
         "name": "Mint Lip Balm",
         "image": "https://i.postimg.cc/V6WZd1dZ/Mint-Shea-Lip-Balm.jpg",
         "shortBio": "Heals cracked lips & freshens breath.",
@@ -111,7 +111,7 @@
         "category": "Lip Care"
       },
       {
-        "id": 8,
+        "_id": "5f1b827c1a938c53a8c3d9b8",
         "name": "Rose Lip Butter",
         "image": "https://i.postimg.cc/hvJmN1W8/Rose-Tinted-Lip-Butter.avif",
         "shortBio": "Adds natural pink tint & moisture.",
@@ -139,7 +139,7 @@
     "date": "2025-08-01",
     "products": [
       {
-        "id": 3,
+        "_id": "5f1b827c1a938c53a8c3d9b3",
         "name": "Herbal Hair Oil",
         "image": "https://i.postimg.cc/0NmB17xs/Herbal-Strengthening-Hair-Oil.webp",
         "shortBio": "Reduces hair fall and promotes growth.",
@@ -167,7 +167,7 @@
     "date": "2025-07-30",
     "products": [
       {
-        "id": 1,
+        "_id": "5f1b827c1a938c53a8c3d9b1",
         "name": "Green Tea Cream",
         "image": "https://i.postimg.cc/RVNGzwQD/Soothing-Green-Tea-Face-Cream.jpg",
         "shortBio": "Calms sensitive skin & controls oil.",
@@ -182,7 +182,7 @@
         "category": "Face Care"
       },
       {
-        "id": 5,
+        "_id": "5f1b827c1a938c53a8c3d9b5",
         "name": "Cocoa Body Lotion",
         "image": "https://i.postimg.cc/WbbCqDmG/Cocoa-Butter-Body-Lotion.jpg",
         "shortBio": "Deep moisturization for dry skin.",
@@ -210,7 +210,7 @@
     "date": "2025-07-28",
     "products": [
       {
-        "id": 3,
+        "_id": "5f1b827c1a938c53a8c3d9b3",
         "name": "Herbal Hair Oil",
         "image": "https://i.postimg.cc/0NmB17xs/Herbal-Strengthening-Hair-Oil.webp",
         "shortBio": "Reduces hair fall and promotes growth.",
@@ -225,7 +225,7 @@
         "category": "Hair Care"
       },
       {
-        "id": 8,
+        "_id": "5f1b827c1a938c53a8c3d9b8",
         "name": "Rose Lip Butter",
         "image": "https://i.postimg.cc/hvJmN1W8/Rose-Tinted-Lip-Butter.avif",
         "shortBio": "Adds natural pink tint & moisture.",
@@ -253,7 +253,7 @@
     "date": "2025-07-27",
     "products": [
       {
-        "id": 2,
+        "_id": "5f1b827c1a938c53a8c3d9b2",
         "name": "Rose Face Mist",
         "image": "https://i.postimg.cc/h4M3nDFf/Rose-Petal-Hydrating-Face-Mist.jpg",
         "shortBio": "Refreshes and tones your skin naturally.",
@@ -268,7 +268,7 @@
         "category": "Face Care"
       },
       {
-        "id": 7,
+        "_id": "5f1b827c1a938c53a8c3d9b7",
         "name": "Mint Lip Balm",
         "image": "https://i.postimg.cc/V6WZd1dZ/Mint-Shea-Lip-Balm.jpg",
         "shortBio": "Heals cracked lips & freshens breath.",
@@ -283,7 +283,7 @@
         "category": "Lip Care"
       },
       {
-        "id": 4,
+        "_id": "5f1b827c1a938c53a8c3d9b4",
         "name": "Neem Shampoo",
         "image": "https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp",
         "shortBio": "Fights dandruff and soothes scalp.",
@@ -311,7 +311,7 @@
     "date": "2025-07-25",
     "products": [
       {
-        "id": 5,
+        "_id": "5f1b827c1a938c53a8c3d9b5",
         "name": "Cocoa Body Lotion",
         "image": "https://i.postimg.cc/WbbCqDmG/Cocoa-Butter-Body-Lotion.jpg",
         "shortBio": "Deep moisturization for dry skin.",
@@ -326,7 +326,7 @@
         "category": "Body Care"
       },
       {
-        "id": 8,
+        "_id": "5f1b827c1a938c53a8c3d9b8",
         "name": "Rose Lip Butter",
         "image": "https://i.postimg.cc/hvJmN1W8/Rose-Tinted-Lip-Butter.avif",
         "shortBio": "Adds natural pink tint & moisture.",
@@ -354,7 +354,7 @@
     "date": "2025-07-24",
     "products": [
       {
-        "id": 1,
+        "_id": "5f1b827c1a938c53a8c3d9b1",
         "name": "Green Tea Cream",
         "image": "https://i.postimg.cc/RVNGzwQD/Soothing-Green-Tea-Face-Cream.jpg",
         "shortBio": "Calms sensitive skin & controls oil.",
@@ -369,7 +369,7 @@
         "category": "Face Care"
       },
       {
-        "id": 3,
+        "_id": "5f1b827c1a938c53a8c3d9b3",
         "name": "Herbal Hair Oil",
         "image": "https://i.postimg.cc/0NmB17xs/Herbal-Strengthening-Hair-Oil.webp",
         "shortBio": "Reduces hair fall and promotes growth.",
@@ -397,7 +397,7 @@
     "date": "2025-07-23",
     "products": [
       {
-        "id": 2,
+        "_id": "5f1b827c1a938c53a8c3d9b2",
         "name": "Rose Face Mist",
         "image": "https://i.postimg.cc/h4M3nDFf/Rose-Petal-Hydrating-Face-Mist.jpg",
         "shortBio": "Refreshes and tones your skin naturally.",
@@ -412,7 +412,7 @@
         "category": "Face Care"
       },
       {
-        "id": 4,
+        "_id": "5f1b827c1a938c53a8c3d9b4",
         "name": "Neem Shampoo",
         "image": "https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp",
         "shortBio": "Fights dandruff and soothes scalp.",
@@ -427,7 +427,7 @@
         "category": "Hair Care"
       },
       {
-        "id": 5,
+        "_id": "5f1b827c1a938c53a8c3d9b5",
         "name": "Cocoa Body Lotion",
         "image": "https://i.postimg.cc/WbbCqDmG/Cocoa-Butter-Body-Lotion.jpg",
         "shortBio": "Deep moisturization for dry skin.",
@@ -455,7 +455,7 @@
     "date": "2025-07-22",
     "products": [
       {
-        "id": 7,
+        "_id": "5f1b827c1a938c53a8c3d9b7",
         "name": "Mint Lip Balm",
         "image": "https://i.postimg.cc/V6WZd1dZ/Mint-Shea-Lip-Balm.jpg",
         "shortBio": "Heals cracked lips & freshens breath.",
@@ -470,7 +470,7 @@
         "category": "Lip Care"
       },
       {
-        "id": 8,
+        "_id": "5f1b827c1a938c53a8c3d9b8",
         "name": "Rose Lip Butter",
         "image": "https://i.postimg.cc/hvJmN1W8/Rose-Tinted-Lip-Butter.avif",
         "shortBio": "Adds natural pink tint & moisture.",
@@ -498,7 +498,7 @@
     "date": "2025-07-20",
     "products": [
       {
-        "id": 1,
+        "_id": "5f1b827c1a938c53a8c3d9b1",
         "name": "Green Tea Cream",
         "image": "https://i.postimg.cc/RVNGzwQD/Soothing-Green-Tea-Face-Cream.jpg",
         "shortBio": "Calms sensitive skin & controls oil.",
@@ -513,7 +513,7 @@
         "category": "Face Care"
       },
       {
-        "id": 3,
+        "_id": "5f1b827c1a938c53a8c3d9b3",
         "name": "Herbal Hair Oil",
         "image": "https://i.postimg.cc/0NmB17xs/Herbal-Strengthening-Hair-Oil.webp",
         "shortBio": "Reduces hair fall and promotes growth.",
@@ -528,7 +528,7 @@
         "category": "Hair Care"
       },
       {
-        "id": 2,
+        "_id": "5f1b827c1a938c53a8c3d9b2",
         "name": "Rose Face Mist",
         "image": "https://i.postimg.cc/h4M3nDFf/Rose-Petal-Hydrating-Face-Mist.jpg",
         "shortBio": "Refreshes and tones your skin naturally.",
@@ -556,7 +556,7 @@
     "date": "2025-07-18",
     "products": [
       {
-        "id": 4,
+        "_id": "5f1b827c1a938c53a8c3d9b4",
         "name": "Neem Shampoo",
         "image": "https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp",
         "shortBio": "Fights dandruff and soothes scalp.",
@@ -571,7 +571,7 @@
         "category": "Hair Care"
       },
       {
-        "id": 5,
+        "_id": "5f1b827c1a938c53a8c3d9b5",
         "name": "Cocoa Body Lotion",
         "image": "https://i.postimg.cc/WbbCqDmG/Cocoa-Butter-Body-Lotion.jpg",
         "shortBio": "Deep moisturization for dry skin.",
@@ -599,7 +599,7 @@
     "date": "2025-07-15",
     "products": [
       {
-        "id": 7,
+        "_id": "5f1b827c1a938c53a8c3d9b7",
         "name": "Mint Lip Balm",
         "image": "https://i.postimg.cc/V6WZd1dZ/Mint-Shea-Lip-Balm.jpg",
         "shortBio": "Heals cracked lips & freshens breath.",
@@ -614,7 +614,7 @@
         "category": "Lip Care"
       },
       {
-        "id": 8,
+        "_id": "5f1b827c1a938c53a8c3d9b8",
         "name": "Rose Lip Butter",
         "image": "https://i.postimg.cc/hvJmN1W8/Rose-Tinted-Lip-Butter.avif",
         "shortBio": "Adds natural pink tint & moisture.",
@@ -629,7 +629,7 @@
         "category": "Lip Care"
       },
       {
-        "id": 1,
+        "_id": "5f1b827c1a938c53a8c3d9b1",
         "name": "Green Tea Cream",
         "image": "https://i.postimg.cc/RVNGzwQD/Soothing-Green-Tea-Face-Cream.jpg",
         "shortBio": "Calms sensitive skin & controls oil.",
@@ -657,7 +657,7 @@
     "date": "2025-07-10",
     "products": [
       {
-        "id": 2,
+        "_id": "5f1b827c1a938c53a8c3d9b2",
         "name": "Rose Face Mist",
         "image": "https://i.postimg.cc/h4M3nDFf/Rose-Petal-Hydrating-Face-Mist.jpg",
         "shortBio": "Refreshes and tones your skin naturally.",
@@ -672,7 +672,7 @@
         "category": "Face Care"
       },
       {
-        "id": 3,
+        "_id": "5f1b827c1a938c53a8c3d9b3",
         "name": "Herbal Hair Oil",
         "image": "https://i.postimg.cc/0NmB17xs/Herbal-Strengthening-Hair-Oil.webp",
         "shortBio": "Reduces hair fall and promotes growth.",
@@ -687,7 +687,7 @@
         "category": "Hair Care"
       },
       {
-        "id": 4,
+        "_id": "5f1b827c1a938c53a8c3d9b4",
         "name": "Neem Shampoo",
         "image": "https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp",
         "shortBio": "Fights dandruff and soothes scalp.",
@@ -715,7 +715,7 @@
     "date": "2025-07-05",
     "products": [
       {
-        "id": 5,
+        "_id": "5f1b827c1a938c53a8c3d9b5",
         "name": "Cocoa Body Lotion",
         "image": "https://i.postimg.cc/WbbCqDmG/Cocoa-Butter-Body-Lotion.jpg",
         "shortBio": "Deep moisturization for dry skin.",
@@ -730,7 +730,7 @@
         "category": "Body Care"
       },
       {
-        "id": 7,
+        "_id": "5f1b827c1a938c53a8c3d9b7",
         "name": "Mint Lip Balm",
         "image": "https://i.postimg.cc/V6WZd1dZ/Mint-Shea-Lip-Balm.jpg",
         "shortBio": "Heals cracked lips & freshens breath.",
@@ -758,7 +758,7 @@
     "date": "2025-06-25",
     "products": [
       {
-        "id": 1,
+        "_id": "5f1b827c1a938c53a8c3d9b1",
         "name": "Green Tea Cream",
         "image": "https://i.postimg.cc/RVNGzwQD/Soothing-Green-Tea-Face-Cream.jpg",
         "shortBio": "Calms sensitive skin & controls oil.",
@@ -773,7 +773,7 @@
         "category": "Face Care"
       },
       {
-        "id": 8,
+        "_id": "5f1b827c1a938c53a8c3d9b8",
         "name": "Rose Lip Butter",
         "image": "https://i.postimg.cc/hvJmN1W8/Rose-Tinted-Lip-Butter.avif",
         "shortBio": "Adds natural pink tint & moisture.",
@@ -801,7 +801,7 @@
     "date": "2025-06-15",
     "products": [
       {
-        "id": 2,
+        "_id": "5f1b827c1a938c53a8c3d9b2",
         "name": "Rose Face Mist",
         "image": "https://i.postimg.cc/h4M3nDFf/Rose-Petal-Hydrating-Face-Mist.jpg",
         "shortBio": "Refreshes and tones your skin naturally.",
@@ -816,7 +816,7 @@
         "category": "Face Care"
       },
       {
-        "id": 4,
+        "_id": "5f1b827c1a938c53a8c3d9b4",
         "name": "Neem Shampoo",
         "image": "https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp",
         "shortBio": "Fights dandruff and soothes scalp.",
@@ -831,7 +831,7 @@
         "category": "Hair Care"
       },
       {
-        "id": 5,
+        "_id": "5f1b827c1a938c53a8c3d9b5",
         "name": "Cocoa Body Lotion",
         "image": "https://i.postimg.cc/WbbCqDmG/Cocoa-Butter-Body-Lotion.jpg",
         "shortBio": "Deep moisturization for dry skin.",
@@ -859,7 +859,7 @@
     "date": "2025-06-08",
     "products": [
       {
-        "id": 3,
+        "_id": "5f1b827c1a938c53a8c3d9b3",
         "name": "Herbal Hair Oil",
         "image": "https://i.postimg.cc/0NmB17xs/Herbal-Strengthening-Hair-Oil.webp",
         "shortBio": "Reduces hair fall and promotes growth.",
@@ -874,7 +874,7 @@
         "category": "Hair Care"
       },
       {
-        "id": 7,
+        "_id": "5f1b827c1a938c53a8c3d9b7",
         "name": "Mint Lip Balm",
         "image": "https://i.postimg.cc/V6WZd1dZ/Mint-Shea-Lip-Balm.jpg",
         "shortBio": "Heals cracked lips & freshens breath.",
@@ -902,7 +902,7 @@
     "date": "2025-05-20",
     "products": [
       {
-        "id": 1,
+        "_id": "5f1b827c1a938c53a8c3d9b1",
         "name": "Green Tea Cream",
         "image": "https://i.postimg.cc/RVNGzwQD/Soothing-Green-Tea-Face-Cream.jpg",
         "shortBio": "Calms sensitive skin & controls oil.",
@@ -915,52 +915,22 @@
         "price": 8.50,
         "status": "In Stock",
         "category": "Face Care"
-      },
-      {
-        "id": 5,
-        "name": "Cocoa Body Lotion",
-        "image": "https://i.postimg.cc/WbbCqDmG/Cocoa-Butter-Body-Lotion.jpg",
-        "shortBio": "Deep moisturization for dry skin.",
-        "description": "Enriched with pure cocoa butter and vitamin E, this lotion provides 24-hour hydration and improves skin elasticity.",
-        "features": [
-          "Non-greasy texture",
-          "Long-lasting hydration",
-          "Mild vanilla scent"
-        ],
-        "price": 7.20,
-        "status": "Low Stock",
-        "category": "Body Care"
-      },
-      {
-        "id": 8,
-        "name": "Rose Lip Butter",
-        "image": "https://i.postimg.cc/hvJmN1W8/Rose-Tinted-Lip-Butter.avif",
-        "shortBio": "Adds natural pink tint & moisture.",
-        "description": "Combining beetroot extract and rose oil, this lip butter adds a gentle pink shade while deeply hydrating your lips.",
-        "features": [
-          "Light natural tint",
-          "Long-lasting softness",
-          "Paraben-free"
-        ],
-        "price": 3.20,
-        "status": "Low Stock",
-        "category": "Lip Care"
       }
     ],
-    "totalPrice": 18.90
+    "totalPrice": 8.50
   },
   {
-    "customerName": "Omar Faruk",
-    "customerImage": "https://i.pravatar.cc/150?img=49",
-    "email": "omar@example.com",
-    "address": "Rajshahi",
-    "phone": "+8801700556677",
+    "customerName": "Jannatul Ferdous",
+    "customerImage": "https://i.pravatar.cc/150?img=70",
+    "email": "jannat@example.com",
+    "address": "Dhaka",
+    "phone": "+8801777889900",
     "paymentStatus": "Paid",
     "orderStatus": "Shipped",
-    "date": "2025-04-10",
+    "date": "2025-08-01",
     "products": [
       {
-        "id": 2,
+        "_id": "5f1b827c1a938c53a8c3d9b2",
         "name": "Rose Face Mist",
         "image": "https://i.postimg.cc/h4M3nDFf/Rose-Petal-Hydrating-Face-Mist.jpg",
         "shortBio": "Refreshes and tones your skin naturally.",
@@ -975,35 +945,35 @@
         "category": "Face Care"
       },
       {
-        "id": 4,
-        "name": "Neem Shampoo",
-        "image": "https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp",
-        "shortBio": "Fights dandruff and soothes scalp.",
-        "description": "This sulfate-free shampoo cleanses gently while neem and aloe vera work to eliminate flakes and calm itching.",
+        "_id": "5f1b827c1a938c53a8c3d9b5",
+        "name": "Cocoa Body Lotion",
+        "image": "https://i.postimg.cc/WbbCqDmG/Cocoa-Butter-Body-Lotion.jpg",
+        "shortBio": "Deep moisturization for dry skin.",
+        "description": "Enriched with pure cocoa butter and vitamin E, this lotion provides 24-hour hydration and improves skin elasticity.",
         "features": [
-          "SLS & Paraben free",
-          "pH balanced formula",
-          "Suitable for daily use"
+          "Non-greasy texture",
+          "Long-lasting hydration",
+          "Mild vanilla scent"
         ],
-        "price": 6.90,
-        "status": "In Stock",
-        "category": "Hair Care"
+        "price": 7.20,
+        "status": "Low Stock",
+        "category": "Body Care"
       }
     ],
-    "totalPrice": 13.10
+    "totalPrice": 13.40
   },
   {
-    "customerName": "Laila Zaman",
-    "customerImage": "https://i.pravatar.cc/150?img=56",
-    "email": "laila@example.com",
-    "address": "Dhaka",
-    "phone": "+8801912345678",
+    "customerName": "Rashed Khan",
+    "customerImage": "https://i.pravatar.cc/150?img=71",
+    "email": "rashed@example.com",
+    "address": "Gazipur",
+    "phone": "+8801888990011",
     "paymentStatus": "Unpaid",
     "orderStatus": "In Progress",
-    "date": "2025-03-01",
+    "date": "2025-07-29",
     "products": [
       {
-        "id": 3,
+        "_id": "5f1b827c1a938c53a8c3d9b3",
         "name": "Herbal Hair Oil",
         "image": "https://i.postimg.cc/0NmB17xs/Herbal-Strengthening-Hair-Oil.webp",
         "shortBio": "Reduces hair fall and promotes growth.",
@@ -1016,65 +986,37 @@
         "price": 4.80,
         "status": "Coming Soon",
         "category": "Hair Care"
-      }
-    ],
-    "totalPrice": 4.80
-  },
-  {
-    "customerName": "Sana Khan",
-    "customerImage": "https://i.pravatar.cc/150?img=53",
-    "email": "sana@example.com",
-    "address": "Dhaka",
-    "phone": "+8801700667788",
-    "paymentStatus": "Paid",
-    "orderStatus": "Delivered",
-    "date": "2025-02-14",
-    "products": [
-      {
-        "id": 1,
-        "name": "Green Tea Cream",
-        "image": "https://i.postimg.cc/RVNGzwQD/Soothing-Green-Tea-Face-Cream.jpg",
-        "shortBio": "Calms sensitive skin & controls oil.",
-        "description": "This lightweight face cream is infused with green tea and aloe vera to soothe redness, hydrate skin, and reduce oil build-up.",
-        "features": [
-          "Ideal for acne-prone skin",
-          "Non-comedogenic formula",
-          "Day and night use"
-        ],
-        "price": 8.50,
-        "status": "In Stock",
-        "category": "Face Care"
       },
       {
-        "id": 2,
-        "name": "Rose Face Mist",
-        "image": "https://i.postimg.cc/h4M3nDFf/Rose-Petal-Hydrating-Face-Mist.jpg",
-        "shortBio": "Refreshes and tones your skin naturally.",
-        "description": "Made with pure rose water and botanical extracts, this face mist keeps your skin hydrated and glowing all day long.",
+        "_id": "5f1b827c1a938c53a8c3d9b7",
+        "name": "Mint Lip Balm",
+        "image": "https://i.postimg.cc/V6WZd1dZ/Mint-Shea-Lip-Balm.jpg",
+        "shortBio": "Heals cracked lips & freshens breath.",
+        "description": "A nourishing lip balm made with shea butter and peppermint oil to keep your lips soft, smooth, and cool.",
         "features": [
-          "Tightens pores",
-          "100% alcohol-free",
-          "Use before or after makeup"
+          "No petroleum jelly",
+          "100% natural ingredients",
+          "Tingly mint finish"
         ],
-        "price": 6.20,
-        "status": "Low Stock",
-        "category": "Face Care"
+        "price": 2.50,
+        "status": "In Stock",
+        "category": "Lip Care"
       }
     ],
-    "totalPrice": 14.70
+    "totalPrice": 7.30
   },
   {
-    "customerName": "Rakib Hasan",
-    "customerImage": "https://i.pravatar.cc/150?img=42",
-    "email": "rakibhasan@example.com",
+    "customerName": "Maria Akter",
+    "customerImage": "https://i.pravatar.cc/150?img=72",
+    "email": "maria@example.com",
     "address": "Dhaka",
-    "phone": "+8801700778899",
+    "phone": "+8801999001122",
     "paymentStatus": "Paid",
-    "orderStatus": "Shipped",
-    "date": "2025-01-20",
+    "orderStatus": "Delivered",
+    "date": "2025-07-26",
     "products": [
       {
-        "id": 4,
+        "_id": "5f1b827c1a938c53a8c3d9b4",
         "name": "Neem Shampoo",
         "image": "https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp",
         "shortBio": "Fights dandruff and soothes scalp.",
@@ -1089,37 +1031,7 @@
         "category": "Hair Care"
       },
       {
-        "id": 5,
-        "name": "Cocoa Body Lotion",
-        "image": "https://i.postimg.cc/WbbCqDmG/Cocoa-Butter-Body-Lotion.jpg",
-        "shortBio": "Deep moisturization for dry skin.",
-        "description": "Enriched with pure cocoa butter and vitamin E, this lotion provides 24-hour hydration and improves skin elasticity.",
-        "features": [
-          "Non-greasy texture",
-          "Long-lasting hydration",
-          "Mild vanilla scent"
-        ],
-        "price": 7.20,
-        "status": "Low Stock",
-        "category": "Body Care"
-      },
-      {
-        "id": 7,
-        "name": "Mint Lip Balm",
-        "image": "https://i.postimg.cc/V6WZd1dZ/Mint-Shea-Lip-Balm.jpg",
-        "shortBio": "Heals cracked lips & freshens breath.",
-        "description": "A nourishing lip balm made with shea butter and peppermint oil to keep your lips soft, smooth, and cool.",
-        "features": [
-          "No petroleum jelly",
-          "100% natural ingredients",
-          "Tingly mint finish"
-        ],
-        "price": 2.50,
-        "status": "In Stock",
-        "category": "Lip Care"
-      },
-      {
-        "id": 8,
+        "_id": "5f1b827c1a938c53a8c3d9b8",
         "name": "Rose Lip Butter",
         "image": "https://i.postimg.cc/hvJmN1W8/Rose-Tinted-Lip-Butter.avif",
         "shortBio": "Adds natural pink tint & moisture.",
@@ -1134,6 +1046,206 @@
         "category": "Lip Care"
       }
     ],
-    "totalPrice": 19.80
+    "totalPrice": 10.10
+  },
+  {
+    "customerName": "Nurul Islam",
+    "customerImage": "https://i.pravatar.cc/150?img=73",
+    "email": "nurul@example.com",
+    "address": "Khulna",
+    "phone": "+8801555667788",
+    "paymentStatus": "Paid",
+    "orderStatus": "Shipped",
+    "date": "2025-07-22",
+    "products": [
+      {
+        "_id": "5f1b827c1a938c53a8c3d9b1",
+        "name": "Green Tea Cream",
+        "image": "https://i.postimg.cc/RVNGzwQD/Soothing-Green-Tea-Face-Cream.jpg",
+        "shortBio": "Calms sensitive skin & controls oil.",
+        "description": "This lightweight face cream is infused with green tea and aloe vera to soothe redness, hydrate skin, and reduce oil build-up.",
+        "features": [
+          "Ideal for acne-prone skin",
+          "Non-comedogenic formula",
+          "Day and night use"
+        ],
+        "price": 8.50,
+        "status": "In Stock",
+        "category": "Face Care"
+      }
+    ],
+    "totalPrice": 8.50
+  },
+  {
+    "customerName": "Sifat Khan",
+    "customerImage": "https://i.pravatar.cc/150?img=74",
+    "email": "sifat@example.com",
+    "address": "Dhaka",
+    "phone": "+8801700112233",
+    "paymentStatus": "Unpaid",
+    "orderStatus": "In Progress",
+    "date": "2025-07-19",
+    "products": [
+      {
+        "_id": "5f1b827c1a938c53a8c3d9b2",
+        "name": "Rose Face Mist",
+        "image": "https://i.postimg.cc/h4M3nDFf/Rose-Petal-Hydrating-Face-Mist.jpg",
+        "shortBio": "Refreshes and tones your skin naturally.",
+        "description": "Made with pure rose water and botanical extracts, this face mist keeps your skin hydrated and glowing all day long.",
+        "features": [
+          "Tightens pores",
+          "100% alcohol-free",
+          "Use before or after makeup"
+        ],
+        "price": 6.20,
+        "status": "Low Stock",
+        "category": "Face Care"
+      },
+      {
+        "_id": "5f1b827c1a938c53a8c3d9b3",
+        "name": "Herbal Hair Oil",
+        "image": "https://i.postimg.cc/0NmB17xs/Herbal-Strengthening-Hair-Oil.webp",
+        "shortBio": "Reduces hair fall and promotes growth.",
+        "description": "A natural blend of amla, bhringraj, and coconut oil that nourishes your scalp and strengthens hair from the roots.",
+        "features": [
+          "Prevents dandruff",
+          "No mineral oil or silicone",
+          "Cold-pressed ingredients"
+        ],
+        "price": 4.80,
+        "status": "Coming Soon",
+        "category": "Hair Care"
+      },
+      {
+        "_id": "5f1b827c1a938c53a8c3d9b7",
+        "name": "Mint Lip Balm",
+        "image": "https://i.postimg.cc/V6WZd1dZ/Mint-Shea-Lip-Balm.jpg",
+        "shortBio": "Heals cracked lips & freshens breath.",
+        "description": "A nourishing lip balm made with shea butter and peppermint oil to keep your lips soft, smooth, and cool.",
+        "features": [
+          "No petroleum jelly",
+          "100% natural ingredients",
+          "Tingly mint finish"
+        ],
+        "price": 2.50,
+        "status": "In Stock",
+        "category": "Lip Care"
+      }
+    ],
+    "totalPrice": 13.50
+  },
+  {
+    "customerName": "Fahim Rahman",
+    "customerImage": "https://i.pravatar.cc/150?img=75",
+    "email": "fahim@example.com",
+    "address": "Barishal",
+    "phone": "+8801900223344",
+    "paymentStatus": "Paid",
+    "orderStatus": "Delivered",
+    "date": "2025-07-17",
+    "products": [
+      {
+        "_id": "5f1b827c1a938c53a8c3d9b5",
+        "name": "Cocoa Body Lotion",
+        "image": "https://i.postimg.cc/WbbCqDmG/Cocoa-Butter-Body-Lotion.jpg",
+        "shortBio": "Deep moisturization for dry skin.",
+        "description": "Enriched with pure cocoa butter and vitamin E, this lotion provides 24-hour hydration and improves skin elasticity.",
+        "features": [
+          "Non-greasy texture",
+          "Long-lasting hydration",
+          "Mild vanilla scent"
+        ],
+        "price": 7.20,
+        "status": "Low Stock",
+        "category": "Body Care"
+      },
+      {
+        "_id": "5f1b827c1a938c53a8c3d9b8",
+        "name": "Rose Lip Butter",
+        "image": "https://i.postimg.cc/hvJmN1W8/Rose-Tinted-Lip-Butter.avif",
+        "shortBio": "Adds natural pink tint & moisture.",
+        "description": "Combining beetroot extract and rose oil, this lip butter adds a gentle pink shade while deeply hydrating your lips.",
+        "features": [
+          "Light natural tint",
+          "Long-lasting softness",
+          "Paraben-free"
+        ],
+        "price": 3.20,
+        "status": "Low Stock",
+        "category": "Lip Care"
+      }
+    ],
+    "totalPrice": 10.40
+  },
+  {
+    "customerName": "Sadat Hossain",
+    "customerImage": "https://i.pravatar.cc/150?img=76",
+    "email": "sadat@example.com",
+    "address": "Sylhet Sadar",
+    "phone": "+8801333445566",
+    "paymentStatus": "Paid",
+    "orderStatus": "Shipped",
+    "date": "2025-07-15",
+    "products": [
+      {
+        "_id": "5f1b827c1a938c53a8c3d9b1",
+        "name": "Green Tea Cream",
+        "image": "https://i.postimg.cc/RVNGzwQD/Soothing-Green-Tea-Face-Cream.jpg",
+        "shortBio": "Calms sensitive skin & controls oil.",
+        "description": "This lightweight face cream is infused with green tea and aloe vera to soothe redness, hydrate skin, and reduce oil build-up.",
+        "features": [
+          "Ideal for acne-prone skin",
+          "Non-comedogenic formula",
+          "Day and night use"
+        ],
+        "price": 8.50,
+        "status": "In Stock",
+        "category": "Face Care"
+      },
+      {
+        "_id": "5f1b827c1a938c53a8c3d9b4",
+        "name": "Neem Shampoo",
+        "image": "https://i.postimg.cc/25BPjPQg/Aloe-Neem-Anti-Dandruff-Shampoo.webp",
+        "shortBio": "Fights dandruff and soothes scalp.",
+        "description": "This sulfate-free shampoo cleanses gently while neem and aloe vera work to eliminate flakes and calm itching.",
+        "features": [
+          "SLS & Paraben free",
+          "pH balanced formula",
+          "Suitable for daily use"
+        ],
+        "price": 6.90,
+        "status": "In Stock",
+        "category": "Hair Care"
+      }
+    ],
+    "totalPrice": 15.40
+  },
+  {
+    "customerName": "Sabina Yasmin",
+    "customerImage": "https://i.pravatar.cc/150?img=77",
+    "email": "sabina@example.com",
+    "address": "Rangpur",
+    "phone": "+8801666778899",
+    "paymentStatus": "Unpaid",
+    "orderStatus": "Cancelled",
+    "date": "2025-07-12",
+    "products": [
+      {
+        "_id": "5f1b827c1a938c53a8c3d9b2",
+        "name": "Rose Face Mist",
+        "image": "https://i.postimg.cc/h4M3nDFf/Rose-Petal-Hydrating-Face-Mist.jpg",
+        "shortBio": "Refreshes and tones your skin naturally.",
+        "description": "Made with pure rose water and botanical extracts, this face mist keeps your skin hydrated and glowing all day long.",
+        "features": [
+          "Tightens pores",
+          "100% alcohol-free",
+          "Use before or after makeup"
+        ],
+        "price": 6.20,
+        "status": "Low Stock",
+        "category": "Face Care"
+      }
+    ],
+    "totalPrice": 6.20
   }
 ]

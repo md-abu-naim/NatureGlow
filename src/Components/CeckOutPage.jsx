@@ -28,7 +28,14 @@ const CheckoutPage = () => {
     const orderStatus = "In Progress"
     const date = new Date().toLocaleDateString()
     const totalPrice = total
-    const order = {customerName, customerImage, email, address, phone, paymentStatus, orderStatus, date, products, totalPrice, note}
+    const order = { customerName, customerImage, email, address, phone, paymentStatus, orderStatus, date, products, totalPrice, note }
+    if (phone === '') {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please type atleast your name & phone number!",
+      });
+    }
     console.log(order);
   }
 
