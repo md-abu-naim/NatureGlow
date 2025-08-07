@@ -16,7 +16,8 @@ const AdminDashboard = () => {
     const [usersData, setUsersData] = useState([])
     const [isOpen, setIsOpen] = useState(false)
     const [orderData, setOrderData] = useState([])
-    const orders = useLoaderData()
+    const {data} = useLoaderData()
+    const orders = data
 
     const date = new Date().toLocaleDateString()
 

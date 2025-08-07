@@ -11,10 +11,12 @@ import UpdateOrderModal from "./Modals/OrderUpdate";
 import { useState } from "react";
 
 const Orders = () => {
-    const Orders = useLoaderData()
+    const {data} = useLoaderData()
     const [isOpen, setIsOpen] = useState(false)
     const [order, setOrder] = useState()
     const role = 'Admin'
+    const orders = data
+    console.log(data);
 
 
     return (
@@ -124,7 +126,7 @@ const Orders = () => {
                     </thead>
                     <tbody className="text-gray-700 divide-y divide-green-100">
                         {
-                            Orders.data?.map((order, i) => (
+                            orders?.map((order, i) => (
                                 <tr key={i} className="hover:bg-green-100 transition-all">
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
                                     <td className="px-4 py-3 font-medium">{order._id}</td>

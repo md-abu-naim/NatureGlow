@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
       {
         path: '/details/:_id',
         element: <ProductDetails />,
-        loader: () => axios(`http://localhost:3000/products/best`)
+        loader: () => axios(`http://localhost:3000/all-products`)
       },
       {
         path: '/about',
@@ -88,7 +88,7 @@ export const router = createBrowserRouter([
       {
         path: 'admin-dashboard',
         element: <AdminDashboard />,
-        loader: () => fetch(`/Orders.json`)
+        loader: () => axios(`http://localhost:3000/orders`)
       },
       {
         path: 'users',
@@ -98,7 +98,7 @@ export const router = createBrowserRouter([
       {
         path: 'products',
         element: <Products />,
-        loader: () => axios(`http://localhost:3000/products`)
+        loader: () => axios(`http://localhost:3000/all-products`)
       },
       {
         path: `update/:id`,
@@ -124,7 +124,7 @@ export const router = createBrowserRouter([
       {
         path: 'orders',
         element: <Orders />,
-        loader: () => axios(`/Orders.json`)
+        // loader: () => axios(`http://localhost:3000/orders`)
       },
       {
         path: 'order-details/:_id',
