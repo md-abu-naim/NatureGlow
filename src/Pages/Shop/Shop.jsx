@@ -11,8 +11,11 @@ const Shop = () => {
     const [status, setStatus] = useState('')
     const [price, setPrice] = useState(0)
     const [sort, setSort] = useState('')
+    const [currentPage, setCurrentPage] = useState(1)
+    const [totalPage, setTotalPage] = useState(1)
     const axiosCommon = useAxiosCommon()
 
+    console.log( currentPage, totalPage);
     const handleSearch = e => {
         const search = e.target.value
         setSearch(search)
@@ -26,19 +29,22 @@ const Shop = () => {
     const handleStatus = e => {
         const value = e.target.value
         const checked = e.target.checked
-        if(checked) {
+        if (checked) {
             setStatus(prev => [...prev, value])
-        }else {
+        } else {
             setStatus(prev => prev.filter(item => item !== value))
         }
     }
 
     useEffect(() => {
-        axiosCommon.get(`/products?search=${search}&sort=${sort}&category=${category}&price=${price}&status=${status}`)
-            .then(res => {
-                setProducts(res.data)
-            })
-    }, [axiosCommon, search, sort, category, price, status])
+        const fetchProducts = async (page) => {
+            const {data} = await axiosCommon.get(`/products?search=${search}&sort=${sort}&category=${category}&price=${price}&status=${status}&page=${page}&limit=6`)
+            setProducts(data.products)
+            setCurrentPage(data.currentpage)
+            setTotalPage(data.totalpage)
+        }
+        fetchProducts(currentPage)
+    }, [currentPage, search, sort, category, price, axiosCommon, status])
 
     return (
         <div className='px-4 md:px-10 py-10'>
@@ -153,15 +159,15 @@ const Shop = () => {
                     {/* Pagination */}
                     <section className='mt-10 flex justify-center items-center gap-3'>
                         {/* Previous Button */}
-                        <button className='flex items-center gap-1 px-4 py-2 text-sm border border-green-300 rounded-full hover:bg-green-500 hover:text-white transition'> <FaArrowLeft /> Prev</button>
+                        <button disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)} className='flex items-center gap-1 px-4 py-2 text-sm border border-green-300 rounded-full hover:bg-green-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-600 transition'> <FaArrowLeft /> Prev</button>
 
                         {/* Number of Page */}
                         {
-                            [1, 2, 3].map(num => <button key={num} className='px-4 py-2 rounded-full border border-green-300 text-green-700 hover:bg-green-500 hover:text-white transition'>{num}</button>)
+                            [...Array(totalPage)].keys().map(num => <button key={num} onClick={() => setCurrentPage(num + 1)} className={`px-4 py-2 rounded-full border border-green-300 text-green-700 hover:bg-green-500 hover:text-white ${currentPage === num + 1 && 'bg-green-800 text-white'} transition`}>{num + 1}</button>)
                         }
 
                         {/* Next Button */}
-                        <button className='flex items-center gap-1 px-4 py-2 text-sm border border-green-300 rounded-full hover:bg-green-500 hover:text-white transition'>Next <FaArrowRight /></button>
+                        <button disabled={currentPage === totalPage} onClick={() => setCurrentPage(currentPage + 1)}className='flex items-center gap-1 px-4 py-2 text-sm border border-green-300 rounded-full hover:bg-green-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-600 transition'>Next <FaArrowRight /></button>
                     </section>
                 </div>
             </div>
