@@ -142,7 +142,7 @@ const Orders = () => {
                             orders?.map((order, i) => (
                                 <tr key={i} className="hover:bg-green-100 transition-all">
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
-                                    <td className="px-4 py-3 font-medium">{order._id}</td>
+                                    <td className="px-4 py-3 font-medium">{order._id?.slice(0,6)}</td>
                                     {
                                         role === 'Admin' && <>
                                             <td className="px-4 py-3 font-semibold">{order.customerName}</td>

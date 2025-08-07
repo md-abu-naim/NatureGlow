@@ -13,7 +13,7 @@ const OrderTracking = ({_id, paymentStatus, orderStatus = 'in progress' }) => {
                 <div className='flex flex-col md:flex-row md:items-center gap-1 md:gap-3'>
                     <h3 className="text-xl font-bold text-green-800">🧾 Order Tracking</h3>
                     <div className='text-sm text-gray-600 font-medium bg-gray-100 px-3 py-1 rounded-md shadow-sm border border-green-200'>
-                        <span className='text-gray-800'>Order ID:</span> <span className='font-semibold text-green-700'>{_id}</span>
+                        <span className='text-gray-800'>Order ID:</span> <span className='font-semibold text-green-700'>{_id?.slice(0,6)}</span>
                     </div>
                 </div>
                 <div className='flex gap-2 mt-2 lg:mt-0'>

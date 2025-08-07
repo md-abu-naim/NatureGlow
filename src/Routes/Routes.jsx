@@ -126,9 +126,9 @@ export const router = createBrowserRouter([
         element: <Orders />
       },
       {
-        path: 'order-details/:_id',
+        path: 'order-details/:id',
         element: <OrderDetails />,
-        loader: () => axios(`/Orders.json`)
+        loader: ({params}) => axios(`http://localhost:3000/order/${params.id}`)
       },
       {
         path: 'profile',

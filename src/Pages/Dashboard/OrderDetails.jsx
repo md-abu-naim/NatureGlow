@@ -1,15 +1,12 @@
 import { FaCcMastercard, } from "react-icons/fa";
-import { NavLink, useLoaderData, useParams } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 import OrderTracking from "./OrderTracking";
 
 const OrderDetails = () => {
-    const { _id } = useParams()
-    const orders = useLoaderData()
+    const {data} = useLoaderData()
     const role = "User"
 
-    const order = orders.data?.find(o => o._id === _id)
-
-    const { customerName, profile, paymentStatus, orderStatus, phone, address, email, products, totalPrice } = order || {}
+    const {_id, customerName, customerImage, paymentStatus, orderStatus, phone, address, email, products, totalPrice } = data || {}
 
     return (
         <div>
@@ -120,7 +117,7 @@ const OrderDetails = () => {
                             <h2 className="text-xl font-bold text-green-800">Customer Details</h2>
                         </div>
                         <div className="flex items-center gap-4 my-3">
-                            <img src={profile} className="w-16 h-16 rounded-full border-2 border-green-300 shadow" alt={customerName} />
+                            <img src={customerImage} className="w-16 h-16 rounded-full border-2 border-green-300 shadow" alt={customerName} />
                             <div>
                                 <h2 className="text-lg font-semibold text-gray-800">{customerName}</h2>
                                 <p className="text-sm text-gray-600">{email}</p>
@@ -128,7 +125,7 @@ const OrderDetails = () => {
                         </div>
 
                         <div className="text-sm text-gray-700 space-y-2">
-                            <span className="font-medium text-gray-800">Contact Number: <span className="font-sans font-normal">+88{phone}</span></span>
+                            <span className="font-medium text-gray-800">Contact Number: <span className="font-sans font-normal">{phone}</span></span>
                             <div className="mt-1">
                                 <span className="font-medium text-gray-800">Shipping Address:</span>
                                 <address className=" leading-relaxed mt-1 text-gray-600">
