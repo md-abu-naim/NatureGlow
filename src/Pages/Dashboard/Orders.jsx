@@ -20,7 +20,7 @@ const Orders = () => {
 
     const totalInProgress = orders?.filter(order => order.orderStatus === "In Progress")?.length
     const totalShipped = orders?.filter(order => order.orderStatus === "Shipped")?.length
-    // const totalDelivered = orders?.filter(order => order.orderStatus === "Delivered")?.length
+    const totalDelivered = orders?.filter(order => order.orderStatus === "Delivered")?.length
     // const totalCancelled = orders?.filter(order => order.orderStatus === "Cancelled")?.length
     // const totalPendingPayment = orders?.filter(order => order.paymentStatus === "Unpaid")?.length
     // const totalRefundedPayment = orders?.filter(order => order.paymentStatus === "Refunded")?.length
