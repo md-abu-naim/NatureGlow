@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
       {
         path: '/details/:_id',
         element: <ProductDetails />,
-        loader: () => axios(`http://localhost:3000/products`)
+        loader: () => axios(`http://localhost:3000/products/best`)
       },
       {
         path: '/about',

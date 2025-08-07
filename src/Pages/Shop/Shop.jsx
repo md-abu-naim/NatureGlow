@@ -15,25 +15,32 @@ const Shop = () => {
     const [totalPage, setTotalPage] = useState(1)
     const axiosCommon = useAxiosCommon()
 
-    console.log( currentPage, totalPage);
     const handleSearch = e => {
         const search = e.target.value
         setSearch(search)
+        setCurrentPage(1)
     }
 
     const handleSort = e => {
         const sort = e.target.value
         setSort(sort)
+        setCurrentPage(1)
     }
 
     const handleStatus = e => {
         const value = e.target.value
         const checked = e.target.checked
+        setCurrentPage(1)
         if (checked) {
             setStatus(prev => [...prev, value])
         } else {
             setStatus(prev => prev.filter(item => item !== value))
         }
+    }
+
+    const handleCategory = value => {
+        setCategory(value)
+        setCurrentPage(1)
     }
 
     useEffect(() => {
@@ -64,31 +71,31 @@ const Shop = () => {
                             <ul className="space-y-2 text-sm">
                                 <li>
                                     <label htmlFor="all" className="cursor-pointer">
-                                        <input onChange={() => setCategory('')} type="radio" value="All" id="all" name="category" className="mr-2 text-green-600 focus:ring-green-500" />
+                                        <input onChange={() => handleCategory('')} type="radio" value="All" id="all" name="category" className="mr-2 text-green-600 focus:ring-green-500" />
                                         All
                                     </label>
                                 </li>
                                 <li>
                                     <label htmlFor="face" className="cursor-pointer">
-                                        <input onChange={(e) => setCategory(e.target.value)} type="radio" id="face" value='Face Care' name="category" className="mr-2 text-green-600 focus:ring-green-500" />
+                                        <input onChange={(e) => handleCategory(e.target.value)} type="radio" id="face" value='Face Care' name="category" className="mr-2 text-green-600 focus:ring-green-500" />
                                         Face Care
                                     </label>
                                 </li>
                                 <li>
                                     <label htmlFor="body" className="cursor-pointer">
-                                        <input onChange={(e) => setCategory(e.target.value)} type="radio" id="body" value='Body Care' name="category" className="mr-2 text-green-600 focus:ring-green-500" />
+                                        <input onChange={(e) => handleCategory(e.target.value)} type="radio" id="body" value='Body Care' name="category" className="mr-2 text-green-600 focus:ring-green-500" />
                                         Body Care
                                     </label>
                                 </li>
                                 <li>
                                     <label htmlFor="hair" className="cursor-pointer">
-                                        <input onChange={(e) => setCategory(e.target.value)} type="radio" id="hair" value='Hair Care' name="category" className="mr-2 text-green-600 focus:ring-green-500" />
+                                        <input onChange={(e) => handleCategory(e.target.value)} type="radio" id="hair" value='Hair Care' name="category" className="mr-2 text-green-600 focus:ring-green-500" />
                                         Hair Care
                                     </label>
                                 </li>
                                 <li>
                                     <label htmlFor="lip" className="cursor-pointer">
-                                        <input onChange={(e) => setCategory(e.target.value)} type="radio" id="lip" value='Lip Care' name="category" className="mr-2 text-green-600 focus:ring-green-500" />
+                                        <input onChange={(e) => handleCategory(e.target.value)} type="radio" id="lip" value='Lip Care' name="category" className="mr-2 text-green-600 focus:ring-green-500" />
                                         Lip Care
                                     </label>
                                 </li>
