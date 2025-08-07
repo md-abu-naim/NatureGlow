@@ -25,6 +25,9 @@ const Orders = () => {
     const totalPendingPayment = orders?.filter(order => order.paymentStatus === "Unpaid")?.length
     const totalRefundedPayment = orders?.filter(order => order.paymentStatus === "Refunded")?.length
 
+    const handleDeleteOrder = id => {
+        console.log(id);
+    }
 
     useEffect(() => {
         axiosCommon.get('/orders')
@@ -171,7 +174,7 @@ const Orders = () => {
                                         {
                                             role === 'Admin' ? <>
                                                 <button onClick={() => { setIsOpen(true); setOrder(order) }} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
-                                                <button title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
+                                                <button onClick={() => handleDeleteOrder(order._id)} title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
                                             </> :
                                                 <button title="Cancel Order" className="bg-red-100 hover:bg-red-300 text-red-700 px-2 py-1 rounded-sm transition">Cancel</button>
                                         }
