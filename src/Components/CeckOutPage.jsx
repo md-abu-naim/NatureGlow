@@ -3,13 +3,34 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { Link, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAxiosCommon from '../Hooks/useAxiosCommon';
+import useAuth from '../Hooks/useAuth';
 
 
 const CheckoutPage = () => {
+  const [name, setName] = useState('')
+  const [userEmail, setUserEmail] = useState('')
+  const [phone, setPhone] = useState()
+  const [address, setAddress] = useState('')
+  const [note, setNote] = useState('')
   const [paymentMethod, setPaymentMethod] = useState('cod');
   const [products, setProducts] = useState([])
   const axiosCommon = useAxiosCommon()
   const { _id } = useParams()
+  const { user } = useAuth()
+
+  const total = Math.round(products.reduce((sum, item) => sum + item.price * item.quantity, 0) * 100) / 100;
+
+  const handleAddProduct = products => {
+    const customerName = name || user?.displayName
+    const email = userEmail || user?.email
+    const customerImage = user?.photoURL
+    const paymentStatus = "Unpaid"
+    const orderStatus = "In Progress"
+    const date = new Date().toLocaleDateString()
+    const totalPrice = total
+    const order = {customerName, customerImage, email, address, phone, paymentStatus, orderStatus, date, products, totalPrice, note}
+    console.log(order);
+  }
 
   const handleDelete = id => {
     Swal.fire({
@@ -76,9 +97,6 @@ const CheckoutPage = () => {
     }
   }, [axiosCommon, _id])
 
-
-  const total = Math.round(products.reduce((sum, item) => sum + item.price * item.quantity, 0) * 100) / 100;
-
   return (
     <div>
       <div className='max-w-6xl mx-auto px-4 py-10 space-y-10'>
@@ -94,23 +112,23 @@ const CheckoutPage = () => {
           <div className='space-y-4'>
             <div>
               <label className='block text-sm font-medium text-green-700 mb-1'>Full Name*</label>
-              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="name" required placeholder="Enter full name" />
+              <input onChange={(e) => setName(e.target.value)} className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="name" required placeholder="Enter full name" />
             </div>
             <div>
               <label className='block text-sm font-medium text-green-700 mb-1'>Email (Optional)</label>
-              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="email" name="email" placeholder="example@gmail.com" />
+              <input onChange={(e) => setUserEmail(e.target.value)} className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="email" name="email" placeholder="example@gmail.com" />
             </div>
             <div>
               <label className='block text-sm font-medium text-green-700 mb-1'>Phone Number*</label>
-              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="number" name="number" required placeholder="Enter phone number" />
+              <input onChange={(e) => setPhone(e.target.value)} className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="number" name="number" required placeholder="Enter phone number" />
             </div>
             <div>
               <label className='block text-sm font-medium text-green-700 mb-1'>Address*</label>
-              <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="address" required placeholder="Enter full address" />
+              <input onChange={(e) => setAddress(e.target.value)} className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="address" required placeholder="Enter full address" />
             </div>
             <div>
               <label className='block text-sm font-medium text-green-700 mb-1'>Order note (Optional)</label>
-              <textarea className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' name="" placeholder="Write your order note here" ></textarea>
+              <textarea onChange={(e) => setNote(e.target.value)} className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' name="" placeholder="Write your order note here" ></textarea>
             </div>
           </div>
         </section>
@@ -189,7 +207,7 @@ const CheckoutPage = () => {
           </div>
           <div className='mt-4'>
             {
-              paymentMethod === 'cod' && <button className='w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-3 rounded-xl transition-all'>Place Order</button>
+              paymentMethod === 'cod' && <button onClick={() => handleAddProduct(products)} className='w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-3 rounded-xl transition-all'>Place Order</button>
             }
             {
               paymentMethod === 'ssl' && <div className="p-4 bg-white border border-green-300 rounded-xl">
