@@ -28,9 +28,9 @@ const Orders = () => {
 
     useEffect(() => {
         axiosCommon.get('/orders')
-        .then(res => {
-            setOrders(res.data)
-        })
+            .then(res => {
+                setOrders(res.data)
+            })
     }, [axiosCommon])
     return (
         <div>
