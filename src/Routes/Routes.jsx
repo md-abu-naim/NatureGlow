@@ -43,7 +43,8 @@ export const router = createBrowserRouter([
       {
         path: '/details/:_id',
         element: <ProductDetails />,
-        loader: () => axios(`http://localhost:3000/all-products`)
+        // loader: () => axios(`http://localhost:3000/all-products`)
+        loader: () => axios(`https://natureglow.vercel.app/all-products`)
       },
       {
         path: '/about',
@@ -88,7 +89,8 @@ export const router = createBrowserRouter([
       {
         path: 'admin-dashboard',
         element: <AdminDashboard />,
-        loader: () => axios(`http://localhost:3000/orders`)
+        // loader: () => axios(`http://localhost:3000/orders`)
+        loader: () => axios(`https://natureglow.vercel.app/orders`)
       },
       {
         path: 'users',
@@ -98,12 +100,14 @@ export const router = createBrowserRouter([
       {
         path: 'products',
         element: <Products />,
-        loader: () => axios(`http://localhost:3000/all-products`)
+        // loader: () => axios(`http://localhost:3000/all-products`)
+        loader: () => axios(`https://natureglow.vercel.app/all-products`)
       },
       {
         path: `update/:id`,
         element: <UpdateProduct />,
-        loader: ({ params }) => axios(`http://localhost:3000/product/${params.id}`)
+        // loader: ({ params }) => axios(`http://localhost:3000/product/${params.id}`)
+        loader: ({ params }) => axios(`https://natureglow.vercel.app/product/${params.id}`)
       },
       {
         path: 'addProduct',
@@ -128,7 +132,8 @@ export const router = createBrowserRouter([
       {
         path: 'order-details/:id',
         element: <OrderDetails />,
-        loader: ({params}) => axios(`http://localhost:3000/order/${params.id}`)
+        // loader: ({params}) => axios(`http://localhost:3000/order/${params.id}`)
+        loader: ({params}) => axios(`https://natureglow.vercel.app/order/${params.id}`)
       },
       {
         path: 'profile',
