@@ -66,6 +66,17 @@ const Orders = () => {
 
     }
 
+    // const updateOrderInList = (updatedOrder) => {
+    //     setOrders(prevOrders =>
+    //         prevOrders.map(o => o._id === updatedOrder._id ? updatedOrder : o)
+    //     );
+    // };
+
+    const updateOrderList = updateOrder => {
+        setOrders(prev => prev.map(o => o._id === updateOrder._id ? updateOrder : o))
+    }
+
+
     useEffect(() => {
         axiosCommon.get('/orders')
             .then(res => {
@@ -222,7 +233,7 @@ const Orders = () => {
                     </tbody>
                 </table>
             </section>
-            {isOpen && <UpdateOrderModal setIsOpen={setIsOpen} order={order} />}
+            {isOpen && <UpdateOrderModal setIsOpen={setIsOpen} setOrder={setOrder} order={order} updateOrderList={updateOrderList} />}
         </div>
     );
 };

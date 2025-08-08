@@ -1,12 +1,31 @@
+import Swal from "sweetalert2";
+import useAxiosCommon from "../../../Hooks/useAxiosCommon";
 
-const OrderUpdate = ({ setIsOpen, order}) => {
+const OrderUpdate = ({ setIsOpen, order, setOrder, updateOrderList }) => {
+    const axiosCommon = useAxiosCommon()
 
     const handleOrderUpdate = e => {
         e.preventDefault()
         const form = e.target
         const paymentStatus = form.payment.value
         const orderStatus = form.order.value
-        console.log(paymentStatus, orderStatus);
+        const updatedOrder = {...order, paymentStatus, orderStatus}
+
+        axiosCommon.patch(`/update_order/${order._id}`, updatedOrder)
+            .then(res => {
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: "Product info updated successfully.",
+                        icon: "success",
+                        draggable: true,
+                        timer: 2300,
+                        background: '#dcfce7',
+                    });
+                    setOrder(updatedOrder)
+                    updateOrderList(updatedOrder)
+                    setIsOpen(false)
+                }
+            })
     }
 
     return (
