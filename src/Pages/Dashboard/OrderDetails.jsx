@@ -43,7 +43,7 @@ const OrderDetails = () => {
                                 <tbody className="text-gray-700 divide-y divide-green-100">
                                     {
                                         products?.map((product, i) => (
-                                            <tr key={product.id} className="hover:bg-green-100 transition-all">
+                                            <tr key={product._id} className="hover:bg-green-100 transition-all">
                                                 <td className="px-4 py-3 font-semibold">{i + 1}</td>
                                                 <td className="px-4 py-3 flex items-center gap-1">
                                                     <img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} />
