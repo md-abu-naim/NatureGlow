@@ -26,7 +26,7 @@ const Card = ({ cartItems, setCartItems }) => {
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                const UpdateCart = cartItems.filter(item => item.id !== id)
+                const UpdateCart = cartItems.filter(item => item._id !== id)
                 setCartItems(UpdateCart)
 
                 localStorage.setItem("cart", JSON.stringify(UpdateCart))
@@ -53,7 +53,7 @@ const Card = ({ cartItems, setCartItems }) => {
                         <p className='text-md font-semibold text-green-800'>$ {item.price}.00</p>
                         <Link to={`/details/${item._id}`} className="inline-block mt-2 px-3 py-1 text-sm bg-green-700 text-white rounded hover:bg-green-800 transition">View Details</Link>
                     </div>
-                    <button onClick={() => handleDeleteCart(item.id)} className='bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full transition-all'><FaTrashAlt className="w-5 h-5" /></button>
+                    <button onClick={() => handleDeleteCart(item._id)} className='bg-red-100 hover:bg-red-200 text-red-600 p-2 rounded-full transition-all'><FaTrashAlt className="w-5 h-5" /></button>
                 </div>
                 )
             }

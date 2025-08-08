@@ -13,7 +13,7 @@ const Navbar = () => {
     const handleLogout = () => {
         LogoutUser()
         Swal.fire({
-            title: "Sign Out successfully!",
+            title: "Sign Out Successfully!",
             icon: "success",
             draggable: true,
             timer: 1500,

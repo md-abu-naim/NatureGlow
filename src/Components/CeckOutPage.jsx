@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAxiosCommon from '../Hooks/useAxiosCommon';
 import useAuth from '../Hooks/useAuth';
+import { parsePhoneNumberFromString } from 'libphonenumber-js'
 
 
 const CheckoutPage = () => {
@@ -29,14 +30,34 @@ const CheckoutPage = () => {
     const date = new Date().toLocaleDateString()
     const totalPrice = total
     const order = { customerName, customerImage, email, address, phone, paymentStatus, orderStatus, date, products, totalPrice, note }
-    if (phone === '') {
+    if (!phone) {
       return Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Please type atleast your name & phone number!",
       });
+    } else {
+      const phoneNumber = parsePhoneNumberFromString(phone, 'BD')
+      if (phoneNumber && phoneNumber.isValid()) {
+        axiosCommon.post('/order', order)
+          .then(res => {
+            if (res.data.insertedId)
+              Swal.fire({
+                title: "Place Order Successfully!",
+                icon: "success",
+                draggable: true,
+                timer: 2300,
+                background: '#dcfce7',
+              });
+          })
+      } else {
+        return Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Please type valid phone number!",
+        });
+      }
     }
-    console.log(order);
   }
 
   const handleDelete = id => {

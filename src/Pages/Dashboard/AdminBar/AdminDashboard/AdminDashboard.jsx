@@ -23,7 +23,7 @@ const AdminDashboard = () => {
 
     const dailyUsers = usersData?.filter(u => u.createdAt && u.lastLogin === date)?.length
     const dailyOrders = orders?.filter(o => o.date === date)
-    const totalEarnings = orders?.reduce((acc, sum) => acc + sum.totalPrice, 0)
+    const totalEarnings = orders?.reduce((acc, sum) => acc + sum.totalPrice, 0).toFixed(2)
     const dailyEarnings = dailyOrders?.reduce((acc, sum) => acc + sum.totalPrice, 0)
     const totalDelivered = orders?.filter(order => order.orderStatus === "Delivered")?.length
     const totalCancelled = orders?.filter(order => order.orderStatus === "Cancelled")?.length
