@@ -10,6 +10,7 @@ import { parsePhoneNumberFromString } from 'libphonenumber-js'
 const CheckoutPage = () => {
   const [name, setName] = useState('')
   const [userEmail, setUserEmail] = useState('')
+  const [userAddress, setUserAddress] = useState()
   const [phone, setPhone] = useState()
   const [address, setAddress] = useState('')
   const [note, setNote] = useState('')
@@ -49,6 +50,9 @@ const CheckoutPage = () => {
                 timer: 2300,
                 background: '#dcfce7',
               });
+              const address = {name, email, phone, address, note}
+              localStorage.setItem("userAddress", JSON.stringify(address))
+              setUserAddress(address)
           })
       } else {
         return Swal.fire({
@@ -125,6 +129,12 @@ const CheckoutPage = () => {
     }
   }, [axiosCommon, _id])
 
+
+  useEffect(() => {
+    const address = JSON.parse(localStorage.getItem("userAddress"))
+    setUserAddress(address);
+  }, [])
+
   return (
     <div>
       <div className='max-w-6xl mx-auto px-4 py-10 space-y-10'>
@@ -140,23 +150,23 @@ const CheckoutPage = () => {
           <div className='space-y-4'>
             <div>
               <label className='block text-sm font-medium text-green-700 mb-1'>Full Name*</label>
-              <input onChange={(e) => setName(e.target.value)} className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="name" required placeholder="Enter full name" />
+              <input onChange={(e) => setName(e.target.value)} defaultValue={userAddress?.name} className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="name" required placeholder="Enter full name" />
             </div>
             <div>
               <label className='block text-sm font-medium text-green-700 mb-1'>Email (Optional)</label>
-              <input onChange={(e) => setUserEmail(e.target.value)} className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="email" name="email" placeholder="example@gmail.com" />
+              <input onChange={(e) => setUserEmail(e.target.value)} defaultValue={userAddress?.email}  className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="email" name="email" placeholder="example@gmail.com" />
             </div>
             <div>
               <label className='block text-sm font-medium text-green-700 mb-1'>Phone Number*</label>
-              <input onChange={(e) => setPhone(e.target.value)} className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="number" name="number" required placeholder="Enter phone number" />
+              <input onChange={(e) => setPhone(e.target.value)} defaultValue={userAddress?.phone}  className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="number" name="number" required placeholder="Enter phone number" />
             </div>
             <div>
               <label className='block text-sm font-medium text-green-700 mb-1'>Address*</label>
-              <input onChange={(e) => setAddress(e.target.value)} className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="address" required placeholder="Enter full address" />
+              <input onChange={(e) => setAddress(e.target.value)} defaultValue={userAddress?.address}  className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="address" required placeholder="Enter full address" />
             </div>
             <div>
               <label className='block text-sm font-medium text-green-700 mb-1'>Order note (Optional)</label>
-              <textarea onChange={(e) => setNote(e.target.value)} className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' name="" placeholder="Write your order note here" ></textarea>
+              <textarea onChange={(e) => setNote(e.target.value)} defaultValue={userAddress?.note}  className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' name="" placeholder="Write your order note here" ></textarea>
             </div>
           </div>
         </section>
