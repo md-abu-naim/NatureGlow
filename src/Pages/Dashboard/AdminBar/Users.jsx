@@ -32,10 +32,8 @@ const Users = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [userRole, setUserRole] = useState([])
     const [users, setUsers] = useState([])
-    // const [search, setSearch] = useState('')
+    const [search, setSearch] = useState('')
     const axiosCommon = useAxiosCommon()
-
-    // console.log(search);
 
     useEffect(() => {
         axiosCommon.get(`/users?search=${search}`)
