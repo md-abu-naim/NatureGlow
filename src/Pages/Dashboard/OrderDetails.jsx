@@ -1,12 +1,46 @@
 import { FaCcMastercard, } from "react-icons/fa";
 import { NavLink, useLoaderData } from "react-router-dom";
 import OrderTracking from "./OrderTracking";
+import useAxiosCommon from "../../Hooks/useAxiosCommon";
+import Swal from "sweetalert2";
+import { useState } from "react";
 
 const OrderDetails = () => {
     const { data } = useLoaderData()
+    const [order, setOrder] = useState(data)
+    const axiosCommon = useAxiosCommon()
     const role = "User"
 
-    const { _id, customerName, customerImage, paymentStatus, orderStatus, phone, address, email, products, totalPrice, note } = data || {}
+    const { _id, customerName, customerImage, paymentStatus, orderStatus, phone, address, email, products, totalPrice, note } = order || {}
+
+    const handleOrderUpdate = () => {
+        if (orderStatus === 'Cancelled') {
+            return Swal.fire({
+                title: "Order Already Cancelled.",
+                icon: "error",
+                draggable: true,
+                timer: 2300,
+                background: '#dcfce7',
+            });
+        }
+        else {
+            const orderStatus = "Cancelled"
+            const updateOrder = { paymentStatus, orderStatus }
+            axiosCommon.patch(`/update_order/${_id}`, updateOrder)
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.modifiedCount > 0) {
+                        Swal.fire({
+                            title: "Order Cancelled successfully.",
+                            icon: "success",
+                            draggable: true,
+                            timer: 2300,
+                            background: '#dcfce7',
+                        });
+                    }
+                })
+        }
+    }
 
     return (
         <div>
@@ -27,7 +61,7 @@ const OrderDetails = () => {
                                 <h1 className="text-lg font-bold text-green-800">Ordering List</h1>
                                 {
                                     role === 'Admin' ? <NavLink to="/dashboard/Update-orders" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Edit Product</NavLink> :
-                                        <button title="Order Cancel" className="bg-red-100 hover:bg-red-300 text-red-700 px-3 py-1 rounded-sm transition">Order Cancel</button>
+                                        <button onClick={handleOrderUpdate} title="Order Cancel" className="bg-red-100 hover:bg-red-300 text-red-700 px-3 py-1 rounded-sm transition">{orderStatus === 'Cancelled' ? `Order ${orderStatus}` : "Order Cancel"}</button>
                                 }
                             </div>
                             <table className="min-w-full text-sm text-left table-auto">
