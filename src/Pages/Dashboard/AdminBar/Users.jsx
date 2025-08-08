@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import UpdateRole from "../Modals/UpdateRole";
-import { useLoaderData } from "react-router-dom";
+import useAxiosCommon from "../../../Hooks/useAxiosCommon";
 
 // const users = [
 //     {
@@ -31,7 +31,18 @@ import { useLoaderData } from "react-router-dom";
 const Users = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [userRole, setUserRole] = useState([])
-    const users = useLoaderData()
+    const [users, setUsers] = useState([])
+    // const [search, setSearch] = useState('')
+    const axiosCommon = useAxiosCommon()
+
+    // console.log(search);
+
+    useEffect(() => {
+        axiosCommon.get(`/users?search=${search}`)
+        .then(res => {
+            setUsers(res.data)
+        })
+    }, [axiosCommon, search])
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
@@ -40,7 +51,7 @@ const Users = () => {
             </section>
             <form className='w-full bg-green-100 mt-3 p-3 rounded-lg'>
                 <div className='relative lg:w-2xl mx-auto'>
-                    <input placeholder="Search user name..." className="w-full px-4 pr-16 py-2 bg-green-50 border border-green-300 rounded-full shadow-sm focus:outline-none" type="text" name="search" />
+                    <input onChange={(e) => setSearch(e.target.value)} placeholder="Search user name..." className="w-full px-4 pr-16 py-2 bg-green-50 border border-green-300 rounded-full shadow-sm focus:outline-none" type="text" name="search" />
                     <button type='submit' className="absolute top-1/2 -translate-y-1/2 right-2 bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full text-sm transition">Search..</button>
                 </div>
             </form>
@@ -64,7 +75,7 @@ const Users = () => {
                                 <tr key={i} className="hover:bg-green-100 transition-all">
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
                                     <td className="px-4 py-3 flex items-center gap-1">
-                                        <img src={u.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={u.name} />
+                                        <img src={u.profilePic} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={u.name} />
                                         <h5>{u.name}</h5>
                                     </td>
                                     <td className="px-4 py-3">{u.email}</td>
