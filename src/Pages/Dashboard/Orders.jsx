@@ -10,6 +10,7 @@ import { NavLink } from "react-router-dom";
 import UpdateOrderModal from "./Modals/OrderUpdate";
 import { useEffect, useState } from "react";
 import useAxiosCommon from "../../Hooks/useAxiosCommon";
+import Swal from "sweetalert2";
 
 const Orders = () => {
     const [orders, setOrders] = useState([])
@@ -26,7 +27,43 @@ const Orders = () => {
     const totalRefundedPayment = orders?.filter(order => order.paymentStatus === "Refunded")?.length
 
     const handleDeleteOrder = id => {
-        console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            background: '#dcfce7',
+            color: '#000000',
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "Cancel",
+            buttonsStyling: false,
+            customClass: {
+                popup: 'rounded-lg shadow-lg',
+                title: 'text-lg font-semibold text-yellow-400',
+                htmlContainer: 'text-sm text-gray-300',
+                confirmButton: 'bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2',
+                cancelButton: 'bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosCommon.delete(`/order/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success",
+                                background: '#dcfce7',
+                                timer: 2300
+                            });
+                            setOrders(prev => prev.filter(p => p._id !== id))
+                        }
+                    })
+            }
+        });
+
     }
 
     useEffect(() => {
@@ -145,7 +182,7 @@ const Orders = () => {
                             orders?.map((order, i) => (
                                 <tr key={i} className="hover:bg-green-100 transition-all">
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
-                                    <td className="px-4 py-3 font-medium">{order._id?.slice(0,6)}</td>
+                                    <td className="px-4 py-3 font-medium">{order._id?.slice(0, 6)}</td>
                                     {
                                         role === 'Admin' && <>
                                             <td className="px-4 py-3 font-semibold">{order.customerName}</td>
