@@ -5,7 +5,6 @@ import { LuPackagePlus } from "react-icons/lu";
 import { NavLink, useLoaderData } from 'react-router-dom';
 import { StatusAreaChart, StatusComposedChart, StatusLineChart, StatusPieChart } from './Charts';
 import { useEffect, useState } from "react";
-import axios from "axios";
 import OrderUpdate from "../../Modals/OrderUpdate";
 import { AiOutlineEye } from "react-icons/ai";
 import Swal from "sweetalert2";
@@ -69,11 +68,11 @@ const AdminDashboard = () => {
         }
 
     useEffect(() => {
-        axios.get('/Users.json')
+        axiosCommon.get('/users')
             .then(res => {
                 setUsersData(res.data)
             })
-    }, [])
+    }, [axiosCommon])
     return (
         <div>
             <section className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-6 p-4">
