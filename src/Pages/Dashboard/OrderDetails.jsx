@@ -28,7 +28,6 @@ const OrderDetails = () => {
             const updateOrder = { paymentStatus, orderStatus }
             axiosCommon.patch(`/update_order/${_id}`, updateOrder)
                 .then(res => {
-                    console.log(res.data);
                     if (res.data.modifiedCount > 0) {
                         Swal.fire({
                             title: "Order Cancelled successfully.",
