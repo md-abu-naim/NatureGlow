@@ -37,7 +37,7 @@ const OrderDetails = () => {
                             timer: 2300,
                             background: '#dcfce7',
                         });
-                        setOrder(prev => ({...prev, paymentStatus, orderStatus}))
+                        setOrder(prev => ({ ...prev, paymentStatus, orderStatus }))
                     }
                 })
         }
