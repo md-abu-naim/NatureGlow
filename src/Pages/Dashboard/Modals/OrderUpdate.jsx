@@ -9,7 +9,7 @@ const OrderUpdate = ({ setIsOpen, order, setOrder, updateOrderList }) => {
         const form = e.target
         const paymentStatus = form.payment.value
         const orderStatus = form.order.value
-        const updatedOrder = {...order, paymentStatus, orderStatus}
+        const updatedOrder = { ...order, paymentStatus, orderStatus }
 
         axiosCommon.patch(`/update_order/${order._id}`, updatedOrder)
             .then(res => {
