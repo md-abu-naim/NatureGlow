@@ -3,10 +3,10 @@ import { NavLink, useLoaderData } from "react-router-dom";
 import OrderTracking from "./OrderTracking";
 
 const OrderDetails = () => {
-    const {data} = useLoaderData()
+    const { data } = useLoaderData()
     const role = "User"
 
-    const {_id, customerName, customerImage, paymentStatus, orderStatus, phone, address, email, products, totalPrice } = data || {}
+    const { _id, customerName, customerImage, paymentStatus, orderStatus, phone, address, email, products, totalPrice, note } = data || {}
 
     return (
         <div>
@@ -27,7 +27,7 @@ const OrderDetails = () => {
                                 <h1 className="text-lg font-bold text-green-800">Ordering List</h1>
                                 {
                                     role === 'Admin' ? <NavLink to="/dashboard/Update-orders" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Edit Product</NavLink> :
-                                    <button title="Order Cancel" className="bg-red-100 hover:bg-red-300 text-red-700 px-3 py-1 rounded-sm transition">Order Cancel</button>
+                                        <button title="Order Cancel" className="bg-red-100 hover:bg-red-300 text-red-700 px-3 py-1 rounded-sm transition">Order Cancel</button>
                                 }
                             </div>
                             <table className="min-w-full text-sm text-left table-auto">
@@ -60,6 +60,15 @@ const OrderDetails = () => {
                                 </tbody>
                             </table>
                         </section>
+                        <div className="bg-green-100 rounded-lg p-5 mt-4 border border-green-200 shadow-md">
+                            <h3 className="text-lg text-green-800 font-bold">Order Note</h3>
+                            <div className="bg-green-50 shadow-inner p-3 rounded-lg">
+                                {
+                                    note ? <p className="text-gray-800">{note}</p> :
+                                        <p className="text-gray-800">No Order Note</p>
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
 

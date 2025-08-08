@@ -27,7 +27,7 @@ const UserDashboard = () => {
             const orderDate = parse(order.date, 'M/d/yyyy', new Date())
             return isSameDay(orderDate, day)
         })
-        const totalPrice = ordersOfTheDay?.reduce((acc, sum) => acc + sum.totalPrice, 0) || 0
+        const totalPrice = ordersOfTheDay?.reduce((acc, sum) => acc + sum.totalPrice, 0).toFixed(2) || 0
         chartData.push({
             name: format(day, 'EEE'),
             totalOrders: ordersOfTheDay?.length,
@@ -36,8 +36,8 @@ const UserDashboard = () => {
     }
 
     const dailyOrders = orders?.filter(o => o.date === today)
-    const totalSpent = orders?.reduce((acc, sum) => acc + sum.totalPrice, 0)
-    const dailySpent = dailyOrders?.reduce((acc, sum) => acc + sum.totalPrice, 0)
+    const totalSpent = orders?.reduce((acc, sum) => acc + sum.totalPrice, 0).toFixed(2)
+    const dailySpent = dailyOrders?.reduce((acc, sum) => acc + sum.totalPrice, 0).toFixed(2)
     const totalDelivered = orders?.filter(order => order.orderStatus === "Delivered")?.length
     const totalInProgresss = orders?.filter(order => order.orderStatus === "In Progress")?.length
     const totalSipped = orders?.filter(order => order.orderStatus === "Shipped")?.length
@@ -175,7 +175,7 @@ const UserDashboard = () => {
                             recentOrders?.map((order, i) => (
                                 <tr key={i} className="hover:bg-green-100 transition-all">
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
-                                    <td className="px-4 py-3 font-medium">{order._id}</td>
+                                    <td className="px-4 py-3 font-medium">{order._id.slice(0,6)}</td>
                                     <td className="px-4 py-3 ">{order.products?.length} Items</td>
                                     <td className="px-4 py-3 font-semibold">
                                         <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm ${order.paymentStatus === 'Paid' ? 'bg-green-100 text-green-700' : order.paymentStatus === 'Unpaid' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'}`}>

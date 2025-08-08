@@ -117,7 +117,7 @@ export const router = createBrowserRouter([
       {
         path: 'user-dashboard',
         element: <UserDashboard />,
-        loader: () => axios(`/Orders.json`)
+        loader: () => axios(`https://natureglow.vercel.app/orders`)
       },
       {
         path: 'addressBook',
