@@ -121,7 +121,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'addressBook',
-        element: <AddressBook />
+        element: <PrivateRoutes><AddressBook /></PrivateRoutes>
       },
 
       // Shared Routes
