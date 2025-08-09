@@ -111,7 +111,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'addProduct',
-        element: <AddProduct />
+        element: <PrivateRoutes><AddProduct /></PrivateRoutes>
       },
       // User Routes
       {
