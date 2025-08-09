@@ -89,7 +89,7 @@ export const router = createBrowserRouter([
       // Admin Routes
       {
         path: 'admin-dashboard',
-        element: <AdminDashboard />,
+        element: <PrivateRoutes><AdminDashboard /></PrivateRoutes>,
         // loader: () => axios(`http://localhost:3000/orders`)
         loader: () => axios(`https://natureglow.vercel.app/orders`)
       },
