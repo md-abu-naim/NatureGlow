@@ -68,7 +68,7 @@ const SignIn = () => {
                                 timer: 1500,
                                 background: '#dcfce7',
                             });
-                            // navigate('/')
+                            navigate('/')
                         }
                     })
             })
