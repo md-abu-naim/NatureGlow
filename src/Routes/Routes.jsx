@@ -25,6 +25,7 @@ import Orders from "../Pages/Dashboard/Orders";
 import AdminDashboard from "../Pages/Dashboard/AdminBar/AdminDashboard/AdminDashboard";
 import UserDashboard from "../Pages/Dashboard/UserBar/UserDashboard";
 import axios from "axios";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -83,7 +84,7 @@ export const router = createBrowserRouter([
   {
     path: '/dashboard',
     errorElement: <ErrorElement />,
-    element: <Dashboard />,
+    element: <PrivateRoutes><Dashboard /></PrivateRoutes>,
     children: [
       // Admin Routes
       {
