@@ -105,7 +105,7 @@ const SignIn = () => {
                     timer: 1500,
                     background: '#dcfce7',
                 });
-                navigate('/')
+                navigate(location.state || '/')
                 const userInfo = {
                     name: res?.user?.displayName, email: res?.user?.email, password: '',
                     profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
