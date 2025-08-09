@@ -1,10 +1,29 @@
+import Swal from "sweetalert2";
+import useAxiosCommon from "../../../Hooks/useAxiosCommon";
 
-const UpdateRole = ({setIsOpen, user}) => {
+const UpdateRole = ({ setIsOpen, setUser, user, updateUserList }) => {
+    const axiosCommon = useAxiosCommon()
 
     const updateUserRole = e => {
         e.preventDefault()
         const role = e.target.role.value
-        console.log(role);
+        const updatedUser = { ...user, role }
+        
+        axiosCommon.patch(`/user/${user._id}`, updatedUser)
+            .then(res => {
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: "User Role Updated Cuccessfully.",
+                        icon: "success",
+                        draggable: true,
+                        timer: 2300,
+                        background: '#dcfce7',
+                    });
+                    setUser(updatedUser)
+                    updateUserList(updatedUser)
+                    setIsOpen(false)
+                }
+            })
     }
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-end mr-6">
@@ -13,7 +32,7 @@ const UpdateRole = ({setIsOpen, user}) => {
                 <form onSubmit={updateUserRole} className="space-y-4">
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Select Role</label>
-                        <select name="role" defaultValue={user.value} className="w-full mt-1 border rounded px-2 py-1" >
+                        <select name="role" defaultValue={user.role} className="w-full mt-1 border rounded px-2 py-1" >
                             <option value="Admin">Admin</option>
                             <option value="User">User</option>
                         </select>

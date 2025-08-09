@@ -66,12 +66,6 @@ const Orders = () => {
 
     }
 
-    // const updateOrderInList = (updatedOrder) => {
-    //     setOrders(prevOrders =>
-    //         prevOrders.map(o => o._id === updatedOrder._id ? updatedOrder : o)
-    //     );
-    // };
-
     const updateOrderList = updateOrder => {
         setOrders(prev => prev.map(o => o._id === updateOrder._id ? updateOrder : o))
     }
