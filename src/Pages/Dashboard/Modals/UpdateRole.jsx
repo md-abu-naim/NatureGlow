@@ -4,11 +4,11 @@ import useAxiosCommon from "../../../Hooks/useAxiosCommon";
 const UpdateRole = ({ setIsOpen, setUser, user, updateUserList }) => {
     const axiosCommon = useAxiosCommon()
 
-    const updateUserRole = e => {
+    const handleUpdateUserRole = e => {
         e.preventDefault()
         const role = e.target.role.value
         const updatedUser = { ...user, role }
-        
+
         axiosCommon.patch(`/user/${user._id}`, updatedUser)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
@@ -25,11 +25,12 @@ const UpdateRole = ({ setIsOpen, setUser, user, updateUserList }) => {
                 }
             })
     }
+
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-end mr-6">
             <div className="bg-green-100 rounded-lg p-6 shadow-lg border border-green-300">
                 <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">Update User Role</h2>
-                <form onSubmit={updateUserRole} className="space-y-4">
+                <form onSubmit={handleUpdateUserRole} className="space-y-4">
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Select Role</label>
                         <select name="role" defaultValue={user.role} className="w-full mt-1 border rounded px-2 py-1" >

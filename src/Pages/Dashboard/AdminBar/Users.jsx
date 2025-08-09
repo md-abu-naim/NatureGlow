@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import UpdateRole from "../Modals/UpdateRole";
 import useAxiosCommon from "../../../Hooks/useAxiosCommon";
+import Swal from "sweetalert2";
 
 const Users = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -11,14 +12,53 @@ const Users = () => {
     const axiosCommon = useAxiosCommon()
 
     const updateUserList = updatedUser => {
-        setUsers(prev => prev.map(u => u._id === updatedUser._id ? updatedUser: u))
+        setUsers(prev => prev.map(u => u._id === updatedUser._id ? updatedUser : u))
+    }
+
+    const HandleDeleteUser = id => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            background: '#dcfce7',
+            color: '#000000',
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "Cancel",
+            buttonsStyling: false,
+            customClass: {
+                popup: 'rounded-lg shadow-lg',
+                title: 'text-lg font-semibold text-yellow-400',
+                htmlContainer: 'text-sm text-gray-300',
+                confirmButton: 'bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2',
+                cancelButton: 'bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosCommon.delete(`/user/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "User has been deleted.",
+                                icon: "success",
+                                background: '#dcfce7',
+                                timer: 2300
+                            });
+                            setUsers(prev => prev.filter(p => p._id !== id))
+                        }
+                    })
+            }
+        });
     }
 
     useEffect(() => {
         axiosCommon.get(`/users?search=${search}`)
-        .then(res => {
-            setUsers(res.data)
-        })
+            .then(res => {
+                setUsers(res.data)
+            })
     }, [axiosCommon, search])
     return (
         <div>
@@ -64,7 +104,8 @@ const Users = () => {
                                         </span>
                                     </td>
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
-                                        <button onClick={() => { setIsOpen(true), setUserRole(u) }} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>                                        <button title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
+                                        <button onClick={() => { setIsOpen(true), setUserRole(u) }} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
+                                        <button onClick={() => HandleDeleteUser(u._id)} title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
                                     </td>
                                 </tr>
                             ))
