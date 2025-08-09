@@ -80,6 +80,7 @@ const Users = () => {
                             <th className="py-3 px-4">#</th>
                             <th className="py-3 px-4">Profile & Name</th>
                             <th className="py-3 px-4">Email</th>
+                            <th className="py-3 px-4">Status</th>
                             <th className="py-3 px-4">Phone Number</th>
                             <th className="py-3 px-4">Address</th>
                             <th className="py-3 px-4">User Role</th>
@@ -96,6 +97,11 @@ const Users = () => {
                                         <h5>{u.name}</h5>
                                     </td>
                                     <td className="px-4 py-3">{u.email}</td>
+                                    <td className="px-4 py-3">
+                                        <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${u.status === "Active" ? "bg-green-200 text-green-700" : "bg-red-200 text-red-700"}`}>
+                                            {u.status}
+                                        </span>
+                                    </td>
                                     <td className="px-4 py-3 font-sans">{u.phone}</td>
                                     <td className="px-4 py-3">{u.address}</td>
                                     <td className="px-6 py-4 ">
