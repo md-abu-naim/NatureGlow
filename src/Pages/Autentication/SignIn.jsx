@@ -6,7 +6,7 @@ import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 
 const SignIn = () => {
-    const { loginUser, signInWithGoogle, fbLogin, resetPassword } = useAuth();
+    const { loginUser, signInWithGoogle, fbLogin, resetPassword, user } = useAuth();
     const [showPass, setShowPass] = useState(false)
     const navigate = useNavigate()
 

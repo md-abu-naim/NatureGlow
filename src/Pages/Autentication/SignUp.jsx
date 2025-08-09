@@ -19,15 +19,11 @@ const SignUp = () => {
         const name = form.name.value
         const email = form.email.value
         const password = form.password.value
-        const profile = user?.photoURL
         const status = "Active"
         const createdAt = new Date().toLocaleDateString()
         const role = 'User'
         const lastLogin = new Date().toLocaleDateString()
-        const phone = user?.phoneNumber
         const address = ''
-        const userID = user?.uid
-        const userData = { name, email, password, profile, status, createdAt, role, lastLogin, phone, address, userID }
 
         if (! /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             return toast.error('Please enter your valid email')
@@ -53,7 +49,15 @@ const SignUp = () => {
                     displayName: name,
                     photoURL: result?.user?.photoURL
                 })
-                axiosCommon.post('/user', userData)
+                
+                const userInfo = {
+                    name, email, password, 
+                    profile: result?.user?.photoURL || '',
+                    status, createdAt, role, lastLogin, address,
+                    phone: result?.user?.phoneNumber || '',
+                    userId: result?.user?.uid || ''
+                }
+                axiosCommon.post('/user', userInfo)
                     .then(res => {
                         console.log(res.data);
                         if (res.data.insertedId) {
