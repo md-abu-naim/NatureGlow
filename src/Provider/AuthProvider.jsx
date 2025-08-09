@@ -41,6 +41,20 @@ const AuthProvider = ({ children }) => {
 
     const signInWithGoogle = () => {
         setLoading(true)
+        axiosCommon.put(`/user/${recentUser._id}`, { ...recentUser, status: "Inactive" })
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: "Sign Out Successfully!",
+                        icon: "success",
+                        draggable: true,
+                        timer: 1500,
+                        background: '#dcfce7',
+                    });
+                    return signOut(auth)
+                }
+            })
         return signInWithPopup(auth, googleProvider)
     }
 
