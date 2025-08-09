@@ -19,17 +19,38 @@ const SignIn = () => {
         const password = form.password.value;
 
         loginUser(email, password)
-            .then((result) => {
-                console.log(result.user);
+            // .then((result) => {
+            //     console.log(result.user);
+            //     Swal.fire({
+            //         title: "Sign In successfully",
+            //         icon: "success",
+            //         draggable: true,
+            //         background: '#dcfce7',
+            //         timer: 2000,
+            //     });
+            //     e.target.reset()
+            //     navigate('/')
+            // })
+            .then((res) => {
                 Swal.fire({
-                    title: "Sign In successfully",
+                    title: "Sign Up successfully",
                     icon: "success",
                     draggable: true,
+                    timer: 1500,
                     background: '#dcfce7',
-                    timer: 2000,
                 });
-                e.target.reset()
                 navigate('/')
+                const userInfo = {
+                    name: res?.user?.displayName, email, password,
+                    profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
+                    createdAt: new Date().toLocaleDateString(), lastLogin: new Date().toLocaleDateString(),
+                    phone: res?.user?.phoneNumber || '',
+                    userId: res?.user?.uid || ''
+                }
+                axiosCommon.post('/user', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                    })
             })
             .catch((err) => toast.error(err.message));
     };
@@ -51,6 +72,13 @@ const SignIn = () => {
         signInWithGoogle()
             .then((res) => {
                 navigate('/')
+                Swal.fire({
+                    title: "Sign Up successfully",
+                    icon: "success",
+                    draggable: true,
+                    timer: 1500,
+                    background: '#dcfce7',
+                });
                 const userInfo = {
                     name: res?.user?.displayName, email: res?.user?.email, password: '',
                     profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
@@ -60,15 +88,7 @@ const SignIn = () => {
                 }
                 axiosCommon.post('/user', userInfo)
                     .then(res => {
-                        if (res.data.insertedId) {
-                            Swal.fire({
-                                title: "Sign Up successfully",
-                                icon: "success",
-                                draggable: true,
-                                timer: 1500,
-                                background: '#dcfce7',
-                            });
-                        }
+                        console.log(res.data);
                     })
             })
             .catch((err) => toast.error(err.message));
@@ -77,7 +97,14 @@ const SignIn = () => {
     const handleFacebook = () => {
         fbLogin()
             .then((res) => {
-                console.log(res.user);
+                Swal.fire({
+                    title: "Sign Up successfully",
+                    icon: "success",
+                    draggable: true,
+                    timer: 1500,
+                    background: '#dcfce7',
+                });
+                navigate('/')
                 const userInfo = {
                     name: res?.user?.displayName, email: res?.user?.email, password: '',
                     profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
@@ -87,16 +114,7 @@ const SignIn = () => {
                 }
                 axiosCommon.post('/user', userInfo)
                     .then(res => {
-                        if (res.data.insertedId) {
-                            Swal.fire({
-                                title: "Sign Up successfully",
-                                icon: "success",
-                                draggable: true,
-                                timer: 1500,
-                                background: '#dcfce7',
-                            });
-                            navigate('/')
-                        }
+                        console.log(res.data);
                     })
             })
             .catch((err) => toast.error(err.message));

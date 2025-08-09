@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import useAuth from '../../../Hooks/useAuth'
 import { FaBars } from 'react-icons/fa'
@@ -10,6 +10,7 @@ import UserRoutes from './UserRoutes'
 const Sideber = () => {
     const [isActive, setActive] = useState(false)
     const { LogoutUser } = useAuth()
+    const navigate = useNavigate()
 
     // Sidebar Responsive Handler
     const handleToggle = () => {
@@ -18,6 +19,7 @@ const Sideber = () => {
 
     const handleLogout = () => {
         LogoutUser()
+        navigate('/signIn')
     };
 
     return (
