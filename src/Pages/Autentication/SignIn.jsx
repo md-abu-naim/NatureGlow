@@ -1,5 +1,5 @@
 import { FaEnvelope, FaLock, FaFacebookF, FaGoogle, FaUnlock } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import { useState } from "react";
@@ -11,6 +11,7 @@ const SignIn = () => {
     const [showPass, setShowPass] = useState(false)
     const axiosCommon = useAxiosCommon()
     const navigate = useNavigate()
+    const location = useLocation()
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -39,7 +40,7 @@ const SignIn = () => {
                     timer: 1500,
                     background: '#dcfce7',
                 });
-                navigate('/')
+                navigate(location.state || '/')
                 const userInfo = {
                     name: res?.user?.displayName, email, password,
                     profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
@@ -71,7 +72,7 @@ const SignIn = () => {
     const handleGoogle = () => {
         signInWithGoogle()
             .then((res) => {
-                navigate('/')
+                navigate(location.state || '/')
                 Swal.fire({
                     title: "Sign Up successfully",
                     icon: "success",

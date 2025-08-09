@@ -1,5 +1,5 @@
 import { FaEnvelope, FaLock, FaUnlock, FaUser } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import { useState } from "react";
@@ -11,6 +11,7 @@ const SignUp = () => {
     const [showPass, setShowPass] = useState(false)
     const axiosCommon = useAxiosCommon()
     const navigate = useNavigate()
+    const location = useLocation()
 
 
     const handleSingUp = (e) => {
@@ -70,7 +71,7 @@ const SignUp = () => {
                             });
                         }
                         e.target.reset()
-                        navigate('/')
+                        navigate(location.state || '/')
                     })
             })
     }
