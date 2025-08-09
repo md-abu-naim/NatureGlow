@@ -127,7 +127,7 @@ export const router = createBrowserRouter([
       // Shared Routes
       {
         path: 'orders',
-        element: <Orders />
+        element: <PrivateRoutes><Orders /></PrivateRoutes>
       },
       {
         path: 'order-details/:id',
