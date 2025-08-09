@@ -50,7 +50,7 @@ const SignIn = () => {
     const handleGoogle = () => {
         signInWithGoogle()
             .then((res) => {
-                console.log(res.user);
+                navigate('/')
                 const userInfo = {
                     name: res?.user?.displayName, email: res?.user?.email, password: '',
                     profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
@@ -68,7 +68,6 @@ const SignIn = () => {
                                 timer: 1500,
                                 background: '#dcfce7',
                             });
-                            navigate('/')
                         }
                     })
             })

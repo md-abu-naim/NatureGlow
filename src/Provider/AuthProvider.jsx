@@ -11,13 +11,18 @@ import {
     updatePassword,
     updateProfile,
 } from "firebase/auth";
+import useAxiosCommon from "../Hooks/useAxiosCommon";
+import Swal from "sweetalert2";
 export const AuthContext = createContext(null)
 const googleProvider = new GoogleAuthProvider()
 const fbProvider = new FacebookAuthProvider();
 
 const AuthProvider = ({ children }) => {
+    const [recentUser, setRecentUser] = useState([])
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const axiosCommon = useAxiosCommon()
+
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -60,7 +65,20 @@ const AuthProvider = ({ children }) => {
 
     const LogoutUser = () => {
         setLoading(true)
-        return signOut(auth)
+        axiosCommon.put(`/user/${recentUser._id}`, { ...recentUser, status: "Inactive" })
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: "Sign Out Successfully!",
+                        icon: "success",
+                        draggable: true,
+                        timer: 1500,
+                        background: '#dcfce7',
+                    });
+                    return signOut(auth)
+                }
+            })
     }
 
     const resetPassword = (email) => {
@@ -75,6 +93,13 @@ const AuthProvider = ({ children }) => {
         })
         return () => unSubsCribe()
     })
+
+    useEffect(() => {
+        axiosCommon.get(`/users/${user?.email}`)
+            .then(res => {
+                setRecentUser(res.data)
+            })
+    }, [axiosCommon, user?.email])
 
     const authInfo = {
         createUser, loginUser, updateUser, passwordUpdate, reauthencticateUser,

@@ -1,17 +1,15 @@
 import { useState } from 'react'
 import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import useAuth from '../../../Hooks/useAuth'
 import { FaBars } from 'react-icons/fa'
 import AdminRoutes from './AdminRoutes'
 import UserRoutes from './UserRoutes'
-import Swal from 'sweetalert2'
 const Sideber = () => {
     const [isActive, setActive] = useState(false)
     const { LogoutUser } = useAuth()
-    const navigate = useNavigate()
 
     // Sidebar Responsive Handler
     const handleToggle = () => {
@@ -20,14 +18,6 @@ const Sideber = () => {
 
     const handleLogout = () => {
         LogoutUser()
-        Swal.fire({
-            title: "Sign Out successfully!",
-            icon: "success",
-            draggable: true,
-            timer: 1500,
-            background: '#dcfce7',
-        });
-        navigate('/signIn')
     };
 
     return (

@@ -22,7 +22,7 @@ const SignUp = () => {
         const status = "Active"
         const createdAt = new Date().toLocaleDateString()
         const role = 'User'
-        const lastLogin = new Date().toLocaleDateString()
+        const lastLogin = ''
         const address = ''
 
         if (! /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
