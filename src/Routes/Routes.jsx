@@ -131,7 +131,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'order-details/:id',
-        element: <OrderDetails />,
+        element: <PrivateRoutes><OrderDetails /></PrivateRoutes>,
         // loader: ({params}) => axios(`http://localhost:3000/order/${params.id}`)
         loader: ({params}) => axios(`https://natureglow.vercel.app/order/${params.id}`)
       },
