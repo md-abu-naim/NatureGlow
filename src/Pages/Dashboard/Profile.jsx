@@ -52,7 +52,7 @@ const Profile = () => {
       </div>
 
       {
-        openUpdateModal && <ProfileUpdate setOpenUpdateModal={setOpenUpdateModal} />
+        openUpdateModal && <ProfileUpdate setOpenUpdateModal={setOpenUpdateModal} currentUser={currentUser} setCurrentUser={setCurrentUser} />
       }
       {
         openPassModal && <ChangePassword setOpenPassModal={setOpenPassModal} />

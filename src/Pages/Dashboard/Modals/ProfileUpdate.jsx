@@ -1,26 +1,61 @@
+import axios from "axios";
+import { useState } from "react";
 import Swal from "sweetalert2";
-import useAuth from "../../../Hooks/useAuth";
+import useAxiosCommon from "../../../Hooks/useAxiosCommon";
 
-const ProfileUpdate = ({ setOpenUpdateModal }) => {
-    const { user, updateUser, setUser } = useAuth()
+const ProfileUpdate = ({ setOpenUpdateModal, setCurrentUser, currentUser }) => {
+    const [profile_url, setProfile_url] = useState(null)
+    const [cover_url, setCover_url] = useState(null)
+    const axiosCommon = useAxiosCommon()
+
+    const handleProfile = e => {
+        const img = e.target.files[0]
+        const formData = new FormData()
+        formData.append('image', img)
+        axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_API_KEY}`, formData)
+            .then(res => {
+                setProfile_url(res.data.data.display_url)
+            })
+    }
+
+    const handleCover = e => {
+        const img = e.target.files[0]
+        const formData = new FormData()
+        formData.append('image', img)
+        axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_API_KEY}`, formData)
+            .then(res => {
+                setCover_url(res.data.data.display_url)
+            })
+    }
+    console.log("cover", cover_url);
+    console.log("profil", profile_url);
+
     const handleUpdateUser = (e) => {
         e.preventDefault()
-        const name = e.target.name.value
-        const photoURL = e.target.photoURL.value
-        updateUser(name, photoURL)
-        setUser({
-            ...user,
-            displayName: name,
-            photoURL: photoURL
-        })
-        Swal.fire({
-            title: "Profile Updated Successfully!",
-            icon: "success",
-            draggable: true,
-            timer: 1500,
-            background: '#dcfce7',
-        });
-        setOpenUpdateModal(false)
+        const form = e.target
+        const name = form.name.value
+        const profile = profile_url || currentUser.profile
+        const cover = cover_url || currentUser.cover
+
+        const updateUser = { ...currentUser, name, profile, cover }
+        console.log(updateUser);
+
+        axiosCommon.put(`/user/${currentUser._id}`, updateUser)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: "Product Updated successfully!",
+                        icon: "success",
+                        draggable: true,
+                        timer: 2300,
+                        background: '#dcfce7',
+                    });
+                    setOpenUpdateModal(false)
+                    setCurrentUser(prev => ({ ...prev, name, profile, cover }))
+                }
+            })
+
     }
 
     return (
@@ -30,15 +65,15 @@ const ProfileUpdate = ({ setOpenUpdateModal }) => {
                 <form onSubmit={handleUpdateUser} className="space-y-4">
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Name</label>
-                        <input className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" placeholder={user?.displayName} type="text" name="name" required />
+                        <input defaultValue={currentUser.name} className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Type Full Name" type="text" name="name" required />
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Select Profile</label>
-                        <input className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" type='file' name="photoURL" />
+                        <input onChange={handleProfile} className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" type='file' name="profile" />
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Select Cover</label>
-                        <input className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" type='file' name="cover" />
+                        <input onChange={handleCover} className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" type='file' name="cover" />
                     </div>
 
                     <div className="flex justify-end gap-4 p-2">
