@@ -27,8 +27,6 @@ const ProfileUpdate = ({ setOpenUpdateModal, setCurrentUser, currentUser }) => {
                 setCover_url(res.data.data.display_url)
             })
     }
-    console.log("cover", cover_url);
-    console.log("profil", profile_url);
 
     const handleUpdateUser = (e) => {
         e.preventDefault()
