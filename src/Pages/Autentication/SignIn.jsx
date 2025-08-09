@@ -4,10 +4,12 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
+import useAxiosCommon from "../../Hooks/useAxiosCommon";
 
 const SignIn = () => {
-    const { loginUser, signInWithGoogle, fbLogin, resetPassword, user } = useAuth();
+    const { loginUser, signInWithGoogle, fbLogin, resetPassword } = useAuth();
     const [showPass, setShowPass] = useState(false)
+    const axiosCommon = useAxiosCommon()
     const navigate = useNavigate()
 
     const handleLogin = (e) => {
@@ -49,14 +51,26 @@ const SignIn = () => {
         signInWithGoogle()
             .then((res) => {
                 console.log(res.user);
-                Swal.fire({
-                    title: "Sign In successfully",
-                    icon: "success",
-                    draggable: true,
-                    timer: 2000,
-                    background: '#dcfce7',
-                });
-                navigate('/')
+                const userInfo = {
+                    name: res?.user?.displayName, email: res?.user?.email, password: '',
+                    profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
+                    createdAt: new Date().toLocaleDateString(), lastLogin: new Date().toLocaleDateString(),
+                    phone: res?.user?.phoneNumber || '',
+                    userId: res?.user?.uid || ''
+                }
+                axiosCommon.post('/user', userInfo)
+                    .then(res => {
+                        if (res.data.insertedId) {
+                            Swal.fire({
+                                title: "Sign Up successfully",
+                                icon: "success",
+                                draggable: true,
+                                timer: 1500,
+                                background: '#dcfce7',
+                            });
+                            // navigate('/')
+                        }
+                    })
             })
             .catch((err) => toast.error(err.message));
     };
@@ -65,14 +79,26 @@ const SignIn = () => {
         fbLogin()
             .then((res) => {
                 console.log(res.user);
-                Swal.fire({
-                    title: "Sign In successfully",
-                    icon: "success",
-                    draggable: true,
-                    timer: 2000,
-                    background: '#dcfce7',
-                });
-                navigate('/')
+                const userInfo = {
+                    name: res?.user?.displayName, email: res?.user?.email, password: '',
+                    profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
+                    createdAt: new Date().toLocaleDateString(), lastLogin: new Date().toLocaleDateString(),
+                    phone: res?.user?.phoneNumber || '',
+                    userId: res?.user?.uid || ''
+                }
+                axiosCommon.post('/user', userInfo)
+                    .then(res => {
+                        if (res.data.insertedId) {
+                            Swal.fire({
+                                title: "Sign Up successfully",
+                                icon: "success",
+                                draggable: true,
+                                timer: 1500,
+                                background: '#dcfce7',
+                            });
+                            navigate('/')
+                        }
+                    })
             })
             .catch((err) => toast.error(err.message));
     };
@@ -109,8 +135,8 @@ const SignIn = () => {
                             <input name="password" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type={showPass ? 'text' : 'password'} required placeholder="••••••••" />
                             <span onClick={() => setShowPass(!showPass)} className="cursor-pointer">
                                 {
-                                    showPass ? <FaUnlock  className="absolute right-4 top-3.5 text-green-400" /> :
-                                    <FaLock  className="absolute right-4 top-3.5 text-green-400" />
+                                    showPass ? <FaUnlock className="absolute right-4 top-3.5 text-green-400" /> :
+                                        <FaLock className="absolute right-4 top-3.5 text-green-400" />
                                 }
                             </span>
                         </div>
