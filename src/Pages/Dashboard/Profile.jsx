@@ -13,7 +13,12 @@ const Profile = () => {
 
   console.log(currentUser);
 
-  useEffect(() =
+  useEffect(() => {
+          axiosCommon.get(`/users/${user?.email}`)
+              .then(res => {
+                  setCurrentUser(res.data)
+              })
+      }, [axiosCommon, user?.email])
   return (
     <div>
       <div className="flex justify-center items-center min-h-screen px-4">
