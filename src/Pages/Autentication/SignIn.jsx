@@ -42,11 +42,10 @@ const SignIn = () => {
                 });
                 navigate(location.state || '/')
                 const userInfo = {
-                    name: res?.user?.displayName, email, password,
+                    name: res?.user?.displayName, email, password, cover: '',
                     profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
                     createdAt: new Date().toLocaleDateString(), lastLogin: new Date().toLocaleDateString(),
-                    phone: res?.user?.phoneNumber || '',
-                    userId: res?.user?.uid || ''
+                    phone: res?.user?.phoneNumber || '', userId: res?.user?.uid || ''
                 }
                 axiosCommon.post('/user', userInfo)
                     .then(res => {
@@ -81,11 +80,10 @@ const SignIn = () => {
                     background: '#dcfce7',
                 });
                 const userInfo = {
-                    name: res?.user?.displayName, email: res?.user?.email, password: '',
+                    name: res?.user?.displayName, email: res?.user?.email, password: '', cover: '',
                     profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
                     createdAt: new Date().toLocaleDateString(), lastLogin: new Date().toLocaleDateString(),
-                    phone: res?.user?.phoneNumber || '',
-                    userId: res?.user?.uid || ''
+                    phone: res?.user?.phoneNumber || '', userId: res?.user?.uid || ''
                 }
                 axiosCommon.post('/user', userInfo)
                     .then(res => {
@@ -107,11 +105,10 @@ const SignIn = () => {
                 });
                 navigate(location.state || '/')
                 const userInfo = {
-                    name: res?.user?.displayName, email: res?.user?.email, password: '',
+                    name: res?.user?.displayName, email: res?.user?.email, password: '', cover: '',
                     profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
                     createdAt: new Date().toLocaleDateString(), lastLogin: new Date().toLocaleDateString(),
-                    phone: res?.user?.phoneNumber || '',
-                    userId: res?.user?.uid || ''
+                    phone: res?.user?.phoneNumber || '', userId: res?.user?.uid || ''
                 }
                 axiosCommon.post('/user', userInfo)
                     .then(res => {

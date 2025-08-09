@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import ProfileUpdate from "./Modals/ProfileUpdate";
 import ChangePassword from "./Modals/ChangePassword";
+import useAxiosCommon from "../../Hooks/useAxiosCommon";
 
 const Profile = () => {
-  const { user, } = useAuth();
   const [openUpdateModal, setOpenUpdateModal] = useState(false)
   const [openPassModal, setOpenPassModal] = useState(false)
+  const [currentUser, setCurrentUser] = useState()
+  const axiosCommon = useAxiosCommon()
+  const { user, } = useAuth();
 
+  console.log(currentUser);
+
+  useEffect(() =
   return (
     <div>
       <div className="flex justify-center items-center min-h-screen px-4">

@@ -25,6 +25,7 @@ const SignUp = () => {
         const role = 'User'
         const lastLogin = ''
         const address = ''
+        const cover = ''
 
         if (! /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             return toast.error('Please enter your valid email')
@@ -52,7 +53,7 @@ const SignUp = () => {
                 })
                 
                 const userInfo = {
-                    name, email, password, 
+                    name, email, password, cover,
                     profile: result?.user?.photoURL || '',
                     status, createdAt, role, lastLogin, address,
                     phone: result?.user?.phoneNumber || '',

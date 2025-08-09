@@ -1,7 +1,16 @@
+import { useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
+import useAxiosCommon from "../../../Hooks/useAxiosCommon";
+import parsePhoneNumberFromString from "libphonenumber-js";
+import Swal from "sweetalert2";
 
 const AddressBook = () => {
+    const [currentUser, setCurrentUser] = useState()
+    const axiosCommon = useAxiosCommon()
     const { user } = useAuth()
+
+    const { _id, name, email, phone, address, status } = currentUser || {}
+    console.log(status);
 
     const handleAddressBook = e => {
         e.preventDefault()
@@ -10,10 +19,38 @@ const AddressBook = () => {
         const email = form.email.value
         const phone = form.phone.value
         const address = form.address.value
-        const note = form.note.value
-        const addressBook = { name, email, phone, address, note }
+        const addressBook = { ...currentUser, name, email, phone, address }
         console.log(addressBook);
+        const phoneNumber = parsePhoneNumberFromString(phone, 'BD')
+        if (phoneNumber && phoneNumber.isValid()) {
+            axiosCommon.put(`/user/${_id}`, addressBook)
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.modifiedCount > 0) {
+                        Swal.fire({
+                            title: "Place Order Successfully!",
+                            icon: "success",
+                            draggable: true,
+                            timer: 2300,
+                            background: '#dcfce7',
+                        });
+                    }
+                })
+        } else {
+            return Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Please type valid phone number!",
+            });
+        }
     }
+
+    useEffect(() => {
+        axiosCommon.get(`/users/${user?.email}`)
+            .then(res => {
+                setCurrentUser(res.data)
+            })
+    }, [axiosCommon, user?.email])
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
@@ -25,23 +62,19 @@ const AddressBook = () => {
                 <form onSubmit={handleAddressBook} className='space-y-4'>
                     <div>
                         <label className='block text-sm font-medium text-green-700 mb-1'>Full Name</label>
-                        <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="name" placeholder="Enter full name" />
+                        <input defaultValue={name} className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="name" placeholder="Enter full name" />
                     </div>
                     <div>
                         <label className='block text-sm font-medium text-green-700 mb-1'>Email (Optional)</label>
-                        <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' defaultValue={user?.email} type="email" name="email" placeholder="example@gmail.com" />
+                        <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none cursor-not-allowed focus:ring-2 focus:ring-green-500' value={email} type="email" name="email" placeholder="example@gmail.com" />
                     </div>
                     <div>
                         <label className='block text-sm font-medium text-green-700 mb-1'>Phone Number</label>
-                        <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="number" name="phone" placeholder="Enter phone number" />
+                        <input defaultValue={phone} className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="number" name="phone" placeholder="Enter phone number" />
                     </div>
                     <div>
-                        <label className='block text-sm font-medium text-green-700 mb-1'>Address</label>
-                        <input className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' type="text" name="address" placeholder="Enter Full address" />
-                    </div>
-                    <div>
-                        <label className='block text-sm font-medium text-green-700 mb-1'> Any note? (Optional)</label>
-                        <textarea className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' name="note" placeholder="Write your note here" ></textarea>
+                        <label className='block text-sm font-medium text-green-700 mb-1'> Address</label>
+                        <textarea defaultValue={address} className='w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500' name="address" placeholder="Enter Full address..." ></textarea>
                     </div>
                     <div className="mt-5 flex justify-end gap-4">
                         <button type="reset" className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Reset</button>
