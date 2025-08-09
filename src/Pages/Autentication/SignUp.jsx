@@ -4,12 +4,14 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
+import useAxiosCommon from "../../Hooks/useAxiosCommon";
 
 const SignUp = () => {
-    const {createUser, updateUser, setUser, user} = useAuth()
+    const { createUser, updateUser, setUser, user } = useAuth()
     const [showPass, setShowPass] = useState(false)
+    const axiosCommon = useAxiosCommon()
     const navigate = useNavigate()
-    
+
 
     const handleSingUp = (e) => {
         e.preventDefault()
@@ -17,8 +19,17 @@ const SignUp = () => {
         const name = form.name.value
         const email = form.email.value
         const password = form.password.value
+        const profile = user?.photoURL
+        const status = "Active"
+        const createdAt = new Date().toLocaleDateString()
+        const role = 'User'
+        const lastLogin = new Date().toLocaleDateString()
+        const phone = user?.phoneNumber
+        const address = ''
+        const userID = user?.uid
+        const userData = { name, email, password, profile, status, createdAt, role, lastLogin, phone, address, userID }
 
-        if(! /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+        if (! /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             return toast.error('Please enter your valid email')
         }
         if (password === '') {
@@ -35,23 +46,29 @@ const SignUp = () => {
         }
 
         createUser(email, password)
-        .then(result => {
-            updateUser(name, result?.user?.photoURL)
-            setUser({
+            .then(result => {
+                updateUser(name, result?.user?.photoURL)
+                setUser({
                     ...user,
                     displayName: name,
                     photoURL: result?.user?.photoURL
                 })
-                Swal.fire({
-                    title: "Sign Up successfully",
-                    icon: "success",
-                    draggable: true,
-                    timer: 1500,
-                    background: '#dcfce7',
-                });
-                e.target.reset()
-                navigate('/')
-        })
+                axiosCommon.post('/user', userData)
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.insertedId) {
+                            Swal.fire({
+                                title: "Sign Up successfully",
+                                icon: "success",
+                                draggable: true,
+                                timer: 1500,
+                                background: '#dcfce7',
+                            });
+                        }
+                        e.target.reset()
+                        navigate('/')
+                    })
+            })
     }
 
     return (
@@ -89,8 +106,8 @@ const SignUp = () => {
                             <input name="password" className="w-full px-4 py-3 border border-green-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" type={showPass ? 'text' : 'password'} required placeholder="••••••••" />
                             <span onClick={() => setShowPass(!showPass)} title="Show Password" className="cursor-pointer">
                                 {
-                                    showPass ? <FaUnlock className="absolute right-4 top-3.5 text-green-400" /> : 
-                                    <FaLock className="absolute right-4 top-3.5 text-green-400" />
+                                    showPass ? <FaUnlock className="absolute right-4 top-3.5 text-green-400" /> :
+                                        <FaLock className="absolute right-4 top-3.5 text-green-400" />
                                 }
                             </span>
                         </div>

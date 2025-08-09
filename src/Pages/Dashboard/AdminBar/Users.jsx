@@ -92,7 +92,7 @@ const Users = () => {
                                 <tr key={i} className="hover:bg-green-100 transition-all">
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
                                     <td className="px-4 py-3 flex items-center gap-1">
-                                        <img src={u.profilePic} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={u.name} />
+                                        <img src={u.profile} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={u.name} />
                                         <h5>{u.name}</h5>
                                     </td>
                                     <td className="px-4 py-3">{u.email}</td>

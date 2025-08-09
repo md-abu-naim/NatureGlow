@@ -185,13 +185,13 @@ export const StatusLineChart = ({ users }) => {
         const active = users.filter(u => {
             const created = parse(u.createdAt, 'M/d/yyyy', new Date())
             return (
-                u.status === "active" && isWithinInterval(created, { start: month.start, end: month.end })
+                u.status === "Active" && isWithinInterval(created, { start: month.start, end: month.end })
             )
         })?.length
         const inActive = users.filter(u => {
             const created = parse(u.createdAt, 'M/d/yyyy', new Date())
             return (
-                u.status === "inactive" && isWithinInterval(created, { start: month.start, end: month.end })
+                u.status === "Inactive" && isWithinInterval(created, { start: month.start, end: month.end })
             )
         })?.length
 
