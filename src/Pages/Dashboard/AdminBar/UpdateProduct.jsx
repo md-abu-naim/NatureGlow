@@ -2,10 +2,12 @@ import axios from "axios";
 import { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const UpdateProduct = () => {
     const [image_url, setImage_url] = useState(null)
     const { data } = useLoaderData()
+    const axiosSecure = useAxiosSecure()
     const navigate = useNavigate()
 
     const { _id, name, price, category, status, image, shortBio, description, features } = data || {}
@@ -36,7 +38,7 @@ const UpdateProduct = () => {
         const features = rawEeatures.split('\n').map(f => f.replace(/^-\s*/, '').trim()).filter(f => f)
         const product = { name, price, category, status, image, shortBio, description, features }
 
-        axios.put(`http://localhost:3000/product/${_id}`, product)
+        axiosSecure.put(`/product/${_id}`, product)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     Swal.fire({
