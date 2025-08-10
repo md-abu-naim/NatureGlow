@@ -2,7 +2,7 @@ import { BsBan, BsTruck } from "react-icons/bs";
 import { FaUsers, FaShoppingCart, FaMoneyBillWave, FaUserPlus, FaTrash, FaEdit } from "react-icons/fa";
 import { FiTrendingUp } from "react-icons/fi";
 import { LuPackagePlus } from "react-icons/lu";
-import { NavLink, useLoaderData } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { StatusAreaChart, StatusComposedChart, StatusLineChart, StatusPieChart } from './Charts';
 import { useEffect, useState } from "react";
 import OrderUpdate from "../../Modals/OrderUpdate";
@@ -15,8 +15,7 @@ const AdminDashboard = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [orderData, setOrderData] = useState([])
     const axiosSecure = useAxiosSecure()
-    const { data } = useLoaderData()
-    const [orders, setOrders] = useState(data)
+    const [orders, setOrders] = useState([])
 
     const date = new Date().toLocaleDateString()
 
@@ -68,6 +67,9 @@ const AdminDashboard = () => {
     }
 
     useEffect(() => {
+        axiosSecure.get('/orders')
+        .then(res => setOrders(res.data))
+
         axiosSecure.get('/users')
             .then(res => {
                 setUsersData(res.data)

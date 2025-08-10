@@ -4,12 +4,15 @@ import { BsBan, BsTruck } from "react-icons/bs";
 import { FaMoneyBillWave, FaShippingFast, FaShoppingCart } from "react-icons/fa";
 import { FiRefreshCw, FiTrendingUp } from "react-icons/fi";
 import { LuPackagePlus } from "react-icons/lu";
-import { NavLink, useLoaderData } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Bar, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { useEffect, useState } from "react";
 
 const UserDashboard = () => {
-    const {data} = useLoaderData()
-    const orders = data
+    const [orders, setOrders] = useState([])
+    const axiosSecure = useAxiosSecure()
+
 
     const today = new Date().toLocaleDateString()
     const oneWeekAgo = subDays(today, 7)
@@ -43,6 +46,10 @@ const UserDashboard = () => {
     const totalSipped = orders?.filter(order => order.orderStatus === "Shipped")?.length
     const totalCancelled = orders?.filter(order => order.orderStatus === "Cancelled")?.length
 
+    useEffect(() => {
+        axiosSecure.get('/orders')
+        .then(res => setOrders(res.data))
+    })
     return (
         <div>
             <section className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-6 p-4">

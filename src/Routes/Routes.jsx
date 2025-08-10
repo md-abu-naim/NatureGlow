@@ -89,9 +89,7 @@ export const router = createBrowserRouter([
       // Admin Routes
       {
         path: 'admin-dashboard',
-        element: <PrivateRoutes><AdminDashboard /></PrivateRoutes>,
-        // loader: () => axios(`http://localhost:3000/orders`, {withCredentials: true})
-        loader: () => axios(`https://natureglow.vercel.app/orders`, {withCredentials: true})
+        element: <PrivateRoutes><AdminDashboard /></PrivateRoutes>
       },
       {
         path: 'users',
@@ -100,14 +98,14 @@ export const router = createBrowserRouter([
       {
         path: 'products',
         element: <PrivateRoutes><Products /></PrivateRoutes>,
-        // loader: () => axios(`http://localhost:3000/all-products`, {withCredentials: true})
-        loader: () => axios(`https://natureglow.vercel.app/all-products`, {withCredentials: true})
+        // loader: () => axios(`http://localhost:3000/all-products`)
+        loader: () => axios(`https://natureglow.vercel.app/all-products`)
       },
       {
         path: `update/:id`,
         element: <PrivateRoutes><UpdateProduct /></PrivateRoutes>,
-        // loader: ({ params }) => axios(`http://localhost:3000/product/${params.id}`, {withCredentials: true})
-        loader: ({ params }) => axios(`https://natureglow.vercel.app/product/${params.id}`, {withCredentials: true})
+        // loader: ({ params }) => axios(`http://localhost:3000/product/${params.id}`)
+        loader: ({ params }) => axios(`https://natureglow.vercel.app/product/${params.id}`)
       },
       {
         path: 'addProduct',
@@ -116,8 +114,7 @@ export const router = createBrowserRouter([
       // User Routes
       {
         path: 'user-dashboard',
-        element: <PrivateRoutes><UserDashboard /></PrivateRoutes>,
-        loader: () => axios(`https://natureglow.vercel.app/orders`, {withCredentials: true})
+        element: <PrivateRoutes><UserDashboard /></PrivateRoutes>
       },
       {
         path: 'addressBook',
@@ -132,8 +129,8 @@ export const router = createBrowserRouter([
       {
         path: 'order-details/:id',
         element: <PrivateRoutes><OrderDetails /></PrivateRoutes>,
-        // loader: ({params}) => axios(`http://localhost:3000/order/${params.id}`, {withCredentials: true})
-        loader: ({ params }) => axios(`https://natureglow.vercel.app/order/${params.id}`, {withCredentials: true})
+        // loader: ({params}) => axios(`http://localhost:3000/order/${params.id}`)
+        loader: ({ params }) => axios(`https://natureglow.vercel.app/order/${params.id}`)
       },
       {
         path: 'profile',
