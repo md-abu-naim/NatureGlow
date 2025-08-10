@@ -9,14 +9,14 @@ import { RiRefund2Line } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import UpdateOrderModal from "./Modals/OrderUpdate";
 import { useEffect, useState } from "react";
-import useAxiosCommon from "../../Hooks/useAxiosCommon";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const Orders = () => {
     const [orders, setOrders] = useState([])
     const [isOpen, setIsOpen] = useState(false)
     const [order, setOrder] = useState()
-    const axiosCommon = useAxiosCommon()
+    const axiosSecure = useAxiosSecure()
     const role = 'Admin'
 
     const totalInProgress = orders?.filter(order => order.orderStatus === "In Progress")?.length
@@ -48,7 +48,7 @@ const Orders = () => {
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosCommon.delete(`/order/${id}`)
+                axiosSecure.delete(`/order/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
@@ -72,11 +72,11 @@ const Orders = () => {
 
 
     useEffect(() => {
-        axiosCommon.get('/orders')
+        axiosSecure.get('/orders')
             .then(res => {
                 setOrders(res.data)
             })
-    }, [axiosCommon])
+    }, [axiosSecure])
     return (
         <div>
             {/* Title */}
