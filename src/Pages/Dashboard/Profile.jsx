@@ -11,14 +11,14 @@ const Profile = () => {
   const axiosSecure = useAxiosSecure()
   const { user, } = useAuth();
 
-  const {name, email, profile, cover, role, userId} = currentUser || {}
+  const { name, email, profile, cover, role, userId } = currentUser || {}
 
   useEffect(() => {
-          axiosSecure.get(`/user/${user?.email}`)
-              .then(res => {
-                  setCurrentUser(res.data)
-              })
-      }, [axiosSecure, user?.email])
+    axiosSecure.get(`/user/${user?.email}`)
+      .then(res => {
+        setCurrentUser(res.data)
+      })
+  }, [axiosSecure, user?.email])
   return (
     <div>
       <div className="flex justify-center items-center min-h-screen px-4">

@@ -36,11 +36,9 @@ const ProfileUpdate = ({ setOpenUpdateModal, setCurrentUser, currentUser }) => {
         const cover = cover_url || currentUser.cover
 
         const updateUser = { ...currentUser, name, profile, cover }
-        console.log(updateUser);
 
         axiosSecure.put(`/user/${currentUser._id}`, updateUser)
             .then(res => {
-                console.log(res.data);
                 if (res.data.modifiedCount > 0) {
                     Swal.fire({
                         title: "Product Updated successfully!",
