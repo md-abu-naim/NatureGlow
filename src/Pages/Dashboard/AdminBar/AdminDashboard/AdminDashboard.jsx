@@ -8,13 +8,13 @@ import { useEffect, useState } from "react";
 import OrderUpdate from "../../Modals/OrderUpdate";
 import { AiOutlineEye } from "react-icons/ai";
 import Swal from "sweetalert2";
-import useAxiosCommon from "../../../../Hooks/useAxiosCommon";
+import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 
 const AdminDashboard = () => {
     const [usersData, setUsersData] = useState([])
     const [isOpen, setIsOpen] = useState(false)
     const [orderData, setOrderData] = useState([])
-    const axiosCommon = useAxiosCommon()
+    const axiosSecure = useAxiosSecure()
     const { data } = useLoaderData()
     const [orders, setOrders] = useState(data)
 
@@ -49,7 +49,7 @@ const AdminDashboard = () => {
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosCommon.delete(`/order/${id}`)
+                axiosSecure.delete(`/order/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
@@ -68,11 +68,11 @@ const AdminDashboard = () => {
     }
 
     useEffect(() => {
-        axiosCommon.get('/users')
+        axiosSecure.get('/users')
             .then(res => {
                 setUsersData(res.data)
             })
-    }, [axiosCommon])
+    }, [axiosSecure])
     return (
         <div>
             <section className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-6 p-4">
