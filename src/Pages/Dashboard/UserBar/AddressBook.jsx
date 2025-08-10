@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
-import useAxiosCommon from "../../../Hooks/useAxiosCommon";
 import parsePhoneNumberFromString from "libphonenumber-js";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const AddressBook = () => {
     const [currentUser, setCurrentUser] = useState()
-    const axiosCommon = useAxiosCommon()
+    const axiosSecure = useAxiosSecure()
     const { user } = useAuth()
 
-    const { _id, name, email, phone, address, status } = currentUser || {}
-    console.log(status);
+    const { _id, name, email, phone, address } = currentUser || {}
 
     const handleAddressBook = e => {
         e.preventDefault()
@@ -20,12 +19,11 @@ const AddressBook = () => {
         const phone = form.phone.value
         const address = form.address.value
         const addressBook = { ...currentUser, name, email, phone, address }
-        console.log(addressBook);
+
         const phoneNumber = parsePhoneNumberFromString(phone, 'BD')
         if (phoneNumber && phoneNumber.isValid()) {
-            axiosCommon.put(`/user/${_id}`, addressBook)
+            axiosSecure.put(`/user/${_id}`, addressBook)
                 .then(res => {
-                    console.log(res.data);
                     if (res.data.modifiedCount > 0) {
                         Swal.fire({
                             title: "Place Order Successfully!",
@@ -46,11 +44,11 @@ const AddressBook = () => {
     }
 
     useEffect(() => {
-        axiosCommon.get(`/users/${user?.email}`)
+        axiosSecure.get(`/user/${user?.email}`)
             .then(res => {
                 setCurrentUser(res.data)
             })
-    }, [axiosCommon, user?.email])
+    }, [axiosSecure, user?.email])
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
