@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import UpdateRole from "../Modals/UpdateRole";
-import useAxiosCommon from "../../../Hooks/useAxiosCommon";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const Users = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [userRole, setUserRole] = useState([])
     const [users, setUsers] = useState([])
     const [search, setSearch] = useState('')
-    const axiosCommon = useAxiosCommon()
+    const axiosSecure = useAxiosSecure()
 
     const updateUserList = updatedUser => {
         setUsers(prev => prev.map(u => u._id === updatedUser._id ? updatedUser : u))
@@ -37,7 +37,7 @@ const Users = () => {
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosCommon.delete(`/user/${id}`)
+                axiosSecure.delete(`/user/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
@@ -55,11 +55,11 @@ const Users = () => {
     }
 
     useEffect(() => {
-        axiosCommon.get(`/users?search=${search}`)
+        axiosSecure.get(`/users?search=${search}`)
             .then(res => {
                 setUsers(res.data)
             })
-    }, [axiosCommon, search])
+    }, [axiosSecure, search])
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
