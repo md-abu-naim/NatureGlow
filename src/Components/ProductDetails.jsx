@@ -77,7 +77,8 @@ const ProductDetails = () => {
                 setRelatedProduct(res.data)
             })
 
-        axiosCommon.get(`/revi
+        axiosCommon.get(`/reviews/${_id}`)
+            .then(res => {
                 setReviews(res.data);
             })
     }, [axiosCommon, category, _id])
