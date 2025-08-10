@@ -36,9 +36,9 @@ const SignIn = () => {
                     phone: res?.user?.phoneNumber || '', userId: res?.user?.uid || ''
                 }
                 axiosCommon.post('/user', userInfo)
-                .then(res => console.log(res.data))
-                axiosCommon.post('/jwt', {email: res?.user?.email}, {withCredentials: true})
-                .then(res => console.log(res.data))
+                    .then(res => console.log(res.data))
+                axiosCommon.post('/jwt', { email: res?.user?.email }, { withCredentials: true })
+                    .then(res => console.log(res.data))
             })
             .catch((err) => toast.error(err.message));
     };
@@ -73,12 +73,12 @@ const SignIn = () => {
                     createdAt: new Date().toLocaleDateString(), lastLogin: new Date().toLocaleDateString(),
                     phone: res?.user?.phoneNumber || '', userId: res?.user?.uid || ''
                 }
-                axiosCommon.post('/user', userInfo, {withCredentials: true})
+                axiosCommon.post('/user', userInfo, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
                     })
-                axiosCommon.post('/jwt', {email: res?.user?.email}, {withCredentials: true})
-                .then(res => console.log(res.data))
+                axiosCommon.post('/jwt', { email: res?.user?.email }, { withCredentials: true })
+                    .then(res => console.log(res.data))
             })
             .catch((err) => toast.error(err.message));
     };
@@ -104,8 +104,8 @@ const SignIn = () => {
                     .then(res => {
                         console.log(res.data);
                     })
-                axiosCommon.post('/jwt', {email: res?.user?.email}, {withCredentials: true})
-                .then(res => console.log(res.data))
+                axiosCommon.post('/jwt', { email: res?.user?.email }, { withCredentials: true })
+                    .then(res => console.log(res.data))
             })
             .catch((err) => toast.error(err.message));
     };
