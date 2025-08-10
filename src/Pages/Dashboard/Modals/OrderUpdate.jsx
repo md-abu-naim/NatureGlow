@@ -1,8 +1,8 @@
 import Swal from "sweetalert2";
-import useAxiosCommon from "../../../Hooks/useAxiosCommon";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const OrderUpdate = ({ setIsOpen, order, setOrder, updateOrderList }) => {
-    const axiosCommon = useAxiosCommon()
+    const axiosSecure = useAxiosSecure()
 
     const handleOrderUpdate = e => {
         e.preventDefault()
@@ -11,7 +11,7 @@ const OrderUpdate = ({ setIsOpen, order, setOrder, updateOrderList }) => {
         const orderStatus = form.order.value
         const updatedOrder = { ...order, paymentStatus, orderStatus }
 
-        axiosCommon.patch(`/update_order/${order._id}`, updatedOrder)
+        axiosSecure.patch(`/update_order/${order._id}`, updatedOrder)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     Swal.fire({
