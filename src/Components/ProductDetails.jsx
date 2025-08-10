@@ -7,29 +7,30 @@ import Swal from 'sweetalert2';
 import useAuth from '../Hooks/useAuth';
 import useAxiosCommon from '../Hooks/useAxiosCommon';
 
-const reviews = [
-    {
-        name: "Sarah Ahmed",
-        profile: "https://randomuser.me/api/portraits/women/65.jpg",
-        review: "This product really exceeded my expectations. Quality is top-notch and delivery was super fast!",
-        rating: 5,
-    },
-    {
-        name: "Ratul Hossain",
-        profile: "https://randomuser.me/api/portraits/men/32.jpg",
-        review: "Product ta valo chilo, but packaging could be better. Overall, I’m satisfied.",
-        rating: 4,
-    },
-    {
-        name: "Mim Akter",
-        profile: "https://randomuser.me/api/portraits/women/72.jpg",
-        review: "I didn’t find it as useful as described. Maybe it’s not for my skin type.",
-        rating: 2,
-    },
-];
+// const reviews = [
+//     {
+//         name: "Sarah Ahmed",
+//         profile: "https://randomuser.me/api/portraits/women/65.jpg",
+//         review: "This product really exceeded my expectations. Quality is top-notch and delivery was super fast!",
+//         rating: 5,
+//     },
+//     {
+//         name: "Ratul Hossain",
+//         profile: "https://randomuser.me/api/portraits/men/32.jpg",
+//         review: "Product ta valo chilo, but packaging could be better. Overall, I’m satisfied.",
+//         rating: 4,
+//     },
+//     {
+//         name: "Mim Akter",
+//         profile: "https://randomuser.me/api/portraits/women/72.jpg",
+//         review: "I didn’t find it as useful as described. Maybe it’s not for my skin type.",
+//         rating: 2,
+//     },
+// ];
 
 const ProductDetails = () => {
     const [relatedProduct, setRelatedProduct] = useState([])
+    const [reviews, setReviews] = useState()
     const [value, setValue] = useState(0);
     const products = useLoaderData()
     const axiosCommon = useAxiosCommon()
@@ -63,7 +64,7 @@ const ProductDetails = () => {
         const review = e.target.review.value
         const rating = value
         const productID = _id
-        const name = user?.displayName
+        const name = user?.displayName || 'Anonymous'
         const profile = user?.photoURL
         const email = user?.email
         const submitReview = { review, rating, productID, name, profile, email }
@@ -75,7 +76,11 @@ const ProductDetails = () => {
             .then(res => {
                 setRelatedProduct(res.data)
             })
-    }, [axiosCommon, category])
+
+        axiosCommon.get(`/revi
+                setReviews(res.data);
+            })
+    }, [axiosCommon, category, _id])
     return (
         <div className='px-4 md:px-16 py-10'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-green-50 p-6 rounded-2xl border border-green-100'>
@@ -143,7 +148,7 @@ const ProductDetails = () => {
                 <div className='order-2 md:order-1 bg-green-50 p-4 rounded-lg'>
                     <h3 className='text-2xl text-green-800 font-bold'>Customer Review</h3>
                     {
-                        reviews.map((review, i) => (
+                        reviews?.map((review, i) => (
                             <div key={i} className='bg-green-100 p-4 rounded-lg shadow-inner mt-2'>
                                 <div className='flex items-center gap-2'>
                                     <img className='w-14 h-14 rounded-full border-2 border-green-300' src={review.profile} alt="Customer Profile" />
