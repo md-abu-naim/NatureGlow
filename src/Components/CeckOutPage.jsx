@@ -50,8 +50,8 @@ const CheckoutPage = () => {
                 timer: 2300,
                 background: '#dcfce7',
               });
-            const address = { name, email, phone, address, note }
-            localStorage.setItem("userAddress", JSON.stringify(address))
+            const userAddress = { name, email, phone, address, note }
+            localStorage.setItem("userAddress", JSON.stringify(userAddress))
             setUserAddress(address)
           })
       } else {
@@ -110,7 +110,7 @@ const CheckoutPage = () => {
   }
 
   const handleQuantity = (id, value) => {
-    const updated = products.map(item => item.id === id ? { ...item, quantity: parseFloat(value) || 1 } : item)
+    const updated = products.map(item => item._id === id ? { ...item, quantity: parseFloat(value) || 1 } : item)
     setProducts(updated)
   }
 

@@ -3,92 +3,105 @@ import {
     AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ComposedChart, Bar,
     ResponsiveContainer, PieChart, Pie, Cell, Legend, LineChart, Line,
 } from "recharts";
-import { format, subMonths, isWithinInterval, parseISO, subDays, subYears, isAfter, parse, addMonths } from "date-fns";
+import { format, subMonths, isWithinInterval, parseISO, subDays, subYears, isAfter, parse, addMonths, eachDayOfInterval, eachMonthOfInterval, subHours } from "date-fns";
 
+// Status Area CHart Start Here
 export const StatusAreaChart = ({ orders }) => {
-    const [activeTab, setActiveTab] = useState("today")
+    const [activeTab, setActiveTab] = useState("today");
 
     const chartData = useMemo(() => {
-        const now = new Date()
-        let startDate;
+        const now = new Date();
+        let startDate, endDate = now;
 
         if (activeTab === 'today') {
-            startDate = subDays(now, 1)
+            startDate = subDays(now, 1);
         } else if (activeTab === 'monthly') {
-            startDate = subMonths(now, 1)
+            startDate = subMonths(now, 1);
         } else if (activeTab === 'yearly') {
-            startDate = subYears(now, 1)
+            startDate = subYears(now, 1);
         }
 
-        const dataMap = new Map()
+        const dataMap = new Map();
+
         orders.forEach(order => {
-            const orderDate = typeof order.date === "string" ? parseISO(order.date) : new Date(order.date)
-            if (isWithinInterval(orderDate, { start: startDate, end: now })) {
-                let label = ''
-                if (activeTab === "today") label = format(orderDate, 'hh:mm a')
-                else if (activeTab === 'monthly') label = format(orderDate, 'd')
-                else if (activeTab === 'yearly') label = format(orderDate, 'MMM')
+            let orderDate;
+            if (typeof order.date === "string") {
+                orderDate = parseISO(order.date);
+                if (isNaN(orderDate)) {
+                    orderDate = parse(order.date, 'M/d/yyyy', new Date());
+                }
+            } else {
+                orderDate = new Date(order.date);
+            }
+            if (isWithinInterval(orderDate, { start: startDate, end: endDate })) {
+                let label = '';
+                if (activeTab === "today") label = format(orderDate, 'h a');
+                else if (activeTab === 'monthly') label = format(orderDate, 'MMM d');
+                else if (activeTab === 'yearly') label = format(orderDate, 'MMM yy');
 
                 if (dataMap.has(label)) {
-                    const prev = dataMap.get(label)
+                    const prev = dataMap.get(label);
                     dataMap.set(label, {
                         totalPrice: prev.totalPrice + order.totalPrice,
                         orderCount: prev.orderCount + 1
-                    })
+                    });
                 } else {
                     dataMap.set(label, {
                         totalPrice: order.totalPrice,
                         orderCount: 1
-                    })
+                    });
                 }
             }
-        })
+        });
 
-        const dataArray = Array.from(dataMap, ([name, values]) => ({
-            name,
-            totalPrice: values.totalPrice,
-            orderCount: values.orderCount,
-        }))
-
+        let completeLabels = [];
         if (activeTab === 'today') {
-            dataArray.sort((a, b) => {
-                const getMinutes = (t) => {
-                    const date = parseISO(`2023-01-01T${t}`)
-                    return date.getHours() * 60 + date.getMinutes()
-                }
-                return getMinutes(a.name) - getMinutes(b.name)
-            })
+            for (let i = 23; i >= 0; i--) {
+                const hour = subHours(now, i);
+                completeLabels.push(format(hour, 'h a'));
+            }
         } else if (activeTab === 'monthly') {
-            dataArray.sort((a, b) => parseInt(a.name) - parseInt(b.name))
+            const daysInMonth = eachDayOfInterval({ start: startDate, end: endDate });
+            completeLabels = daysInMonth.map(day => format(day, 'MMM d'));
         } else if (activeTab === 'yearly') {
-            const monthOrder = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-            dataArray.sort((a, b) => monthOrder.indexOf(a.name) - monthOrder.indexOf(b.name))
+            const monthsInYear = eachMonthOfInterval({ start: startDate, end: endDate });
+            completeLabels = monthsInYear.map(month => format(month, 'MMM yy'));
         }
 
-        return dataArray
-    }, [orders, activeTab])
+        const dataArray = completeLabels.map(label => {
+            const existingData = dataMap.get(label);
+            return {
+                name: label,
+                totalPrice: existingData ? existingData.totalPrice : 0,
+                orderCount: existingData ? existingData.orderCount : 0,
+            };
+        });
+
+        return dataArray;
+    }, [orders, activeTab]);
+
     return (
         <div>
             <div className="bg-white rounded-xl shadow h-[450px] sm:h-[350px] md:h-[500px]">
-                <h2 className='text-2xl font-bold text-green-800 p-4'>Salles Report</h2>
+                <h2 className='text-2xl font-bold text-green-800 p-4'>Sales Report</h2>
                 <div className="flex gap-2 flex-wrap p-4">
                     {
                         ["today", "monthly", "yearly"].map((tab, i) => (
-                            <button onClick={() => setActiveTab(tab)} key={i} className={`px-5 py-2 rounded-full font-semibold capitalize transition
-                            ${activeTab === tab ? 'bg-green-600 text-white shadow-lg' :
+                            <button
+                                onClick={() => setActiveTab(tab)}
+                                key={i}
+                                className={`px-5 py-2 rounded-full font-semibold capitalize transition ${activeTab === tab ? 'bg-green-600 text-white shadow-lg' :
                                     "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                                }`}>{tab}</button>
+                                    }`}
+                            >
+                                {tab}
+                            </button>
                         ))
                     }
                 </div>
-
-                {/* Chart */}
                 <div className="h-60 md:h-80 mt-3">
                     <ResponsiveContainer width="100%" height="100%">
-                        <AreaChart
-                            data={chartData}
-                        >
+                        <AreaChart data={chartData}>
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="name" />
                             <YAxis />
@@ -108,11 +121,8 @@ export const StatusAreaChart = ({ orders }) => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
-
-
-
 
 // Pie Chart Start here
 const STATUS_COLORS = {

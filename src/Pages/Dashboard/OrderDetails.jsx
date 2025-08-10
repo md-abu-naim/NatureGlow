@@ -70,6 +70,7 @@ const OrderDetails = () => {
                                         <th className="py-3 px-4">#</th>
                                         <th className="py-3 px-4">Image & Name</th>
                                         <th className="py-3 px-4">Category</th>
+                                        <th className="py-3 px-4">Quantity</th>
                                         <th className="py-3 px-4">Status</th>
                                         <th className="py-3 px-4">Price</th>
                                     </tr>
@@ -84,6 +85,7 @@ const OrderDetails = () => {
                                                     <h5>{product.name}</h5>
                                                 </td>
                                                 <td className="px-4 py-3 font-semibold italic"> {product.category}</td>
+                                                <td className="px-4 py-3 font-medium"> {product.quantity} Piece</td>
                                                 <td className="px-4 py-3">
                                                     <span className={`px-2 py-1 text-sm font-semibold rounded-full ${product.status === 'Low Stock' ? 'bg-red-200 text-red-800' : 'bg-green-200 text-green-800'}`}>{product.status}</span>
                                                 </td>
