@@ -1,14 +1,14 @@
 import { FaCcMastercard, } from "react-icons/fa";
 import { NavLink, useLoaderData } from "react-router-dom";
 import OrderTracking from "./OrderTracking";
-import useAxiosCommon from "../../Hooks/useAxiosCommon";
 import Swal from "sweetalert2";
 import { useState } from "react";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const OrderDetails = () => {
     const { data } = useLoaderData()
     const [order, setOrder] = useState(data)
-    const axiosCommon = useAxiosCommon()
+    const axiosSecure = useAxiosSecure()
     const role = "User"
 
     const { _id, customerName, customerImage, paymentStatus, orderStatus, phone, address, email, products, totalPrice, note } = order || {}
@@ -26,7 +26,7 @@ const OrderDetails = () => {
         else {
             const orderStatus = "Cancelled"
             const updateOrder = { paymentStatus, orderStatus }
-            axiosCommon.patch(`/update_order/${_id}`, updateOrder)
+            axiosSecure.patch(`/update_order/${_id}`, updateOrder)
                 .then(res => {
                     if (res.data.modifiedCount > 0) {
                         Swal.fire({
