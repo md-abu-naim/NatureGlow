@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import useAxiosCommon from "../../../Hooks/useAxiosCommon";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const ProfileUpdate = ({ setOpenUpdateModal, setCurrentUser, currentUser }) => {
     const [profile_url, setProfile_url] = useState(null)
     const [cover_url, setCover_url] = useState(null)
-    const axiosCommon = useAxiosCommon()
+    const axiosSecure = useAxiosSecure()
 
     const handleProfile = e => {
         const img = e.target.files[0]
@@ -38,7 +38,7 @@ const ProfileUpdate = ({ setOpenUpdateModal, setCurrentUser, currentUser }) => {
         const updateUser = { ...currentUser, name, profile, cover }
         console.log(updateUser);
 
-        axiosCommon.put(`/user/${currentUser._id}`, updateUser)
+        axiosSecure.put(`/user/${currentUser._id}`, updateUser)
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount > 0) {
@@ -63,7 +63,7 @@ const ProfileUpdate = ({ setOpenUpdateModal, setCurrentUser, currentUser }) => {
                 <form onSubmit={handleUpdateUser} className="space-y-4">
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Name</label>
-                        <input defaultValue={currentUser.name} className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Type Full Name" type="text" name="name" required />
+                        <input defaultValue={currentUser?.name} className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Type Full Name" type="text" name="name" required />
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Select Profile</label>

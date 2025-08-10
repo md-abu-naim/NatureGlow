@@ -2,23 +2,23 @@ import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import ProfileUpdate from "./Modals/ProfileUpdate";
 import ChangePassword from "./Modals/ChangePassword";
-import useAxiosCommon from "../../Hooks/useAxiosCommon";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const Profile = () => {
   const [openUpdateModal, setOpenUpdateModal] = useState(false)
   const [openPassModal, setOpenPassModal] = useState(false)
   const [currentUser, setCurrentUser] = useState()
-  const axiosCommon = useAxiosCommon()
+  const axiosSecure = useAxiosSecure()
   const { user, } = useAuth();
 
   const {name, email, profile, cover, role, userId} = currentUser || {}
 
   useEffect(() => {
-          axiosCommon.get(`/users/${user?.email}`)
+          axiosSecure.get(`/user/${user?.email}`)
               .then(res => {
                   setCurrentUser(res.data)
               })
-      }, [axiosCommon, user?.email])
+      }, [axiosSecure, user?.email])
   return (
     <div>
       <div className="flex justify-center items-center min-h-screen px-4">
