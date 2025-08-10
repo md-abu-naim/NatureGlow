@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const AddProduct = () => {
     const [image_url, setImage_url] = useState(null)
+    const axiosSecure = useAxiosSecure()
 
     const handleImagePreview = e => {
         const img = e.target.files[0]
@@ -32,7 +34,7 @@ const AddProduct = () => {
         const features = rawEeatures?.split('\n').map(f => f.replace(/^-\s*/, '').trim()).filter(f => f)
         const product = { name, price, category, status, image, createdAt, totalSold, shortBio, description, features }
 
-        axios.post('http://localhost:3000/product', product)
+        axiosSecure.post('/product', product)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({
