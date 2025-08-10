@@ -1,12 +1,13 @@
-import axios from "axios";
 import { useState } from "react";
 import { FaEdit, FaStar, FaTrash } from "react-icons/fa";
 import { NavLink, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const Products = () => {
     const { data } = useLoaderData()
     const [products, setProducts] = useState(data)
+    const axiosSecure = useAxiosSecure()
 
     const ratings = parseFloat(4.5)
 
@@ -32,7 +33,7 @@ const Products = () => {
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:3000/product/${id}`)
+                axiosSecure.delete(`/product/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
