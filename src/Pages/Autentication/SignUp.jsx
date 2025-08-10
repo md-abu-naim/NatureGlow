@@ -74,6 +74,8 @@ const SignUp = () => {
                         e.target.reset()
                         navigate(location.state || '/')
                     })
+                axiosCommon.post('/jwt', {email: result?.user?.email}, {withCredentials: true})
+                .then(res => console.log(res.data))
             })
     }
 

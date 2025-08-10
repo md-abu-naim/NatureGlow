@@ -65,19 +65,23 @@ const AuthProvider = ({ children }) => {
 
     const LogoutUser = () => {
         setLoading(true)
-        axiosCommon.put(`/user/${recentUser._id}`, { ...recentUser, status: "Inactive" })
-            .then(res => {
-                if (res.data.modifiedCount > 0) {
-                    Swal.fire({
-                        title: "Sign Out Successfully!",
-                        icon: "success",
-                        draggable: true,
-                        timer: 1500,
-                        background: '#dcfce7',
-                    });
-                    return signOut(auth)
-                }
-            })
+        if (recentUser) {
+            axiosCommon.put(`/user/${recentUser._id}`, { ...recentUser, status: "Inactive" })
+                .then(res => {
+                    if (res.data.modifiedCount > 0) {
+                        Swal.fire({
+                            title: "Sign Out Successfully!",
+                            icon: "success",
+                            draggable: true,
+                            timer: 1500,
+                            background: '#dcfce7',
+                        });
+                    }
+                })
+            axiosCommon.post('/logout', {}, { withCredentials: true })
+                .then(res => console.log(res.data))
+        }
+        return signOut(auth)
     }
 
     const resetPassword = (email) => {
@@ -94,7 +98,8 @@ const AuthProvider = ({ children }) => {
     })
 
     useEffect(() => {
-        axiosCommon.get(`/users/${user?.email}`)
+        if (!user?.email) return
+        axiosCommon.get(`/user/${user?.email}`, { withCredentials: true })
             .then(res => {
                 setRecentUser(res.data)
             })

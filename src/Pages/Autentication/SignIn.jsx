@@ -20,18 +20,6 @@ const SignIn = () => {
         const password = form.password.value;
 
         loginUser(email, password)
-            // .then((result) => {
-            //     console.log(result.user);
-            //     Swal.fire({
-            //         title: "Sign In successfully",
-            //         icon: "success",
-            //         draggable: true,
-            //         background: '#dcfce7',
-            //         timer: 2000,
-            //     });
-            //     e.target.reset()
-            //     navigate('/')
-            // })
             .then((res) => {
                 Swal.fire({
                     title: "Sign Up successfully",
@@ -48,9 +36,9 @@ const SignIn = () => {
                     phone: res?.user?.phoneNumber || '', userId: res?.user?.uid || ''
                 }
                 axiosCommon.post('/user', userInfo)
-                    .then(res => {
-                        console.log(res.data);
-                    })
+                .then(res => console.log(res.data))
+                axiosCommon.post('/jwt', {email: res?.user?.email}, {withCredentials: true})
+                .then(res => console.log(res.data))
             })
             .catch((err) => toast.error(err.message));
     };
@@ -85,10 +73,12 @@ const SignIn = () => {
                     createdAt: new Date().toLocaleDateString(), lastLogin: new Date().toLocaleDateString(),
                     phone: res?.user?.phoneNumber || '', userId: res?.user?.uid || ''
                 }
-                axiosCommon.post('/user', userInfo)
+                axiosCommon.post('/user', userInfo, {withCredentials: true})
                     .then(res => {
                         console.log(res.data);
                     })
+                axiosCommon.post('/jwt', {email: res?.user?.email}, {withCredentials: true})
+                .then(res => console.log(res.data))
             })
             .catch((err) => toast.error(err.message));
     };
@@ -114,6 +104,8 @@ const SignIn = () => {
                     .then(res => {
                         console.log(res.data);
                     })
+                axiosCommon.post('/jwt', {email: res?.user?.email}, {withCredentials: true})
+                .then(res => console.log(res.data))
             })
             .catch((err) => toast.error(err.message));
     };
