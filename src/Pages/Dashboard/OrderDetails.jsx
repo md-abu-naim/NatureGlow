@@ -1,13 +1,13 @@
 import { FaCcMastercard, } from "react-icons/fa";
-import { NavLink, useLoaderData } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import OrderTracking from "./OrderTracking";
 import Swal from "sweetalert2";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const OrderDetails = () => {
-    const { data } = useLoaderData()
-    const [order, setOrder] = useState(data)
+    const { id} = useParams()
+    const [order, setOrder] = useState([])
     const axiosSecure = useAxiosSecure()
     const role = "User"
 
@@ -41,6 +41,16 @@ const OrderDetails = () => {
                 })
         }
     }
+
+    useEffect(() => {
+        axiosSecure.get(`/order/${id}`)
+            .then(res => {
+                setOrder(res.data)
+            })
+            .catch(err => {
+                console.error("Error fetching order details:", err);
+            });
+    })
 
     return (
         <div>
