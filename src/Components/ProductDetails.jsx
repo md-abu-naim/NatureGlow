@@ -63,12 +63,30 @@ const ProductDetails = () => {
         e.preventDefault()
         const review = e.target.review.value
         const rating = value
-        const productID = _id
+        const product_id = _id
         const name = user?.displayName || 'Anonymous'
         const profile = user?.photoURL
         const email = user?.email
-        const submitReview = { review, rating, productID, name, profile, email }
+        const submitReview = { review, rating, product_id, name, profile, email }
         console.log(submitReview);
+
+        axiosCommon.post('/review', submitReview)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        title: "Submit Revies Successfully!",
+                        icon: "success",
+                        draggable: true,
+                        timer: 2300,
+                        background: '#dcfce7',
+                    });
+                    const newReview = { ...submitReview, _id: res.data.insertedId }
+                    setReviews(prev => [newReview, ...prev])
+                    setValue(0)
+                    e.target.reset()
+                }
+            })
     }
 
     useEffect(() => {
