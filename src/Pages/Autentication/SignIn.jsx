@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosCommon from "../../Hooks/useAxiosCommon";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const SignIn = () => {
     const { loginUser, signInWithGoogle, fbLogin, resetPassword } = useAuth();
