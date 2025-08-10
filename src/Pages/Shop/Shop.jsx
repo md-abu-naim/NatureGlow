@@ -45,7 +45,7 @@ const Shop = () => {
 
     useEffect(() => {
         const fetchProducts = async (page) => {
-            const {data} = await axiosCommon.get(`/products?search=${search}&sort=${sort}&category=${category}&price=${price}&status=${status}&page=${page}&limit=6`)
+            const { data } = await axiosCommon.get(`/products?search=${search}&sort=${sort}&category=${category}&price=${price}&status=${status}&page=${page}&limit=6`)
             setProducts(data.products)
             setCurrentPage(data.currentpage)
             setTotalPage(data.totalpage)
@@ -174,7 +174,7 @@ const Shop = () => {
                         }
 
                         {/* Next Button */}
-                        <button disabled={currentPage === totalPage} onClick={() => setCurrentPage(currentPage + 1)}className='flex items-center gap-1 px-4 py-2 text-sm border border-green-300 rounded-full hover:bg-green-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-600 transition'>Next <FaArrowRight /></button>
+                        <button disabled={currentPage === totalPage} onClick={() => setCurrentPage(currentPage + 1)} className='flex items-center gap-1 px-4 py-2 text-sm border border-green-300 rounded-full hover:bg-green-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-600 transition'>Next <FaArrowRight /></button>
                     </section>
                 </div>
             </div>
