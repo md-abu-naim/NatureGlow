@@ -1,36 +1,39 @@
 [
   {
     "product_id": "68922d937dbe256d76f607ec",
-    "name": "Hyaluronic Acid Serum",
-    "profile": "skin_lover_22",
-    "review": "Eita amar skin-ke khub bhalo hydrate koreche. Ektu sticky lage, kintu shukhiye gele thik hoye jay. Regular use-e khub bhalo result peyechi.",
+    "name": "Mohammad Abu Naim",
+    "title": "Skincare Enthusiast",
+    "profile": "https://granny-resturant.web.app/assets/2-Di1ZmUVi.png",
+    "review": "The Rose Mist and Green Tea Cream have completely changed my skin! Everything feels natural and soft.",
     "rating": 4
   },
   {
     "product_id": "68922d937dbe256d76f607e6",
-    "name": "Vitamin C Brightening Moisturizer",
-    "profile": "glowing_gal_88",
-    "review": "Darun cream! Amar skin-er dullness kome geche ar glowing lagche. Kintu ektu beshi price, shobai kine uthte parbe na.",
+    "name": "Riya Akter",
+    "title": "Lifestyle Blogger",
+    "profile": "https://i.postimg.cc/B6PjqBMM/Lip-Care.png",
+    "review": "I’m obsessed with the packaging and the glow these products give! Minimal, natural, and affordable.",
     "rating": 5
   },
   {
     "product_id": "68922d937dbe256d76f607e7",
-    "name": "Salicylic Acid Cleanser",
-    "profile": "acne_fighter_15",
-    "review": "Amar acne-prone skin-er jonno khub bhalo kaj kore. Pore gulo clean thake. Kintu skin ektu dry kore dey.",
+    "name": "Salma Sweety",
+    "title": "Happy Customer",
+    "profile": "https://i.postimg.cc/B6PjqBMM/Lip-Care.png",
+    "review": "Honestly, this is the best organic skincare I’ve used. My skin is brighter and feels so much better!",
     "rating": 3
   },
   {
     "product_id": "68922d937dbe256d76f607e8",
-    "name": "Sunscreen SPF 50",
-    "profile": "sun_safe_01",
+    "name": "Sudipta Ghosh",
+    "profile": "https://example.com/profiles/sudipta_ghosh.png",
     "review": "Lightweight formula, skin-e bhalo absorb hoye jay. Kono white cast dei na, jeta khub bhalo laglo.",
     "rating": 4
   },
   {
     "product_id": "68922d937dbe256d76f607eb",
-    "name": "Niacinamide Serum",
-    "profile": "pore_less_23",
+    "name": "Fatema Akter",
+    "profile": "https://example.com/profiles/fatema_akter.jpg",
     "review": "Pore-er size choto hoyeche ar oil control-o bhalo hoyeche. Kintu kichu din use korar por ektu irritation hoyechilo.",
     "rating": 3
   }
