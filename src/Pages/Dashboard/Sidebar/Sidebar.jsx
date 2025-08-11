@@ -7,6 +7,7 @@ import useAuth from '../../../Hooks/useAuth'
 import { FaBars } from 'react-icons/fa'
 import AdminRoutes from './AdminRoutes'
 import UserRoutes from './UserRoutes'
+import useAdmin from '../../../Hooks/useAdmin'
 const Sideber = () => {
     const [isActive, setActive] = useState(false)
     const { LogoutUser } = useAuth()
