@@ -11,13 +11,14 @@ import UpdateOrderModal from "./Modals/OrderUpdate";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useAdmin from "../../Hooks/useAdmin";
 
 const Orders = () => {
     const [orders, setOrders] = useState([])
     const [isOpen, setIsOpen] = useState(false)
     const [order, setOrder] = useState()
     const axiosSecure = useAxiosSecure()
-    const role = 'Admin'
+    const isAdmin = useAdmin()
 
     const totalInProgress = orders?.filter(order => order.orderStatus === "In Progress")?.length
     const totalShipped = orders?.filter(order => order.orderStatus === "Shipped")?.length
@@ -113,7 +114,7 @@ const Orders = () => {
                     <div>
                         <h3 className="text-xl font-bold text-green-800 group-hover:text-green-900 transition">Delivered Orders</h3>
                         <p className="text-3xl font-semibold text-gray-800 mt-1">{totalDelivered}</p>
-                        <p className="text-sm text-green-600 mt-1">Successfully delivered to {role === 'Admin' ? 'customers' : 'you'}</p>
+                        <p className="text-sm text-green-600 mt-1">Successfully delivered to {isAdmin ? 'customers' : 'you'}</p>
                     </div>
                     <div className="bg-green-200 text-green-800 p-4 rounded-full shadow-inner group-hover:bg-green-300 transition">
                         <MdOutlineLocalShipping className="text-3xl" />
@@ -124,7 +125,7 @@ const Orders = () => {
                     <div>
                         <h3 className="text-xl font-bold text-green-800 group-hover:text-green-900 transition">Cancelled Orders</h3>
                         <p className="text-3xl font-semibold text-gray-800 mt-1">{totalCancelled}</p>
-                        <p className="text-sm text-green-600 mt-1">Total canceled by {role === 'Admin' ? 'users' : 'you'}</p>
+                        <p className="text-sm text-green-600 mt-1">Total canceled by {isAdmin ? 'users' : 'you'}</p>
                     </div>
                     <div className="bg-green-200 text-green-800 p-4 rounded-full shadow-inner group-hover:bg-green-300 transition">
                         <BsCartX className="text-3xl" />
@@ -135,7 +136,7 @@ const Orders = () => {
                     <div>
                         <h3 className="text-xl font-bold text-green-800 group-hover:text-green-900 transition">Pending Payments</h3>
                         <p className="text-3xl font-semibold text-gray-800 mt-1">{totalPendingPayment}</p>
-                        <p className="text-sm text-green-600 mt-1">Awaiting {role === 'Admin' ? 'customer' : 'your'} payment confirmation</p>
+                        <p className="text-sm text-green-600 mt-1">Awaiting {isAdmin ? 'customer' : 'your'} payment confirmation</p>
                     </div>
                     <div className="bg-green-200 text-green-800 p-4 rounded-full shadow-inner group-hover:bg-green-300 transition">
                         <LuClock className="text-3xl" />
@@ -146,7 +147,7 @@ const Orders = () => {
                     <div>
                         <h3 className="text-xl font-bold text-green-800 group-hover:text-green-900 transition">Payment Refunded</h3>
                         <p className="text-3xl font-semibold text-gray-800 mt-1">{totalRefundedPayment}</p>
-                        <p className="text-sm text-green-600 mt-1">Total orders refunded to {role === 'Admin' ? 'users' : 'you'}</p>
+                        <p className="text-sm text-green-600 mt-1">Total orders refunded to {isAdmin ? 'users' : 'you'}</p>
                     </div>
                     <div className="bg-green-200 text-green-800 p-4 rounded-full shadow-inner group-hover:bg-green-300 transition">
                         <RiRefund2Line className="text-3xl" />
@@ -159,7 +160,7 @@ const Orders = () => {
                 <div className="bg-green-100 border-b flex justify-between items-center px-3 py-2 border-green-300">
                     <h1 className="text-lg font-bold text-green-800">All Orders List</h1>
                     {
-                        role === 'Admin' ? <NavLink to="/dashboard/addProduct" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Add Product</NavLink> :
+                        isAdmin ? <NavLink to="/dashboard/addProduct" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Add Product</NavLink> :
                             <NavLink to="/shop" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Shop New</NavLink>
                     }
                 </div>
@@ -169,7 +170,7 @@ const Orders = () => {
                             <th className="py-3 px-4">#</th>
                             <th className="py-3 px-4">Order ID</th>
                             {
-                                role === 'Admin' && <>
+                                isAdmin && <>
                                     <th className="py-3 px-4">Customer Name</th>
                                     <th className="py-3 px-4">Phone Number</th>
                                 </>
@@ -189,7 +190,7 @@ const Orders = () => {
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
                                     <td className="px-4 py-3 font-medium">{order._id?.slice(0, 6)}</td>
                                     {
-                                        role === 'Admin' && <>
+                                        isAdmin && <>
                                             <td className="px-4 py-3 font-semibold">{order.customerName}</td>
                                             <td className="px-4 py-3 font-sans">{order.phone}</td>
                                         </>
@@ -214,7 +215,7 @@ const Orders = () => {
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
                                         <NavLink to={`/dashboard/order-details/${order._id}`} title="View"><AiOutlineEye className="hover:text-green-800 transition text-2xl" /></NavLink>
                                         {
-                                            role === 'Admin' ? <>
+                                            isAdmin ? <>
                                                 <button onClick={() => { setIsOpen(true); setOrder(order) }} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
                                                 <button onClick={() => handleDeleteOrder(order._id)} title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
                                             </> :
