@@ -24,7 +24,6 @@ import OrderDetails from "../Pages/Dashboard/OrderDetails";
 import Orders from "../Pages/Dashboard/Orders";
 import AdminDashboard from "../Pages/Dashboard/AdminBar/AdminDashboard/AdminDashboard";
 import UserDashboard from "../Pages/Dashboard/UserBar/UserDashboard";
-import axios from "axios";
 import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
@@ -99,9 +98,7 @@ export const router = createBrowserRouter([
       },
       {
         path: `update/:id`,
-        element: <PrivateRoutes><UpdateProduct /></PrivateRoutes>,
-        // loader: ({ params }) => axios(`http://localhost:3000/product/${params.id}`)
-        loader: ({ params }) => axios(`https://natureglow.vercel.app/product/${params.id}`)
+        element: <PrivateRoutes><UpdateProduct /></PrivateRoutes>
       },
       {
         path: 'addProduct',

@@ -1,16 +1,17 @@
 import axios from "axios";
-import { useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const UpdateProduct = () => {
     const [image_url, setImage_url] = useState(null)
-    const { data } = useLoaderData()
+    const [product, setProduct] = useState({})
     const axiosSecure = useAxiosSecure()
     const navigate = useNavigate()
+    const {id}  = useParams()
 
-    const { _id, name, price, category, status, image, shortBio, description, features } = data || {}
+    const { _id, name, price, category, status, image, shortBio, description, features } = product || {}
 
     const handleImagePreview = e => {
         const img = e.target.files[0]
@@ -53,6 +54,12 @@ const UpdateProduct = () => {
             })
 
     }
+
+
+    useEffect(() => {
+        axiosSecure.get(`/product/${id}`)
+        .then(res => setProduct(res.data))
+    }, [axiosSecure, id])
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
@@ -114,7 +121,7 @@ const UpdateProduct = () => {
                     </div>
                     <div className="w-full mt-4">
                         <label className="block text-green-700 font-medium mb-1">Features</label>
-                        <textarea name="features" defaultValue={features.join('\n')} rows={features.length || 3} className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50" placeholder={`Write features line by line:\n- Feature 1\n- Feature 2`}></textarea>
+                        <textarea name="features" defaultValue={features?.join('\n')} rows={features?.length || 3} className="w-full px-4 py-3 border border-green-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 bg-green-50" placeholder={`Write features line by line:\n- Feature 1\n- Feature 2`}></textarea>
                     </div>
                     <div className="mt-5 flex justify-end gap-4">
                         <button type="reset" className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Reset</button>
