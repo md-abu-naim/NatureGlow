@@ -12,6 +12,8 @@ const Sideber = () => {
     const [isActive, setActive] = useState(false)
     const { LogoutUser } = useAuth()
     const navigate = useNavigate()
+    const isAdmin = useAdmin()
+    console.log(isAdmin);
 
     // Sidebar Responsive Handler
     const handleToggle = () => {
