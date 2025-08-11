@@ -24,11 +24,11 @@ const Sideber = () => {
     const handleLogout = () => {
         LogoutUser()
         .then(() => {
-            // axiosCommon.post('/logout', {}, { withCredentials: true })
-            // .then(res => {
-            //     console.log(res.data)
-            //     navigate('/signIn');
-            // })
+            axiosCommon.post('/logout', {}, { withCredentials: true })
+            .then(res => {
+                console.log(res.data)
+                navigate('/signIn');
+            })
         })
     };
 
