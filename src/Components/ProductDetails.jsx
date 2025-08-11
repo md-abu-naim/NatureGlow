@@ -2,44 +2,22 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useLoaderData, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../Hooks/useAuth';
 import useAxiosCommon from '../Hooks/useAxiosCommon';
 
-// const reviews = [
-//     {
-//         name: "Sarah Ahmed",
-//         profile: "https://randomuser.me/api/portraits/women/65.jpg",
-//         review: "This product really exceeded my expectations. Quality is top-notch and delivery was super fast!",
-//         rating: 5,
-//     },
-//     {
-//         name: "Ratul Hossain",
-//         profile: "https://randomuser.me/api/portraits/men/32.jpg",
-//         review: "Product ta valo chilo, but packaging could be better. Overall, I’m satisfied.",
-//         rating: 4,
-//     },
-//     {
-//         name: "Mim Akter",
-//         profile: "https://randomuser.me/api/portraits/women/72.jpg",
-//         review: "I didn’t find it as useful as described. Maybe it’s not for my skin type.",
-//         rating: 2,
-//     },
-// ];
-
 const ProductDetails = () => {
     const [relatedProduct, setRelatedProduct] = useState([])
+    const [product, setProduct] = useState({})
     const [reviews, setReviews] = useState()
     const [value, setValue] = useState(0);
-    const products = useLoaderData()
     const axiosCommon = useAxiosCommon()
     const navigate = useNavigate()
     const { _id } = useParams();
     const { user } = useAuth()
 
 
-    const product = products.data?.find(p => p._id == _id)
     const { name, image, description, features, price, category, status } = product || {}
 
     const handleAddToCart = (product) => {
@@ -90,15 +68,14 @@ const ProductDetails = () => {
     }
 
     useEffect(() => {
+        axiosCommon.get(`/product/${_id}`)
+        .then(res => setProduct(res.data))
+
         axiosCommon.get(`/products/${category}`)
-            .then(res => {
-                setRelatedProduct(res.data)
-            })
+            .then(res => setRelatedProduct(res.data))
 
         axiosCommon.get(`/reviews/${_id}`)
-            .then(res => {
-                setReviews(res.data);
-            })
+            .then(res => setReviews(res.data))
     }, [axiosCommon, category, _id])
     return (
         <div className='px-4 md:px-16 py-10'>

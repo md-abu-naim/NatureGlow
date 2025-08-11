@@ -49,7 +49,7 @@ const UserDashboard = () => {
     useEffect(() => {
         axiosSecure.get('/orders')
         .then(res => setOrders(res.data))
-    })
+    }, [axiosSecure])
     return (
         <div>
             <section className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-6 p-4">

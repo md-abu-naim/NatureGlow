@@ -48,8 +48,7 @@ const Sideber = () => {
                         </Link>
                     </div>
                     <nav className='flex flex-col gap-2 ml-3 mt-3'>
-                        <AdminRoutes />
-                        <UserRoutes />
+                        {isAdmin ? <AdminRoutes /> : <UserRoutes /> }
                     </nav>
                 </div>
                 <div>
