@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaEdit, FaStar, FaTrash } from "react-icons/fa";
-import { NavLink, useLoaderData } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const Products = () => {
-    const { data } = useLoaderData()
-    const [products, setProducts] = useState(data)
+    const [products, setProducts] = useState([])
     const axiosSecure = useAxiosSecure()
 
     const ratings = parseFloat(4.5)
@@ -49,6 +48,11 @@ const Products = () => {
             }
         });
     }
+
+    useEffect(() => {
+        axiosSecure.get('all-products')
+        .then(res => setProducts(res.data))
+    }, [axiosSecure])
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
