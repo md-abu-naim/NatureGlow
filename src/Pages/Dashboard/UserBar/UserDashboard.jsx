@@ -8,10 +8,12 @@ import { NavLink } from "react-router-dom";
 import { Bar, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
+import useAuth from "../../../Hooks/useAuth";
 
 const UserDashboard = () => {
     const [orders, setOrders] = useState([])
     const axiosSecure = useAxiosSecure()
+    const {user} = useAuth()
 
 
     const today = new Date().toLocaleDateString()
@@ -47,9 +49,9 @@ const UserDashboard = () => {
     const totalCancelled = orders?.filter(order => order.orderStatus === "Cancelled")?.length
 
     useEffect(() => {
-        axiosSecure.get('/orders')
+        axiosSecure.get(`/orders/${user?.email}`)
         .then(res => setOrders(res.data))
-    }, [axiosSecure])
+    }, [axiosSecure, user?.email])
     return (
         <div>
             <section className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-6 p-4">

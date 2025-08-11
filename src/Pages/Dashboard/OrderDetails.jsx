@@ -4,12 +4,13 @@ import OrderTracking from "./OrderTracking";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useAdmin from "../../Hooks/useAdmin";
 
 const OrderDetails = () => {
     const { id} = useParams()
     const [order, setOrder] = useState([])
     const axiosSecure = useAxiosSecure()
-    const role = "User"
+    const isAdmin = useAdmin()
 
     const { _id, customerName, customerImage, paymentStatus, orderStatus, phone, address, email, products, totalPrice, note } = order || {}
 
@@ -70,7 +71,7 @@ const OrderDetails = () => {
                             <div className="bg-green-100 border-b flex justify-between items-center px-3 py-2 border-green-300">
                                 <h1 className="text-lg font-bold text-green-800">Ordering List</h1>
                                 {
-                                    role === 'Admin' ? <NavLink to="/dashboard/Update-orders" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Edit Product</NavLink> :
+                                    isAdmin ? <NavLink to="/dashboard/Update-orders" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Edit Product</NavLink> :
                                         <button onClick={handleOrderUpdate} title="Order Cancel" className="bg-red-100 hover:bg-red-300 text-red-700 px-3 py-1 rounded-sm transition">{orderStatus === 'Cancelled' ? `Order ${orderStatus}` : "Order Cancel"}</button>
                                 }
                             </div>
