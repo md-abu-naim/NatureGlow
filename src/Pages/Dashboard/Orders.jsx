@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAdmin from "../../Hooks/useAdmin";
+import useAuth from "../../Hooks/useAuth";
 
 const Orders = () => {
     const [orders, setOrders] = useState([])
@@ -19,6 +20,7 @@ const Orders = () => {
     const [order, setOrder] = useState()
     const axiosSecure = useAxiosSecure()
     const isAdmin = useAdmin()
+    const {user} = useAuth()
 
     const totalInProgress = orders?.filter(order => order.orderStatus === "In Progress")?.length
     const totalShipped = orders?.filter(order => order.orderStatus === "Shipped")?.length
@@ -73,11 +75,16 @@ const Orders = () => {
 
 
     useEffect(() => {
-        axiosSecure.get('/orders')
+        if(isAdmin){
+            axiosSecure.get('/orders')
             .then(res => {
                 setOrders(res.data)
             })
-    }, [axiosSecure])
+        }else{
+            axiosSecure.get(`/orders/${user?.email}`)
+            .then(res => setOrders(res.data))
+        }
+    }, [axiosSecure, isAdmin, user?.email])
     return (
         <div>
             {/* Title */}
