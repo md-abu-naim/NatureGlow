@@ -3,15 +3,23 @@ import { VscAccount } from "react-icons/vsc";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import useCart from "../Hooks/useCart";
 import useAuth from "../Hooks/useAuth";
+import useAdmin from "../Hooks/useAdmin";
+import useAxiosCommon from "../Hooks/useAxiosCommon";
 
 const Navbar = () => {
     const { user, LogoutUser } = useAuth();
-    const cartCount = useCart()
     const navigate = useNavigate()
+    const axiosCommon = useAxiosCommon()
+    const isAdmin = useAdmin()
+    const cartCount = useCart()
 
     const handleLogout = () => {
         LogoutUser()
-        navigate('/signIn')
+        axiosCommon.post('/logout', {}, { withCredentials: true })
+            .then(res => {
+                console.log(res.data);
+                navigate('/signIn');
+            })
     };
 
     const navLinks = (
@@ -57,7 +65,10 @@ const Navbar = () => {
                         <div className="hidden md:block text-sm text-green-700 font-medium">
                             {user.displayName || "User"}
                         </div>
-                        <NavLink to='/dashboard'><img src={user?.photoURL || "/default-profile.png"} alt={user.displayName || "User Profile"} className="w-8 h-8 rounded-full border-2 border-green-300" /></NavLink>
+                        {
+                            isAdmin ? <NavLink to='/dashboard/admin-dashboard'><img src={user?.photoURL || "/default-profile.png"} alt={user.displayName || "User Profile"} className="w-8 h-8 rounded-full border-2 border-green-300" /></NavLink>:
+                            <NavLink to='/dashboard/user-dashboard'><img src={user?.photoURL || "/default-profile.png"} alt={user.displayName || "User Profile"} className="w-8 h-8 rounded-full border-2 border-green-300" /></NavLink>
+                        }
                         <button onClick={handleLogout} className="text-xs md:text-sm hover:font-medium bg-green-300 hover:bg-green-400 px-2 py-1 rounded-xl transition">Log Out</button>
                     </div>
                 ) : (

@@ -66,7 +66,7 @@ const AuthProvider = ({ children }) => {
     const LogoutUser = () => {
         setLoading(true)
         if (recentUser) {
-            axiosCommon.put(`/user/${recentUser._id}`, { ...recentUser, status: "Inactive" }, {withCredentials: true})
+            axiosCommon.put(`/user/${recentUser._id}`, { ...recentUser, status: "Inactive" }, { withCredentials: true })
                 .then(res => {
                     if (res.data.modifiedCount > 0) {
                         Swal.fire({
@@ -78,8 +78,6 @@ const AuthProvider = ({ children }) => {
                         });
                     }
                 })
-            axiosCommon.post('/logout', {}, { withCredentials: true })
-                .then(res => console.log(res.data))
         }
         return signOut(auth)
     }
@@ -99,7 +97,7 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         if (!user?.email) return
-        axiosCommon.get(`/user/${user?.email}`, )
+        axiosCommon.get(`/user/${user?.email}`,)
             .then(res => {
                 setRecentUser(res.data)
             })
