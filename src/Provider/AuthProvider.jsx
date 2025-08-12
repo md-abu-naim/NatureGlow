@@ -66,7 +66,7 @@ const AuthProvider = ({ children }) => {
     const LogoutUser = () => {
         setLoading(true)
         if (recentUser) {
-            axiosCommon.put(`/user/${recentUser._id}`, { ...recentUser, status: "Inactive" }, { withCredentials: true })
+            axiosCommon.put(`/user/${recentUser._id}`, { ...recentUser, status: "Inactive" })
                 .then(res => {
                     if (res.data.modifiedCount > 0) {
                         Swal.fire({
