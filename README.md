@@ -17,7 +17,7 @@ NatureGlow is a modern and user-friendly e-commerce website where customers can 
 - The token is stored securely in cookies to maintain user sessions.
 - Upon logout, the token is cleared from cookies, and users are redirected to the login page.
 
-### 2. 🌐Public Routes
+### 🌐 2. Public Routes
 #### Home Page:
 - **Navber:** Includes logo, navigation items, and a cart icon for the cart page. If no user is logged in → Shows **Sign In** and **Sign Up** buttons. If a user is logged in → Displays the user's name, profile, and **Sign Out** button instead.
 - **Banner:** Banner with left-aligned welcome message, large bold project name **NatureGlow**, a short description, a **Shop Now** button, and an image on the right side.
