@@ -4,22 +4,18 @@ import { NavLink, Link, useNavigate } from "react-router-dom";
 import useCart from "../Hooks/useCart";
 import useAuth from "../Hooks/useAuth";
 import useAdmin from "../Hooks/useAdmin";
-import useAxiosCommon from "../Hooks/useAxiosCommon";
 
 const Navbar = () => {
     const { user, LogoutUser } = useAuth();
     const navigate = useNavigate()
-    const axiosCommon = useAxiosCommon()
     const isAdmin = useAdmin()
     const cartCount = useCart()
 
     const handleLogout = () => {
         LogoutUser()
-        axiosCommon.post('/logout', {}, { withCredentials: true })
-            .then(res => {
-                console.log(res.data);
-                navigate('/signIn');
-            })
+        .then(() => {
+            navigate('/signIn')
+        })
     };
 
     const navLinks = (

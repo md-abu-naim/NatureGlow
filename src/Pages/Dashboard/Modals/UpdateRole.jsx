@@ -1,15 +1,15 @@
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import useAxiosCommon from "../../../Hooks/useAxiosCommon";
 
 const UpdateRole = ({ setIsOpen, setUser, user, updateUserList }) => {
-    const axiosSecure = useAxiosSecure()
+const axiosCommon = useAxiosCommon
 
     const handleUpdateUserRole = e => {
         e.preventDefault()
         const role = e.target.role.value
         const updatedUser = { ...user, role }
 
-        axiosSecure.put(`/user/${user._id}`, updatedUser)
+        axiosCommon.put(`/user/${user._id}`, updatedUser)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     Swal.fire({

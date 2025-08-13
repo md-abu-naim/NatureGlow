@@ -18,7 +18,7 @@ const googleProvider = new GoogleAuthProvider()
 const fbProvider = new FacebookAuthProvider();
 
 const AuthProvider = ({ children }) => {
-    const [recentUser, setRecentUser] = useState([])
+    const [recentUser, setRecentUser] = useState({})
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
     const axiosCommon = useAxiosCommon()
@@ -65,21 +65,38 @@ const AuthProvider = ({ children }) => {
 
     const LogoutUser = () => {
         setLoading(true)
-        if (recentUser) {
+        if (recentUser?._id) {
             axiosCommon.put(`/user/${recentUser._id}`, { ...recentUser, status: "Inactive" })
                 .then(res => {
-                    if (res.data.modifiedCount > 0) {
-                        Swal.fire({
-                            title: "Sign Out Successfully!",
-                            icon: "success",
-                            draggable: true,
-                            timer: 1500,
-                            background: '#dcfce7',
-                        });
-                    }
+                    console.log(res.data);
+                    axiosCommon.post('/logout', {}, { withCredentials: true })
+                        .then(res => {
+                            console.log(res.data);
+                            Swal.fire({
+                                title: "Sign Out Successfully!",
+                                icon: "success",
+                                draggable: true,
+                                timer: 1500,
+                                background: '#dcfce7',
+                            });
+                        })
+                })
+        } else {
+            axiosCommon.post('/logout', {}, { withCredentials: true })
+                .then(res => {
+                    console.log(res.data);
+                    signOut(auth)
+                        .then(() => {
+                            Swal.fire({
+                                title: "Sign Out Successfully!",
+                                icon: "success",
+                                draggable: true,
+                                timer: 1500,
+                                background: '#dcfce7',
+                            });
+                        })
                 })
         }
-        return signOut(auth)
     }
 
     const resetPassword = (email) => {
@@ -93,11 +110,11 @@ const AuthProvider = ({ children }) => {
             setLoading(false)
         })
         return () => unSubsCribe()
-    })
+    }, [])
 
     useEffect(() => {
         if (!user?.email) return
-        axiosCommon.get(`/user/${user?.email}`,)
+        axiosCommon.get(`/user/${user?.email}`, {withCredentials: true})
             .then(res => {
                 setRecentUser(res.data)
             })

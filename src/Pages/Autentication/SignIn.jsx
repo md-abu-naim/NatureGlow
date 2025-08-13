@@ -59,41 +59,6 @@ const SignIn = () => {
     const handleGoogle = () => {
         signInWithGoogle()
             .then((res) => {
-                navigate(location.state || '/')
-                Swal.fire({
-                    title: "Sign Up successfully",
-                    icon: "success",
-                    draggable: true,
-                    timer: 1500,
-                    background: '#dcfce7',
-                });
-                const userInfo = {
-                    name: res?.user?.displayName, email: res?.user?.email, password: '', cover: '',
-                    profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
-                    createdAt: new Date().toLocaleDateString(), lastLogin: new Date().toLocaleDateString(),
-                    phone: res?.user?.phoneNumber || '', userId: res?.user?.uid || ''
-                }
-                axiosCommon.post('/user', userInfo, { withCredentials: true })
-                    .then(res => {
-                        console.log(res.data);
-                    })
-                axiosCommon.post('/jwt', { email: res?.user?.email }, { withCredentials: true })
-                    .then(res => console.log(res.data))
-            })
-            .catch((err) => toast.error(err.message));
-    };
-
-    const handleFacebook = () => {
-        fbLogin()
-            .then((res) => {
-                Swal.fire({
-                    title: "Sign Up successfully",
-                    icon: "success",
-                    draggable: true,
-                    timer: 1500,
-                    background: '#dcfce7',
-                });
-                navigate(location.state || '/')
                 const userInfo = {
                     name: res?.user?.displayName, email: res?.user?.email, password: '', cover: '',
                     profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
@@ -103,9 +68,49 @@ const SignIn = () => {
                 axiosCommon.post('/user', userInfo)
                     .then(res => {
                         console.log(res.data);
+                        axiosCommon.post('/jwt', { email: res?.user?.email }, { withCredentials: true })
+                            .then(res => {
+                                console.log(res.data);
+                                Swal.fire({
+                                    title: "Sign Up successfully",
+                                    icon: "success",
+                                    draggable: true,
+                                    timer: 1500,
+                                    background: '#dcfce7',
+                                });
+                                navigate(location?.state || '/')
+                            })
                     })
-                axiosCommon.post('/jwt', { email: res?.user?.email }, { withCredentials: true })
-                    .then(res => console.log(res.data))
+            })
+            .catch((err) => toast.error(err.message));
+    };
+
+    const handleFacebook = () => {
+        fbLogin()
+            .then((res) => {
+
+                const userInfo = {
+                    name: res?.user?.displayName, email: res?.user?.email, password: '', cover: '',
+                    profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
+                    createdAt: new Date().toLocaleDateString(), lastLogin: new Date().toLocaleDateString(),
+                    phone: res?.user?.phoneNumber || '', userId: res?.user?.uid || ''
+                }
+                axiosCommon.post('/user', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        axiosCommon.post('/jwt', { email: res?.user?.email }, { withCredentials: true })
+                            .then(res => {
+                                console.log(res.data);
+                                Swal.fire({
+                                    title: "Sign Up successfully",
+                                    icon: "success",
+                                    draggable: true,
+                                    timer: 1500,
+                                    background: '#dcfce7',
+                                });
+                                navigate(location?.state || '/')
+                            })
+                    })
             })
             .catch((err) => toast.error(err.message));
     };

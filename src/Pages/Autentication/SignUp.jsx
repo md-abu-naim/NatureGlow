@@ -62,20 +62,20 @@ const SignUp = () => {
                 axiosCommon.post('/user', userInfo)
                     .then(res => {
                         console.log(res.data);
-                        if (res.data.insertedId) {
-                            Swal.fire({
-                                title: "Sign Up successfully",
-                                icon: "success",
-                                draggable: true,
-                                timer: 1500,
-                                background: '#dcfce7',
-                            });
-                        }
-                        e.target.reset()
-                        navigate(location.state || '/')
+                        axiosCommon.post('/jwt', { email: result?.user?.email }, { withCredentials: true })
+                            .then(res => {
+                                console.log(res.data);
+                                Swal.fire({
+                                    title: "Sign Up successfully",
+                                    icon: "success",
+                                    draggable: true,
+                                    timer: 1500,
+                                    background: '#dcfce7',
+                                });
+                                e.target.reset()
+                                navigate(location?.state || '/')
+                            })
                     })
-                axiosCommon.post('/jwt', { email: result?.user?.email }, { withCredentials: true })
-                    .then(res => console.log(res.data))
             })
     }
 
