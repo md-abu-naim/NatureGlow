@@ -16,7 +16,7 @@ const FeaturedCategories = () => {
                 <h1 className="text-xl md:text-3xl font-bold leading-tight">Featured Categories</h1>
                 <h3 className="font-medium text-green-500 text-sm mt-1">Explore our curated product categories</h3>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pt-7">
                 {
                     categories?.map(category => <Link to={`/category/${category.name}`} key={category.id} className="group p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 ease-in-out">

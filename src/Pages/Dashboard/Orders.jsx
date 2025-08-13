@@ -20,7 +20,7 @@ const Orders = () => {
     const [order, setOrder] = useState()
     const axiosSecure = useAxiosSecure()
     const isAdmin = useAdmin()
-    const {user} = useAuth()
+    const { user } = useAuth()
 
     const totalInProgress = orders?.filter(order => order.orderStatus === "In Progress")?.length
     const totalShipped = orders?.filter(order => order.orderStatus === "Shipped")?.length
@@ -75,14 +75,14 @@ const Orders = () => {
 
 
     useEffect(() => {
-        if(isAdmin){
+        if (isAdmin) {
             axiosSecure.get('/orders')
-            .then(res => {
-                setOrders(res.data)
-            })
-        }else{
+                .then(res => {
+                    setOrders(res.data)
+                })
+        } else {
             axiosSecure.get(`/orders/${user?.email}`)
-            .then(res => setOrders(res.data))
+                .then(res => setOrders(res.data))
         }
     }, [axiosSecure, isAdmin, user?.email])
     return (

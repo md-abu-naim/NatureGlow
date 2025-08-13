@@ -23,13 +23,13 @@ const Sideber = () => {
 
     const handleLogout = () => {
         LogoutUser()
-        .then(() => {
-            axiosCommon.post('/logout', {}, { withCredentials: true })
-            .then(res => {
-                console.log(res.data)
-                navigate('/signIn');
+            .then(() => {
+                axiosCommon.post('/logout', {}, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data)
+                        navigate('/signIn');
+                    })
             })
-        })
     };
 
     return (
@@ -55,7 +55,7 @@ const Sideber = () => {
                         </Link>
                     </div>
                     <nav className='flex flex-col gap-2 ml-3 mt-3'>
-                        {isAdmin ? <AdminRoutes /> : <UserRoutes /> }
+                        {isAdmin ? <AdminRoutes /> : <UserRoutes />}
                     </nav>
                 </div>
                 <div>

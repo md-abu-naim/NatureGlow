@@ -68,7 +68,7 @@ const AdminDashboard = () => {
 
     useEffect(() => {
         axiosSecure.get('/orders')
-        .then(res => setOrders(res.data))
+            .then(res => setOrders(res.data))
 
         axiosSecure.get('/users')
             .then(res => {

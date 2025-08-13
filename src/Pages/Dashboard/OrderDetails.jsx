@@ -7,7 +7,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAdmin from "../../Hooks/useAdmin";
 
 const OrderDetails = () => {
-    const { id} = useParams()
+    const { id } = useParams()
     const [order, setOrder] = useState([])
     const axiosSecure = useAxiosSecure()
     const isAdmin = useAdmin()

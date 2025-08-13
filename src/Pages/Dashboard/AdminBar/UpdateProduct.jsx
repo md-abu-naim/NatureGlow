@@ -9,7 +9,7 @@ const UpdateProduct = () => {
     const [product, setProduct] = useState({})
     const axiosSecure = useAxiosSecure()
     const navigate = useNavigate()
-    const {id}  = useParams()
+    const { id } = useParams()
 
     const { _id, name, price, category, status, image, shortBio, description, features } = product || {}
 
@@ -34,7 +34,7 @@ const UpdateProduct = () => {
         const shortBio = form.shortBio.value
         const description = form.description.value
         const rawEeatures = form.features.value
-        
+
 
         const features = rawEeatures.split('\n').map(f => f.replace(/^-\s*/, '').trim()).filter(f => f)
         const product = { name, price, category, status, image, shortBio, description, features }
@@ -58,7 +58,7 @@ const UpdateProduct = () => {
 
     useEffect(() => {
         axiosSecure.get(`/product/${id}`)
-        .then(res => setProduct(res.data))
+            .then(res => setProduct(res.data))
     }, [axiosSecure, id])
     return (
         <div>

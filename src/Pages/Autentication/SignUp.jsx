@@ -51,7 +51,7 @@ const SignUp = () => {
                     displayName: name,
                     photoURL: result?.user?.photoURL
                 })
-                
+
                 const userInfo = {
                     name, email, password, cover,
                     profile: result?.user?.photoURL || '',
@@ -74,8 +74,8 @@ const SignUp = () => {
                         e.target.reset()
                         navigate(location.state || '/')
                     })
-                axiosCommon.post('/jwt', {email: result?.user?.email}, {withCredentials: true})
-                .then(res => console.log(res.data))
+                axiosCommon.post('/jwt', { email: result?.user?.email }, { withCredentials: true })
+                    .then(res => console.log(res.data))
             })
     }
 

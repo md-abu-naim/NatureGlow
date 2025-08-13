@@ -13,7 +13,7 @@ import useAuth from "../../../Hooks/useAuth";
 const UserDashboard = () => {
     const [orders, setOrders] = useState([])
     const axiosSecure = useAxiosSecure()
-    const {user} = useAuth()
+    const { user } = useAuth()
 
 
     const today = new Date().toLocaleDateString()
@@ -50,7 +50,7 @@ const UserDashboard = () => {
 
     useEffect(() => {
         axiosSecure.get(`/orders/${user?.email}`)
-        .then(res => setOrders(res.data))
+            .then(res => setOrders(res.data))
     }, [axiosSecure, user?.email])
     return (
         <div>
@@ -139,9 +139,9 @@ const UserDashboard = () => {
 
             <div className="bg-white rounded-xl shadow h-[500px] sm:h-[350px] md:h-[470px] md:pr-5 md:mx-5">
                 <div className="flex flex-col md:flex-row items-center sm:text-start text-centerF justify-between pl-3 p-2">
-                <h2 className='text-2xl font-bold text-green-800'>Weekly Orders Overview</h2>
-                <p className="bg-green-200 py-1 px-2 rounded-md">{dateRangeLabel}</p>
-            </div>
+                    <h2 className='text-2xl font-bold text-green-800'>Weekly Orders Overview</h2>
+                    <p className="bg-green-200 py-1 px-2 rounded-md">{dateRangeLabel}</p>
+                </div>
                 <div className="h-[400px]">
                     <ResponsiveContainer width="100%" height="100%">
                         <ComposedChart
@@ -184,7 +184,7 @@ const UserDashboard = () => {
                             recentOrders?.map((order, i) => (
                                 <tr key={i} className="hover:bg-green-100 transition-all">
                                     <td className="px-4 py-3 font-semibold">{i + 1}</td>
-                                    <td className="px-4 py-3 font-medium">{order._id.slice(0,6)}</td>
+                                    <td className="px-4 py-3 font-medium">{order._id.slice(0, 6)}</td>
                                     <td className="px-4 py-3 ">{order.products?.length} Items</td>
                                     <td className="px-4 py-3 font-semibold">
                                         <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm ${order.paymentStatus === 'Paid' ? 'bg-green-100 text-green-700' : order.paymentStatus === 'Unpaid' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'}`}>
