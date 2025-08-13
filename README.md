@@ -68,7 +68,7 @@ NatureGlow is a modern and user-friendly e-commerce website where customers can 
 - **Payment Method:** Allows users to choose from **Cash on Delivery**, with **Stripe** and **SSLCOMMERZ** (coming soon), and includes a **Place Order** button to confirm the order.
 
 
-### 3. 🔒Private Routes
+### 🔒 3. Private Routes
 #### Dashboard (role-based)
 - **Profile:** Allows users to view and update their **profile**, **change password**, **update name**, and **change profile/cover images** via modals.
 - LogOut syestem and redirect to signIn page.
@@ -87,13 +87,13 @@ NatureGlow is a modern and user-friendly e-commerce website where customers can 
 - **Orders Page:** Displays her **total order status** using cards and shows all orders in a **table format** with **details**, **Cancel**, buttons.
 - **Address Book:** Users can **add or update** their addresses **through a form**.
 
-##  🎨UI/UX Design
+##  🎨 UI/UX Design
 - **Responsive Design:** The application is fully responsive, ensuring optimal performance on all screen sizes.
 - **Error Handling:** Provides user-friendly error messages for login failures, registration issues, or failed operations.
 - **Loading States:** Displays loaders or spinners during API calls like login or data fetching.
 - **Toasts:** Notify users of actions such as "Login successful" or "Order placed."
 
-## ⚡Installation and Setup
+## ⚡ Installation and Setup
 To run the project locally, follow these steps:
 
 **Clone the repository:**
