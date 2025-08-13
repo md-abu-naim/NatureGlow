@@ -69,7 +69,7 @@ const ProductDetails = () => {
 
     useEffect(() => {
         axiosCommon.get(`/product/${_id}`)
-        .then(res => setProduct(res.data))
+            .then(res => setProduct(res.data))
 
         axiosCommon.get(`/products/${category}`)
             .then(res => setRelatedProduct(res.data))
