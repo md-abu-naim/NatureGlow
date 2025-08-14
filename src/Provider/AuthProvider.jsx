@@ -64,8 +64,8 @@ const AuthProvider = ({ children }) => {
 
     const LogoutUser = async () => {
         setLoading(true)
-        if(recentUser?._id){
-            await axiosCommon.put(`/user/${recentUser?._id}`, {...recentUser, status: "Inactive"})
+        if (recentUser?._id) {
+            await axiosCommon.put(`/user/${recentUser?._id}`, { ...recentUser, status: "Inactive" })
         }
         return signOut(auth)
     }
@@ -76,17 +76,25 @@ const AuthProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        const unSubsCribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser)
+        const unSubsCribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
                 const userInfo = { email: currentUser?.email }
-                axiosCommon.post('/jwt', userInfo, {withCredentials: true})
-                    .then(res => console.log(res.data))
-            } else {
-                axiosCommon.get('/logOut', {withCredentials: true})
-                    .then(res => {
-                        console.log(res.data)
-                    })
+                try {
+                    const res = await axiosCommon.post('/jwt', userInfo, { withCredentials: true })
+                    console.log(res.data)
+                    setUser(currentUser)
+                } catch (err) {
+                    console.error('JWT error:', err)
+                }
+            }
+            else {
+                try{
+                    const res =await axiosCommon.get('/logOut', { withCredentials: true })
+                    console.log(res.data);
+                    setUser(null)
+                }catch(err) {
+                    console.log(console.error('JWT error:', err));
+                }
             }
             setLoading(false)
         })

@@ -9,11 +9,22 @@ const useAdmin = () => {
 
     useEffect(() => {
         if (!user?.email) return;
-        axiosSecure.get(`user/admin/${user?.email}`)
-            .then(res => {
-                setIsAdmin(res.data?.Admin)
-            })
+
+        const fetchAdmin = async () => {
+            try {
+                const res = await axiosSecure.get(`user/admin/${user.email}`);
+                setIsAdmin(res.data?.Admin);
+            } catch (err) {
+                console.error('Admin fetch error:', err);
+                setIsAdmin(false);
+            }
+        };
+
+        fetchAdmin();
     }, [axiosSecure, user?.email])
+
+
+
     return isAdmin
 };
 
