@@ -23,7 +23,6 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
     const axiosCommon = useAxiosCommon()
 
-
     const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
@@ -63,40 +62,12 @@ const AuthProvider = ({ children }) => {
         return updatePassword(auth.currentUser, newPassword)
     }
 
-    const LogoutUser = () => {
+    const LogoutUser = async () => {
         setLoading(true)
-        if (recentUser?._id) {
-            axiosCommon.put(`/user/${recentUser._id}`, { ...recentUser, status: "Inactive" })
-                .then(res => {
-                    console.log(res.data);
-                    axiosCommon.post('/logout', {}, { withCredentials: true })
-                        .then(res => {
-                            console.log(res.data);
-                            Swal.fire({
-                                title: "Sign Out Successfully!",
-                                icon: "success",
-                                draggable: true,
-                                timer: 1500,
-                                background: '#dcfce7',
-                            });
-                        })
-                })
-        } else {
-            axiosCommon.post('/logout', {}, { withCredentials: true })
-                .then(res => {
-                    console.log(res.data);
-                    signOut(auth)
-                        .then(() => {
-                            Swal.fire({
-                                title: "Sign Out Successfully!",
-                                icon: "success",
-                                draggable: true,
-                                timer: 1500,
-                                background: '#dcfce7',
-                            });
-                        })
-                })
+        if(recentUser?._id){
+            await axiosCommon.put(`/user/${recentUser?._id}`, {...recentUser, status: "Inactive"})
         }
+        return signOut(auth)
     }
 
     const resetPassword = (email) => {
@@ -107,14 +78,24 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubsCribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
+            if (currentUser) {
+                const userInfo = { email: currentUser?.email }
+                axiosCommon.post('/jwt', userInfo, {withCredentials: true})
+                    .then(res => console.log(res.data))
+            } else {
+                axiosCommon.get('/logOut', {withCredentials: true})
+                    .then(res => {
+                        console.log(res.data)
+                    })
+            }
             setLoading(false)
         })
         return () => unSubsCribe()
-    }, [])
+    }, [axiosCommon])
 
     useEffect(() => {
         if (!user?.email) return
-        axiosCommon.get(`/user/${user?.email}`, {withCredentials: true})
+        axiosCommon.get(`/user/${user?.email}`,)
             .then(res => {
                 setRecentUser(res.data)
             })

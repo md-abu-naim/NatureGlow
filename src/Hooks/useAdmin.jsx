@@ -11,7 +11,6 @@ const useAdmin = () => {
         if (!user?.email) return;
         axiosSecure.get(`user/admin/${user?.email}`)
             .then(res => {
-                // console.log(res.data);
                 setIsAdmin(res.data?.Admin)
             })
     }, [axiosSecure, user?.email])

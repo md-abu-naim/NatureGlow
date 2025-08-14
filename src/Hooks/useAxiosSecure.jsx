@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
-    // baseURL: 'http://localhost:3000',
+    // baseURL: 'https://nature-glow-server.vercel.app',
     baseURL: 'https://natureglow.vercel.app',
-    withCredentials: true,
+    // baseURL: "http://localhost:3000",
+    withCredentials: true
 })
 
 const useAxiosSecure = () => {

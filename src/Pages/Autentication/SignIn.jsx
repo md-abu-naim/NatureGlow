@@ -37,8 +37,6 @@ const SignIn = () => {
                 }
                 axiosCommon.post('/user', userInfo)
                     .then(res => console.log(res.data))
-                axiosCommon.post('/jwt', { email: res?.user?.email }, { withCredentials: true })
-                    .then(res => console.log(res.data))
             })
             .catch((err) => toast.error(err.message));
     };
@@ -59,6 +57,14 @@ const SignIn = () => {
     const handleGoogle = () => {
         signInWithGoogle()
             .then((res) => {
+                navigate(location.state || '/')
+                Swal.fire({
+                    title: "Sign Up successfully",
+                    icon: "success",
+                    draggable: true,
+                    timer: 1500,
+                    background: '#dcfce7',
+                });
                 const userInfo = {
                     name: res?.user?.displayName, email: res?.user?.email, password: '', cover: '',
                     profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
@@ -68,19 +74,8 @@ const SignIn = () => {
                 axiosCommon.post('/user', userInfo)
                     .then(res => {
                         console.log(res.data);
-                        axiosCommon.post('/jwt', { email: res?.user?.email }, { withCredentials: true })
-                            .then(res => {
-                                console.log(res.data);
-                                Swal.fire({
-                                    title: "Sign Up successfully",
-                                    icon: "success",
-                                    draggable: true,
-                                    timer: 1500,
-                                    background: '#dcfce7',
-                                });
-                                navigate(location?.state || '/')
-                            })
                     })
+
             })
             .catch((err) => toast.error(err.message));
     };
@@ -88,7 +83,14 @@ const SignIn = () => {
     const handleFacebook = () => {
         fbLogin()
             .then((res) => {
-
+                Swal.fire({
+                    title: "Sign Up successfully",
+                    icon: "success",
+                    draggable: true,
+                    timer: 1500,
+                    background: '#dcfce7',
+                });
+                navigate(location.state || '/')
                 const userInfo = {
                     name: res?.user?.displayName, email: res?.user?.email, password: '', cover: '',
                     profile: res?.user?.photoURL || '', status: 'Active', role: "User", address: '',
@@ -98,18 +100,6 @@ const SignIn = () => {
                 axiosCommon.post('/user', userInfo)
                     .then(res => {
                         console.log(res.data);
-                        axiosCommon.post('/jwt', { email: res?.user?.email }, { withCredentials: true })
-                            .then(res => {
-                                console.log(res.data);
-                                Swal.fire({
-                                    title: "Sign Up successfully",
-                                    icon: "success",
-                                    draggable: true,
-                                    timer: 1500,
-                                    background: '#dcfce7',
-                                });
-                                navigate(location?.state || '/')
-                            })
                     })
             })
             .catch((err) => toast.error(err.message));

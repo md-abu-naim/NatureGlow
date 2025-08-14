@@ -8,12 +8,11 @@ import { FaBars } from 'react-icons/fa'
 import AdminRoutes from './AdminRoutes'
 import UserRoutes from './UserRoutes'
 import useAdmin from '../../../Hooks/useAdmin'
-import useAxiosCommon from '../../../Hooks/useAxiosCommon'
+
 const Sideber = () => {
     const [isActive, setActive] = useState(false)
     const { LogoutUser } = useAuth()
     const navigate = useNavigate()
-    const axiosCommon = useAxiosCommon()
     const isAdmin = useAdmin()
 
     // Sidebar Responsive Handler
@@ -23,13 +22,9 @@ const Sideber = () => {
 
     const handleLogout = () => {
         LogoutUser()
-            .then(() => {
-                axiosCommon.post('/logout', {}, { withCredentials: true })
-                    .then(res => {
-                        console.log(res.data)
-                        navigate('/signIn');
-                    })
-            })
+        .then(() => {
+            navigate('/signIn')
+        })
     };
 
     return (
