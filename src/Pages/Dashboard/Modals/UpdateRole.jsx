@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 import useAxiosCommon from "../../../Hooks/useAxiosCommon";
 
 const UpdateRole = ({ setIsOpen, setUser, user, updateUserList }) => {
-const axiosCommon = useAxiosCommon
+const axiosCommon = useAxiosCommon()
 
     const handleUpdateUserRole = e => {
         e.preventDefault()

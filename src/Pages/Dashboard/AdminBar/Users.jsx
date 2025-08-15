@@ -3,6 +3,7 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import UpdateRole from "../Modals/UpdateRole";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const Users = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -73,7 +74,13 @@ const Users = () => {
                 </div>
             </form>
 
-            <section className="mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
+            {
+                users.length === 0 ? <div className="text-center mt-16 bg-green-50 p-10 rounded-xl border border-green-200 shadow-md">
+                    <h2 className="text-2xl font-semibold text-green-700">Your users is feeling a little empty 🌿</h2>
+                    <p className="text-green-600 mt-2">Looks like you haven’t added anything yet. Let nature glow with you—explore our organic skincare collection now.</p>
+                    <Link to="/shop" className="inline-block mt-6 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-medium transition">🛒 Browse Products</Link>
+                </div> :
+                <section className="mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
                 <table className="min-w-full text-sm text-left table-auto">
                     <thead className="bg-green-100 text-green-800 font-semibold">
                         <tr>
@@ -119,6 +126,7 @@ const Users = () => {
                     </tbody>
                 </table>
             </section>
+            }
             {
                 isOpen && <UpdateRole setIsOpen={setIsOpen} user={userRole} setUser={setUserRole} updateUserList={updateUserList} />
             }

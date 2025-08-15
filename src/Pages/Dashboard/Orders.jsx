@@ -6,7 +6,7 @@ import { FiRefreshCw } from "react-icons/fi";
 import { LuClock } from "react-icons/lu";
 import { MdOutlineLocalShipping } from "react-icons/md";
 import { RiRefund2Line } from "react-icons/ri";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import UpdateOrderModal from "./Modals/OrderUpdate";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -181,78 +181,85 @@ const Orders = () => {
             </section>
 
             {/* Orders Table */}
-            <section className="mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
-                <div className="bg-green-100 border-b flex justify-between items-center px-3 py-2 border-green-300">
-                    <h1 className="text-lg font-bold text-green-800">All Orders List</h1>
-                    {
-                        isAdmin ? <NavLink to="/dashboard/addProduct" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Add Product</NavLink> :
-                            <NavLink to="/shop" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Shop New</NavLink>
-                    }
-                </div>
-                <table className="min-w-full text-sm text-left table-auto">
-                    <thead className="bg-green-100 text-green-800 font-semibold">
-                        <tr>
-                            <th className="py-3 px-4">#</th>
-                            <th className="py-3 px-4">Order ID</th>
+            {
+                orders.length === 0 ? <div className="text-center mt-16 bg-green-50 p-10 rounded-xl border border-green-200 shadow-md">
+                    <h2 className="text-2xl font-semibold text-green-700">Your orders is feeling a little empty 🌿</h2>
+                    <p className="text-green-600 mt-2">Looks like you haven’t added anything yet. Let nature glow with you—explore our organic skincare collection now.</p>
+                    <Link to="/shop" className="inline-block mt-6 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-medium transition">🛒 Browse Products</Link>
+                </div> :
+                    <section className="mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
+                        <div className="bg-green-100 border-b flex justify-between items-center px-3 py-2 border-green-300">
+                            <h1 className="text-lg font-bold text-green-800">All Orders List</h1>
                             {
-                                isAdmin && <>
-                                    <th className="py-3 px-4">Customer Name</th>
-                                    <th className="py-3 px-4">Phone Number</th>
-                                </>
+                                isAdmin ? <NavLink to="/dashboard/addProduct" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Add Product</NavLink> :
+                                    <NavLink to="/shop" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Shop New</NavLink>
                             }
-                            <th className="py-3 px-4">Products</th>
-                            <th className="py-3 px-4">Payment Status</th>
-                            <th className="py-3 px-4">Date</th>
-                            <th className="py-3 px-4">Order Status</th>
-                            <th className="py-3 px-4">Total Price</th>
-                            <th className="py-3 px-4 text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody className="text-gray-700 divide-y divide-green-100">
-                        {
-                            orders?.map((order, i) => (
-                                <tr key={i} className="hover:bg-green-100 transition-all">
-                                    <td className="px-4 py-3 font-semibold">{i + 1}</td>
-                                    <td className="px-4 py-3 font-medium">{order._id?.slice(0, 6)}</td>
+                        </div>
+                        <table className="min-w-full text-sm text-left table-auto">
+                            <thead className="bg-green-100 text-green-800 font-semibold">
+                                <tr>
+                                    <th className="py-3 px-4">#</th>
+                                    <th className="py-3 px-4">Order ID</th>
                                     {
                                         isAdmin && <>
-                                            <td className="px-4 py-3 font-semibold">{order.customerName}</td>
-                                            <td className="px-4 py-3 font-sans">{order.phone}</td>
+                                            <th className="py-3 px-4">Customer Name</th>
+                                            <th className="py-3 px-4">Phone Number</th>
                                         </>
                                     }
-                                    <td className="px-4 py-3 ">{order.products?.length} Items</td>
-                                    <td className="px-4 py-3 font-semibold">
-                                        <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm ${order.paymentStatus === 'Paid' ? 'bg-green-100 text-green-700' : order.paymentStatus === 'Unpaid' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'}`}>
-                                            {order.paymentStatus}
-                                        </span>
-                                    </td>
-                                    <td className="px-4 py-3 font-sans font-semibold"> {order.date}</td>
-                                    <td className="px-4 py-3 font-semibold">
-                                        <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm
-                                            ${order.orderStatus === 'In Progress' ? 'bg-yellow-100 text-yellow-700' :
-                                                order.orderStatus === 'Shipped' ? 'bg-blue-100 text-blue-700' :
-                                                    order.orderStatus === 'Delivered' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
-                                            }`}>
-                                            {order.orderStatus}
-                                        </span>
-                                    </td>
-                                    <td className="px-4 py-3 font-sans">$ {order.totalPrice + 1}</td>
-                                    <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
-                                        <NavLink to={`/dashboard/order-details/${order._id}`} title="View"><AiOutlineEye className="hover:text-green-800 transition text-2xl" /></NavLink>
-                                        {
-                                            isAdmin ? <>
-                                                <button onClick={() => { setIsOpen(true); setOrder(order) }} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
-                                                <button onClick={() => handleDeleteOrder(order._id)} title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
-                                            </> :
-                                                <button disabled={order.orderStatus === "Cancelled"} onClick={() => handleCancelOrder(order)} title="Cancel Order" className={`bg-red-100 hover:bg-red-300 text-red-700 px-2 py-1 rounded-sm ${order.orderStatus === "Cancelled" && 'cursor-not-allowed'} transition`}>Cancel</button>
-                                        }
-                                    </td>
+                                    <th className="py-3 px-4">Products</th>
+                                    <th className="py-3 px-4">Payment Status</th>
+                                    <th className="py-3 px-4">Date</th>
+                                    <th className="py-3 px-4">Order Status</th>
+                                    <th className="py-3 px-4">Total Price</th>
+                                    <th className="py-3 px-4 text-center">Actions</th>
                                 </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
-            </section>
+                            </thead>
+                            <tbody className="text-gray-700 divide-y divide-green-100">
+                                {
+                                    orders?.map((order, i) => (
+                                        <tr key={i} className="hover:bg-green-100 transition-all">
+                                            <td className="px-4 py-3 font-semibold">{i + 1}</td>
+                                            <td className="px-4 py-3 font-medium">{order._id?.slice(0, 6)}</td>
+                                            {
+                                                isAdmin && <>
+                                                    <td className="px-4 py-3 font-semibold">{order.customerName}</td>
+                                                    <td className="px-4 py-3 font-sans">{order.phone}</td>
+                                                </>
+                                            }
+                                            <td className="px-4 py-3 ">{order.products?.length} Items</td>
+                                            <td className="px-4 py-3 font-semibold">
+                                                <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm ${order.paymentStatus === 'Paid' ? 'bg-green-100 text-green-700' : order.paymentStatus === 'Unpaid' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'}`}>
+                                                    {order.paymentStatus}
+                                                </span>
+                                            </td>
+                                            <td className="px-4 py-3 font-sans font-semibold"> {order.date}</td>
+                                            <td className="px-4 py-3 font-semibold">
+                                                <span className={`px-2 py-1 rounded text-sm font-medium shadow-sm
+                                            ${order.orderStatus === 'In Progress' ? 'bg-yellow-100 text-yellow-700' :
+                                                        order.orderStatus === 'Shipped' ? 'bg-blue-100 text-blue-700' :
+                                                            order.orderStatus === 'Delivered' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                                                    }`}>
+                                                    {order.orderStatus}
+                                                </span>
+                                            </td>
+                                            <td className="px-4 py-3 font-sans">$ {order.totalPrice + 1}</td>
+                                            <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
+                                                <NavLink to={`/dashboard/order-details/${order._id}`} title="View"><AiOutlineEye className="hover:text-green-800 transition text-2xl" /></NavLink>
+                                                {
+                                                    isAdmin ? <>
+                                                        <button onClick={() => { setIsOpen(true); setOrder(order) }} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
+                                                        <button onClick={() => handleDeleteOrder(order._id)} title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
+                                                    </> :
+                                                        <button disabled={order.orderStatus === "Cancelled"} onClick={() => handleCancelOrder(order)} title="Cancel Order" className={`bg-red-100 hover:bg-red-300 text-red-700 px-2 py-1 rounded-sm ${order.orderStatus === "Cancelled" && 'cursor-not-allowed'} transition`}>Cancel</button>
+                                                }
+                                            </td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </table>
+                    </section>
+            }
             {isOpen && <UpdateOrderModal setIsOpen={setIsOpen} setOrder={setOrder} order={order} updateOrderList={updateOrderList} />}
         </div>
     );

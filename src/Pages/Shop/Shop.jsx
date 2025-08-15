@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaFilter, } from 'react-icons/fa';
 import AllProducts from './AllProducts';
 import useAxiosCommon from '../../Hooks/useAxiosCommon';
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
     const [showFilters, setShowFilters] = useState(false);
@@ -161,7 +162,14 @@ const Shop = () => {
                     </section>
 
                     {/* Products Displaying */}
-                    <AllProducts products={products} />
+                    {
+                        products.length === 0 ? <div className="text-center mt-10 bg-green-50 p-10 rounded-xl border border-green-200 shadow-md">
+                            <h2 className="text-2xl font-semibold text-green-700">Your searching product is feeling a little empty 🌿</h2>
+                            <p className="text-green-600 mt-2">Looks like you haven’t added anything yet. Let nature glow with you—explore our organic skincare collection now.</p>
+                            <Link to="/" className="inline-block mt-6 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-medium transition">🛒Go Home</Link>
+                        </div> :
+                        <AllProducts products={products} />
+                    }
 
                     {/* Pagination */}
                     <section className='mt-10 flex justify-center items-center gap-3'>
