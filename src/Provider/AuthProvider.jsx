@@ -12,7 +12,7 @@ import {
     updateProfile,
 } from "firebase/auth";
 import useAxiosCommon from "../Hooks/useAxiosCommon";
-import Swal from "sweetalert2";
+
 export const AuthContext = createContext(null)
 const googleProvider = new GoogleAuthProvider()
 const fbProvider = new FacebookAuthProvider();
@@ -88,11 +88,11 @@ const AuthProvider = ({ children }) => {
                 }
             }
             else {
-                try{
-                    const res =await axiosCommon.get('/logOut', { withCredentials: true })
+                try {
+                    const res = await axiosCommon.get('/logOut', { withCredentials: true })
                     console.log(res.data);
                     setUser(null)
-                }catch(err) {
+                } catch (err) {
                     console.log(console.error('JWT error:', err));
                 }
             }
