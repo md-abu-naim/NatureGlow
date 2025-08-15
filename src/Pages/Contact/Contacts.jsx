@@ -13,7 +13,6 @@ const Contacts = () => {
           <p className='text-green-600 text-sm mt-2'>Have questions, suggestions, or just want to say hi? We'd love to hear from you!</p>
         </section>
 
-        {/* Main Section */}
         {/* FAQ section */}
         <FAQ />
 
