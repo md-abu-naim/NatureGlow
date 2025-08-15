@@ -25,6 +25,7 @@ import Orders from "../Pages/Dashboard/Orders";
 import AdminDashboard from "../Pages/Dashboard/AdminBar/AdminDashboard/AdminDashboard";
 import UserDashboard from "../Pages/Dashboard/UserBar/UserDashboard";
 import PrivateRoutes from "./PrivateRoutes";
+import Reviews from "../Pages/Dashboard/AdminBar/Reviews";
 
 export const router = createBrowserRouter([
   {
@@ -89,10 +90,6 @@ export const router = createBrowserRouter([
         element: <PrivateRoutes><AdminDashboard /></PrivateRoutes>
       },
       {
-        path: 'users',
-        element: <PrivateRoutes><Users /></PrivateRoutes>,
-      },
-      {
         path: 'products',
         element: <PrivateRoutes><Products /></PrivateRoutes>
       },
@@ -103,6 +100,14 @@ export const router = createBrowserRouter([
       {
         path: 'addProduct',
         element: <PrivateRoutes><AddProduct /></PrivateRoutes>
+      },
+      {
+        path: 'users',
+        element: <PrivateRoutes><Users /></PrivateRoutes>,
+      },
+      {
+        path: 'reviews',
+        element: <PrivateRos><Reviews /></PrivateRos>,
       },
       // User Routes
       {
