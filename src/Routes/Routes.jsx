@@ -26,6 +26,7 @@ import AdminDashboard from "../Pages/Dashboard/AdminBar/AdminDashboard/AdminDash
 import UserDashboard from "../Pages/Dashboard/UserBar/UserDashboard";
 import PrivateRoutes from "./PrivateRoutes";
 import Reviews from "../Pages/Dashboard/AdminBar/Reviews";
+import Payments from "../Pages/Dashboard/AdminBar/Payments";
 
 export const router = createBrowserRouter([
   {
@@ -108,6 +109,10 @@ export const router = createBrowserRouter([
       {
         path: 'reviews',
         element: <PrivateRoutes><Reviews /></PrivateRoutes>,
+      },
+      {
+        path: 'payments',
+        element: <PrivateRoutes><Payments /></PrivateRoutes>,
       },
       // User Routes
       {
