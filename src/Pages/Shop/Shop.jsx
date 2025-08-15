@@ -168,7 +168,7 @@ const Shop = () => {
                             <p className="text-green-600 mt-2">Looks like you haven’t added anything yet. Let nature glow with you—explore our organic skincare collection now.</p>
                             <Link to="/" className="inline-block mt-6 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-medium transition">🛒Go Home</Link>
                         </div> :
-                        <AllProducts products={products} />
+                            <AllProducts products={products} />
                     }
 
                     {/* Pagination */}
