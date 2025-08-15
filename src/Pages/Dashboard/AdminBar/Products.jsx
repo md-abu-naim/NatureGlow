@@ -6,7 +6,9 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const Products = () => {
     const [products, setProducts] = useState([])
+    const [search, setSearch] = useState('')
     const axiosSecure = useAxiosSecure()
+    console.log(search);
 
     const ratings = parseFloat(4.5)
 
@@ -50,9 +52,9 @@ const Products = () => {
     }
 
     useEffect(() => {
-        axiosSecure.get('all-products')
+        axiosSecure.get(`all-products?search=${search}`)
             .then(res => setProducts(res.data))
-    }, [axiosSecure])
+    }, [axiosSecure, search])
     return (
         <div>
             <section className='bg-green-100 py-5 text-center rounded-lg'>
@@ -61,7 +63,7 @@ const Products = () => {
             </section>
             <form className='w-full bg-green-100 mt-3 p-3 rounded-lg'>
                 <div className='relative lg:w-2xl mx-auto'>
-                    <input placeholder="Search user name..." className="w-full px-4 pr-16 py-2 bg-green-50 border border-green-300 rounded-full shadow-sm focus:outline-none" type="text" name="search" />
+                    <input onChange={e => setSearch(e.target.value)} placeholder="Search user name..." className="w-full px-4 pr-16 py-2 bg-green-50 border border-green-300 rounded-full shadow-sm focus:outline-none" type="text" name="search" />
                     <button type='submit' className="absolute top-1/2 -translate-y-1/2 right-2 bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full text-sm transition">Search..</button>
                 </div>
             </form>
