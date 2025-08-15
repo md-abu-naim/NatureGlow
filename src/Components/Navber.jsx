@@ -4,6 +4,7 @@ import { NavLink, Link, useNavigate } from "react-router-dom";
 import useCart from "../Hooks/useCart";
 import useAuth from "../Hooks/useAuth";
 import useAdmin from "../Hooks/useAdmin";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
     const { user, LogoutUser } = useAuth();
@@ -13,9 +14,16 @@ const Navbar = () => {
 
     const handleLogout = () => {
         LogoutUser()
-        .then(() => {
-            navigate('/signIn')
-        })
+            .then(() => {
+                Swal.fire({
+                    title: "User LogOut Successfully.",
+                    icon: "success",
+                    draggable: true,
+                    timer: 2300,
+                    background: '#dcfce7',
+                });
+                navigate('/signIn')
+            })
     };
 
     const navLinks = (

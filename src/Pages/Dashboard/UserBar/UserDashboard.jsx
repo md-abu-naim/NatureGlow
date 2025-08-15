@@ -9,6 +9,7 @@ import { Bar, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, T
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const UserDashboard = () => {
     const [orders, setOrders] = useState([])
@@ -47,6 +48,24 @@ const UserDashboard = () => {
     const totalInProgresss = orders?.filter(order => order.orderStatus === "In Progress")?.length
     const totalSipped = orders?.filter(order => order.orderStatus === "Shipped")?.length
     const totalCancelled = orders?.filter(order => order.orderStatus === "Cancelled")?.length
+
+    const handleCancelOrder = (order) => {
+            const updateData = { ...order, orderStatus: "Cancelled" }
+            console.log(updateData);
+            axiosSecure.patch(`/update_order/${order._id}`, updateData)
+                .then(res => {
+                    if (res.data.modifiedCount > 0) {
+                        Swal.fire({
+                            title: "Product Cancelled Successfully.",
+                            icon: "success",
+                            draggable: true,
+                            timer: 2300,
+                            background: '#dcfce7',
+                        });
+                        setOrders(prev => prev.map(o => o._id === order._id ? { ...o, orderStatus: "Cancelled" } : o))
+                    }
+                })
+        }
 
     useEffect(() => {
         axiosSecure.get(`/orders/${user?.email}`)
@@ -204,7 +223,7 @@ const UserDashboard = () => {
                                     <td className="px-4 py-3 font-sans">$ {order.totalPrice + 1}</td>
                                     <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
                                         <NavLink to={`/dashboard/order-details/${order._id}`} title="View"><AiOutlineEye className="hover:text-green-800 transition text-2xl" /></NavLink>
-                                        <button title="Cancel Order" className="bg-red-100 hover:bg-red-300 text-red-700 px-2 py-1 rounded-sm transition">Cancel</button>
+                                        <button onClick={() => handleCancelOrder(order)} disabled={order.orderStatus === 'Cancelled'} title="Cancel Order" className="bg-red-100 hover:bg-red-300 text-red-700 px-2 py-1 rounded-sm disabled:cursor-not-allowed transition">Cancel</button>
                                     </td>
                                 </tr>
                             ))

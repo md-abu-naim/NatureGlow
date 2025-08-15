@@ -8,6 +8,7 @@ import { FaBars } from 'react-icons/fa'
 import AdminRoutes from './AdminRoutes'
 import UserRoutes from './UserRoutes'
 import useAdmin from '../../../Hooks/useAdmin'
+import Swal from 'sweetalert2'
 
 const Sideber = () => {
     const [isActive, setActive] = useState(false)
@@ -22,9 +23,16 @@ const Sideber = () => {
 
     const handleLogout = () => {
         LogoutUser()
-        .then(() => {
-            navigate('/signIn')
-        })
+            .then(() => {
+                Swal.fire({
+                    title: "User LogOut Successfully.",
+                    icon: "success",
+                    draggable: true,
+                    timer: 2300,
+                    background: '#dcfce7',
+                });
+                navigate('/signIn')
+            })
     };
 
     return (

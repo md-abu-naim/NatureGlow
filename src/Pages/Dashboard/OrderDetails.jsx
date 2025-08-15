@@ -62,7 +62,7 @@ const OrderDetails = () => {
                                 <h1 className="text-lg font-bold text-green-800">Ordering List</h1>
                                 {
                                     isAdmin ? <NavLink to="/dashboard/Update-orders" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Edit Product</NavLink> :
-                                        <button disabled={order.orderStatus === "Cancelled"} onClick={handleCancelOrder} title="Order Cancel" className={`bg-red-100 hover:bg-red-300 text-red-700 px-3 py-1 rounded-sm transition`}>{orderStatus === 'Cancelled' ? `Order ${orderStatus}` : "Order Cancel"}</button>
+                                        <button disabled={order.orderStatus === "Cancelled"} onClick={handleCancelOrder} title="Order Cancel" className={`bg-red-100 hover:bg-red-300 text-red-700 disabled:text-red-400 px-3 py-1 rounded-sm ${order.orderStatus === "Cancelled" && 'cursor-not-allowed'} transition`}>{orderStatus === 'Cancelled' ? `Order ${orderStatus}` : "Order Cancel"}</button>
                                 }
                             </div>
                             <table className="min-w-full text-sm text-left table-auto">
