@@ -69,7 +69,7 @@ const Orders = () => {
 
     }
 
-    const handleCancelOrder = order => {
+    const handleCancelOrder = (order) => {
         const updateData = { ...order, orderStatus: "Cancelled" }
         console.log(updateData);
         axiosSecure.patch(`/update_order/${order._id}`, updateData)
@@ -83,6 +83,7 @@ const Orders = () => {
                         timer: 2300,
                         background: '#dcfce7',
                     });
+                    setOrders(prev => prev.map(o => o._id === order._id ? { ...o, orderStatus: "Cancelled" } : o))
                 }
             })
     }
@@ -244,7 +245,7 @@ const Orders = () => {
                                                 <button onClick={() => { setIsOpen(true); setOrder(order) }} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
                                                 <button onClick={() => handleDeleteOrder(order._id)} title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
                                             </> :
-                                                <button onClick={() => handleCancelOrder(order)} title="Cancel Order" className="bg-red-100 hover:bg-red-300 text-red-700 px-2 py-1 rounded-sm transition">Cancel</button>
+                                                <button disabled={order.orderStatus === "Cancelled"} onClick={() => handleCancelOrder(order)} title="Cancel Order" className={`bg-red-100 hover:bg-red-300 text-red-700 px-2 py-1 rounded-sm ${order.orderStatus === "Cancelled" && 'cursor-not-allowed'} transition`}>{order.orderStatus === "Cancelled" ? "Cancelled" : "Cancel"}</button>
                                         }
                                     </td>
                                 </tr>
