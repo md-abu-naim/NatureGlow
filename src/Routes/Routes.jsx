@@ -107,7 +107,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'reviews',
-        element: <PrivateRos><Reviews /></PrivateRos>,
+        element: <PrivateRoutes><Reviews /></PrivateRoutes>,
       },
       // User Routes
       {
