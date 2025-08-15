@@ -50,22 +50,22 @@ const UserDashboard = () => {
     const totalCancelled = orders?.filter(order => order.orderStatus === "Cancelled")?.length
 
     const handleCancelOrder = (order) => {
-            const updateData = { ...order, orderStatus: "Cancelled" }
-            console.log(updateData);
-            axiosSecure.patch(`/update_order/${order._id}`, updateData)
-                .then(res => {
-                    if (res.data.modifiedCount > 0) {
-                        Swal.fire({
-                            title: "Product Cancelled Successfully.",
-                            icon: "success",
-                            draggable: true,
-                            timer: 2300,
-                            background: '#dcfce7',
-                        });
-                        setOrders(prev => prev.map(o => o._id === order._id ? { ...o, orderStatus: "Cancelled" } : o))
-                    }
-                })
-        }
+        const updateData = { ...order, orderStatus: "Cancelled" }
+        console.log(updateData);
+        axiosSecure.patch(`/update_order/${order._id}`, updateData)
+            .then(res => {
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: "Product Cancelled Successfully.",
+                        icon: "success",
+                        draggable: true,
+                        timer: 2300,
+                        background: '#dcfce7',
+                    });
+                    setOrders(prev => prev.map(o => o._id === order._id ? { ...o, orderStatus: "Cancelled" } : o))
+                }
+            })
+    }
 
     useEffect(() => {
         axiosSecure.get(`/orders/${user?.email}`)
