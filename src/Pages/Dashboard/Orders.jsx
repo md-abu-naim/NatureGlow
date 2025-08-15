@@ -69,6 +69,24 @@ const Orders = () => {
 
     }
 
+    const handleCancelOrder = order => {
+        const updateData = { ...order, orderStatus: "Cancelled" }
+        console.log(updateData);
+        axiosSecure.patch(`/update_order/${order._id}`, updateData)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: "Product Cancelled Successfully.",
+                        icon: "success",
+                        draggable: true,
+                        timer: 2300,
+                        background: '#dcfce7',
+                    });
+                }
+            })
+    }
+
     const updateOrderList = updateOrder => {
         setOrders(prev => prev.map(o => o._id === updateOrder._id ? updateOrder : o))
     }
@@ -226,7 +244,7 @@ const Orders = () => {
                                                 <button onClick={() => { setIsOpen(true); setOrder(order) }} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></button>
                                                 <button onClick={() => handleDeleteOrder(order._id)} title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
                                             </> :
-                                                <button title="Cancel Order" className="bg-red-100 hover:bg-red-300 text-red-700 px-2 py-1 rounded-sm transition">Cancel</button>
+                                                <button onClick={() => handleCancelOrder(order)} title="Cancel Order" className="bg-red-100 hover:bg-red-300 text-red-700 px-2 py-1 rounded-sm transition">Cancel</button>
                                         }
                                     </td>
                                 </tr>
