@@ -71,58 +71,58 @@ const Products = () => {
                     <h2 className="text-2xl font-semibold text-green-700">Your products is feeling a little empty 🌿</h2>
                     <p className="text-green-600 mt-2">Looks like you haven’t added anything yet. Let nature glow with you—explore our organic skincare collection now.</p>
                     <Link to="/shop" className="inline-block mt-6 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-medium transition">🛒 Browse Products</Link>
-                </div>  :
-                <section className="mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
-                <div className="bg-green-100 border-b flex justify-between items-center px-3 py-2 border-green-300">
-                    <h1 className="text-lg font-bold text-green-800">All Products List</h1>
-                    <NavLink to="/dashboard/addProduct" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Add Product</NavLink>
-                </div>
-                <table className="min-w-full text-sm text-left table-auto">
-                    <thead className="bg-green-100 text-green-800 font-semibold">
-                        <tr>
-                            <th className="py-3 px-4">#</th>
-                            <th className="py-3 px-4">Image & Name</th>
-                            <th className="py-3 px-4">Category</th>
-                            <th className="py-3 px-4">Price</th>
-                            <th className="py-3 px-4">Status</th>
-                            <th className="py-3 px-4">Ratings</th>
-                            <th className="py-3 px-4 text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody className="text-gray-700 divide-y divide-green-100">
-                        {
-                            products?.map((product, i) => (
-                                <tr key={i} className="hover:bg-green-100 transition-all">
-                                    <td className="px-4 py-3 font-semibold">{i + 1}</td>
-                                    <td className="px-4 py-3 flex items-center gap-1">
-                                        <img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} />
-                                        <h5>{product.name}</h5>
-                                    </td>
-                                    <td className="px-4 py-3">{product.category}</td>
-                                    <td className="px-4 py-3 font-sans font-semibold">$ {product.price}</td>
-                                    <td className="px-4 py-3">
-                                        <span className={`px-2 py-1 text-sm font-semibold rounded-full ${product.status === 'Low Stock' ? 'bg-red-200 text-red-800' : product.status === 'In Stock' ? 'bg-green-200 text-green-800' : 'bg-blue-100 text-blue-700'}`}>{product.status}</span>
-                                    </td>
-                                    <td className="px-4 py-3">
-                                        <div className="flex items-center gap-2">
-                                            <div className="flex items-center bg-green-100 text-green-800 px-2 py-1 rounded-full shadow-sm">
-                                                <FaStar className="text-yellow-400 mr-1" />
-                                                <span className="font-semibold text-sm">{ratings}</span>
-                                            </div>
-                                            <span className="text-gray-600 text-sm">55 Reviews</span>
-                                        </div>
-                                    </td>
-
-                                    <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
-                                        <NavLink to={`/dashboard/update/${product._id}`} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></NavLink>
-                                        <button onClick={() => handleDeleteProduct(product._id)} title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
-                                    </td>
+                </div> :
+                    <section className="mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
+                        <div className="bg-green-100 border-b flex justify-between items-center px-3 py-2 border-green-300">
+                            <h1 className="text-lg font-bold text-green-800">All Products List</h1>
+                            <NavLink to="/dashboard/addProduct" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Add Product</NavLink>
+                        </div>
+                        <table className="min-w-full text-sm text-left table-auto">
+                            <thead className="bg-green-100 text-green-800 font-semibold">
+                                <tr>
+                                    <th className="py-3 px-4">#</th>
+                                    <th className="py-3 px-4">Image & Name</th>
+                                    <th className="py-3 px-4">Category</th>
+                                    <th className="py-3 px-4">Price</th>
+                                    <th className="py-3 px-4">Status</th>
+                                    <th className="py-3 px-4">Ratings</th>
+                                    <th className="py-3 px-4 text-center">Actions</th>
                                 </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
-            </section>
+                            </thead>
+                            <tbody className="text-gray-700 divide-y divide-green-100">
+                                {
+                                    products?.map((product, i) => (
+                                        <tr key={i} className="hover:bg-green-100 transition-all">
+                                            <td className="px-4 py-3 font-semibold">{i + 1}</td>
+                                            <td className="px-4 py-3 flex items-center gap-1">
+                                                <img src={product.image} className="w-12 h-12 object-cover rounded-md border border-green-300" alt={product.name} />
+                                                <h5>{product.name}</h5>
+                                            </td>
+                                            <td className="px-4 py-3">{product.category}</td>
+                                            <td className="px-4 py-3 font-sans font-semibold">$ {product.price}</td>
+                                            <td className="px-4 py-3">
+                                                <span className={`px-2 py-1 text-sm font-semibold rounded-full ${product.status === 'Low Stock' ? 'bg-red-200 text-red-800' : product.status === 'In Stock' ? 'bg-green-200 text-green-800' : 'bg-blue-100 text-blue-700'}`}>{product.status}</span>
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                <div className="flex items-center gap-2">
+                                                    <div className="flex items-center bg-green-100 text-green-800 px-2 py-1 rounded-full shadow-sm">
+                                                        <FaStar className="text-yellow-400 mr-1" />
+                                                        <span className="font-semibold text-sm">{ratings}</span>
+                                                    </div>
+                                                    <span className="text-gray-600 text-sm">55 Reviews</span>
+                                                </div>
+                                            </td>
+
+                                            <td className="px-6 py-4 flex items-center justify-center gap-4 text-green-600">
+                                                <NavLink to={`/dashboard/update/${product._id}`} title="Edit"><FaEdit className="hover:text-green-800 transition text-xl" /></NavLink>
+                                                <button onClick={() => handleDeleteProduct(product._id)} title="Delete"><FaTrash className="hover:text-red-500 transition text-xl" /></button>
+                                            </td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </table>
+                    </section>
             }
         </div>
     );
