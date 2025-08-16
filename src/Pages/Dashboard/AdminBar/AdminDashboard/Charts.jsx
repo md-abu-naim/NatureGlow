@@ -250,28 +250,53 @@ export const StatusComposedChart = ({ users }) => {
         }
 
         const currentUsers = users.filter((user) => {
-            const createdAt = parse(user.createdAt, 'M/d/yyyy', new Date())
-            const lastLogin = parse(user.lastLogin, 'M/d/yyyy', new Date())
+            // Parse createdAt and lastLogin safely
+            let createdAt = null;
+            let lastLogin = null;
+            try {
+                createdAt = parse(user.createdAt, 'M/d/yyyy', new Date());
+            } catch {
+                createdAt = new Date(user.createdAt);
+            }
+            try {
+                lastLogin = parse(user.lastLogin, 'M/d/yyyy', new Date());
+            } catch {
+                lastLogin = new Date(user.lastLogin);
+            }
 
+            // Only filter if valid date
             return (
-                isAfter(createdAt, subDays(now, 7)) ||
-                format(createdAt, 'M/d/yyyy') === format(now, 'M/d/yyyy') ||
-                isAfter(lastLogin, subDays(now, 7)) ||
-                format(lastLogin, 'M/d/yyyy') === format(now, 'M/d/yyyy')
-            )
-        })
+                createdAt instanceof Date && !isNaN(createdAt) &&
+                lastLogin instanceof Date && !isNaN(lastLogin) &&
+                (
+                    isAfter(createdAt, subDays(now, 7)) ||
+                    format(createdAt, 'M/d/yyyy') === format(now, 'M/d/yyyy') ||
+                    isAfter(lastLogin, subDays(now, 7)) ||
+                    format(lastLogin, 'M/d/yyyy') === format(now, 'M/d/yyyy')
+                )
+            );
+        });
 
         currentUsers.forEach((user) => {
-            const createdAt = parse(user.createdAt, 'M/d/yyyy', new Date())
-            const loginAt = parse(user.lastLogin, 'M/d/yyyy', new Date())
+            let createdAt = null;
+            let loginAt = null;
+            try {
+                createdAt = parse(user.createdAt, 'M/d/yyyy', new Date());
+            } catch {
+                createdAt = new Date(user.createdAt);
+            }
+            try {
+                loginAt = parse(user.lastLogin, 'M/d/yyyy', new Date());
+            } catch {
+                loginAt = new Date(user.lastLogin);
+            }
 
-            const signupLabel = format(createdAt, 'M/d/yyyy')
-            if (dateMap.has(signupLabel)) dateMap.get(signupLabel).signups += 1
+            const signupLabel = format(createdAt, 'M/d/yyyy');
+            if (dateMap.has(signupLabel)) dateMap.get(signupLabel).signups += 1;
 
-            const loginLabel = format(loginAt, 'M/d/yyyy')
-            if (dateMap.has(loginLabel)) dateMap.get(loginLabel).logins += 1
-
-        })
+            const loginLabel = format(loginAt, 'M/d/yyyy');
+            if (dateMap.has(loginLabel)) dateMap.get(loginLabel).logins += 1;
+        });
         return Array.from(dateMap.entries()).map(([date, value]) => ({ date, ...value }))
     }, [users])
 

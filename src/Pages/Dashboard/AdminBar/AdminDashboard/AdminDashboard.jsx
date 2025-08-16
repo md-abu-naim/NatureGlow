@@ -2,7 +2,7 @@ import { BsBan, BsTruck } from "react-icons/bs";
 import { FaUsers, FaShoppingCart, FaMoneyBillWave, FaUserPlus, FaTrash, FaEdit } from "react-icons/fa";
 import { FiTrendingUp } from "react-icons/fi";
 import { LuPackagePlus } from "react-icons/lu";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { StatusAreaChart, StatusComposedChart, StatusLineChart, StatusPieChart } from './Charts';
 import { useEffect, useState } from "react";
 import OrderUpdate from "../../Modals/OrderUpdate";
@@ -185,7 +185,13 @@ const AdminDashboard = () => {
             </section>
 
             {/* Recent Orders */}
-            <section className="mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
+            {
+                dailyOrders?.length === 0 ? <div className="text-center mt-7 bg-green-50 p-10 rounded-xl border border-green-200 shadow-md">
+                    <h2 className="text-2xl font-semibold text-green-700">Your orders is feeling a little empty 🌿</h2>
+                    <p className="text-green-600 mt-2">Looks like you haven’t added anything yet. Let nature glow with you—explore our organic skincare collection now.</p>
+                    <Link to="/dashboard/orders" className="inline-block mt-6 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-medium transition">🛒 Browse Orders</Link>
+                </div>: 
+                <section className="mt-7 overflow-x-auto rounded-lg shadow-lg border border-green-300">
                 <div className="bg-green-100 border-b flex justify-between items-center px-3 py-2 border-green-300">
                     <h1 className="text-lg font-bold text-green-800">Recent Orders List</h1>
                     <NavLink to="/dashboard/addProduct" className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded-lg transition">Add Product</NavLink>
@@ -242,6 +248,7 @@ const AdminDashboard = () => {
                 </table>
                 {isOpen && <OrderUpdate setIsOpen={setIsOpen} order={orderData} />}
             </section>
+            }
         </div>
     );
 };

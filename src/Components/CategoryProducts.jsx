@@ -37,9 +37,9 @@ const CategoryProducts = () => {
 
       <section className='flex flex-col md:flex-row justify-center items-center bg-green-50 p-5 mt-7 gap-4 rounded-lg mb-6'>
         {/* Search Bar */}
-        <form className='w-3xl  '>
+        <form className='md:w-3xl  '>
           <div className='relative'>
-            <input onChange={handleSearch} placeholder="Search your fvrt products..." className="w-full px-4 pr-16 py-2 border border-green-300 rounded-full shadow-sm focus:outline-none" type="text" name="search" />
+            <input onChange={handleSearch} placeholder="Search products..." className="w-full px-4 pr-16 py-2 border border-green-300 rounded-full shadow-sm focus:outline-none" type="text" name="search" />
             <button type='submit' className="absolute top-1/2 -translate-y-1/2 right-2 bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full text-sm transition">Search..</button>
           </div>
         </form>
