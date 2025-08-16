@@ -62,13 +62,6 @@ const AuthProvider = ({ children }) => {
         return updatePassword(auth.currentUser, newPassword)
     }
 
-    // const LogoutUser = async () => {
-    //     setLoading(true)
-    //     if (recentUser?._id) {
-    //         await axiosCommon.put(`/user/${recentUser?._id}`, { ...recentUser, status: "Inactive" })
-    //     }
-    //     return signOut(auth)
-    // }
     const LogoutUser = async () => {
         setLoading(true);
         try {
@@ -87,58 +80,6 @@ const AuthProvider = ({ children }) => {
         return sendPasswordResetEmail(auth, email)
     }
 
-    // useEffect(() => {
-    //     const unSubsCribe = onAuthStateChanged(auth, async (currentUser) => {
-    //         if (currentUser) {
-    //             const userInfo = { email: currentUser?.email }
-    //             try {
-    //                 const res = await axiosCommon.post('/jwt', userInfo, { withCredentials: true })
-    //                 console.log(res.data)
-    //                 setUser(currentUser)
-    //             } catch (err) {
-    //                 console.error('JWT error:', err)
-    //             }
-    //         }
-    //         else {
-    //             try {
-    //                 const res = await axiosCommon.get('/logOut', { withCredentials: true })
-    //                 console.log(res.data);
-    //                 setUser(null)
-    //             } catch (err) {
-    //                 console.log(console.error('JWT error:', err));
-    //             }
-    //         }
-    //         setLoading(false)
-    //     })
-    //     return () => unSubsCribe()
-    // }, [axiosCommon])
-    // useEffect(() => {
-    //     const unSubsCribe = onAuthStateChanged(auth, async (currentUser) => {
-    //         try {
-    //             if (currentUser) {
-    //                 const userInfo = { email: currentUser.email };
-    //                 // সার্ভার থেকে JWT আনি
-    //                 const { data } = await axiosCommon.post('/jwt', userInfo);
-    //                 // টোকেন স্টোর করো (persistent)
-    //                 localStorage.setItem('ng_token', data.token);
-    //                 setUser(currentUser);
-    //             } else {
-    //                 localStorage.removeItem('ng_token');
-    //                 setUser(null);
-    //             }
-    //         } catch (err) {
-    //             console.error('JWT error:', err);
-    //             localStorage.removeItem('ng_token');
-    //             setUser(null);
-    //         } finally {
-    //             setLoading(false);
-    //         }
-    //     });
-    //     return () => unSubsCribe();
-    // }, [axiosCommon]);
-    // AuthProvider.jsx
-
-    // ... (other imports)
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             if (currentUser) {
